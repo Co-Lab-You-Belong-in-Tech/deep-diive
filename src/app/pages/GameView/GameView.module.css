@@ -1,0 +1,22 @@
+.gameDiv {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffffff 34.9%, #cfcfcf 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.navDiv {
+  margin-top: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.cardDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.playerDiv {
+  margin-bottom: 70px;
+  margin-left: 170px;
+  margin-right: 170px;
+}
