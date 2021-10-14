@@ -1,13 +1,18 @@
 import { useState } from "react";
+import Modal from "../Modal/Modal";
 // import useFade from "../../hooks/useFade";
 import data from "../../data/data.json";
 import cardStyles from "./Card.module.css";
 import FadeIn from 'react-fade-in';
 
 const Card = () => {
+    const [showCards, setShowCards] = useState(true);
     const [step, setStep] = useState(1);
     // const [isVisible, setVisible, fadeProps] = useFade();
 
+    const hideModal = () => {
+        setShowCards(false);
+    }
     const goToNext = () => {
         setStep(step + 1);
         // setVisible(isVisible);
@@ -18,9 +23,11 @@ const Card = () => {
 
     return (
         <FadeIn>
-            {/* {!isVisible && */}
-                {/* <div {...fadeProps} className={cardStyles.card}> */}
-                <div className={cardStyles.card}>
+            {showCards ?
+                (<Modal hideModal={hideModal} />)
+                :
+                (<FadeIn>
+                    <div className={cardStyles.card}>
                     {data.slice(step - 1, step).map((step, index) => (
                         <div className={cardStyles.cardContent} key={index}>
                             <div className={cardStyles.cardHeader}>
@@ -41,7 +48,12 @@ const Card = () => {
                         )}
                     </div>
                     {/* {step > data.length && 'All Done!'} */}
-                </div>
+                    </div>
+                    </FadeIn>
+                    )
+            }
+            {/* {!isVisible && */}
+                {/* <div {...fadeProps} className={cardStyles.card}> */}
             {/* } */}
         </ FadeIn>
     )
