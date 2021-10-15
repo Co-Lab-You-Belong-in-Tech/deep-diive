@@ -1,0 +1,102 @@
+/* .slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.slide .slick-arrow.slick-prev, 
+.slide .slick-arrow.slick-next {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    border-radius: 2px;
+}
+
+.slick-prev::before,
+.slick-next::before {
+    display: none;
+}
+
+.slick-arrow.slick-next {
+    right: 65px;
+}
+.slick-arrow.slick-prev{
+    left: 65px;
+}
+.slick-dots {
+    bottom: -75px;
+}
+
+.card {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 103px;
+}
+
+.card > img {
+    height: 242px;
+    left: 147.5px;
+    right: 147.5px;
+    top: calc(50% - 242px/2 - 162.5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card > button {
+    width: 140px;
+    height: 51px; 
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 20px;
+    background: #828282;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    top: 520px;
+    gap: 7px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.card > button:hover {
+    background-color: #e9e5e5;
+}
+
+.card > h1 {
+    font-family: Josefin Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 44px;
+    text-align: center;
+    color: #373F41;
+    letter-spacing: 0.2px;
+    width: 730px;
+    height: 112px;
+
+}
+
+.card > p {
+    text-align: center;
+    color: #737B7D;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.3px;
+
+    width: 730px;
+    height: 22px;
+    top: 144px;
+
+}
+
+
+
