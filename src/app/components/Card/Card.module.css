@@ -14,7 +14,7 @@
   display: grid;
   align-items: center;
 }
-.cardHeader > p {
+.questionNumber {
   text-align: center;
   color: rgba(0, 0, 0, 0.56);
   font-size: 24px;
@@ -52,7 +52,8 @@
   transition: 0.4s;
   text-transform: uppercase;
 }
-.card > .buttons > button:nth-child(2) {
+.card > .buttons > .next {
+  width: 152px;
   color: #8f8f8f;
   background-color: #ebebeb;
   border: 1px solid #ebebeb;

@@ -1,4 +1,4 @@
-import Routes from "./routes/Routes";
+import Routes from "./app/routes/Routes";
 import "./App.css";
 
 function App() {

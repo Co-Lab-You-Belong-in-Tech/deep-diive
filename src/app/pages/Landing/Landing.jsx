@@ -1,13 +1,26 @@
-import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
-// import '../App.css';
-import image from "../../assets/image_alt.svg";
+import React from 'react';
+import { Link, Route} from 'react-router-dom';
+import image from "../../assets/image_landing.svg";
 import logo from "../../assets/logo.svg";
-import "./Landing.css";
+import landingStyles from "./Landing.module.css";
 
 //const nameList = [];
 
-class Landing extends React.Component {
+// function Redir() {
+//   let history = useHistory();
+
+//   const redirect = () => {
+//     history.push('/Onboard')
+//   }
+
+//   return (
+//     <div>
+//       <button onClick={redirect}>Let's Go!</button>
+//     </div>
+//   )
+// }
+
+export default class Landing extends React.Component {
     constructor() {
       super();
       this.state = {
@@ -16,6 +29,7 @@ class Landing extends React.Component {
     }
   
     onChange = event => {
+      event.preventDefault();
       const name = event.target.value;
   
       localStorage.setItem("name", name);
@@ -24,19 +38,20 @@ class Landing extends React.Component {
   
     render() {
       return (
-        <div className="row">
-        <div className="column"><img src={image} alt="image" id="image"/></div>
-        <div className="column">
-            <img src={logo} alt="logo" id="logo"/>
+        <div className={landingStyles.row}>
+        <div className={landingStyles.column}><img src={image} alt="landing page" className={landingStyles.image} id="image"/></div>
+        <div className={landingStyles.column}>
+            <img src={logo} alt="logo" className={landingStyles.logo} id="logo"/>
             <h1>Not your average ice breaker.</h1>
             <p>Unwind with your coworkers and get to know each other. 
                 Take turns selecting cards to unplug from work and connect as humans.</p>
             <p>Enter your name below to get started!</p>
             <hr />
-            <form id="form">
-                
+            <form id="form" className={landingStyles.form}>
                 <input value={this.state.name} placeholder="Your name" id="name" onChange={this.onChange}/>
-                <button ><Link to="./Onboarding">Let's Go!</Link></button>
+                <Route>
+                  <Link to="/onboarding"><button className={landingStyles.button}>Let's Go!</button></Link>
+                </Route>
             </form>
             </div>
         </div>
@@ -111,4 +126,3 @@ class Landing extends React.Component {
 //     )
 // }
 
-export default Landing;

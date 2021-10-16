@@ -29,9 +29,18 @@ const Card = () => {
                 (<FadeIn>
                     <div className={cardStyles.card}>
                     {data.slice(step - 1, step).map((step, index) => (
+                        // <div className={cardStyles.cardContent} key={index}>
+                        //     <div className={cardStyles.cardHeader}>
+                        //         <p>Question {step.id}</p>
+                        //         <hr />
+                        //     </div>
+                        //     <div className={cardStyles.question}>
+                        //         <p>{step.question}</p>
+                        //     </div>
+                        // </div>
                         <div className={cardStyles.cardContent} key={index}>
                             <div className={cardStyles.cardHeader}>
-                                <p>Question {step.id}</p>
+                                <p className={cardStyles.questionNumber}>Question {step.id}</p>
                                 <hr />
                             </div>
                             <div className={cardStyles.question}>
@@ -44,7 +53,7 @@ const Card = () => {
                             <button onClick={goBack}>back</button>
                         ) : <button className={cardStyles.hidden}>back</button>}
                         {step < data.length && (
-                            <button onClick={goToNext}>next question</button>
+                            <button onClick={goToNext} className={cardStyles.next}>next question</button>
                         )}
                     </div>
                     {/* {step > data.length && 'All Done!'} */}
