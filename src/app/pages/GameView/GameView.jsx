@@ -1,4 +1,5 @@
-import {useState} from "react";
+import { useState } from "react";
+import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
@@ -54,7 +55,9 @@ const GameView = () => {
                     <p className={gameStyles.modalText}>Are you sure you want to <br /> finish your game?</p>
                     <div className={gameStyles.modalButtons}>
                     <button onClick={closeModal}>cancel</button>
-                    <button>yes</button>
+                    <Link to="/feedback">
+                        <button className={gameStyles.yes}>yes</button>
+                    </Link>
                 </div>
         </Modal>  
         
