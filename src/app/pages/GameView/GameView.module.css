@@ -39,7 +39,7 @@
   transition: 0.4s;
   text-transform: uppercase;
 }
-.modalButtons > button:nth-child(2) {
+.yes {
   width: 64px;
   height: 40px;
   font-size: 14px;

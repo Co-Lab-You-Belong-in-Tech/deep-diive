@@ -29,15 +29,6 @@ const Card = () => {
                 (<FadeIn>
                     <div className={cardStyles.card}>
                     {data.slice(step - 1, step).map((step, index) => (
-                        // <div className={cardStyles.cardContent} key={index}>
-                        //     <div className={cardStyles.cardHeader}>
-                        //         <p>Question {step.id}</p>
-                        //         <hr />
-                        //     </div>
-                        //     <div className={cardStyles.question}>
-                        //         <p>{step.question}</p>
-                        //     </div>
-                        // </div>
                         <div className={cardStyles.cardContent} key={index}>
                             <div className={cardStyles.cardHeader}>
                                 <p className={cardStyles.questionNumber}>Question {step.id}</p>
