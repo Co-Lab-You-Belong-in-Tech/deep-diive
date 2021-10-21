@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import { io } from "socket.io-client";
 import Modal from 'react-modal';
 import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
@@ -35,7 +36,20 @@ const customStyles = {
 };
 
 const GameView = () => {
-  const [modalIsOpen, setIsOpen] = useState(false);
+    const [modalIsOpen, setIsOpen] = useState(false);
+    const [socket, setSocket] = useState();
+    
+    useEffect(() => {
+        // const s = io("http://localhost:3005");
+        // setSocket(s)
+
+        const s = io.connect("http://localhost:3005");
+        setSocket(s)
+
+        return () => {
+            socket.disconnect()
+        }
+  }, []);
 
   const openModal = () => {
     setIsOpen(true);
