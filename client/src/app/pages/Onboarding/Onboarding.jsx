@@ -1,5 +1,6 @@
-import React, {useRef, useState} from 'react';
+import {useState, useContext} from 'react';
 import { Link, Route} from 'react-router-dom';
+import { GameContext } from "../../store/gameContext";
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -64,14 +65,17 @@ const Onboarding = () => {
 //Each slide
 const Card1 = () => {
     const name = localStorage.getItem('name');
+    const {url} = useContext(GameContext);
+    console.log(url)
 
     return (
         <div className={onboardingStyles.view}>
             <img src={image} alt="onbaording"/>
             <h1>Nice to meet you, {name}! Here's how you play:</h1>
             <p>First, invite your friends through the sharable link below!</p>
+            <p>{ url }</p>
             <div>
-                <Copy copyText="https://google.com" />
+                <Copy copyText= {`http://localhost:3002/game/${url}`} />
             </div>
         </div>
     )
@@ -88,6 +92,7 @@ const Card2 = () => {
 }
 
 const Card3 = () => {
+    const {url} = useContext(GameContext);
     return(
         <div className={onboardingStyles.view}>
             <img src={image} alt="onbaording"/>
@@ -97,7 +102,7 @@ const Card3 = () => {
             </p>
             <hr />
             <Route>
-                <Link to="/game"><button className={onboardingStyles.readyButton}> I'm ready!</button></Link>
+                <Link to={`/game/${url}`}><button className={onboardingStyles.readyButton}> I'm ready!</button></Link>
             </Route>
             
         </div>
