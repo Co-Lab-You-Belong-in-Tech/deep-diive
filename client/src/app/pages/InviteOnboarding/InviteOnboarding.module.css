@@ -1,0 +1,60 @@
+.invite {
+  margin: 30px 85px;
+}
+.invite nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.grid {
+  display: flex;
+}
+.title {
+  display: grid;
+  grid-gap: 8px;
+}
+.title span {
+  font-size: 48px;
+  font-weight: 700;
+  font-family: Josefin Sans;
+  color: #172123;
+  background-color: #f4e287;
+  padding: 3px;
+  width: 470px;
+}
+.title span:nth-child(2) {
+  width: 380px;
+}
+.grid p {
+  font-size: 24px;
+  line-height: 35.5px;
+}
+.form {
+  margin-top: 60px;
+}
+.grid button {
+  width: 109px;
+  height: 55px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fdfcfb;
+  background-color: #393e4d;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.grid input {
+  width: 377px;
+  height: 42px;
+  background-color: #f4f5f4;
+  border: 1px solid #8f8f8f;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+label {
+  display: block;
+  color: #172123;
+  font-size: 18px;
+}

@@ -1,19 +1,32 @@
-import { useContext } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { GameContext } from "../store/gameContext";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import GameView from "../pages/GameView/GameView";
 import Landing from "../pages/Landing/Landing";
 import Onboarding from "../pages/Onboarding/Onboarding";
+import InviteOnboarding from "../pages/InviteOnboarding/InviteOnboarding";
 import Feedback from "../pages/Feedback/Feedback";
 
 const Routes = () => {
-  const { url } = useContext(GameContext);
+  const name = localStorage.getItem("name");
   return (
     <Router>
       <Switch>
         <Route path="/" exact component={Landing} />
         <Route path="/onboarding" exact component={Onboarding} />
-        <Route path={`/game/${url}`} exact component={GameView} />
+        <Route path="/onboarding/invite" exact component={InviteOnboarding} />
+        {name ? (
+          <Route exact path="/game/:gameId" component={GameView} />
+        ) : (
+          <Redirect
+            to="/onboarding/invite"
+            exact
+            component={InviteOnboarding}
+          />
+        )}
         <Route path="/feedback" exact component={Feedback} />
       </Switch>
     </Router>

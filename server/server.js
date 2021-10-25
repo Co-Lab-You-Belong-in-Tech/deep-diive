@@ -1,34 +1,32 @@
 const http = require("http");
 const express = require("express");
 // const socketio = require("socket.io");
-const mongoose = require("mongoose");
 const cors = require("cors");
+let { connectDB } = require("./database/mongoConnect");
+const colors = require("colors");
 
 let linkRouter = require("./routes/link");
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 const server = http.createServer(app);
 // const io = socketio(server);
 
 const io = require("socket.io")(3005, {
   cors: {
-    origin: "http://localhost:3001",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });
 
 io.on("connection", (socket) => {
-  console.log("web socket connected...");
+  console.log(colors.bold.blue("web socket connected..."));
 });
 
 // connect to mongoDB
-const dbURI =
-  "mongodb+srv://dimola:morgan27@jada-db.4am7c.mongodb.net/jada-card-DB?retryWrites=true&w=majority";
-
-mongoose
-  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((result) => console.log("connected to db"))
-  .catch((err) => console.log(err));
+connectDB();
 
 app.use(cors());
 app.use("/links", linkRouter);

@@ -59,9 +59,6 @@ export default class Landing extends React.Component {
     }
 }
 
-//ReactDOM.render(Landing, document.getElementById("App"));
-
-
 
 
 // const AddName = (evnt) => {
