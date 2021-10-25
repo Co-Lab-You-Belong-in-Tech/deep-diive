@@ -1,15 +1,12 @@
-import profile from "../../assets/profile-icon.svg";
 import playerStyles from "./Players.module.css";
 
-const Players = () => {
+const Players = ({player}) => {
     return (
         <div className={playerStyles.players}>
             <div className={playerStyles.playerCard}>
-                <img src={profile} alt="" />
-                <p>Jack</p>
+                <p>{player}</p>
             </div>
             <div className={playerStyles.playerCard}>
-                <img src={profile} alt="" />
                 <p>Jill</p>
             </div>
         </div>

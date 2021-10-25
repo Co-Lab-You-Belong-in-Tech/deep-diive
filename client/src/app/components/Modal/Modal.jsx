@@ -1,16 +1,12 @@
+import beach from "../../assets/beach.png";
 import modalStyles from "./Modal.module.css";
-import { Link } from 'react-router-dom';
 
 const Modal = ({ hideModal}) => {
     return (
         <div className={modalStyles.modal}>
-            <p>Are you ready to begin?</p>
-            <div className={modalStyles.modalButtons}>
-            <Link to="/onboarding">
-                <button className={modalStyles.backButton}>back</button>
-            </Link>
-                <button onClick={hideModal}>yes!</button>
-            </div>
+            <p>Press <span>start</span> when <br /> everyone has arrived.</p>
+            <img src={beach} alt="" />
+            <button onClick={hideModal}>start</button>
         </div>
     )
 }

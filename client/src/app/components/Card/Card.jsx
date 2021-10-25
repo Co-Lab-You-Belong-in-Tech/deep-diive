@@ -32,7 +32,6 @@ const Card = () => {
                         <div className={cardStyles.cardContent} key={index}>
                             <div className={cardStyles.cardHeader}>
                                 <p className={cardStyles.questionNumber}>Question {step.id}</p>
-                                <hr />
                             </div>
                             <div className={cardStyles.question}>
                                 <p>{step.question}</p>
@@ -44,7 +43,7 @@ const Card = () => {
                             <button onClick={goBack}>back</button>
                         ) : <button className={cardStyles.hidden}>back</button>}
                         {step < data.length && (
-                            <button onClick={goToNext} className={cardStyles.next}>next question</button>
+                            <button onClick={goToNext} className={cardStyles.next}>next card</button>
                         )}
                     </div>
                     {/* {step > data.length && 'All Done!'} */}

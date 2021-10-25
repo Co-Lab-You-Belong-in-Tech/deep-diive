@@ -1,6 +1,7 @@
 .gameDiv {
   min-height: 100vh;
-  background: linear-gradient(180deg, #ffffff 34.9%, #cfcfcf 100%);
+  background-image: url("../../assets/wave-bg.svg") !important;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,30 +23,30 @@
 }
 .modalButtons {
   display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  margin-right: 30px;
+  gap: 100px;
+  justify-content: center;
 }
 .modalButtons > button:nth-child(1) {
-  width: 74px;
-  height: 40px;
-  font-size: 14px;
+  width: 130px;
+  height: 75px;
+  font-size: 24px;
   font-weight: 600;
-  color: #8f8f8f;
+  color: #222325;
   background-color: #fff;
   border: none;
   border-radius: 20px;
   cursor: pointer;
   transition: 0.4s;
   text-transform: uppercase;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .yes {
-  width: 64px;
-  height: 40px;
-  font-size: 14px;
+  width: 130px;
+  height: 75px;
+  font-size: 24px;
   font-weight: 600;
-  color: #8f8f8f;
-  background-color: #ebebeb;
+  color: #fff;
+  background-color: #080f22;
   border: 1px solid #dedede;
   border-radius: 20px;
   cursor: pointer;
@@ -53,7 +54,8 @@
   text-transform: uppercase;
 }
 .modalText {
-  font-size: 24px;
+  font-size: 34px;
+  font-family: "Josefin Sans", sans-serif;
   text-align: center;
   margin-top: 100px;
 }
