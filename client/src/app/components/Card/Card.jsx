@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "../Modal/Modal";
+// import Rules from "../Rules/Rules";
 // import useFade from "../../hooks/useFade";
 import data from "../../data/data.json";
 import cardStyles from "./Card.module.css";
