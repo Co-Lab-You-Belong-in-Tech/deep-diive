@@ -7,7 +7,7 @@ const Players = ({player}) => {
                 <p>{player}</p>
             </div>
             <div className={playerStyles.playerCard}>
-                <p>Jill</p>
+                <p>Player</p>
             </div>
         </div>
     )

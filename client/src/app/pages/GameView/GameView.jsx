@@ -58,7 +58,7 @@ const GameView = () => {
   const [socket, setSocket] = useState();
 
   useEffect(() => {
-    const s = io("http://localhost:3005");
+    const s = io("http://localhost:8080");
     setSocket(s);
 
     // return () => {

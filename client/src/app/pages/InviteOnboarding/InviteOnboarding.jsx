@@ -1,6 +1,6 @@
 import { useState } from "react";
 import logo from "../../assets/logo.svg";
-import image from "../../assets/landing-page-image.svg";
+import image from "../../assets/Landing_Page_png.png";
 import invitedStyles from "./InviteOnboarding.module.css";
 
 const InviteOnboarding = () => {
