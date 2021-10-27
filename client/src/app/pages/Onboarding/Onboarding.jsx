@@ -5,10 +5,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Onboarding.css";
-import image from "../../assets/image_onboard.svg";
+import image from "../../assets/figure_onboard.png";
+import wave from "../../assets/wave_onboard.png";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import onboardingStyles from "./Onboarding.module.css";
-//import {CopyToClipboard} from 'react-copy-to-clipboard';
+import Navbar from '../../components/Navbar/Navbar';
 
 //Slide show buttons
 const PreviousBtn = (props) => {
@@ -46,6 +47,7 @@ const Copy = ({ copyText }) => {
 //Slide show
 const Onboarding = () => {
   const [gameId, setGameId] = useState("");
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const getUrl = async () => {
@@ -55,19 +57,34 @@ const Onboarding = () => {
     getUrl();
   }, []);
 
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <div className={onboardingStyles.slide}>
-      <Slider
-        prevArrow={<PreviousBtn />}
-        nextArrow={<NextBtn />}
-        dots
-        infinite={false}
-        edgeFriction={0}
-      >
-        <Card1 gameId={gameId} />
-        <Card2 />
-        <Card3 gameId={gameId} />
-      </Slider>
+    <div>
+      <div className={onboardingStyles.navDiv}>
+        <Navbar openModal={openModal} />
+      </div>
+
+      <div className={onboardingStyles.slide}>
+        <Slider
+          prevArrow={<PreviousBtn />}
+          nextArrow={<NextBtn />}
+          dots
+          infinite={false}
+          edgeFriction={0}
+        >
+          <Card1 gameId={gameId} />
+          <Card2 gameId={gameId}/>
+
+        </Slider>
+      </div>
+
     </div>
   );
 };
@@ -78,47 +95,34 @@ const Card1 = ({gameId}) => {
 
   return (
     <div className={onboardingStyles.view}>
-      <img src={image} alt="onbaording" />
-      <h1>Nice to meet you, {name}! Here's how you play:</h1>
-      <p>First, invite your friends through the sharable link below!</p>
-      <div>
+      <h1>Nice to meet you, {name}! Time to invite your friends</h1>
+      <p>Copy the sharable link below and share through your favorite video conference app!</p>
+      <div className={onboardingStyles.copybutton}>
         <Copy copyText={`http://localhost:3002/game/${gameId}`} />
       </div>
+      <img style={{right:"0", position:"absolute"}} src={wave} alt="wave"/>
     </div>
   );
 };
 
-const Card2 = () => {
+const Card2 = ({gameId}) => {
   return (
     <div className={onboardingStyles.view}>
-      <img src={image} alt="onbaording" />
       <h1>
-        Once your friends arrive, take turns picking cards and asking the
-        questions on them.
+        Is this your first time <br/> taking a DeepDiive?
       </h1>
-      <p>
-        Use this time switched off from work to get to know your colleagues as
-        more than just your coworkers.
-      </p>
+      <div className={onboardingStyles.yesnobutton}>
+        <Link to={`/game/${gameId}`}>
+          <button className={onboardingStyles.no}> NO </button>
+        </Link>
+        <Link to="/instruction">
+          <button className={onboardingStyles.yes}> YES </button>
+        </Link>
+      </div>
+      <img style={{left:"0", position:"absolute"}} src={image} alt="wave"/>
     </div>
   );
 };
 
-const Card3 = ({gameId}) => {
-  return (
-    <div className={onboardingStyles.view}>
-      <img src={image} alt="onbaording" />
-      <h1>When you all feel recharged and connected, you can exit the game.</h1>
-      <p>
-        Return to your work refreshed and more bonded than ever. (And don't
-        worry! We'll always be here when you want to unplug again.)
-      </p>
-      <hr />
-      <Link to={`/game/${gameId}`}>
-        <button className={onboardingStyles.readyButton}> I'm ready!</button>
-      </Link>
-    </div>
-  );
-};
 
 export default Onboarding;

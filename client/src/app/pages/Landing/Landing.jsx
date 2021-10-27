@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, Route} from 'react-router-dom';
-import image from "../../assets/image_landing.svg";
-import logo from "../../assets/logo.svg";
+import image from "../../assets/image_landing.png";
+import logo from "../../assets/logo_circle.png";
+import deepdive from "../../assets/deepdive.svg";
 import landingStyles from "./Landing.module.css";
 
 //const nameList = [];
@@ -37,14 +38,28 @@ export default class Landing extends React.Component {
     };
   
     render() {
-      return (
+      return ( 
+        <div>
+        <div className={landingStyles.navbar}>
+            <img style={{width:"70px", height:"70px"}} src={logo} alt="logo" />
+            <img src={deepdive} alt="deepdive" />
+            <h2>ride the wave of better conversation </h2>
+        </div>
+        <div>
+
+        </div>
+
         <div className={landingStyles.row}>
-        <div className={landingStyles.column}><img src={image} alt="landing page" className={landingStyles.image} id="image"/></div>
         <div className={landingStyles.column}>
-            <img src={logo} alt="logo" className={landingStyles.logo} id="logo"/>
-            <h1>Not your average ice breaker.</h1>
-            <p>Unwind with your coworkers and get to know each other. 
-                Take turns selecting cards to unplug from work and connect as humans.</p>
+          <img style={{width:"464.06px", height:"426.68px", marginLeft:"80px"}} src={image} alt={image} />
+        </div>
+        <div className={landingStyles.column}>
+
+            <h1 style={{textAlign:"left"}}><span>Not your average ice breaker.</span></h1>
+            
+            <p>Unwind with coworkers and get to know each other through meaningful conversation. 
+              Take turns selecting questions cards from our deck to unplug from work and connect 
+              as humans. Enter your name below to get started!</p>
             <p>Enter your name below to get started!</p>
             <hr />
             <form id="form" className={landingStyles.form}>
@@ -54,6 +69,8 @@ export default class Landing extends React.Component {
                 </Route>
             </form>
             </div>
+        </div>
+
         </div>
       )
     }

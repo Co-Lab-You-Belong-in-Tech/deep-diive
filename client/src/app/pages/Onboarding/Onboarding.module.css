@@ -1,18 +1,20 @@
+.navDiv {
+  margin-top: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
 .view {
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 103px;
+  margin-top: 100px; 
+
 }
 
-.view > img {
-  height: 242px;
-  left: 147.5px;
-  right: 147.5px;
-  top: calc(50% - 242px / 2 - 162.5px);
+.view > img { 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: -1;
 }
 
 .readyButton {
@@ -36,13 +38,16 @@
 .readyButton:hover {
   background-color: #e9e5e5;
 }
+
 .button {
   display: inline-block;
   font-family: Lato;
-  width: 96px;
-  height: 42px;
+  width: 90px;
+  height: 55px;
+  justify-content: center;
   margin-left: 24px;
-  background: #828282;
+  padding: 12px 18px;
+  background: #393E4D;
   color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
@@ -51,31 +56,61 @@
   transition: 0.3s;
 }
 
+.yesnobutton {
+  display: inline-block;
+  padding: 127px;
+}
+
+.no {
+  width: 130px;
+  height: 75px;
+  right: 769px;
+  background: #FDFCFB;
+  border: 1px solid #222325;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+
+  color: #222325;
+  margin-right: 127px;
+}
+
+.yes {
+  width: 130px;
+  height: 75px;
+  background: #080F22;
+  border: 1px solid #DEDEDE;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+
 .view > h1 {
   font-family: Josefin Sans;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 44px;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 48px;
   text-align: center;
-  color: #373f41;
+  color: #2C393C;
   letter-spacing: 0.2px;
   width: 730px;
   height: 112px;
+  margin-bottom: 32px;
 }
 
 .view > p {
   text-align: center;
-  color: #737b7d;
+  color: #172123;
   font-family: Lato;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 24px;
+  line-height: 35px;
   letter-spacing: 0.3px;
 
   width: 730px;
   height: 22px;
-  top: 144px;
 }
 .div > input {
   background: #f4f5f4;
@@ -83,4 +118,11 @@
   box-sizing: border-box;
   width: 377px;
   height: 42px;
+  
+}
+
+.copybutton {
+  margin-bottom: 269px;
+  margin-top: 50px;
+  position: relative;
 }
