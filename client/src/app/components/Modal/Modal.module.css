@@ -39,3 +39,11 @@
   transition: 0.4s;
   text-transform: uppercase;
 }
+/* 
+audio::-webkit-media-controls-mute-button {
+    display: none !important;
+} */
+
+audio::-webkit-media-controls-volume-slider {
+  display: none !important;
+}

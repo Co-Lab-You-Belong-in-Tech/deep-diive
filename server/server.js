@@ -1,6 +1,6 @@
 const http = require("http");
 const express = require("express");
-// const socketio = require("socket.io");
+const socketio = require("socket.io");
 const cors = require("cors");
 let { connectDB } = require("./database/mongoConnect");
 const colors = require("colors");
@@ -12,9 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const server = http.createServer(app);
-// const io = socketio(server);
 
-const io = require("socket.io")(3005, {
+const io = socketio(server, {
   cors: {
     origin: "http://localhost:3000",
     methods: ["GET", "POST"],
