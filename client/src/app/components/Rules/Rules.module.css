@@ -27,11 +27,7 @@
   margin-bottom: 30px;
 }
 .modal > button {
-<<<<<<< HEAD
   width: 171px;
-=======
-  width: 130px;
->>>>>>> 14bec70c4cfb9a873b9fb84c16d4e749626d738f
   height: 75px;
   font-size: 24px;
   font-weight: 600;
@@ -43,14 +39,3 @@
   transition: 0.4s;
   text-transform: uppercase;
 }
-<<<<<<< HEAD
-=======
-/* 
-audio::-webkit-media-controls-mute-button {
-    display: none !important;
-} */
-
-audio::-webkit-media-controls-volume-slider {
-  display: none !important;
-}
->>>>>>> 14bec70c4cfb9a873b9fb84c16d4e749626d738f

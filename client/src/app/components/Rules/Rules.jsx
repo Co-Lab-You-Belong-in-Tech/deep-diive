@@ -7,11 +7,7 @@ const Rules = ({hide}) => {
         <div className={ruleStyles.modal}>
                     <p>Press <span>start</span> when <br /> everyone has arrived.</p>
                     <img src={beach} alt="" />
-<<<<<<< HEAD
                     <button onClick={hide}>continue</button>
-=======
-                    <button onClick={hide}>start</button>
->>>>>>> 14bec70c4cfb9a873b9fb84c16d4e749626d738f
                     <audio autoPlay loop >
                         <source src={oceanWaves} type="audio/mpeg" />
                     </audio>
