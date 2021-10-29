@@ -1,0 +1,141 @@
+.navDiv {
+  margin-top: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.view {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px; 
+
+}
+
+.view > img {
+  height: 242px;
+  width: 435px;
+  
+  top: calc(50% - 242px / 2 - 162.5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.readyButton {
+  width: 130px;
+  height: 75px; 
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 20px;
+  background: #080F22;
+  border: 1px solid #DEDEDE;
+  box-sizing: border-box;
+  border-radius: 20px;
+  top: 520px;
+  gap: 7px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  color: #ffffff;
+
+  margin-top: 45px;
+}
+
+.readyButton:hover {
+  background-color: #e9e5e5;
+}
+
+/* .button {
+  display: inline-block;
+  font-family: Lato;
+  width: 90px;
+  height: 55px;
+  justify-content: center;
+  margin-left: 24px;
+  padding: 12px 18px;
+  background: #393E4D;
+  color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  gap: 7px;
+  cursor: pointer;
+  transition: 0.3s;
+} */
+
+.skipbutton {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.3px;
+  color: #172123;
+  background:none;
+  border: none;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  margin-top: 73px;
+  left: calc(50% - 730px/2 - 0.5px);
+  top: 723.5px;
+}
+
+
+.view > h1 {
+  font-family: Josefin Sans;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 48px;
+  text-align: center;
+  color: #2C393C;
+  letter-spacing: 0.2px;
+  width: 730px;
+  height: 112px;
+  margin-bottom: 32px;
+}
+
+.view > h2 {
+  font-family: Josefin Sans;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  color: #828282;
+
+  bottom: 130px;
+  margin-top: 55px;
+}
+
+.view > p {
+  text-align: center;
+  color: #172123;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 35px;
+  letter-spacing: 0.3px;
+
+  width: 730px;
+  height: 22px;
+}
+
+.view > span {
+  font-family: Josefin Sans;
+  font-style: italic;
+  font-weight: bold;
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 56px;
+  letter-spacing: 0.2px;
+  color: #373f41;
+  background-color: #f4e287;
+  padding: 3px;
+}

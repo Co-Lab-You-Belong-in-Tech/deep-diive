@@ -1,0 +1,61 @@
+.gameDiv {
+  min-height: 100vh;
+  background-image: url("../../assets/wave-bg.svg") !important;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.navDiv {
+  margin-top: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.cardDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.playerDiv {
+  margin-bottom: 70px;
+  margin-left: 170px;
+  margin-right: 170px;
+}
+.modalButtons {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+}
+.modalButtons > button:nth-child(1) {
+  width: 130px;
+  height: 75px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #222325;
+  background-color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.4s;
+  text-transform: uppercase;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.yes {
+  width: 130px;
+  height: 75px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #080f22;
+  border: 1px solid #dedede;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.4s;
+  text-transform: uppercase;
+}
+.modalText {
+  font-size: 34px;
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  margin-top: 100px;
+}
