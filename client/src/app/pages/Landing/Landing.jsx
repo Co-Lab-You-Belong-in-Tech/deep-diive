@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Route} from 'react-router-dom';
-import image from "../../assets/image_landing.png";
+import image from "../../assets/Landing_Page_png.png";
 import logo from "../../assets/logo_circle.png";
 import deepdive from "../../assets/deepdive.svg";
 import landingStyles from "./Landing.module.css";
@@ -39,7 +39,7 @@ export default class Landing extends React.Component {
   
     render() {
       return ( 
-        <div>
+        <div className={landingStyles.landing}>
         <div className={landingStyles.navbar}>
             <img style={{width:"70px", height:"70px"}} src={logo} alt="logo" />
             <img src={deepdive} alt="deepdive" />

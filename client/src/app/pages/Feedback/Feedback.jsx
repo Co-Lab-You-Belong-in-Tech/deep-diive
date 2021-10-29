@@ -9,7 +9,7 @@ import figure from "../../assets/figure_exit.png"
 const Feedback = () => {
     
     return (
-        <div>
+        <div className={feedbackStyles.feedbacks}>
         <div className={feedbackStyles.navDiv}>
             <h1>logo</h1>
         </div>

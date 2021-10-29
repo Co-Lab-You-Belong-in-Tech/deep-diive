@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "../Modal/Modal";
+// import Rules from "../Rules/Rules";
 // import useFade from "../../hooks/useFade";
 import data from "../../data/data.json";
 import cardStyles from "./Card.module.css";
@@ -28,7 +29,7 @@ const Card = () => {
                 :
                 (<FadeIn>
                     <div className={cardStyles.card}>
-                    {data.slice(step - 1, step).map((step, index) => (
+                    {data.sort((a,b) => 0.5 - Math.random()).slice(step - 1, step).map((step, index) => (
                         <div className={cardStyles.cardContent} key={index}>
                             <div className={cardStyles.cardHeader}>
                                 <p className={cardStyles.questionNumber}>Question {step.id}</p>
@@ -46,7 +47,6 @@ const Card = () => {
                             <button onClick={goToNext} className={cardStyles.next}>next card</button>
                         )}
                     </div>
-                    {/* {step > data.length && 'All Done!'} */}
                     </div>
                     </FadeIn>
                     )

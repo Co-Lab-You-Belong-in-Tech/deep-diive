@@ -34,7 +34,7 @@
     align-items: center;
 }
 
-button {
+.button {
     width: 175px;
     height: 75px;
     background: #080F22; 
@@ -59,7 +59,7 @@ button {
     margin-top: -39px;
 }
 
-h1 {
+.feedbacks h1 {
     width: 730px;
     height: 112px;
     font-family: Josefin Sans;
@@ -72,7 +72,7 @@ h1 {
     color: #172123; 
 }
 
-h2 {
+.feedbacks h2 {
     font-family: Josefin Sans;
     font-style: italic;
     font-weight: 600;
@@ -81,6 +81,5 @@ h2 {
     text-align: center;
     letter-spacing: 0.2px;
     color: #828282;
-
     margin-top: 88px;
 }

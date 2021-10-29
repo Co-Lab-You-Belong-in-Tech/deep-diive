@@ -1,13 +1,38 @@
-import beach from "../../assets/beach.png";
+import { useState } from "react";
+import Rules from "../Rules/Rules";
 import modalStyles from "./Modal.module.css";
+import FadeIn from 'react-fade-in';
 
-const Modal = ({ hideModal}) => {
+const Modal = ({ hideModal }) => {
+    const [showRules, setShowRules] = useState(true);
+
+    const hide = () => {
+        setShowRules(false);
+    }
     return (
-        <div className={modalStyles.modal}>
-            <p>Press <span>start</span> when <br /> everyone has arrived.</p>
-            <img src={beach} alt="" />
-            <button onClick={hideModal}>start</button>
-        </div>
+        <FadeIn>
+            {showRules ?
+                (<Rules hide={hide} />)
+                :
+                (<div className={modalStyles.rules}>
+                    <h1>Ground Rules</h1>
+                    <p className={modalStyles.safe}>This is <span>a safe space to be yourself.</span> <br />
+                        When interacting we encourage you to:
+                    </p>
+                    <p className={modalStyles.list}>
+                        <span>Be</span> Respectful <br />
+                        <span>Be</span> Open <br />
+                        <span>Be</span> Kind <br />
+                        <span>Be</span> Non-Judgmental
+                    </p>
+                    <div className={modalStyles.buttons}>
+                        <button>back</button>
+                        <button onClick={hideModal}>start</button>
+                    </div>
+                </div>
+                )
+            }
+        </FadeIn>
     )
 }
 
