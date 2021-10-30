@@ -13,6 +13,7 @@ import Instruction from "../pages/Instruction/Instruction";
 
 const Routes = () => {
   const name = localStorage.getItem("name");
+  const newPlayer = localStorage.getItem("newPlayer");
   return (
     <Router>
       <Switch>
@@ -20,7 +21,7 @@ const Routes = () => {
         <Route path="/onboarding" exact component={Onboarding} />
         <Route path="/instruction" exact component={Instruction} />
         <Route path="/onboarding/invite" exact component={InviteOnboarding} />
-        {name ? (
+        {name || newPlayer ? (
           <Route exact path="/game/:gameId" component={GameView} />
         ) : (
           <Redirect

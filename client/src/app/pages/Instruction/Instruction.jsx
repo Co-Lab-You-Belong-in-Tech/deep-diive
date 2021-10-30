@@ -8,7 +8,7 @@ import "./Instruction.css";
 import image from "../../assets/beach.png";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import instructionStyles from "./Instruction.module.css";
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar from "../../components/Navbar/Navbar";
 
 //Slide show buttons
 const PreviousBtn = (props) => {
@@ -36,7 +36,7 @@ const Instruction = () => {
 
   useEffect(() => {
     const getUrl = async () => {
-      const { data } = await axios.get(`http://localhost:8080/links`);
+      const { data } = await axios.get(`http://localhost:8080/api/links`);
       setGameId(data.gameId);
     };
     getUrl();
@@ -71,88 +71,95 @@ const Instruction = () => {
           <Card5 gameId={gameId} />
         </Slider>
       </div>
-
     </div>
   );
 };
 
 //Each slide
-const Card1 = ({gameId}) => {
+const Card1 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-        <img src={image} alt="image"/>
-        <h1>Once your friends arrive, press <br/>
-            <span> Start</span> and we will select the player that goes first
-        </h1>
-        <div >
-            <Link to={`/game/${gameId}`}>
-                <button className={instructionStyles.skipbutton}> Skip </button>
-            </Link>
-        </div>
-    </div>
-  );
-};
-
-const Card2 = ({gameId}) => {
-  return (
-    <div className={instructionStyles.view}>
-        <img src={image} alt="image"/>
-        <h1>Once you all are done answering the question, 
-            you can pick a new one by pressing  
-            <span> Next Card. </span> 
-        </h1>
-
-        <div >
-            <Link to={`/game/${gameId}`}>
-                <button className={instructionStyles.skipbutton}> Skip </button>
-            </Link>
-        </div>
-    </div>
-  );
-};
-
-const Card3 = ({gameId}) => {
-  return (
-    <div className={instructionStyles.view}>
-      <img src={image} alt="image"/>
-        <h1>If you don’t like a question or it makes you feel uncomfortable,
-             you can also click 
-            <span> Next Card.</span> 
-        </h1>
-        <h2> All players can see cards change live but should not question 
-            why <br/> someone chooses to skip. </h2>
-
-        <div >
-            <Link to={`/game/${gameId}`}>
-                <button className={instructionStyles.skipbutton}> Skip </button>
-            </Link>
-        </div>
-    </div>
-  );
-};
-
-const Card4 = ({gameId}) => {
-    return (
-      <div className={instructionStyles.view}>
-        <img src={image} alt="image"/>
-          <h1>If you want to go back to a previous card, click the 
-              <span> left arrow. </span> 
-          </h1>
-          <div >
-              <Link to={`/game/${gameId}`}>
-                  <button className={instructionStyles.skipbutton}> Skip </button>
-              </Link>
-          </div>
+      <img src={image} alt="" />
+      <h1>
+        Once your friends arrive, press <br />
+        <span> Start</span> and we will select the player that goes first
+      </h1>
+      <div>
+        <Link to={`/game/${gameId}`}>
+          <button className={instructionStyles.skipbutton}> Skip </button>
+        </Link>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
-const Card5 = ({gameId}) => {
+const Card2 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
       <img src={image} alt="image" />
-      <h1>When you are done playing, simply press the 
-          <span> X </span> at the top right of your screen.
+      <h1>
+        Once you all are done answering the question, you can pick a new one by
+        pressing
+        <span> Next Card. </span>
+      </h1>
+
+      <div>
+        <Link to={`/game/${gameId}`}>
+          <button className={instructionStyles.skipbutton}> Skip </button>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+const Card3 = ({ gameId }) => {
+  return (
+    <div className={instructionStyles.view}>
+      <img src={image} alt="image" />
+      <h1>
+        If you don’t like a question or it makes you feel uncomfortable, you can
+        also click
+        <span> Next Card.</span>
+      </h1>
+      <h2>
+        {" "}
+        All players can see cards change live but should not question why <br />{" "}
+        someone chooses to skip.{" "}
+      </h2>
+
+      <div>
+        <Link to={`/game/${gameId}`}>
+          <button className={instructionStyles.skipbutton}> Skip </button>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+const Card4 = ({ gameId }) => {
+  return (
+    <div className={instructionStyles.view}>
+      <img src={image} alt="image" />
+      <h1>
+        If you want to go back to a previous card, click the
+        <span> left arrow. </span>
+      </h1>
+      <div>
+        <Link to={`/game/${gameId}`}>
+          <button className={instructionStyles.skipbutton}> Skip </button>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+const Card5 = ({ gameId }) => {
+  return (
+    <div className={instructionStyles.view}>
+      <img src={image} alt="image" />
+      <h1>
+        When you are done playing, simply press the
+        <span> X </span> at the top right of your screen.
       </h1>
       <hr />
       <Link to={`/game/${gameId}`}>

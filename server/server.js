@@ -28,7 +28,11 @@ io.on("connection", (socket) => {
 connectDB();
 
 app.use(cors());
-app.use("/links", linkRouter);
+app.use("/api/links", linkRouter);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("../client/build"))
+}
 
 const PORT = 8080 || process.env.PORT;
 

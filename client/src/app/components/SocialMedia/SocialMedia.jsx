@@ -11,31 +11,29 @@ import {
 const SocialMedia = () => {
 
     return (
-        <div>
-            <FacebookShareButton 
-                url={"http://localhost:3000/feedback"}
-                quote={"DeepDiive - Ride the wave of better conversation"}
-                hashtag="#DeepDiive"
-                >
-                <img src={facebook}/>
-            </FacebookShareButton>
-            <TwitterShareButton 
-                url={"http://localhost:3000/feedback"}
-                quote={"DeepDiive - Ride the wave of better conversation"}
-                hashtag="#DeepDiive"
-                >
-                <img src={twitter}/>
-            </TwitterShareButton>
-            <LinkedinShareButton 
-                url={"http://localhost:3000/feedback"}
-                quote={"DeepDiive - Ride the wave of better conversation"}
-                hashtag="#DeepDiive"
-                >
-                <img src={linkedin}/>
-            </LinkedinShareButton>
-        </div>
-        
-        
+      <div>
+        <FacebookShareButton
+          url={"http://localhost:3000/feedback"}
+          quote={"DeepDiive - Ride the wave of better conversation"}
+          hashtag="#DeepDiive"
+        >
+          <img src={facebook} alt="" />
+        </FacebookShareButton>
+        <TwitterShareButton
+          url={"http://localhost:3000/feedback"}
+          quote={"DeepDiive - Ride the wave of better conversation"}
+          hashtag="#DeepDiive"
+        >
+          <img src={twitter} alt="" />
+        </TwitterShareButton>
+        <LinkedinShareButton
+          url={"http://localhost:3000/feedback"}
+          quote={"DeepDiive - Ride the wave of better conversation"}
+          hashtag="#DeepDiive"
+        >
+          <img src={linkedin} alt="" />
+        </LinkedinShareButton>
+      </div>
     );
 }
 
