@@ -82,7 +82,7 @@ const Onboarding = () => {
 
   useEffect(() => {
     const getUrl = async () => {
-      const { data } = await axios.get(`http://localhost:8080/links`);
+      const { data } = await axios.get(`http://localhost:8080/api/links`);
       setGameId(data.gameId);
     };
     getUrl();

@@ -13,7 +13,7 @@ import image6 from "../../assets/gifs/onboard6.gif";
 import image7 from "../../assets/gifs/onboard7.gif";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import instructionStyles from "./Instruction.module.css";
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar from "../../components/Navbar/Navbar";
 
 //exit pop-up
 const customStyles = {
@@ -72,7 +72,7 @@ const Instruction = () => {
 
   useEffect(() => {
     const getUrl = async () => {
-      const { data } = await axios.get(`http://localhost:8080/links`);
+      const { data } = await axios.get(`http://localhost:8080/api/links`);
       setGameId(data.gameId);
     };
     getUrl();
@@ -122,13 +122,12 @@ const Instruction = () => {
           <Card5 gameId={gameId} />
         </Slider>
       </div>
-
     </div>
   );
 };
 
 //Each slide
-const Card1 = ({gameId}) => {
+const Card1 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
         <img src={image3} alt="image"/>
@@ -145,7 +144,7 @@ const Card1 = ({gameId}) => {
   );
 };
 
-const Card2 = ({gameId}) => {
+const Card2 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
         <img src={image4} alt="image"/>
@@ -154,16 +153,16 @@ const Card2 = ({gameId}) => {
             <span className={instructionStyles.highlight}>Next Card.</span> 
         </h1>
 
-        <div >
-            <Link to={`/game/${gameId}`}>
-                <button className={instructionStyles.skipbutton}> Skip </button>
-            </Link>
-        </div>
+      <div>
+        <Link to={`/game/${gameId}`}>
+          <button className={instructionStyles.skipbutton}> Skip </button>
+        </Link>
+      </div>
     </div>
   );
 };
 
-const Card3 = ({gameId}) => {
+const Card3 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
       <img style={{width:"477px", height:"200px"}} src={image5} alt="image"/>
@@ -184,7 +183,7 @@ const Card3 = ({gameId}) => {
 };
 
 const Card4 = ({gameId}) => {
-    return (
+  return (
       <div className={instructionStyles.view}>
         <img src={image6} alt="image"/>
           <h1>Take turns alternating who answers a question. 
@@ -197,10 +196,10 @@ const Card4 = ({gameId}) => {
               </Link>
           </div>
       </div>
-    );
-  };
+  );
+};
 
-const Card5 = ({gameId}) => {
+const Card5 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
       <img src={image7} alt="image" />
