@@ -46,7 +46,7 @@ const GameView = () => {
 
     const res = async () => {
       const { data } = await axios.post(
-        `http://localhost:8080/api/links/join/${gameId}`,
+        `http://deepdiive.herokuapp.com/api/links/join/${gameId}`,
         { username: name }
       );
       console.log(data);
@@ -61,7 +61,7 @@ const GameView = () => {
 
     const res = async () => {
       const { data } = await axios.post(
-        `http://localhost:8080/api/links/join/${gameId}`,
+        `http://deepdiive.herokuapp.com/api/links/join/${gameId}`,
         { username: newPlayer }
       );
       console.log(typeof data);
@@ -74,14 +74,14 @@ const GameView = () => {
 
   const [socket, setSocket] = useState();
 
-  useEffect(() => {
-    const s = io("http://localhost:8080");
-    setSocket(s);
+  // useEffect(() => {
+  //   const s = io("http://localhost:8080");
+  //   setSocket(s);
 
     // return () => {
     //   socket.disconnect();
     // };
-  }, []);
+  // }, []);
 
   const openModal = () => {
     setIsOpen(true);

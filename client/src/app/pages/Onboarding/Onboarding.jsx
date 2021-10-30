@@ -10,7 +10,7 @@ import image from "../../assets/figure_onboard.png";
 import wave from "../../assets/wave_onboard.png";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import onboardingStyles from "./Onboarding.module.css";
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar from "../../components/Navbar/Navbar";
 
 //exit pop-up
 const customStyles = {
@@ -82,7 +82,9 @@ const Onboarding = () => {
 
   useEffect(() => {
     const getUrl = async () => {
-      const { data } = await axios.get(`http://localhost:8080/api/links`);
+      const { data } = await axios.get(
+        `http://deepdiive.herokuapp.com/api/links`
+      );
       setGameId(data.gameId);
     };
     getUrl();
@@ -124,18 +126,18 @@ const Onboarding = () => {
           infinite={false}
           edgeFriction={0}
         >
+
           <Card1 gameId={gameId}/>
           <Card2 gameId={gameId}/>
 
         </Slider>
       </div>
-
     </div>
   );
 };
 
 //Each slide
-const Card1 = ({gameId}) => {
+const Card1 = ({ gameId }) => {
   const name = localStorage.getItem("name");
 
   return (
@@ -153,16 +155,16 @@ const Card1 = ({gameId}) => {
 
         <div className={onboardingStyles.wave}>
           <img src={wave} alt="wave" />
-        </div>     
+        </div>
     </div>
   );
 };
 
-const Card2 = ({gameId}) => {
+const Card2 = ({ gameId }) => {
   return (
     <div className={onboardingStyles.view}>
       <h1>
-        Is this your first time <br/> taking a DeepDiive?
+        Is this your first time <br /> taking a DeepDiive?
       </h1>
 
       <div className={onboardingStyles.yesnobutton}>
@@ -179,12 +181,10 @@ const Card2 = ({gameId}) => {
           <p>I want to read the insructions.</p>
         </div>
       </div>
-      
       <img  src={image} alt="image"/>
       
     </div>
   );
 };
-
 
 export default Onboarding;
