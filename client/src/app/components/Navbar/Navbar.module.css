@@ -2,6 +2,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 100px;
+}
+.logoDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.icon{
+  width: 40px;
+  height: 40px;
+}
+.name{
+  width: 155px;
 }
 .navbar > img {
   width: 100px;

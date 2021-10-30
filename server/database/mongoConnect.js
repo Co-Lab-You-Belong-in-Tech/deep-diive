@@ -7,7 +7,7 @@ const connectDB = async () => {
     "mongodb+srv://dimola:morgan27@jada-db.4am7c.mongodb.net/jada-card-DB?retryWrites=true&w=majority";
 
   try {
-    await mongoose.connect(dbURI, {
+    await mongoose.connect(dbURI || process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

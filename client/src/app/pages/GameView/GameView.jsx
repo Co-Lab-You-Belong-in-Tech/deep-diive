@@ -38,6 +38,7 @@ const customStyles = {
 const GameView = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [player, setPlayer] = useState("");
+  const [invitedPlayer, setInvitedPlayer] = useState("");
   const { gameId } = useParams();
 
   useEffect(() => {
@@ -45,11 +46,27 @@ const GameView = () => {
 
     const res = async () => {
       const { data } = await axios.post(
-        `http://localhost:8080/links/join/${gameId}`,
+        `http://localhost:8080/api/links/join/${gameId}`,
         { username: name }
       );
       console.log(data);
       setPlayer(data.player);
+      return data;
+    };
+    res();
+  }, [gameId]);
+
+  useEffect(() => {
+    const newPlayer = localStorage.getItem("newPlayer");
+
+    const res = async () => {
+      const { data } = await axios.post(
+        `http://localhost:8080/api/links/join/${gameId}`,
+        { username: newPlayer }
+      );
+      console.log(typeof data);
+      console.log(data);
+      setInvitedPlayer(data.player);
       return data;
     };
     res();
@@ -97,7 +114,7 @@ const GameView = () => {
           <Card />
         </div>
         <div className={gameStyles.playerDiv}>
-          <Players player={player} />
+          <Players player={player} invitedPlayer={invitedPlayer} />
         </div>
       </div>
     </div>

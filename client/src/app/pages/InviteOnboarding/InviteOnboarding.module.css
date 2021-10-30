@@ -1,10 +1,21 @@
 .invite {
-  margin: 30px 85px;
+  margin: 30px 150px;
 }
 .invite nav {
   display: flex;
   justify-content: center;
   margin-bottom: 90px;
+}
+.logoDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon{
+  width: 60px;
+  height: 60px;
 }
 .grid {
   display: grid;
@@ -21,22 +32,21 @@
   color: #172123;
   background-color: #f4e287;
   padding: 3px;
-  width: 470px;
+  width: 382px;
+  line-height: 62px;
 }
 .title span:nth-child(2) {
-  width: 380px;
+  width: 450px;
 }
 .grid p {
   font-size: 24px;
   line-height: 35.5px;
+  letter-spacing: 0.3px;
+  font-family: "Lato", sans-serif;
 }
 .form {
   margin-top: 60px;
 }
-/* .grid > img {
-  width: 120px;
-  height: 120px;
-} */
 .grid button {
   width: 109px;
   height: 55px;
@@ -63,3 +73,4 @@
   color: #172123;
   font-size: 18px;
 }
+

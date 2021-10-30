@@ -12,7 +12,8 @@ import Feedback from "../pages/Feedback/Feedback";
 import Instruction from "../pages/Instruction/Instruction";
 
 const Routes = () => {
-  const name = localStorage.getItem("name");
+  // const name = localStorage.getItem("name");
+  // const newPlayer = localStorage.getItem("newPlayer");
   return (
     <Router>
       <Switch>
@@ -20,15 +21,7 @@ const Routes = () => {
         <Route path="/onboarding" exact component={Onboarding} />
         <Route path="/instruction" exact component={Instruction} />
         <Route path="/onboarding/invite" exact component={InviteOnboarding} />
-        {name ? (
-          <Route exact path="/game/:gameId" component={GameView} />
-        ) : (
-          <Redirect
-            to="/onboarding/invite"
-            exact
-            component={InviteOnboarding}
-          />
-        )}
+        <Route exact path="/game/:gameId" component={GameView} />
         <Route path="/feedback" exact component={Feedback} />
       </Switch>
     </Router>

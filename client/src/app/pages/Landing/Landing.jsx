@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link, Route} from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import image from "../../assets/Landing_Page_png.png";
-import logo from "../../assets/logo_circle.png";
-import deepdive from "../../assets/deepdive.svg";
+import logo from "../../assets/new-logo.svg";
+import logoIcon from "../../assets/logo_circle.png";
 import landingStyles from "./Landing.module.css";
 
 //const nameList = [];
@@ -22,61 +22,65 @@ import landingStyles from "./Landing.module.css";
 // }
 
 export default class Landing extends React.Component {
-    constructor() {
-      super();
-      this.state = {
-        name: ""
-      };
-    }
-  
-    onChange = event => {
-      event.preventDefault();
-      const name = event.target.value;
-  
-      localStorage.setItem("name", name);
-      this.setState({ name });
+  constructor() {
+    super();
+    this.state = {
+      name: "",
     };
-  
-    render() {
-      return ( 
-        <div className={landingStyles.landing}>
-        <div className={landingStyles.navbar}>
-            <img style={{width:"70px", height:"70px"}} src={logo} alt="logo" />
-            <img src={deepdive} alt="deepdive" />
-            <h2>ride the wave of better conversation </h2>
-        </div>
-        <div>
+  }
 
-        </div>
+  onChange = (event) => {
+    event.preventDefault();
+    const name = event.target.value;
 
-        <div className={landingStyles.row}>
-        <div className={landingStyles.column}>
-          <img style={{width:"464.06px", height:"426.68px", marginLeft:"80px"}} src={image} alt={image} />
-        </div>
-        <div className={landingStyles.column}>
+    localStorage.setItem("name", name);
+    this.setState({ name });
+  };
 
-            <h1 style={{textAlign:"left"}}><span>Not your average ice breaker.</span></h1>
-            
-            <p>Unwind with coworkers and get to know each other through meaningful conversation. 
-              Take turns selecting questions cards from our deck to unplug from work and connect 
-              as humans. Enter your name below to get started!</p>
-            <p>Enter your name below to get started!</p>
-            <hr />
-            <form id="form" className={landingStyles.form}>
-                <input value={this.state.name} placeholder="Your name" id="name" onChange={this.onChange}/>
-                <Route>
-                  <Link to="/onboarding"><button className={landingStyles.button}>Let's Go!</button></Link>
-                </Route>
-            </form>
+  render() {
+    return (
+      <div className={landingStyles.landing}>
+        <nav>
+          <div className={landingStyles.logoDiv}>
+            <img className={landingStyles.icon} src={logoIcon} alt="" />
+            <img src={logo} alt="" />
+          </div>
+        </nav>
+
+        <div className={landingStyles.grid}>
+          <img src={image} alt="" />
+          <div>
+            <div className={landingStyles.title}>
+              <span>
+                Ride the Wave of <br />
+              </span>
+              <span>Better Conversations</span>
             </div>
+            <p>
+              This is not your average ice breaker. Unwind with workmates and
+              have meaningful conversations using our virtual card deck. Take
+              turns answering questions from the cards you select alongside your
+              favorite video chat platform.
+            </p>
+            <p>Enter your name below to get started!</p>
+            <form className={landingStyles.form}>
+              <label>Name</label>
+              <input
+                value={this.state.name}
+                placeholder="Your name"
+                id="name"
+                onChange={this.onChange}
+              />
+              <Link to="/onboarding">
+                <button>Let’s Go!</button>
+              </Link>
+            </form>
+          </div>
         </div>
-
-        </div>
-      )
-    }
+      </div>
+    );
+  }
 }
-
-
 
 // const AddName = (evnt) => {
 //     evnt.preventDefault();
@@ -114,7 +118,7 @@ export default class Landing extends React.Component {
 //     useEffect( () => {
 //         window.localStorage.setItem('name', name)
 //     }, [name] )
-    
+
 //     return(
 //         <button onClick={addName}>Let's Go!</button>
 //     )
@@ -127,7 +131,7 @@ export default class Landing extends React.Component {
 //             <div className="column">
 //                 <img src={logo} alt="logo" id="logo"/>
 //                 <h1>Not your average ice breaker.</h1>
-//                 <p>Unwind with your coworkers and get to know each other. 
+//                 <p>Unwind with your coworkers and get to know each other.
 //                     Take turns selecting cards to unplug from work and connect as humans.</p>
 //                 <p>Enter your name below to get started!</p>
 //                 <hr />
@@ -139,4 +143,3 @@ export default class Landing extends React.Component {
 //         </div>
 //     )
 // }
-
