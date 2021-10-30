@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Slider from "react-slick";
@@ -11,13 +12,43 @@ import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import onboardingStyles from "./Onboarding.module.css";
 import Navbar from '../../components/Navbar/Navbar';
 
+//exit pop-up
+const customStyles = {
+  overlay: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.4)",
+  },
+  content: {
+    top: "47%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    display: "flex",
+    flexDirection: "column",
+    width: "743px",
+    height: "325px",
+    border: "1px solid #dedede",
+    backgroundColor: "#fff",
+    borderRadius: "12px",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+  },
+};
+
+
+
 //Slide show buttons
 const PreviousBtn = (props) => {
   console.log(props);
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <ArrowBackIos style={{ color: "#C3CBCD", fontSize: "32px" }} />
+      <ArrowBackIos style={{ color: "#C3CBCD", fontSize: "32px"}} />
     </div>
   );
 };
@@ -37,12 +68,12 @@ const Copy = ({ copyText }) => {
   return (
     <div className={onboardingStyles.div}>
       <input type="text" value={copyText} readOnly />
-      <button className={onboardingStyles.button}>
+      <button className={onboardingStyles.cbutton}>
         <span>{isCopied ? "Copied!" : "Copy"}</span>
       </button>
     </div>
   );
-};
+}; 
 
 //Slide show
 const Onboarding = () => {
@@ -67,6 +98,21 @@ const Onboarding = () => {
 
   return (
     <div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Exit Modal"
+      >
+        <p className={onboardingStyles.modalText}>Are you sure you want to exit?</p>
+        <div className={onboardingStyles.modalButtons}>
+          <button className={onboardingStyles.no} onClick={closeModal}>NO</button>
+          <Link to="/feedback">
+            <button className={onboardingStyles.yes}>YES</button>
+          </Link>
+        </div>
+      </Modal>
+
       <div className={onboardingStyles.navDiv}>
         <Navbar openModal={openModal} />
       </div>
@@ -75,11 +121,10 @@ const Onboarding = () => {
         <Slider
           prevArrow={<PreviousBtn />}
           nextArrow={<NextBtn />}
-          dots
           infinite={false}
           edgeFriction={0}
         >
-          <Card1 gameId={gameId} />
+          <Card1 gameId={gameId}/>
           <Card2 gameId={gameId}/>
 
         </Slider>
@@ -94,13 +139,21 @@ const Card1 = ({gameId}) => {
   const name = localStorage.getItem("name");
 
   return (
-    <div className={onboardingStyles.view}>
-      <h1>Nice to meet you, {name}! Time to invite your friends</h1>
-      <p>Copy the sharable link below and share through your favorite video conference app!</p>
-      <div className={onboardingStyles.copybutton}>
-        <Copy copyText={`http://localhost:3002/game/${gameId}`} />
-      </div>
-      <img style={{right:"0", position:"absolute"}} src={wave} alt="wave"/>
+    <div>    
+        <div className={onboardingStyles.view}>
+          <h1>Nice to meet you, {name}! Time to invite your friends</h1>
+          <h2>Copy the invite link below and share with one workmate. 
+            Use this <span className={onboardingStyles.highlight}>two player</span> game with your favourite video conference app! </h2>
+          <p>(Don’t worry, if you’re confused, there will be instructions on how to play! 🙌 )</p>
+          <div className={onboardingStyles.copybutton}>
+            <p>Invite Link</p>
+            <Copy copyText={`http://localhost:3002/game/${gameId}`} />
+          </div>
+        </div>
+
+        <div className={onboardingStyles.wave}>
+          <img src={wave} alt="wave" />
+        </div>     
     </div>
   );
 };
@@ -111,15 +164,24 @@ const Card2 = ({gameId}) => {
       <h1>
         Is this your first time <br/> taking a DeepDiive?
       </h1>
+
       <div className={onboardingStyles.yesnobutton}>
-        <Link to={`/game/${gameId}`}>
-          <button className={onboardingStyles.no}> NO </button>
-        </Link>
-        <Link to="/instruction">
-          <button className={onboardingStyles.yes}> YES </button>
-        </Link>
+        <div className={onboardingStyles.column} style={{right:"867px"}}>
+          <Link to={`/game/${gameId}`}>
+            <button className={onboardingStyles.no}> NO </button>
+          </Link>
+          <p>Continue to the game.</p>
+        </div>
+        <div className={onboardingStyles.column} style={{right:"600px"}}>
+          <Link to="/instruction">
+            <button className={onboardingStyles.yes}> YES </button>   
+          </Link>
+          <p>I want to read the insructions.</p>
+        </div>
       </div>
-      <img style={{left:"0", position:"absolute"}} src={image} alt="wave"/>
+      
+      <img  src={image} alt="image"/>
+      
     </div>
   );
 };

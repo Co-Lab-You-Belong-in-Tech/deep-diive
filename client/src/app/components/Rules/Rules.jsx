@@ -1,4 +1,4 @@
-import beach from "../../assets/gifs/beach-waves-2.gif";
+import beach from "../../assets/gifs/beach-waves.gif";
 import oceanWaves from "../../assets/audio/ocean-wave-2.mp3";
 import ruleStyles from "./Rules.module.css";
 

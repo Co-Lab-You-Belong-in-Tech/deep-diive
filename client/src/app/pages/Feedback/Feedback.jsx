@@ -9,38 +9,43 @@ import figure from "../../assets/figure_exit.png"
 const Feedback = () => {
     
     return (
-        <div className={feedbackStyles.feedbacks}>
-        <div className={feedbackStyles.navDiv}>
-            <h1>logo</h1>
-        </div>
-
+ 
         <div className={feedbackStyles.row}>
+            
             <div className={feedbackStyles.column}>
-                <img src={figure} alt="image" />
+                <div className={feedbackStyles.navDiv}>
+                    <h1>logo</h1>
+                </div>
+                <img style={{width:"60%", 
+                    height:"60%",
+                    marginLeft:"165px",
+                    marginTop:"160px"}}
+                    src={figure} alt="image" />
             </div>
             <div className={feedbackStyles.column}>
             
-                <h1>Great job connecting, <br/>
-                see you again soon!</h1>
-                <button className={feedbackStyles.button} onClick={() => {
+                <h1>Hope you had fun, <br/> see you again soon!</h1>
+                <button className={feedbackStyles.rbutton} onClick={() => {
                     window.open(
                         'https://dominicstephenson.typeform.com/to/rBdB04am?typeform-source=trello.com',
                         '_blank' 
                     );
-                    }}>Feedback
+                    }}>LEAVE A REVIEW
                 </button>
                 <hr />
-                <h2>Share DeepDiive with  <br/>
-                your friends and colleagues</h2>
+                <h2>Tell your workmates <br/> about DeepDiive!</h2>
                 <div className={feedbackStyles.social}>
                     <SocialMedia />
                 </div>
             </div>
             <div className={feedbackStyles.column}>
-                <img src={wave} alt="image" />
+                <img style={{height:"974px",
+                    top:"-100", 
+                    zIndex:"-1"}} 
+                    src={wave} alt="image" />
             </div>
         </div>
-        </div>
+
     )
 }
 

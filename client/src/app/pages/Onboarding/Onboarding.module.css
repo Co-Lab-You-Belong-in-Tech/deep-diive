@@ -4,61 +4,49 @@
   margin-right: 100px;
 }
 
-.view {
-  align-items: center;
+
+.column {
   display: flex;
   flex-direction: column;
-  margin-top: 100px; 
-
-}
-
-.view > img { 
-  display: flex;
-  z-index: -1;
-}
-
-.readyButton {
-  width: 140px;
-  height: 51px;
-  flex-direction: row;
+  flex-basis: 100%;
+  flex: 1;
   align-items: center;
-  padding: 10px 20px;
-  background: #828282;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-  top: 520px;
-  gap: 7px;
-  cursor: pointer;
-  transition: 0.3s;
+  text-align: center;
+  vertical-align:middle;
+  align-content: center;
 
-  font-weight: 700;
-  color: #ffffff;
+  position: fixed;
 }
 
-.readyButton:hover {
-  background-color: #e9e5e5;
-}
-
-.button {
-  display: inline-block;
-  font-family: Lato;
-  width: 90px;
-  height: 55px;
-  justify-content: center;
-  margin-left: 24px;
-  padding: 12px 18px;
-  background: #393E4D;
-  color: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-  gap: 7px;
-  cursor: pointer;
-  transition: 0.3s;
-}
 
 .yesnobutton {
   display: inline-block;
   padding: 127px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+
+}
+
+.column > p {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  letter-spacing: 0.01em;
+  color: #393E4D;
+
+  width: 125px;
+  height: 41px;
+  position: absolute;
+
+  margin-top: 100px;
 }
 
 .no {
@@ -70,9 +58,13 @@
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-
+  box-shadow: 4px 4px #E5E5E5;
+  
   color: #222325;
-  margin-right: 127px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
 }
 
 .yes {
@@ -83,23 +75,72 @@
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+  box-shadow: 4px 4px #E5E5E5;
+  
+  color: #FDFCFB;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
 }
 
+.yes:hover {
+  background-color: #FDFCFB;
+  color: #222325;
+  border: 1px solid #222325;
+}
+
+.no:hover {
+  background-color: #222325;
+  color: #FDFCFB;
+  border: 1px solid #FDFCFB;
+}
+
+.wave {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: fixed;
+  left: 957px;
+  bottom: 0;
+}
+
+.wave > img { 
+  z-index: -1;
+  height: fit-content;
+}
+
+.view > img {
+  z-index: -1;
+  height: fit-content;
+  position: fixed;
+  right: 870px;
+  top: 370px;
+}
+
+.view {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px; 
+  margin-left: "24.6%";
+}
 
 .view > h1 {
   font-family: Josefin Sans;
   font-style: italic;
   font-weight: 600;
   font-size: 48px;
+  line-height: 56px;
   text-align: center;
   color: #2C393C;
   letter-spacing: 0.2px;
   width: 730px;
   height: 112px;
-  margin-bottom: 32px;
+  margin-top: "25%";
 }
 
-.view > p {
+.view > h2 {
   text-align: center;
   color: #172123;
   font-family: Lato;
@@ -108,21 +149,103 @@
   font-size: 24px;
   line-height: 35px;
   letter-spacing: 0.3px;
-
+  margin-top: 32px;
+  
   width: 730px;
-  height: 22px;
+  height: 152px;
 }
+
+.view > p {
+  font-family: Lato;
+  font:18px;
+  margin-top: -75px;
+}
+
+.highlight {
+  font-family: Lato;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 24px;
+  line-height: 35.5px;
+  letter-spacing: 0.3px;
+  color: #172123;
+  background-color: #f4e287;
+}
+
 .div > input {
   background: #f4f5f4;
   border: 1px solid #8f8f8f;
   box-sizing: border-box;
   width: 377px;
   height: 42px;
-  
 }
 
 .copybutton {
   margin-bottom: 269px;
-  margin-top: 50px;
   position: relative;
+}
+
+.cbutton {
+  display: inline-block;
+  font-family: Lato;
+  font-weight: bold;
+  font-size: 18px;
+
+  width: 90px;
+  height: 55px;
+  justify-content: center;
+  margin-left: 27px;
+  padding: 12px 18px;
+  background: #393E4D;
+  color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  gap: 7px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  box-shadow: 4px 4px #E5E5E5;
+} 
+
+.cbutton:hover {
+  background-color: #e9e5e5;
+  color: #393E4D;
+  border: 1px solid #393E4D;
+}
+
+.copybutton > p {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 0;
+  margin-top: 50px;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+}
+.modalButtons > button:nth-child(1) {
+  width: 130px;
+  height: 75px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #222325;
+  background-color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.4s;
+  text-transform: uppercase;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.modalText {
+  font-size: 34px;
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  margin-top: 100px;
 }

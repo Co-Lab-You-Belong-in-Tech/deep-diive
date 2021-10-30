@@ -1,9 +1,9 @@
-.image {
+/* .image {
     width: 630px;
     height: 503px;
     left: -44px;
     top: 227px;
-}
+} */
 
 .row {
     display: flex;
@@ -34,8 +34,8 @@
     align-items: center;
 }
 
-.button {
-    width: 175px;
+.rbutton {
+    width: 254px;
     height: 75px;
     background: #080F22; 
     border: 1px solid #DEDEDE;
@@ -50,16 +50,24 @@
     font-weight: 900;
     font-size: 24px;
     
-    margin-top: 70px;
-    margin-bottom: -48px;
+    margin-top: 36px;
 
+    box-shadow: 4px 4px #E5E5E5;
 }
+
+.rbutton:hover {
+    background-color: #FDFCFB;
+    border: 1px solid #222325;
+    box-sizing: border-box;
+    color: #080F22;
+  
+  }
 
 .social {
-    margin-top: -39px;
+    margin-top: 39px;
 }
 
-.feedbacks h1 {
+.column > h1 {
     width: 730px;
     height: 112px;
     font-family: Josefin Sans;
@@ -70,9 +78,11 @@
     text-align: center;
     letter-spacing: 0.2px;
     color: #172123; 
+
+    margin-top: 160px;
 }
 
-.feedbacks h2 {
+.column > h2 {
     font-family: Josefin Sans;
     font-style: italic;
     font-weight: 600;
@@ -81,5 +91,6 @@
     text-align: center;
     letter-spacing: 0.2px;
     color: #828282;
+
     margin-top: 88px;
 }
