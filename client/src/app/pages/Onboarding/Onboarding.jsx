@@ -83,7 +83,7 @@ const Onboarding = () => {
   useEffect(() => {
     const getUrl = async () => {
       const { data } = await axios.get(
-        `http://deepdiive.herokuapp.com/api/links`
+        `https://deepdiive.herokuapp.com/api/links`
       );
       setGameId(data.gameId);
     };
@@ -141,21 +141,27 @@ const Card1 = ({ gameId }) => {
   const name = localStorage.getItem("name");
 
   return (
-    <div>    
-        <div className={onboardingStyles.view}>
-          <h1>Nice to meet you, {name}! Time to invite your friends</h1>
-          <h2>Copy the invite link below and share with one workmate. 
-            Use this <span className={onboardingStyles.highlight}>two player</span> game with your favourite video conference app! </h2>
-          <p>(Don’t worry, if you’re confused, there will be instructions on how to play! 🙌 )</p>
-          <div className={onboardingStyles.copybutton}>
-            <p>Invite Link</p>
-            <Copy copyText={`http://localhost:3002/game/${gameId}`} />
-          </div>
+    <div>
+      <div className={onboardingStyles.view}>
+        <h1>Nice to meet you, {name}! Time to invite your friends</h1>
+        <h2>
+          Copy the invite link below and share with one workmate. Use this{" "}
+          <span className={onboardingStyles.highlight}>two player</span> game
+          with your favourite video conference app!{" "}
+        </h2>
+        <p>
+          (Don’t worry, if you’re confused, there will be instructions on how to
+          play! 🙌 )
+        </p>
+        <div className={onboardingStyles.copybutton}>
+          <p>Invite Link</p>
+          <Copy copyText={`https://deepdiive.herokuapp.com/game/${gameId}`} />
         </div>
+      </div>
 
-        <div className={onboardingStyles.wave}>
-          <img src={wave} alt="wave" />
-        </div>
+      <div className={onboardingStyles.wave}>
+        <img src={wave} alt="wave" />
+      </div>
     </div>
   );
 };

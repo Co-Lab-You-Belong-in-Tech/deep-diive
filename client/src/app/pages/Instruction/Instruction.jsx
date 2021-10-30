@@ -73,7 +73,7 @@ const Instruction = () => {
   useEffect(() => {
     const getUrl = async () => {
       const { data } = await axios.get(
-        `http://deepdiive.herokuapp.com/api/links`
+        `https://deepdiive.herokuapp.com/api/links`
       );
       setGameId(data.gameId);
     };
