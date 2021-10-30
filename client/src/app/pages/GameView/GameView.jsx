@@ -74,14 +74,14 @@ const GameView = () => {
 
   const [socket, setSocket] = useState();
 
-  useEffect(() => {
-    const s = io("http://localhost:8080");
-    setSocket(s);
+  // useEffect(() => {
+  //   const s = io("http://localhost:8080");
+  //   setSocket(s);
 
     // return () => {
     //   socket.disconnect();
     // };
-  }, []);
+  // }, []);
 
   const openModal = () => {
     setIsOpen(true);

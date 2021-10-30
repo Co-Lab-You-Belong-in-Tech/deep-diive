@@ -13,16 +13,16 @@ app.use(express.urlencoded({ extended: true }));
 
 const server = http.createServer(app);
 
-const io = socketio(server, {
-  cors: {
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST"],
-  },
-});
+// const io = socketio(server, {
+//   cors: {
+//     origin: "http://localhost:3000",
+//     methods: ["GET", "POST"],
+//   },
+// });
 
-io.on("connection", (socket) => {
-  console.log(colors.bold.blue("web socket connected..."));
-});
+// io.on("connection", (socket) => {
+//   console.log(colors.bold.blue("web socket connected..."));
+// });
 
 // connect to mongoDB
 connectDB();
