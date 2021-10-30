@@ -9,7 +9,7 @@ import image from "../../assets/figure_onboard.png";
 import wave from "../../assets/wave_onboard.png";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import onboardingStyles from "./Onboarding.module.css";
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar from "../../components/Navbar/Navbar";
 
 //Slide show buttons
 const PreviousBtn = (props) => {
@@ -51,7 +51,9 @@ const Onboarding = () => {
 
   useEffect(() => {
     const getUrl = async () => {
-      const { data } = await axios.get(`http://localhost:8080/api/links`);
+      const { data } = await axios.get(
+        `http://deepdiive.herokuapp.com/api/links`
+      );
       setGameId(data.gameId);
     };
     getUrl();
@@ -80,36 +82,37 @@ const Onboarding = () => {
           edgeFriction={0}
         >
           <Card1 gameId={gameId} />
-          <Card2 gameId={gameId}/>
-
+          <Card2 gameId={gameId} />
         </Slider>
       </div>
-
     </div>
   );
 };
 
 //Each slide
-const Card1 = ({gameId}) => {
+const Card1 = ({ gameId }) => {
   const name = localStorage.getItem("name");
 
   return (
     <div className={onboardingStyles.view}>
       <h1>Nice to meet you, {name}! Time to invite your friends</h1>
-      <p>Copy the sharable link below and share through your favorite video conference app!</p>
+      <p>
+        Copy the sharable link below and share through your favorite video
+        conference app!
+      </p>
       <div className={onboardingStyles.copybutton}>
         <Copy copyText={`http://localhost:3002/game/${gameId}`} />
       </div>
-      <img style={{right:"0", position:"absolute"}} src={wave} alt="wave"/>
+      <img style={{ right: "0", position: "absolute" }} src={wave} alt="wave" />
     </div>
   );
 };
 
-const Card2 = ({gameId}) => {
+const Card2 = ({ gameId }) => {
   return (
     <div className={onboardingStyles.view}>
       <h1>
-        Is this your first time <br/> taking a DeepDiive?
+        Is this your first time <br /> taking a DeepDiive?
       </h1>
       <div className={onboardingStyles.yesnobutton}>
         <Link to={`/game/${gameId}`}>
@@ -119,10 +122,9 @@ const Card2 = ({gameId}) => {
           <button className={onboardingStyles.yes}> YES </button>
         </Link>
       </div>
-      <img style={{left:"0", position:"absolute"}} src={image} alt="wave"/>
+      <img style={{ left: "0", position: "absolute" }} src={image} alt="wave" />
     </div>
   );
 };
-
 
 export default Onboarding;

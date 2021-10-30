@@ -46,7 +46,7 @@ const GameView = () => {
 
     const res = async () => {
       const { data } = await axios.post(
-        `http://localhost:8080/api/links/join/${gameId}`,
+        `http://deepdiive.herokuapp.com/api/links/join/${gameId}`,
         { username: name }
       );
       console.log(data);
@@ -61,7 +61,7 @@ const GameView = () => {
 
     const res = async () => {
       const { data } = await axios.post(
-        `http://localhost:8080/api/links/join/${gameId}`,
+        `http://deepdiive.herokuapp.com/api/links/join/${gameId}`,
         { username: newPlayer }
       );
       console.log(typeof data);
