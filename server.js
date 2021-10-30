@@ -30,9 +30,9 @@ connectDB();
 app.use(cors());
 app.use("/api/links", linkRouter);
 
-// if (process.env.NODE_ENV === "production") {
-app.use(express.static("./client/build"));
-// }
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("./client/build"));
+}
 
 const PORT = process.env.PORT || 8080;
 
