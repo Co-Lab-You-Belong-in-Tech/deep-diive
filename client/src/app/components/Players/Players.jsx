@@ -7,7 +7,8 @@ const Players = ({ player, invitedPlayer }) => {
         <p>{player}</p>
       </div>
       <div className={playerStyles.playerCard}>
-        <p>{invitedPlayer}</p>
+        {/* <p>{invitedPlayer}</p> */}
+        <p>player</p>
       </div>
     </div>
   );
