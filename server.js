@@ -2,10 +2,10 @@ const http = require("http");
 const express = require("express");
 const socketio = require("socket.io");
 const cors = require("cors");
-let { connectDB } = require("./database/mongoConnect");
+let { connectDB } = require("./server/database/mongoConnect");
 const colors = require("colors");
 
-let linkRouter = require("./routes/link");
+let linkRouter = require("./server/routes/link");
 
 const app = express();
 app.use(express.json());
@@ -31,7 +31,7 @@ app.use(cors());
 app.use("/api/links", linkRouter);
 
 // if (process.env.NODE_ENV === "production") {
-app.use(express.static("../client/build"));
+app.use(express.static("./client/build"));
 // }
 
 const PORT = process.env.PORT || 8080;
