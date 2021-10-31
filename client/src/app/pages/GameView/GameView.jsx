@@ -37,51 +37,31 @@ const customStyles = {
 
 const GameView = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [player, setPlayer] = useState("");
-  const [invitedPlayer, setInvitedPlayer] = useState("");
+  const [host, setHost] = useState("");
   const { gameId } = useParams();
 
   useEffect(() => {
-    const name = localStorage.getItem("name");
-
     const res = async () => {
       const { data } = await axios.post(
-        `https://deepdiive.herokuapp.com/api/links/join/${gameId}`,
-        { username: name }
+        `https://deepdiive.herokuapp.com/api/links/join/${gameId}`
       );
-      console.log(data);
-      setPlayer(data.player);
+      console.log(data.player);
       return data;
     };
     res();
-  }, [gameId]);
+  }, [gameId, host]);
 
   useEffect(() => {
-    const newPlayer = localStorage.getItem("newPlayer");
-
     const res = async () => {
-      const { data } = await axios.post(
-        `https://deepdiive.herokuapp.com/api/links/join/${gameId}`,
-        { username: newPlayer }
+      const { data } = await axios.get(
+        `https://deepdiive.herokuapp.com/api/links/users/${gameId}`
       );
-      console.log(typeof data);
-      console.log(data);
-      setInvitedPlayer(data.player);
+      console.log(data.player);
+      setHost(data.player);
       return data;
     };
     res();
   }, [gameId]);
-
-  const [socket, setSocket] = useState();
-
-  // useEffect(() => {
-  //   const s = io("http://localhost:8080");
-  //   setSocket(s);
-
-    // return () => {
-    //   socket.disconnect();
-    // };
-  // }, []);
 
   const openModal = () => {
     setIsOpen(true);
@@ -114,7 +94,7 @@ const GameView = () => {
           <Card />
         </div>
         <div className={gameStyles.playerDiv}>
-          <Players player={player} invitedPlayer={invitedPlayer} />
+          <Players host={host} />
         </div>
       </div>
     </div>

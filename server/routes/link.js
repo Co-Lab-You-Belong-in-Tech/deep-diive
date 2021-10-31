@@ -9,6 +9,6 @@ const router = express.Router();
 
 router.get("/", generateId);
 router.post("/join/:id", joinGame);
-router.get("/users/:id", getUser);
+router.get("/users/:id", getUser)
 
 module.exports = router;

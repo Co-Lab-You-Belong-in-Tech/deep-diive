@@ -1,10 +1,10 @@
 import playerStyles from "./Players.module.css";
 
-const Players = ({ player, invitedPlayer }) => {
+const Players = ({ host }) => {
   return (
     <div className={playerStyles.players}>
       <div className={playerStyles.playerCard}>
-        <p>{player}</p>
+        <p>{host}</p>
       </div>
       <div className={playerStyles.playerCard}>
         {/* <p>{invitedPlayer}</p> */}

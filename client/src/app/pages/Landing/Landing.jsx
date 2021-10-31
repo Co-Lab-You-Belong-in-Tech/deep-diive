@@ -1,86 +1,90 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 import image from "../../assets/Landing_Page_png.png";
 import logo from "../../assets/new-logo.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import landingStyles from "./Landing.module.css";
 
-//const nameList = [];
+const Landing = () => {
+  const [user, setUser] = useState("");
+  // const [host, setHost] = useState("");
+  // const { gameId } = useParams();
 
-// function Redir() {
-//   let history = useHistory();
+  // useEffect(() => {
+  //   const res = async () => {
+  //     const { data } = await axios.post(
+  //       `https://deepdiive.herokuapp.com/api/links/join/${gameId}`,
+  //       { username: host }
+  //     );
+  //     console.log(data);
+  //     return data;
+  //   };
+  //   res();
+  // }, [gameId, host]);
 
-//   const redirect = () => {
-//     history.push('/Onboard')
-//   }
-
-//   return (
-//     <div>
-//       <button onClick={redirect}>Let's Go!</button>
-//     </div>
-//   )
-// }
-
-export default class Landing extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "",
-    };
-  }
-
-  onChange = (event) => {
-    event.preventDefault();
-    const name = event.target.value;
+  const changeHandler = (e) => {
+    const name = e.target.value;
 
     localStorage.setItem("name", name);
-    this.setState({ name });
+    setUser(name);
+    console.log(user);
   };
 
-  render() {
-    return (
-      <div className={landingStyles.landing}>
-        <nav>
-          <div className={landingStyles.logoDiv}>
-            <img className={landingStyles.icon} src={logoIcon} alt="" />
-            <img src={logo} alt="" />
-          </div>
-        </nav>
+  // const submitHandler = async (e) => {
+  //   e.preventDefault();
+  //   const { data } = await axios.post(
+  //     `https://deepdiive.herokuapp.com/api/links/join/${gameId}`,
+  //     { username: host }
+  //   );
+  //   console.log(data);
+  //   return data;
+  // };
 
-        <div className={landingStyles.grid}>
-          <img src={image} alt="" />
-          <div>
-            <div className={landingStyles.title}>
-              <span>
-                Ride the Wave of <br />
-              </span>
-              <span>Better Conversations</span>
-            </div>
-            <p>
-              This is not your average ice breaker. Unwind with workmates and
-              have meaningful conversations using our virtual card deck. Take
-              turns answering questions from the cards you select alongside your
-              favorite video chat platform.
-            </p>
-            <p>Enter your name below to get started!</p>
-            <form className={landingStyles.form}>
-              <label>Name</label>
-              <input
-                value={this.state.name}
-                placeholder="Your name"
-                id="name"
-                onChange={this.onChange}
-              />
-              <Link to="/onboarding">
-                <button>Let’s Go!</button>
-              </Link>
-            </form>
+  return (
+    <div className={landingStyles.landing}>
+      <nav>
+        <div className={landingStyles.logoDiv}>
+          <img className={landingStyles.icon} src={logoIcon} alt="" />
+          <img src={logo} alt="" />
+        </div>
+      </nav>
+
+      <div className={landingStyles.grid}>
+        <img src={image} alt="" />
+        <div>
+          <div className={landingStyles.title}>
+            <span>
+              Ride the Wave of <br />
+            </span>
+            <span>Better Conversations</span>
           </div>
+          <p>
+            This is not your average ice breaker. Unwind with workmates and have
+            meaningful conversations using our virtual card deck. Take turns
+            answering questions from the cards you select alongside your
+            favorite video chat platform.
+          </p>
+          <p>Enter your name below to get started!</p>
+          <form className={landingStyles.form}>
+            <label>Name</label>
+            <input
+              value={user}
+              placeholder="Your name"
+              id="name"
+              onChange={changeHandler}
+            />
+            <Link to="/onboarding">
+              <button>Let’s Go!</button>
+            </Link>
+          </form>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default Landing;
 
 // const AddName = (evnt) => {
 //     evnt.preventDefault();

@@ -8,12 +8,12 @@ const Navbar = ({openModal}) => {
     return (
         <nav className={navbarStyles.navbar}>
             <div className={navbarStyles.logoDiv}>
-                <img className={navbarStyles.icon} src={logoIcon} alt="" />
-                <img className={navbarStyles.name} src={logo} alt="" />
+                <img className={navbarStyles.icon} src={logoIcon} alt="logo" />
+                <img className={navbarStyles.name} src={logo} alt="logo" />
             </div>
             <div className={navbarStyles.buttons}>
-                <button ><img src={linkIcon} alt="times" /></button>
-                <button onClick={openModal} ><img src={times} alt="times" /></button>
+                <button ><img src={linkIcon} alt="link" /></button>
+                <button onClick={openModal} ><img src={times} alt="x" /></button>
             </div>
         </nav>
     )

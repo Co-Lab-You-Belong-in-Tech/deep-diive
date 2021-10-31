@@ -40,15 +40,13 @@ const customStyles = {
   },
 };
 
-
-
 //Slide show buttons
 const PreviousBtn = (props) => {
   console.log(props);
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <ArrowBackIos style={{ color: "#C3CBCD", fontSize: "32px"}} />
+      <ArrowBackIos style={{ color: "#C3CBCD", fontSize: "32px" }} />
     </div>
   );
 };
@@ -73,12 +71,29 @@ const Copy = ({ copyText }) => {
       </button>
     </div>
   );
-}; 
+};
 
 //Slide show
 const Onboarding = () => {
   const [gameId, setGameId] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [host, setHost] = useState("");
+
+  const username = localStorage.getItem("name");
+
+  useEffect(() => {
+    const res = async () => {
+      const { data } = await axios.post(
+        `https://deepdiive.herokuapp.com/api/links/join/${gameId}`,
+        { username: username }
+      );
+      // console.log(data.player);
+      // setHost(data.player);
+      // setPlayer(data.player);
+      return data;
+    };
+    res();
+  }, [gameId, username]);
 
   useEffect(() => {
     const getUrl = async () => {
@@ -106,9 +121,13 @@ const Onboarding = () => {
         style={customStyles}
         contentLabel="Exit Modal"
       >
-        <p className={onboardingStyles.modalText}>Are you sure you want to exit?</p>
+        <p className={onboardingStyles.modalText}>
+          Are you sure you want to exit?
+        </p>
         <div className={onboardingStyles.modalButtons}>
-          <button className={onboardingStyles.no} onClick={closeModal}>NO</button>
+          <button className={onboardingStyles.no} onClick={closeModal}>
+            NO
+          </button>
           <Link to="/feedback">
             <button className={onboardingStyles.yes}>YES</button>
           </Link>
@@ -126,10 +145,8 @@ const Onboarding = () => {
           infinite={false}
           edgeFriction={0}
         >
-
-          <Card1 gameId={gameId}/>
-          <Card2 gameId={gameId}/>
-
+          <Card1 gameId={gameId} />
+          <Card2 gameId={gameId} />
         </Slider>
       </div>
     </div>
@@ -174,21 +191,20 @@ const Card2 = ({ gameId }) => {
       </h1>
 
       <div className={onboardingStyles.yesnobutton}>
-        <div className={onboardingStyles.column} style={{right:"867px"}}>
+        <div className={onboardingStyles.column} style={{ right: "867px" }}>
           <Link to={`/game/${gameId}`}>
             <button className={onboardingStyles.no}> NO </button>
           </Link>
           <p>Continue to the game.</p>
         </div>
-        <div className={onboardingStyles.column} style={{right:"600px"}}>
+        <div className={onboardingStyles.column} style={{ right: "600px" }}>
           <Link to="/instruction">
-            <button className={onboardingStyles.yes}> YES </button>   
+            <button className={onboardingStyles.yes}> YES </button>
           </Link>
           <p>I want to read the insructions.</p>
         </div>
       </div>
-      <img  src={image} alt="image"/>
-      
+      <img src={image} alt="image" />
     </div>
   );
 };
