@@ -30,7 +30,7 @@ const getUser = async (req, res) => {
     const game = await Game.findById(id);
     res.status(200).json({ player: game.users[0] });
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 };
 

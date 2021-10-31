@@ -43,9 +43,6 @@ const customStyles = {
   },
 };
 
-
-
-
 //Slide show buttons
 const PreviousBtn = (props) => {
   console.log(props);
@@ -96,9 +93,13 @@ const Instruction = () => {
         style={customStyles}
         contentLabel="Exit Modal"
       >
-        <p className={instructionStyles.modalText}>Are you sure you want to exit?</p>
+        <p className={instructionStyles.modalText}>
+          Are you sure you want to exit?
+        </p>
         <div className={instructionStyles.modalButtons}>
-          <button className={instructionStyles.no} onClick={closeModal}>NO</button>
+          <button className={instructionStyles.no} onClick={closeModal}>
+            NO
+          </button>
           <Link to="/feedback">
             <button className={instructionStyles.yes}>YES</button>
           </Link>
@@ -132,16 +133,17 @@ const Instruction = () => {
 const Card1 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-        <img src={image3} alt="image"/>
-        <h1>Once your workmate arrives, <br/> press {" "}  
-            <span className={instructionStyles.highlight}>Start</span> 
-            {" "} and we will select the player that answers first.
-        </h1>
-        <div >
-            <Link to={`/game/${gameId}`}>
-                <button className={instructionStyles.skipbutton}> Skip </button>
-            </Link>
-        </div>
+      <img src={image3} alt="image" />
+      <h1>
+        Once your workmate arrives, <br /> press{" "}
+        <span className={instructionStyles.highlight}>Start</span> and we will
+        select the player that answers first.
+      </h1>
+      <div>
+        <Link to={`/game/${gameId}`}>
+          <button className={instructionStyles.skipbutton}> Skip </button>
+        </Link>
+      </div>
     </div>
   );
 };
@@ -149,11 +151,11 @@ const Card1 = ({ gameId }) => {
 const Card2 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-        <img src={image4} alt="image"/>
-        <h1>Once you all are done answering the question, 
-            you can pick a new one by pressing {" "}
-            <span className={instructionStyles.highlight}>Next Card.</span> 
-        </h1>
+      <img src={image4} alt="image" />
+      <h1>
+        Once you all are done answering the question, you can pick a new one by
+        pressing <span className={instructionStyles.highlight}>Next Card.</span>
+      </h1>
 
       <div>
         <Link to={`/game/${gameId}`}>
@@ -167,37 +169,46 @@ const Card2 = ({ gameId }) => {
 const Card3 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-      <img style={{width:"477px", height:"200px"}} src={image5} alt="image"/>
-        <h1>If you don’t like a question or it makes you feel uncomfortable,
-             you can also click 
-            <span className={instructionStyles.highlight}> Next Card.</span> 
-        </h1>
-        <h2> All players can see cards change live but should not question 
-            why someone chooses to skip. </h2>
+      <img
+        style={{ width: "477px", height: "200px" }}
+        src={image5}
+        alt="image"
+      />
+      <h1>
+        If you don’t like a question or it makes you feel uncomfortable, you can
+        also click
+        <span className={instructionStyles.highlight}> Next Card.</span>
+      </h1>
+      <h2>
+        {" "}
+        All players can see cards change live but should not question why
+        someone chooses to skip.{" "}
+      </h2>
 
-        <div >
-            <Link to={`/game/${gameId}`}>
-                <button className={instructionStyles.skipbutton}> Skip </button>
-            </Link>
-        </div>
+      <div>
+        <Link to={`/game/${gameId}`}>
+          <button className={instructionStyles.skipbutton}> Skip </button>
+        </Link>
+      </div>
     </div>
   );
 };
 
-const Card4 = ({gameId}) => {
+const Card4 = ({ gameId }) => {
   return (
-      <div className={instructionStyles.view}>
-        <img src={image6} alt="image"/>
-          <h1>Take turns alternating who answers a question. 
-            If you want to go back to a previous card, click {" "}
-              <span className={instructionStyles.highlight}>Back.</span> 
-          </h1>
-          <div >
-              <Link to={`/game/${gameId}`}>
-                  <button className={instructionStyles.skipbutton}> Skip </button>
-              </Link>
-          </div>
+    <div className={instructionStyles.view}>
+      <img src={image6} alt="image" />
+      <h1>
+        Take turns alternating who answers a question. If you want to go back to
+        a previous card, click{" "}
+        <span className={instructionStyles.highlight}>Back.</span>
+      </h1>
+      <div>
+        <Link to={`/game/${gameId}`}>
+          <button className={instructionStyles.skipbutton}> Skip </button>
+        </Link>
       </div>
+    </div>
   );
 };
 
@@ -205,8 +216,10 @@ const Card5 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
       <img src={image7} alt="image" />
-      <h1>When you are done playing, simply press the {" "}
-          <span className={instructionStyles.highlight}>X</span> {" "}at the top right of your screen.
+      <h1>
+        When you are done playing, simply press the{" "}
+        <span className={instructionStyles.highlight}>X</span> at the top right
+        of your screen.
       </h1>
       <hr />
       <Link to={`/game/${gameId}`}>
