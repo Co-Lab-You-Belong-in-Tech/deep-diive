@@ -24,4 +24,8 @@ const joinGame = async (req, res) => {
   });
 };
 
-module.exports = { generateId, joinGame };
+const getUser = async (req, res) => {
+  res.status(201).json({ player: username });
+};
+
+module.exports = { generateId, joinGame, getUser };
