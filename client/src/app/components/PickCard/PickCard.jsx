@@ -16,7 +16,7 @@ const PickCard = ({ hideModal }) => {
         <Modal hideRules={hideRules} />
       ) : (
         <div className={pickStyles.pickCard}>
-          <img src={cardImg} alt="" />
+          <img src={cardImg} alt="deck of cards" />
           <button onClick={hideModal}>pick a card</button>
         </div>
       )}

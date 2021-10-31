@@ -25,7 +25,13 @@ const joinGame = async (req, res) => {
 };
 
 const getUser = async (req, res) => {
-  res.status(201).json({ player: username });
+  try {
+    const { id } = req.params;
+    const game = await Game.findById(id);
+    res.status(200).json({ player: game.users[0] });
+  } catch (err) {
+    console.log(err)
+  }
 };
 
 module.exports = { generateId, joinGame, getUser };
