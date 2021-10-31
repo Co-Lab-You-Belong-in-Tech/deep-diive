@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import logo from "../../assets/new-logo.svg";
 import logoIcon from "../../assets/logo_circle.png";
@@ -8,26 +8,30 @@ import invitedStyles from "./InviteOnboarding.module.css";
 
 const InviteOnboarding = () => {
   const [user, setUser] = useState("");
-  const [gameId, setGameId] = useState("");
+  const { gameId } = useParams();
+
+  const username = localStorage.getItem("deepdiive_name");
 
   useEffect(() => {
-    const getUrl = async () => {
-      const { data } = await axios.get(
-        `https://deepdiive.herokuapp.com/api/links`
+    const res = async () => {
+      const { data } = await axios.post(
+        `https://deepdiive.herokuapp.com/api/links/join/${gameId}`,
+        { username: username }
       );
-      setGameId(data.gameId);
+      console.log(data.player);
+      return data;
     };
-    getUrl();
-  }, []);
+    res();
+  }, [gameId, username]);
 
-  const addUser = (event) => {
-    event.preventDefault();
-    const newPlayer = event.target.value;
+  const changeHandler = (e) => {
+    const deepdiive_name = e.target.value;
 
-    localStorage.setItem("newPlayer", newPlayer);
-    setUser(newPlayer);
-    console.log({ newPlayer });
+    localStorage.setItem("deepdiive_name", deepdiive_name);
+    setUser(deepdiive_name);
+    console.log(user);
   };
+
   return (
     <div className={invitedStyles.invite}>
       <nav>
@@ -52,12 +56,9 @@ const InviteOnboarding = () => {
             favorite video chat platform.
           </p>
           <p>Enter your name below to get started!</p>
-          <form
-            className={invitedStyles.form}
-            onSubmit={(e) => e.preventDefault()}
-          >
+          <form className={invitedStyles.form}>
             <label>Name</label>
-            <input type="text" value={user} onChange={addUser} />
+            <input type="text" value={user} onChange={changeHandler} />
             <Link to={`/game/${gameId}`}>
               <button>Let’s Go!</button>
             </Link>

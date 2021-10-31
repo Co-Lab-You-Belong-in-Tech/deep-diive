@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GameView from "../pages/GameView/GameView";
 import Landing from "../pages/Landing/Landing";
 import Onboarding from "../pages/Onboarding/Onboarding";
@@ -12,8 +7,6 @@ import Feedback from "../pages/Feedback/Feedback";
 import Instruction from "../pages/Instruction/Instruction";
 
 const Routes = () => {
-  // const name = localStorage.getItem("name");
-  // const newPlayer = localStorage.getItem("newPlayer");
   return (
     <Router>
       <Switch>

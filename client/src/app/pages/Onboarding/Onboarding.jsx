@@ -77,9 +77,8 @@ const Copy = ({ copyText }) => {
 const Onboarding = () => {
   const [gameId, setGameId] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [host, setHost] = useState("");
 
-  const username = localStorage.getItem("name");
+  const username = localStorage.getItem("deepdiive_name");
 
   useEffect(() => {
     const res = async () => {
@@ -155,7 +154,7 @@ const Onboarding = () => {
 
 //Each slide
 const Card1 = ({ gameId }) => {
-  const name = localStorage.getItem("name");
+  const name = localStorage.getItem("deepdiive_name");
 
   return (
     <div>
