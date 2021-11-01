@@ -1,4 +1,4 @@
-import logo from "../../assets/logo-white.svg";
+import logo from "../../assets/logo-blue.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import times from "../../assets/exit-icon.svg";
 import linkIcon from "../../assets/link-icon.svg";

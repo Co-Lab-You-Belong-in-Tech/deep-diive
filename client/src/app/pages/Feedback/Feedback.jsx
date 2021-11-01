@@ -1,26 +1,29 @@
 import feedbackStyles from "./Feedback.module.css";
 import React, { useState } from 'react';
 import SocialMedia from "../../components/SocialMedia/SocialMedia";
-import Navbar from "../../components/Navbar/Navbar";
 import wave from "../../assets/wave_exit.png";
 import figure from "../../assets/figure_exit.png"
+import logo from "../../assets/logo-blue.svg";
+import logoIcon from "../../assets/logo_circle.png";
 
 
-const Feedback = () => {
-    
+const Feedback = () => { 
+     
     return (
  
         <div className={feedbackStyles.row}>
             
             <div className={feedbackStyles.column}>
                 <div className={feedbackStyles.navDiv}>
-                    <h1>logo</h1>
+                    <img className={feedbackStyles.icon} src={logoIcon} alt="logo" />
+                    <img className={feedbackStyles.name} src={logo} alt="logo" />
                 </div>
                 <img style={{width:"60%", 
                     height:"60%",
                     marginLeft:"165px",
-                    marginTop:"160px"}}
-                    src={figure} alt="image" />
+                    marginTop:"160px", 
+                    marginBottom:"0"}}
+                    src={figure} alt="figure" />
             </div>
             <div className={feedbackStyles.column}>
             
@@ -39,10 +42,11 @@ const Feedback = () => {
                 </div>
             </div>
             <div className={feedbackStyles.column}>
-                <img style={{height:"974px",
+                <img style={{height:"100vh",
+                    bottom:"0",
                     top:"-100", 
                     zIndex:"-1"}} 
-                    src={wave} alt="image" />
+                    src={wave} alt="wave" />
             </div>
         </div>
 

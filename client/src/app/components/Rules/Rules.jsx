@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import beach from "../../assets/gifs/ocean-waves.gif";
+import beach from "../../assets/gifs/beach-waves.gif";
 import oceanWaves from "../../assets/audio/DeepDiive_Water_Sounds.mp3";
 import speakerIcon from "../../assets/speaker.svg";
 import muteIcon from "../../assets/mute.svg";

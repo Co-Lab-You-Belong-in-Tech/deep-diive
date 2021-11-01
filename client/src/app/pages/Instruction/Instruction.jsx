@@ -117,6 +117,7 @@ const Instruction = () => {
           dots
           infinite={false}
           edgeFriction={0}
+          direction={"right"}
         >
           <Card1 gameId={gameId} />
           <Card2 gameId={gameId} />
@@ -133,7 +134,7 @@ const Instruction = () => {
 const Card1 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-      <img src={image3} alt="image" />
+      <img src={image3} alt="gif three" />
       <h1>
         Once your workmate arrives, <br /> press{" "}
         <span className={instructionStyles.highlight}>Start</span> and we will
@@ -151,7 +152,7 @@ const Card1 = ({ gameId }) => {
 const Card2 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-      <img src={image4} alt="image" />
+      <img src={image4} alt="gif four" />
       <h1>
         Once you all are done answering the question, you can pick a new one by
         pressing <span className={instructionStyles.highlight}>Next Card.</span>
@@ -172,7 +173,7 @@ const Card3 = ({ gameId }) => {
       <img
         style={{ width: "477px", height: "200px" }}
         src={image5}
-        alt="image"
+        alt="gif five"
       />
       <h1>
         If you don’t like a question or it makes you feel uncomfortable, you can
@@ -197,7 +198,7 @@ const Card3 = ({ gameId }) => {
 const Card4 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-      <img src={image6} alt="image" />
+      <img src={image6} alt="gif six" />
       <h1>
         Take turns alternating who answers a question. If you want to go back to
         a previous card, click{" "}
@@ -215,7 +216,7 @@ const Card4 = ({ gameId }) => {
 const Card5 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-      <img src={image7} alt="image" />
+      <img src={image7} alt="gif seven" />
       <h1>
         When you are done playing, simply press the{" "}
         <span className={instructionStyles.highlight}>X</span> at the top right

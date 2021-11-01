@@ -25,8 +25,13 @@
 }
 .slick-arrow.slick-prev {
   left: 65px;
+  z-index: 1;
 }
 .slick-dots {
   bottom: -75px;
+}
+
+.slick-disabled {
+  display: none;
 }
 

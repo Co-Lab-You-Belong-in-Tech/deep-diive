@@ -2,8 +2,8 @@
   margin-top: 30px;
   margin-left: 100px;
   margin-right: 100px;
+  overflow-y: hidden;
 }
-
 
 .column {
   display: flex;
@@ -28,6 +28,7 @@
   flex-wrap: wrap;
   width: 100%;
 
+  margin-top: -60px;
 }
 
 .column > p {
@@ -122,7 +123,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 100px; 
+  margin-top: 200px; 
   margin-left: "24.6%";
 }
 
@@ -137,7 +138,7 @@
   letter-spacing: 0.2px;
   width: 730px;
   height: 112px;
-  margin-top: "25%";
+  /* margin-top: "30%"; */
 }
 
 .view > h2 {
@@ -181,7 +182,6 @@
 }
 
 .copybutton {
-  margin-bottom: 269px;
   position: relative;
 }
 
