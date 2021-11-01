@@ -15,16 +15,21 @@
 .navDiv {
     margin-top: 30px;
     margin-left: 100px;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
 
-.navDiv > h1 {
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: #222325;
-    text-transform: uppercase;
+.icon{
+    width: 40px;
+    height: 40px;
 }
+
+.name{
+    width: 155px;
+}   
+
   
 .column {
     display: flex;

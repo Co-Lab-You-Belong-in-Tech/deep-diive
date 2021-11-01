@@ -106,6 +106,7 @@ const Instruction = () => {
           dots
           infinite={false}
           edgeFriction={0}
+          direction={"right"}
         >
           <Card1 gameId={gameId} />
           <Card2 gameId={gameId} />
@@ -162,7 +163,7 @@ const Card3 = ({ gameId }) => {
       <img
         style={{ width: "477px", height: "200px" }}
         src={image5}
-        alt="be nice"
+        alt="gif five"
       />
       <h1>
         If you don’t like a question or it makes you feel uncomfortable, you can

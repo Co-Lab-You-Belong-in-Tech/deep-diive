@@ -140,6 +140,7 @@ const Onboarding = () => {
           nextArrow={<NextBtn />}
           infinite={false}
           edgeFriction={0}
+          direction={"right"}
         >
           <Card1 gameId={gameId} />
           <Card2 gameId={gameId} />
@@ -172,9 +173,9 @@ const Card1 = ({ gameId }) => {
         </div>
       </div>
 
-      <div className={onboardingStyles.wave}>
+      {/* <div className={onboardingStyles.wave}>
         <img src={wave} alt="wave" />
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -200,7 +201,7 @@ const Card2 = ({ gameId }) => {
           <p>I want to read the insructions.</p>
         </div>
       </div>
-      <img src={image} alt="image" />
+      {/* <img src={image} alt="figure" /> */}
     </div>
   );
 };

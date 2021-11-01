@@ -14,22 +14,22 @@ const SocialMedia = () => {
     return (
         <div>
             <FacebookShareButton 
-                url={"http://localhost:3000/feedback"}
+                url={"http://deepdiive.herokuapp.com/"}
                 quote={"DeepDiive - Ride the wave of better conversation"}
                 hashtag="#DeepDiive"
                 >
                 <img style={{marginRight:"44px"}} src={facebook}/>
             </FacebookShareButton>
             <TwitterShareButton 
-                url={"http://localhost:3000/feedback"}
-                quote={"DeepDiive - Ride the wave of better conversation"}
+                url={"http://deepdiive.herokuapp.com/"}
+                title={"DeepDiive - Ride the wave of better conversation"}
                 hashtag="#DeepDiive"
                 >
                 <img style={{marginRight:"44px"}} src={twitter}/>
             </TwitterShareButton>
             <LinkedinShareButton 
-                url={"http://localhost:3000/feedback"}
-                quote={"DeepDiive - Ride the wave of better conversation"}
+                url={"http://deepdiive.herokuapp.com/"}
+                summary={"DeepDiive - Ride the wave of better conversation"}
                 hashtag="#DeepDiive"
                 >
                 <img src={linkedin}/>
