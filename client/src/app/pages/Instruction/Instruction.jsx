@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Modal from "react-modal";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -64,18 +63,8 @@ const NextBtn = (props) => {
 
 //Slide show
 const Instruction = () => {
-  const [gameId, setGameId] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const getUrl = async () => {
-      const { data } = await axios.get(
-        `https://deepdiive.herokuapp.com/api/links`
-      );
-      setGameId(data.gameId);
-    };
-    getUrl();
-  }, []);
+  const { gameId } = useParams();
 
   const openModal = () => {
     setIsOpen(true);
@@ -133,12 +122,13 @@ const Instruction = () => {
 const Card1 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-      <img src={image3} alt="image" />
+      <img src={image3} alt="start instruction" />
       <h1>
         Once your workmate arrives, <br /> press{" "}
         <span className={instructionStyles.highlight}>Start</span> and we will
         select the player that answers first.
       </h1>
+      <button>test</button>
       <div>
         <Link to={`/game/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
@@ -151,7 +141,7 @@ const Card1 = ({ gameId }) => {
 const Card2 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-      <img src={image4} alt="image" />
+      <img src={image4} alt="next card instruction" />
       <h1>
         Once you all are done answering the question, you can pick a new one by
         pressing <span className={instructionStyles.highlight}>Next Card.</span>
@@ -172,7 +162,7 @@ const Card3 = ({ gameId }) => {
       <img
         style={{ width: "477px", height: "200px" }}
         src={image5}
-        alt="image"
+        alt="be nice"
       />
       <h1>
         If you don’t like a question or it makes you feel uncomfortable, you can
@@ -197,7 +187,7 @@ const Card3 = ({ gameId }) => {
 const Card4 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-      <img src={image6} alt="image" />
+      <img src={image6} alt="back button instruction" />
       <h1>
         Take turns alternating who answers a question. If you want to go back to
         a previous card, click{" "}
@@ -215,7 +205,7 @@ const Card4 = ({ gameId }) => {
 const Card5 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-      <img src={image7} alt="image" />
+      <img src={image7} alt="exit instruction" />
       <h1>
         When you are done playing, simply press the{" "}
         <span className={instructionStyles.highlight}>X</span> at the top right

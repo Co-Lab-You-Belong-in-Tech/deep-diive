@@ -12,7 +12,7 @@ const Routes = () => {
       <Switch>
         <Route path="/" exact component={Landing} />
         <Route path="/onboarding" exact component={Onboarding} />
-        <Route path="/instruction" exact component={Instruction} />
+        <Route path="/instruction/:gameId" exact component={Instruction} />
         <Route path="/onboarding/invite" exact component={InviteOnboarding} />
         <Route exact path="/game/:gameId" component={GameView} />
         <Route path="/feedback" exact component={Feedback} />
