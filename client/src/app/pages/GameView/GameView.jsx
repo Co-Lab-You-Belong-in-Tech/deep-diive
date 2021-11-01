@@ -41,20 +41,19 @@ const GameView = () => {
   const { gameId } = useParams();
   const history = useHistory();
 
-  useEffect(() => {
-    const deepdiive_name = localStorage.getItem("deepdiive_name");
+  // useEffect(() => {
+  //   const deepdiive_name = localStorage.getItem("deepdiive_name");
 
-    if (!deepdiive_name) {
-      history.push("/onboarding/invite");
-    }
-  }, [history]);
+  //   if (!deepdiive_name) {
+  //     history.push("/onboarding/invite");
+  //   }
+  // }, [history]);
 
   useEffect(() => {
     const res = async () => {
       const { data } = await axios.post(
         `https://deepdiive.herokuapp.com/api/links/join/${gameId}`
       );
-      console.log(data.player);
       return data;
     };
     res();

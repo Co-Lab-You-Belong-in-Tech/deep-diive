@@ -86,9 +86,6 @@ const Onboarding = () => {
         `https://deepdiive.herokuapp.com/api/links/join/${gameId}`,
         { username: username }
       );
-      // console.log(data.player);
-      // setHost(data.player);
-      // setPlayer(data.player);
       return data;
     };
     res();
@@ -198,7 +195,7 @@ const Card2 = ({ gameId }) => {
           <p>Continue to the game.</p>
         </div>
         <div className={onboardingStyles.column} style={{ right: "600px" }}>
-          <Link to="/instruction">
+          <Link to={`/instruction/${gameId}`}>
             <button className={onboardingStyles.yes}> YES </button>
           </Link>
           <p>I want to read the insructions.</p>
