@@ -134,7 +134,7 @@ const Card1 = ({ gameId }) => {
         <Link to={`/game/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
         </Link>
-      </div>
+      </div> 
     </div>
   );
 };
