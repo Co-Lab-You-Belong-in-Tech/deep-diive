@@ -196,13 +196,13 @@ const Card2 = ({ gameId }) => {
       </h1>
 
       <div className={onboardingStyles.yesnobutton}>
-        <div className={onboardingStyles.column} style={{ right: "867px" }}>
+        <div className={onboardingStyles.column} style={{ right: "769px" }}>
           <Link to={`/game/${gameId}`}>
             <button className={onboardingStyles.no}> NO </button>
           </Link>
           <p>Continue to the game.</p>
         </div>
-        <div className={onboardingStyles.column} style={{ right: "600px" }}>
+        <div className={onboardingStyles.column} style={{ right: "512px" }}>
           <Link to={`/instruction/${gameId}`}>
             <button className={onboardingStyles.yes}> YES </button>
           </Link>
