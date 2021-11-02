@@ -11,10 +11,10 @@ const joinGame = async (req, res) => {
   const { username } = req.body;
 
   const game = await Game.findOne({ _id: id });
-  if (!game)
-    return res.status(400).json({ message: `Game with id ${id} not found` });
-  if (game.users.length >= 4)
-    return res.status(400).json({ message: `Cannot join game ${id}` });
+  // if (!game)
+  //   return res.status(400).json({ message: `Game with id ${id} not found` });
+  // if (game.users.length >= 4)
+  //   return res.status(400).json({ message: `Cannot join game ${id}` });
 
   game.users.push(username);
   await game.save();
