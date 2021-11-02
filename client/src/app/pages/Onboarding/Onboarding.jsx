@@ -46,7 +46,7 @@ const PreviousBtn = (props) => {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <ArrowBackIos style={{ color: "#C3CBCD", fontSize: "32px" }} />
+      <ArrowBackIos style={{ color: "#393E4D", fontSize: "35px" }} />
     </div>
   );
 };
@@ -54,7 +54,7 @@ const NextBtn = (props) => {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <ArrowForwardIos style={{ color: "#C3CBCD", fontSize: "32px" }} />
+      <ArrowForwardIos style={{ color: "#393E4D", fontSize: "35px" }} />
     </div>
   );
 };
@@ -192,13 +192,13 @@ const Card2 = ({ gameId }) => {
       </h1>
 
       <div className={onboardingStyles.yesnobutton}>
-        <div className={onboardingStyles.column} style={{ right: "777px" }}>
+        <div className={onboardingStyles.column} style={{ right: "769px" }}>
           <Link to={`/game/${gameId}`}>
             <button className={onboardingStyles.no}> NO </button>
           </Link>
           <p>Continue to the game.</p>
         </div>
-        <div className={onboardingStyles.column} style={{ right: "510px" }}>
+        <div className={onboardingStyles.column} style={{ right: "512px" }}>
           <Link to={`/instruction/${gameId}`}>
             <button className={onboardingStyles.yes}> YES </button>
           </Link>

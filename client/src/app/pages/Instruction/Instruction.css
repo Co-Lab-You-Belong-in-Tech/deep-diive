@@ -28,8 +28,9 @@
   z-index: 1;
 }
 .slick-dots {
-  bottom: 71px;
-  position: fixed;
+  top: 102%;
+  position: absolute;
+  bottom: 0;
 }
 
 .slick-dots li button::before{
