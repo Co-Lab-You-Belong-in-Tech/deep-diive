@@ -28,6 +28,12 @@
   z-index: 1;
 }
 .slick-dots {
-  bottom: -75px;
+  bottom: 71px;
+  position: fixed;
+}
+
+.slick-dots li button::before{
+  font-family: 'slick';
+  font-size: 10px;
 }
 

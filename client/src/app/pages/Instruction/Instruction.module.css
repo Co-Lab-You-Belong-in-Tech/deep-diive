@@ -89,7 +89,7 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   text-transform: uppercase;
 
-  margin-top: 73px;
+  margin-top: 45px;
   left: calc(50% - 730px/2 - 0.5px);
   top: 723.5px;
 }
@@ -99,7 +99,7 @@
   font-family: Josefin Sans;
   font-style: italic;
   font-weight: 600;
-  font-size: 48px;
+  font-size: 44px;
   line-height: 56px;
   text-align: center;
   color: #2C393C;
@@ -128,7 +128,7 @@
   font-style: italic;
   font-weight: bold;
   text-decoration: underline;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 45px;
   line-height: 56px;
   letter-spacing: 0.2px;
