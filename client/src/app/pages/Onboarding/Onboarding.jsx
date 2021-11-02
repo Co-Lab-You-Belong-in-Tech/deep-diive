@@ -180,10 +180,6 @@ const Card1 = ({ gameId }) => {
           <Copy copyText={`https://deepdiive.herokuapp.com/game/${gameId}`}/>
         </div>
       </div>
-
-      {/* <div className={onboardingStyles.wave}>
-        <img src={wave} alt="wave" />
-      </div> */}
     </div>
   );
 };
@@ -196,17 +192,17 @@ const Card2 = ({ gameId }) => {
       </h1>
 
       <div className={onboardingStyles.yesnobutton}>
-        <div className={onboardingStyles.column} style={{ right: "867px" }}>
+        <div className={onboardingStyles.column} style={{ right: "777px" }}>
           <Link to={`/game/${gameId}`}>
             <button className={onboardingStyles.no}> NO </button>
           </Link>
           <p>Continue to the game.</p>
         </div>
-        <div className={onboardingStyles.column} style={{ right: "600px" }}>
+        <div className={onboardingStyles.column} style={{ right: "510px" }}>
           <Link to={`/instruction/${gameId}`}>
             <button className={onboardingStyles.yes}> YES </button>
           </Link>
-          <p>I want to read the insructions.</p>
+          <p>I want to read the instructions.</p>
         </div>
       </div>
       {/* <img src={image} alt="figure" /> */}

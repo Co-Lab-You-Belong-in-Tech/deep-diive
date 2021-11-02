@@ -12,12 +12,11 @@
   flex: 1;
   align-items: center;
   text-align: center;
-  vertical-align:middle;
+  vertical-align: middle;
   align-content: center;
 
   position: fixed;
 }
-
 
 .yesnobutton {
   display: inline-block;
@@ -41,7 +40,7 @@
   text-align: center;
   align-content: center;
   letter-spacing: 0.01em;
-  color: #393E4D;
+  color: #393e4d;
 
   width: 125px;
   height: 41px;
@@ -54,13 +53,13 @@
   width: 130px;
   height: 75px;
   right: 769px;
-  background: #FDFCFB;
+  background: #fdfcfb;
   border: 1px solid #222325;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  box-shadow: 4px 4px #E5E5E5;
-  
+  box-shadow: 4px 4px #e5e5e5;
+
   color: #222325;
   font-family: Lato;
   font-style: normal;
@@ -71,14 +70,14 @@
 .yes {
   width: 130px;
   height: 75px;
-  background: #080F22;
-  border: 1px solid #DEDEDE;
+  background: #080f22;
+  border: 1px solid #dedede;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  box-shadow: 4px 4px #E5E5E5;
-  
-  color: #FDFCFB;
+  box-shadow: 4px 4px #e5e5e5;
+
+  color: #fdfcfb;
   font-family: Lato;
   font-style: normal;
   font-weight: 900;
@@ -86,15 +85,15 @@
 }
 
 .yes:hover {
-  background-color: #FDFCFB;
+  background-color: #fdfcfb;
   color: #222325;
   border: 1px solid #222325;
 }
 
 .no:hover {
   background-color: #222325;
-  color: #FDFCFB;
-  border: 1px solid #FDFCFB;
+  color: #fdfcfb;
+  border: 1px solid #fdfcfb;
 }
 
 .wave {
@@ -106,7 +105,7 @@
   bottom: 0;
 }
 
-.wave > img { 
+.wave > img {
   z-index: -1;
   height: fit-content;
 }
@@ -123,7 +122,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 150px; 
+  margin-top: 150px;
   margin-left: "24.6%";
 }
 
@@ -134,7 +133,7 @@
   font-size: 48px;
   line-height: 56px;
   text-align: center;
-  color: #2C393C;
+  color: #2c393c;
   letter-spacing: 0.2px;
   width: 730px;
   height: 112px;
@@ -151,14 +150,14 @@
   line-height: 35px;
   letter-spacing: 0.3px;
   margin-top: 32px;
-  
+
   width: 730px;
   height: 152px;
 }
 
 .view > p {
   font-family: Lato;
-  font:18px;
+  font: 18px;
   margin-top: -75px;
 }
 
@@ -196,7 +195,7 @@
   justify-content: center;
   margin-left: 27px;
   padding: 12px 18px;
-  background: #393E4D;
+  background: #393e4d;
   color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
@@ -204,13 +203,13 @@
   cursor: pointer;
   transition: 0.3s;
 
-  box-shadow: 4px 4px #E5E5E5;
-} 
+  box-shadow: 4px 4px #e5e5e5;
+}
 
 .cbutton:hover {
   background-color: #e9e5e5;
-  color: #393E4D;
-  border: 1px solid #393E4D;
+  color: #393e4d;
+  border: 1px solid #393e4d;
 }
 
 .copybutton > p {
