@@ -8,7 +8,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 100px; 
+  margin-top: 95px; 
 
 }
 
@@ -20,7 +20,7 @@
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 12px;
   
-  top: "16.3%";
+  top: "16%";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +36,7 @@
   border: 1px solid #DEDEDE;
   box-sizing: border-box;
   border-radius: 20px;
-  margin-top: 25px;
+  margin-top: 0px;
   gap: 7px;
   cursor: pointer;
   transition: 0.3s;
@@ -89,9 +89,9 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   text-transform: uppercase;
 
-  margin-top: 45px;
+  margin-top: 30px;
   left: calc(50% - 730px/2 - 0.5px);
-  top: 723.5px;
+  /* top: 723.5px; */
 }
 
 
@@ -99,14 +99,14 @@
   font-family: Josefin Sans;
   font-style: italic;
   font-weight: 600;
-  font-size: 44px;
+  font-size: 42px;
   line-height: 56px;
   text-align: center;
   color: #2C393C;
   letter-spacing: 0.2px;
   width: 730px;
   height: 168px;
-  margin-bottom: 32px;
+  top: 88.5%; 
 }
 
 .view > h2 {
@@ -120,7 +120,8 @@
   color: #828282;
 
   
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .highlight {

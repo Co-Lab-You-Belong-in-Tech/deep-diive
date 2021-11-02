@@ -46,7 +46,7 @@ const PreviousBtn = (props) => {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <ArrowBackIos style={{ color: "#C3CBCD", fontSize: "32px" }} />
+      <ArrowBackIos style={{ color: "#393E4D", fontSize: "35px" }} />
     </div>
   );
 };
@@ -54,7 +54,7 @@ const NextBtn = (props) => {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <ArrowForwardIos style={{ color: "#C3CBCD", fontSize: "32px" }} />
+      <ArrowForwardIos style={{ color: "#393E4D", fontSize: "35px" }} />
     </div>
   );
 };

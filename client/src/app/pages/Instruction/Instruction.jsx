@@ -48,7 +48,7 @@ const PreviousBtn = (props) => {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <ArrowBackIos style={{ color: "#C3CBCD", fontSize: "32px" }} />
+      <ArrowBackIos style={{ color: "#393E4D", fontSize: "35px" }} />
     </div>
   );
 };
@@ -56,7 +56,7 @@ const NextBtn = (props) => {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <ArrowForwardIos style={{ color: "#C3CBCD", fontSize: "32px" }} />
+      <ArrowForwardIos style={{ color: "#393E4D", fontSize: "35px" }} />
     </div>
   );
 };
@@ -206,7 +206,10 @@ const Card4 = ({ gameId }) => {
 const Card5 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-      <img src={image7} alt="exit instruction" />
+      <img 
+        style={{ marginTop:"-35px" }}
+        src={image7} 
+        alt="exit instruction" />
       <h1>
         When you are done playing, simply press the{" "}
         <span className={instructionStyles.highlight}>X</span> at the top right
