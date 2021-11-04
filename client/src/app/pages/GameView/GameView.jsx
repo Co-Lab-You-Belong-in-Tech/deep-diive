@@ -65,6 +65,7 @@ const GameView = () => {
         `https://deepdiive.herokuapp.com/api/links/users/${gameId}`
       );
       console.log(data.player);
+      console.log(data.gameId);
       setHost(data.player);
       return data;
     };

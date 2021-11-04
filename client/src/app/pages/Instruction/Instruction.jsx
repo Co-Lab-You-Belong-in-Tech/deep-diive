@@ -129,7 +129,6 @@ const Card1 = ({ gameId }) => {
         <span className={instructionStyles.highlight}>Start</span> and we will
         select the player that answers first.
       </h1>
-      {/* <button>test</button> */}
       <div>
         <Link to={`/game/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
