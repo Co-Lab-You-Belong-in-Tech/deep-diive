@@ -1,8 +1,12 @@
 import Routes from "./app/routes/Routes";
+import { isMobile } from 'react-device-detect';
 import "./App.css";
+import Mobile from "./app/pages/Mobile/Mobile";
 
 function App() {
-  return <Routes />;
+  return (
+    isMobile ? <Mobile/> : <Routes />
+  ); main
 }
 
 export default App;
