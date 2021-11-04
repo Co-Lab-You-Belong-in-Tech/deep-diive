@@ -24,6 +24,7 @@ const Modal = ({ hideRules }) => {
             <span>Be</span> Respectful <br />
             <span>Be</span> Open <br />
             <span>Be</span> Kind <br />
+            <span>Be</span> Curious <br />
             <span>Be</span> Non-Judgmental
           </p>
           <div className={modalStyles.buttons}>

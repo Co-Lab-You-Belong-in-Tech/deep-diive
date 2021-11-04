@@ -60,23 +60,24 @@ const NextBtn = (props) => {
 };
 
 //Shareable link (temporary)
-const Copy = ({copyText}) => {
+const Copy = ({ copyText }) => {
   const [isCopied, setIsCopied] = useState(false);
   const text = useRef(null);
 
-  function copyClipboard(event){
+  function copyClipboard(event) {
     text.current.select();
-    document.execCommand('copy');
+    document.execCommand("copy");
     event.target.focus();
-    setIsCopied('Copied!');
+    setIsCopied("Copied!");
   }
 
   return (
     <div className={onboardingStyles.div}>
       <input ref={text} type="text" value={copyText} readOnly />
-      <button onClick={copyClipboard} className={onboardingStyles.cbutton}> 
+      <button onClick={copyClipboard} className={onboardingStyles.cbutton}>
         Copy
-      </button> {isCopied}
+      </button>{" "}
+      {isCopied}
     </div>
   );
 };
@@ -177,13 +178,9 @@ const Card1 = ({ gameId }) => {
         </p>
         <div className={onboardingStyles.copybutton}>
           <p>Invite Link</p>
-          <Copy copyText={`https://deepdiive.herokuapp.com/game/${gameId}`}/>
+          <Copy copyText={`https://deepdiive.herokuapp.com/game/${gameId}`} />
         </div>
       </div>
-
-      {/* <div className={onboardingStyles.wave}>
-        <img src={wave} alt="wave" />
-      </div> */}
     </div>
   );
 };
@@ -206,7 +203,7 @@ const Card2 = ({ gameId }) => {
           <Link to={`/instruction/${gameId}`}>
             <button className={onboardingStyles.yes}> YES </button>
           </Link>
-          <p>I want to read the insructions.</p>
+          <p>I want to read the instructions.</p>
         </div>
       </div>
       {/* <img src={image} alt="figure" /> */}

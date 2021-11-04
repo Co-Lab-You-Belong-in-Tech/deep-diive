@@ -15,7 +15,7 @@
   font-family: "Josefin Sans", sans-serif;
   line-height: 38px;
   font-weight: 600;
-  margin-top: 40px;
+  margin-top: 30px;
   /* margin-bottom: -1px; */
 }
 .rules > p {
@@ -25,11 +25,10 @@
   line-height: 35.5px;
   letter-spacing: 0.3px;
   font-family: "Lato", sans-serif;
-  font-weight: 900;
 }
 .rules > .safe {
   margin-bottom: -5px;
-  /* margin-top: -0.5px; */
+  margin-top: -5px;
 }
 .rules > .safe > span {
   text-decoration: underline;
@@ -38,7 +37,7 @@
   font-weight: 600;
 }
 .rules > .list > span {
-  font-weight: bold;
+  font-weight: 900;
 }
 .rules > img {
   width: 385px;

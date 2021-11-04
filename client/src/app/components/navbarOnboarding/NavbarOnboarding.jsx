@@ -4,7 +4,8 @@ import times from "../../assets/exit-icon.svg";
 import linkIcon from "../../assets/link-icon.svg";
 import navbarStyles from "./Navbar.module.css";
 
-const Navbar = ({ openModal }) => {
+const NavbarOnboarding = ({ openModal }) => {
+  // const [imgSrc, setImgSrc] = useState("");
   return (
     <nav className={navbarStyles.navbar}>
       <div className={navbarStyles.logoDiv}>
@@ -23,4 +24,4 @@ const Navbar = ({ openModal }) => {
   );
 };
 
-export default Navbar;
+export default NavbarOnboarding;
