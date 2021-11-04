@@ -10,7 +10,7 @@ import image from "../../assets/figure_onboard.png";
 import wave from "../../assets/wave_onboard.png";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import onboardingStyles from "./Onboarding.module.css";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/Navbar_blue/Navbar";
 
 //exit pop-up
 const customStyles = {
@@ -193,7 +193,7 @@ const Card2 = ({ gameId }) => {
       </h1>
 
       <div className={onboardingStyles.yesnobutton}>
-        <div className={onboardingStyles.column} style={{ right: "769px" }}>
+        <div className={onboardingStyles.column} style={{ right: "812px" }}>
           <Link to={`/game/${gameId}`}>
             <button className={onboardingStyles.no}> NO </button>
           </Link>

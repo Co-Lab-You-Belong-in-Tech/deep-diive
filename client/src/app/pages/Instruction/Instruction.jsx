@@ -12,7 +12,7 @@ import image6 from "../../assets/gifs/onboard6.gif";
 import image7 from "../../assets/gifs/onboard7.gif";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import instructionStyles from "./Instruction.module.css";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/Navbar_blue/Navbar";
 
 //exit pop-up
 const customStyles = {
