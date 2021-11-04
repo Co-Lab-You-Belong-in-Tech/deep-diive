@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { io } from "socket.io-client";
 import Modal from "react-modal";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/Navbar_white/Navbar";
 import Card from "../../components/Card/Card";
 import Players from "../../components/Players/Players";
 import gameStyles from "./GameView.module.css";
