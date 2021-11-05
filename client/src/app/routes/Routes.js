@@ -11,11 +11,15 @@ const Routes = () => {
     <Router>
       <Switch>
         <Route path="/" exact component={Landing} />
-        <Route path="/onboarding" exact component={Onboarding} />
-        <Route path="/instruction/:gameId" exact component={Instruction} />
-        <Route path="/onboarding/invite" exact component={InviteOnboarding} />
-        <Route exact path="/game/:gameId" component={GameView} />
-        <Route path="/feedback" exact component={Feedback} />
+        <Route path="/v1/onboarding" exact component={Onboarding} />
+        <Route path="/v1/instruction/:gameId" exact component={Instruction} />
+        <Route
+          path="/v1/onboarding/invite"
+          exact
+          component={InviteOnboarding}
+        />
+        <Route exact path="/v1/game/:gameId" component={GameView} />
+        <Route path="/v1/feedback" exact component={Feedback} />
       </Switch>
     </Router>
   );

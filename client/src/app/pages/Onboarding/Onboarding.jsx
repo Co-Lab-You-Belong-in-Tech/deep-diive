@@ -133,7 +133,7 @@ const Onboarding = () => {
           <button className={onboardingStyles.no} onClick={closeModal}>
             NO
           </button>
-          <Link to="/feedback">
+          <Link to="/v1/feedback">
             <button className={onboardingStyles.yes}>YES</button>
           </Link>
         </div>
@@ -194,13 +194,13 @@ const Card2 = ({ gameId }) => {
 
       <div className={onboardingStyles.yesnobutton}>
         <div className={onboardingStyles.column} style={{ right: "812px" }}>
-          <Link to={`/game/${gameId}`}>
+          <Link to={`/v1/game/${gameId}`}>
             <button className={onboardingStyles.no}> NO </button>
           </Link>
           <p>Continue to the game.</p>
         </div>
         <div className={onboardingStyles.column} style={{ right: "512px" }}>
-          <Link to={`/instruction/${gameId}`}>
+          <Link to={`/v1/instruction/${gameId}`}>
             <button className={onboardingStyles.yes}> YES </button>
           </Link>
           <p>I want to read the instructions.</p>

@@ -90,7 +90,7 @@ const GameView = () => {
         <p className={gameStyles.modalText}>Are you sure you want to exit?</p>
         <div className={gameStyles.modalButtons}>
           <button onClick={closeModal}>no</button>
-          <Link to="/feedback">
+          <Link to="/v1/feedback">
             <button className={gameStyles.yes}>yes</button>
           </Link>
         </div>

@@ -49,7 +49,7 @@ const Landing = () => {
               id="name"
               onChange={changeHandler}
             />
-            <Link to="/onboarding">
+            <Link to="/v1/onboarding">
               <button>Let’s Go!</button>
             </Link>
           </form>

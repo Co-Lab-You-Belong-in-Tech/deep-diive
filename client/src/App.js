@@ -6,7 +6,7 @@ import Mobile from "./app/pages/Mobile/Mobile";
 function App() {
   return (
     isMobile ? <Mobile/> : <Routes />
-  ); main
+  );
 }
 
 export default App;
