@@ -10,7 +10,6 @@ let linkRouter = require("./server/routes/link");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 // app.use(express.static("./client/build"));
 
 // app.get("*", (req, res) => {
@@ -33,6 +32,7 @@ const server = http.createServer(app);
 // connect to mongoDB
 connectDB();
 
+app.use(cors());
 app.use("/api/links", linkRouter);
 
 if (process.env.NODE_ENV === "production") {
