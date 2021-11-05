@@ -1,5 +1,5 @@
 import feedbackStyles from "./Feedback.module.css";
-import React, { useState } from 'react';
+import React from 'react';
 import SocialMedia from "../../components/SocialMedia/SocialMedia";
 import wave from "../../assets/wave_exit.png";
 import figure from "../../assets/figure_exit.png"

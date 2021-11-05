@@ -6,8 +6,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Onboarding.css";
-import image from "../../assets/figure_onboard.png";
-import wave from "../../assets/wave_onboard.png";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import onboardingStyles from "./Onboarding.module.css";
 import Navbar from "../../components/Navbar_blue/Navbar";
