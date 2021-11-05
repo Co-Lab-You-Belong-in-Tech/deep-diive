@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./client/build"));
 
-app.get("*", (req, res) => {
+app.get("/v1/*", (req, res) => {
   res.sendFile("./client/build/index.html");
 });
 
