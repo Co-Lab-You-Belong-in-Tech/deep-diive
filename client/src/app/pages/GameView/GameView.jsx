@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams, useHistory } from "react-router-dom";
-import { io } from "socket.io-client";
+import { Link, useParams } from "react-router-dom";
+// import { io } from "socket.io-client";
 import Modal from "react-modal";
 import Navbar from "../../components/Navbar_white/Navbar";
 import Card from "../../components/Card/Card";
@@ -39,7 +39,7 @@ const GameView = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [host, setHost] = useState("");
   const { gameId } = useParams();
-  const history = useHistory();
+  // const history = useHistory();
 
   // useEffect(() => {
   //   const deepdiive_name = localStorage.getItem("deepdiive_name");
