@@ -59,7 +59,7 @@ const InviteOnboarding = () => {
           <form className={invitedStyles.form}>
             <label>Name</label>
             <input type="text" value={user} onChange={changeHandler} />
-            <Link to={`/game/${gameId}`}>
+            <Link to={`/v1/game/${gameId}`}>
               <button>Let’s Go!</button>
             </Link>
           </form>

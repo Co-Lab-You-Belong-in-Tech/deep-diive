@@ -89,7 +89,7 @@ const Instruction = () => {
           <button className={instructionStyles.no} onClick={closeModal}>
             NO
           </button>
-          <Link to="/feedback">
+          <Link to="/v1/feedback">
             <button className={instructionStyles.yes}>YES</button>
           </Link>
         </div>
@@ -130,10 +130,10 @@ const Card1 = ({ gameId }) => {
         select the player that answers first.
       </h1>
       <div>
-        <Link to={`/game/${gameId}`}>
+        <Link to={`/v1/game/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
         </Link>
-      </div> 
+      </div>
     </div>
   );
 };
@@ -148,7 +148,7 @@ const Card2 = ({ gameId }) => {
       </h1>
 
       <div>
-        <Link to={`/game/${gameId}`}>
+        <Link to={`/v1/game/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
         </Link>
       </div>
@@ -176,7 +176,7 @@ const Card3 = ({ gameId }) => {
       </h2>
 
       <div>
-        <Link to={`/game/${gameId}`}>
+        <Link to={`/v1/game/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
         </Link>
       </div>
@@ -194,7 +194,7 @@ const Card4 = ({ gameId }) => {
         <span className={instructionStyles.highlight}>Back.</span>
       </h1>
       <div>
-        <Link to={`/game/${gameId}`}>
+        <Link to={`/v1/game/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
         </Link>
       </div>
@@ -205,17 +205,14 @@ const Card4 = ({ gameId }) => {
 const Card5 = ({ gameId }) => {
   return (
     <div className={instructionStyles.view}>
-      <img 
-        style={{ marginTop:"-35px" }}
-        src={image7} 
-        alt="exit instruction" />
+      <img style={{ marginTop: "-35px" }} src={image7} alt="exit instruction" />
       <h1>
         When you are done playing, simply press the{" "}
         <span className={instructionStyles.highlight}>X</span> at the top right
         of your screen.
       </h1>
       <hr />
-      <Link to={`/game/${gameId}`}>
+      <Link to={`/v1/game/${gameId}`}>
         <button className={instructionStyles.readyButton}>CONTINUE</button>
       </Link>
     </div>
