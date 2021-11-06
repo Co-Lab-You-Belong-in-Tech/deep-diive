@@ -64,6 +64,11 @@
   transition: 0.4s;
   text-transform: uppercase;
 }
+.buttons > button:hover {
+  background-color: #fff;
+  color: #393e4d;
+  border: 1px solid #393e4d;
+}
 .buttons > button:nth-child(1) {
   color: #222325;
   background-color: transparent;
