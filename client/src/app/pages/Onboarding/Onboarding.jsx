@@ -176,7 +176,7 @@ const Card1 = ({ gameId }) => {
         </p>
         <div className={onboardingStyles.copybutton}>
           <p>Invite Link</p>
-          <Copy copyText={`https://deepdiive.herokuapp.com/game/${gameId}`} />
+          <Copy copyText={`https://deepdiive.netlify.app/v1/game/${gameId}`} />
         </div>
       </div>
     </div>
