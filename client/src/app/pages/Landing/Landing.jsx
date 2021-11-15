@@ -9,10 +9,10 @@ const Landing = () => {
   const [user, setUser] = useState("");
 
   const changeHandler = (e) => {
-    const deepdiive_name = e.target.value;
+    const deepdiive_user = e.target.value;
 
-    localStorage.setItem("deepdiive_name", deepdiive_name);
-    setUser(deepdiive_name);
+    localStorage.setItem("deepdiive_user", deepdiive_user);
+    setUser(deepdiive_user);
     console.log(user);
   };
 

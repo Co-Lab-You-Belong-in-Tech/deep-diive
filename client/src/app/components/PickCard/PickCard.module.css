@@ -20,3 +20,8 @@
   letter-spacing: 0.165em;
   cursor: pointer;
 }
+.pickCard button:hover {
+  background-color: #fff;
+  color: #393e4d;
+  border: 1px solid #393e4d;
+}

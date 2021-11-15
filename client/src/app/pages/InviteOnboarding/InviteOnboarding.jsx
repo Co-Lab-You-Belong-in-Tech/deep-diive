@@ -10,7 +10,7 @@ const InviteOnboarding = () => {
   const [user, setUser] = useState("");
   const { gameId } = useParams();
 
-  const username = localStorage.getItem("deepdiive_name");
+  const username = localStorage.getItem("deepdiive_user");
 
   useEffect(() => {
     const res = async () => {
@@ -25,10 +25,10 @@ const InviteOnboarding = () => {
   }, [gameId, username]);
 
   const changeHandler = (e) => {
-    const deepdiive_name = e.target.value;
+    const deepdiive_guest = e.target.value;
 
-    localStorage.setItem("deepdiive_name", deepdiive_name);
-    setUser(deepdiive_name);
+    localStorage.setItem("deepdiive_guest", deepdiive_guest);
+    setUser(deepdiive_guest);
     console.log(user);
   };
 

@@ -84,7 +84,7 @@ const Onboarding = () => {
   const [gameId, setGameId] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  const username = localStorage.getItem("deepdiive_name");
+  const username = localStorage.getItem("deepdiive_user");
 
   useEffect(() => {
     const res = async () => {
@@ -121,6 +121,7 @@ const Onboarding = () => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
+        ariaHideApp={false}
         contentLabel="Exit Modal"
       >
         <p className={onboardingStyles.modalText}>
@@ -158,7 +159,7 @@ const Onboarding = () => {
 
 //Each slide
 const Card1 = ({ gameId }) => {
-  const name = localStorage.getItem("deepdiive_name");
+  const name = localStorage.getItem("deepdiive_user");
 
   return (
     <div>
@@ -191,7 +192,8 @@ const Card2 = ({ gameId }) => {
 
       <div className={onboardingStyles.yesnobutton}>
         <div className={onboardingStyles.column} style={{ right: "812px" }}>
-          <Link to={`/v1/game/${gameId}`}>
+          {/* <Link to={`/v1/game/${gameId}`}> */}
+          <Link to={`/v1/start/${gameId}`}>
             <button className={onboardingStyles.no}> NO </button>
           </Link>
           <p>Continue to the game.</p>

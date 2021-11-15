@@ -80,6 +80,7 @@ const Instruction = () => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
+        ariaHideApp={false}
         contentLabel="Exit Modal"
       >
         <p className={instructionStyles.modalText}>
@@ -130,7 +131,8 @@ const Card1 = ({ gameId }) => {
         select the player that answers first.
       </h1>
       <div>
-        <Link to={`/v1/game/${gameId}`}>
+        {/* <Link to={`/v1/game/${gameId}`}> */}
+        <Link to={`/v1/start/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
         </Link>
       </div>
@@ -148,7 +150,8 @@ const Card2 = ({ gameId }) => {
       </h1>
 
       <div>
-        <Link to={`/v1/game/${gameId}`}>
+        {/* <Link to={`/v1/game/${gameId}`}> */}
+        <Link to={`/v1/start/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
         </Link>
       </div>
@@ -176,7 +179,8 @@ const Card3 = ({ gameId }) => {
       </h2>
 
       <div>
-        <Link to={`/v1/game/${gameId}`}>
+        {/* <Link to={`/v1/game/${gameId}`}> */}
+        <Link to={`/v1/start/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
         </Link>
       </div>
@@ -194,7 +198,8 @@ const Card4 = ({ gameId }) => {
         <span className={instructionStyles.highlight}>Back.</span>
       </h1>
       <div>
-        <Link to={`/v1/game/${gameId}`}>
+        {/* <Link to={`/v1/game/${gameId}`}> */}
+        <Link to={`/v1/start/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
         </Link>
       </div>
@@ -212,7 +217,8 @@ const Card5 = ({ gameId }) => {
         of your screen.
       </h1>
       <hr />
-      <Link to={`/v1/game/${gameId}`}>
+      {/* <Link to={`/v1/game/${gameId}`}> */}
+      <Link to={`/v1/start/${gameId}`}>
         <button className={instructionStyles.readyButton}>CONTINUE</button>
       </Link>
     </div>
