@@ -9,7 +9,7 @@ const Players = ({ host }) => {
       </div>
       <div className={playerStyles.playerCard}>
         {/* <p>{invitedPlayer}</p> */}
-        <p>{deepdiive_guest}</p>
+        <p>{deepdiive_guest || "player"}</p>
       </div>
     </div>
   );
