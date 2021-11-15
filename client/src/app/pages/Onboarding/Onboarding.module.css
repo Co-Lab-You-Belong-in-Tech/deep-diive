@@ -29,7 +29,6 @@
 
   margin-top: -60px;
   align-content: center;
-
 }
 
 .column > p {
@@ -61,7 +60,7 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   box-shadow: 4px 4px #e5e5e5;
-
+  cursor: pointer;
   color: #222325;
   font-family: Lato;
   font-style: normal;
@@ -78,7 +77,7 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   box-shadow: 4px 4px #e5e5e5;
-
+  cursor: pointer;
   color: #fdfcfb;
   font-family: Lato;
   font-style: normal;
