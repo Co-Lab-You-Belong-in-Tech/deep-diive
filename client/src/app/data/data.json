@@ -21,7 +21,7 @@
     },
     {
         "id": 6,
-        "question": "Are you a listener or a talker?"
+        "question": "Do you prefer to be the one listening or the one talking?"
     },
     {
         "id": 7,
@@ -37,11 +37,11 @@
     },
     {
         "id": 10,
-        "question": "If you won the lottery, how would you spend it?"
+        "question": "If you won the lottery, how would you spend the money?"
     },
     {
         "id": 11,
-        "question": "If you could learn another language, what would it be and why?"
+        "question": "What other language(s) do you speak? If you could learn another language, what would it be and why?"
     },
     {
         "id": 12,
@@ -49,11 +49,11 @@
     },
     {
         "id": 13,
-        "question": "What’s one of your favourite memories?"
+        "question": "What do you want people to say about you in your eulogy?"
     },
     {
         "id": 14,
-        "question": "What’s one of your favourite traditions to do each year?"
+        "question": "What’s one of your favourite traditions?"
     },
     {
         "id": 15,
@@ -65,7 +65,7 @@
     },
     {
         "id": 17,
-        "question": "Have you ever had an experience that helped you make a big change?"
+        "question": "Have you ever had an experience that helped you make a big change in your life?"
     },
     {
         "id": 18,
@@ -77,11 +77,11 @@
     },
     {
         "id": 20,
-        "question": "What piece of pop culture (book, movie, TV show) has influenced you the most?"
+        "question": "Who has influenced you the most to be the person you are today?"
     },
     {
         "id": 21,
-        "question": "What’s one thing you love about your culture?"
+        "question": "What culture do you identify with and what’s one thing you love about it?"
     },
     {
         "id": 22,
@@ -121,7 +121,7 @@
     },
     {
         "id": 31,
-        "question": "Where’s one place you visited that made you happy?"
+        "question": "Where’s one place you have visited that made you happy?"
     },
     {
         "id": 32,
@@ -145,7 +145,7 @@
     },
     {
         "id": 37,
-        "question": "If you could start a company right now, what would it do?"
+        "question": "If you could start a company right now, what would it be and why?"
     },
     {
         "id": 38,
@@ -157,7 +157,7 @@
     },
     {
         "id": 40,
-        "question": "What’s one of the highlights you’ve had with the team at work? "
+        "question": "What’s one of the most rewarding moments you’ve had with your team at work?"
     },
     {
         "id": 41,
@@ -173,7 +173,7 @@
     },
     {
         "id": 44,
-        "question": "Which work perk are you most grateful for while working at a start-up?"
+        "question": "What could you give a 20-minute presentation on with absolutely no preparation?"
     },
     {
         "id": 45,
@@ -189,7 +189,7 @@
     },
     {
         "id": 48,
-        "question": "What’s one career-related goal you have for yourself this quarter?"
+        "question": "What’s one career-related goal you want to achieve this year?"
     },
     {
         "id": 49,
@@ -197,6 +197,6 @@
     },
     {
         "id": 50,
-        "question": "What are your favourite things about working remotely?"
+        "question": "What’s the weirdest thing that’s ever happened in a virtual meeting during the pandemic?"
     }
 ]

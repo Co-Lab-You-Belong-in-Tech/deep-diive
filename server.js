@@ -12,22 +12,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./client/build"));
 
-app.get("/v1/*", (req, res) => {
-  res.sendFile("./client/build/index.html");
-});
+// app.get("/v1/*", (req, res) => {
+//   res.sendFile("./client/build/index.html");
+// });
 
 const server = http.createServer(app);
 
-// const io = socketio(server, {
-//   cors: {
-//     origin: "https://deepdiive.netlify.app/",
-//     methods: ["GET", "POST"],
-  // },
-// });
+const io = socketio(server, {
+  cors: {
+    origin: "http://localhost:3000/",
+    methods: ["GET", "POST"],
+  },
+});
 
-// io.on("connection", (socket) => {
-//   console.log(colors.bold.blue("web socket connected..."));
-// });
+io.on("connection", (socket) => {
+  console.log(colors.bold.blue("web socket connected..."));
+});
 
 // connect to mongoDB
 connectDB();

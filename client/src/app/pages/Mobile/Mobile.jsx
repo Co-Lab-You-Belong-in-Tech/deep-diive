@@ -1,5 +1,4 @@
 import mobileStyles from "./Mobile.module.css";
-import React from "react";
 import logo from "../../assets/logo-blue.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import wave from "../../assets/mobile-wave.png";

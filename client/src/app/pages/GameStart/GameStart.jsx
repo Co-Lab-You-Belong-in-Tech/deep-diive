@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams, useHistory } from "react-router-dom";
-import { io } from "socket.io-client";
+import { Link, useParams } from "react-router-dom";
 import Modal from "react-modal";
 import Navbar from "../../components/Navbar_white/Navbar";
-import Card from "../../components/Card/Card";
+// import Card from "../../components/Card/Card";
+import PickCard from "../../components/PickCard/PickCard";
 import Players from "../../components/Players/Players";
-import gameStyles from "./GameView.module.css";
+import gameStyles from "./GameStart.module.css";
 
 const customStyles = {
   overlay: {
@@ -39,16 +39,6 @@ const GameView = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [host, setHost] = useState("");
   const { gameId } = useParams();
-  const history = useHistory();
-
-  useEffect(() => {
-    const deepdiive_user = localStorage.getItem("deepdiive_user");
-    const deepdiive_guest = localStorage.getItem("deepdiive_guest");
-
-    if (!deepdiive_user || !deepdiive_guest) {
-      history.push(`/v1/onboarding/invite/${gameId}`);
-    }
-  }, [history, gameId]);
 
   useEffect(() => {
     const res = async () => {
@@ -72,18 +62,6 @@ const GameView = () => {
     };
     res();
   }, [gameId]);
-
-  const [socket, setSocket] = useState();
-
-  useEffect(() => {
-    const s = io("http://localhost:8080");
-    setSocket(s);
-
-    // return () => {
-    //   socket.disconnect();
-    // };
-  }, []);
-  console.log(socket);
 
   const openModal = () => {
     setIsOpen(true);
@@ -114,7 +92,7 @@ const GameView = () => {
           <Navbar openModal={openModal} />
         </div>
         <div className={gameStyles.cardDiv}>
-          <Card />
+          <PickCard />
         </div>
         <div className={gameStyles.playerDiv}>
           <Players host={host} />
