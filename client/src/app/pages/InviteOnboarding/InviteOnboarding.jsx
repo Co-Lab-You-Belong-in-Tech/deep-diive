@@ -10,7 +10,7 @@ const InviteOnboarding = () => {
   const [user, setUser] = useState("");
   const { gameId } = useParams();
 
-  const username = localStorage.getItem("deepdiive_user");
+  const username = localStorage.getItem("deepdiive_host");
 
   useEffect(() => {
     const res = async () => {
@@ -25,10 +25,10 @@ const InviteOnboarding = () => {
   }, [gameId, username]);
 
   const changeHandler = (e) => {
-    const deepdiive_guest = e.target.value;
+    const deepdiive_guests = e.target.value;
 
-    localStorage.setItem("deepdiive_guest", deepdiive_guest);
-    setUser(deepdiive_guest);
+    localStorage.setItem("deepdiive_guests", deepdiive_guests);
+    setUser(deepdiive_guests);
     console.log(user);
   };
 
@@ -59,7 +59,7 @@ const InviteOnboarding = () => {
           <form className={invitedStyles.form}>
             <label>Name</label>
             <input type="text" value={user} onChange={changeHandler} />
-            <Link to={`/v1/game/${gameId}`}>
+            <Link to={`/v1/instruction/invite/${gameId}`}>
               <button>Let’s Go!</button>
             </Link>
           </form>

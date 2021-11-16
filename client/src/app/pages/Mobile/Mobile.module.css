@@ -24,7 +24,6 @@
 }
 
 .mobile > p {
-  margin-bottom: 20px;
   font-family: Lato;
   font-style: normal;
   font-weight: normal;
@@ -35,6 +34,12 @@
   text-align: center;
   letter-spacing: 0.3px;
   color: #172123;
+}
+.mobile > p:first-of-type {
+  margin-bottom: -170px;
+}
+.mobile > p:last-of-type {
+  margin-bottom: -80px;
 }
 
 .wave {
