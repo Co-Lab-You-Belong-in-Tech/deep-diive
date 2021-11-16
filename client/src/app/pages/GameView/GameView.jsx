@@ -42,10 +42,10 @@ const GameView = () => {
   const history = useHistory();
 
   useEffect(() => {
-    const deepdiive_user = localStorage.getItem("deepdiive_user");
-    const deepdiive_guest = localStorage.getItem("deepdiive_guest");
+    const deepdiive_host = localStorage.getItem("deepdiive_host");
+    const deepdiive_guests = localStorage.getItem("deepdiive_guests");
 
-    if (!deepdiive_user || !deepdiive_guest) {
+    if (!deepdiive_host && !deepdiive_guests) {
       history.push(`/v1/onboarding/invite/${gameId}`);
     }
   }, [history, gameId]);

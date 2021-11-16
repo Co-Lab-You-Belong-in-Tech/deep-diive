@@ -62,13 +62,9 @@ const Card = () => {
             )}
           </div>
         </div>
-        {step > 1 ? (
-          <p className={cardStyles.hidden}></p>
-        ) : (
-          <p className={cardStyles.decide}>
-            Decide who goes first and take turns answering each question. 🎉{" "}
-          </p>
-        )}
+        <p className={cardStyles.decide}>
+          Decide who goes first and take turns answering each question. 🎉{" "}
+        </p>
       </FadeIn>
       {/* )} */}
       {/* {!isVisible && */}

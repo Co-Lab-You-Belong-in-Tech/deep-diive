@@ -6,6 +6,7 @@ import InviteOnboarding from "../pages/InviteOnboarding/InviteOnboarding";
 import Feedback from "../pages/Feedback/Feedback";
 import Instruction from "../pages/Instruction/Instruction";
 import GameStart from "../pages/GameStart/GameStart";
+import InvitedInstructions from "../pages/InvitedInstructions/InvitedInstructions";
 
 const Routes = () => {
   return (
@@ -18,6 +19,11 @@ const Routes = () => {
           path="/v1/onboarding/invite/:gameId"
           exact
           component={InviteOnboarding}
+        />
+        <Route
+          path="/v1/instruction/invite/:gameId"
+          exact
+          component={InvitedInstructions}
         />
         <Route exact path="/v1/game/:gameId" component={GameView} />
         <Route exact path="/v1/start/:gameId" component={GameStart} />

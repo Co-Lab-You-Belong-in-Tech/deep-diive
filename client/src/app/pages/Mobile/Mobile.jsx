@@ -2,6 +2,7 @@ import mobileStyles from "./Mobile.module.css";
 import logo from "../../assets/logo-blue.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import wave from "../../assets/mobile-wave.png";
+import chrome from "../../assets/chrome.svg";
 
 const Mobile = () => {
   return (
@@ -24,7 +25,8 @@ const Mobile = () => {
         <h1>Whoops!</h1>
         <p>DeepDiive is not available yet on mobile.</p>
         <p>
-          For the best experience, access DeepDiive on your desktop browser.
+          For the best experience access DeepDiive via Google Chrome on desktop.
+          <img src={chrome} alt="" />
         </p>
       </div>
       <img className={mobileStyles.wave} src={wave} alt="wave" />

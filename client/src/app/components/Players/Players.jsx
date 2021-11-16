@@ -1,7 +1,7 @@
 import playerStyles from "./Players.module.css";
 
 const Players = ({ host }) => {
-  const deepdiive_guest = localStorage.getItem("deepdiive_guest");
+  const deepdiive_guests = localStorage.getItem("deepdiive_guests");
   return (
     <div className={playerStyles.players}>
       <div className={playerStyles.playerCard}>
@@ -9,7 +9,7 @@ const Players = ({ host }) => {
       </div>
       <div className={playerStyles.playerCard}>
         {/* <p>{invitedPlayer}</p> */}
-        <p>{deepdiive_guest || "player"}</p>
+        <p>{deepdiive_guests || "player"}</p>
       </div>
     </div>
   );
