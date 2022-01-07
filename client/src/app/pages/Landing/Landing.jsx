@@ -1,12 +1,26 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import image from "../../assets/Landing_Page_png.png";
 import logo from "../../assets/new-logo.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import landingStyles from "./Landing.module.css";
+import chromeIcon from "../../assets/chrome.svg";
 
 const Landing = () => {
   const [user, setUser] = useState("");
+  const [nameError, setNameError] = useState(false);
+
+  const history = useHistory();
+
+  const validateName = (e) => {
+    e.preventDefault();
+    if (user.length < 1) {
+      setNameError(true);
+    } else{
+        setNameError(false);
+        history.push(`/v1/onboarding`);
+    }
+  };
 
   const changeHandler = (e) => {
     const deepdiive_host = e.target.value;
@@ -41,17 +55,17 @@ const Landing = () => {
             favorite video chat platform.
           </p>
           <p>Enter your name below to get started!</p>
-          <form className={landingStyles.form}>
-            <label>Name</label>
+          <form className={landingStyles.form} onSubmit={validateName}>
+            <label htmlFor="name">Name <span>*</span></label>
             <input
               value={user}
               placeholder="Your name"
               id="name"
               onChange={changeHandler}
             />
-            <Link to="/v1/onboarding">
               <button>Let’s Go!</button>
-            </Link>
+              <p className={landingStyles.chrome}>Best Experience with Google Chrome <img src={chromeIcon} alt="chrome" /></p>
+            {nameError && <p className={landingStyles.error}>Please enter your name</p>}
           </form>
         </div>
       </div>
