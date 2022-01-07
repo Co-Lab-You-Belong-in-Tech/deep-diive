@@ -4,7 +4,7 @@
 .landing nav {
   display: flex;
   justify-content: center;
-  margin-bottom: 90px;
+  margin-bottom: 50px;
 }
 .logoDiv {
   display: flex;
@@ -79,4 +79,27 @@
   display: block;
   color: #172123;
   font-size: 18px;
+}
+.grid label > span{
+  color: red;
+}
+
+.form > .error{
+  color: red;
+  margin-top: -5px;
+  letter-spacing: 0.3px;
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+}
+.form > .chrome{
+  color: #172123;
+  letter-spacing: 0.3px;
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  margin-top: -1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
