@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import image from "../../assets/Landing_Page_png.png";
 import logo from "../../assets/new-logo.svg";
 import logoIcon from "../../assets/logo_circle.png";
@@ -10,7 +10,7 @@ const Landing = () => {
   const [user, setUser] = useState("");
   const [nameError, setNameError] = useState(false);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const validateName = (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const Landing = () => {
       setNameError(true);
     } else{
         setNameError(false);
-        history.push(`/v1/onboarding`);
+        navigate(`/v1/onboarding`);
     }
   };
 
