@@ -83,10 +83,18 @@
 .grid label > span{
   color: red;
 }
-
-.form > .error{
-  color: red;
+.form > .errorDiv{
+  width: 230px;
+  height: 40px;
+  background-color: red;
+  display: grid;
+  place-content: center;
   margin-top: -5px;
+  border-radius: 4px;
+}
+.form .error{
+  color: #fff;
+  /* margin-top: -5px; */
   letter-spacing: 0.3px;
   font-size: 18px;
   font-family: "Lato", sans-serif;

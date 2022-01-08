@@ -65,7 +65,7 @@ const Landing = () => {
             />
               <button>Let’s Go!</button>
               <p className={landingStyles.chrome}>Best Experience with Google Chrome <img src={chromeIcon} alt="chrome" /></p>
-            {nameError && <p className={landingStyles.error}>Please enter your name</p>}
+            {nameError && <div className={landingStyles.errorDiv}><p className={landingStyles.error}>Please enter your name</p></div>}
           </form>
         </div>
       </div>
