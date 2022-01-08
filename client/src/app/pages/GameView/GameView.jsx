@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import Modal from "react-modal";
 import Navbar from "../../components/Navbar_white/Navbar";
@@ -39,16 +39,16 @@ const GameView = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [host, setHost] = useState("");
   const { gameId } = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const deepdiive_host = localStorage.getItem("deepdiive_host");
     const deepdiive_guests = localStorage.getItem("deepdiive_guests");
 
     if (!deepdiive_host && !deepdiive_guests) {
-      history.push(`/v1/onboarding/invite/${gameId}`);
+      navigate(`/v1/onboarding/invite/${gameId}`);
     }
-  }, [history, gameId]);
+  }, [navigate, gameId]);
 
   useEffect(() => {
     const res = async () => {
