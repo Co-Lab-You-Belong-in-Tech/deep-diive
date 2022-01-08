@@ -5,6 +5,7 @@ import logo from "../../assets/new-logo.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import image from "../../assets/Landing_Page_png.png";
 import invitedStyles from "./InviteOnboarding.module.css";
+import chromeIcon from "../../assets/chrome.svg";
 
 const InviteOnboarding = () => {
   const [user, setUser] = useState("");
@@ -50,11 +51,12 @@ const InviteOnboarding = () => {
             <span>Better Conversations</span>
           </div>
           <p>
-            This is not your average ice breaker. Unwind with workmates and have
-            meaningful conversations using our virtual card deck. Take turns
-            answering questions from the cards you select alongside your
-            favorite video chat platform.
+            Unwind with workmates and have meaningful conversations using our virtual card deck. 
+            Take turns answering questions from the selected cards 
+            <span className={invitedStyles.highlight}> alongside your favorite video chat platform.</span>
           </p>
+          <p className={invitedStyles.chrome}>Best Experience with 
+            <span className={invitedStyles.highlight}> Google Chrome </span> <img src={chromeIcon} alt="chrome" /></p>
           <p>Enter your name below to get started!</p>
           <form className={invitedStyles.form}>
             <label>Name</label>
