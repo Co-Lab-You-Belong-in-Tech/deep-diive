@@ -49,11 +49,12 @@ const Landing = () => {
             <span>Better Conversations</span>
           </div>
           <p>
-            This is not your average ice breaker. Unwind with workmates and have
-            meaningful conversations using our virtual card deck. Take turns
-            answering questions from the cards you select alongside your
-            favorite video chat platform.
+            Unwind with workmates and have meaningful conversations using our virtual card deck. 
+            Take turns answering questions from the selected cards 
+            <span className={landingStyles.highlight}> alongside your favorite video chat platform.</span>
           </p>
+          <p className={landingStyles.chrome}>Best Experience with 
+            <span className={landingStyles.highlight}> Google Chrome </span><img src={chromeIcon} alt="chrome" /></p>
           <p>Enter your name below to get started!</p>
           <form className={landingStyles.form} onSubmit={validateName}>
             <label htmlFor="name">Name <span>*</span></label>
@@ -64,7 +65,6 @@ const Landing = () => {
               onChange={changeHandler}
             />
               <button>Let’s Go!</button>
-              <p className={landingStyles.chrome}>Best Experience with Google Chrome <img src={chromeIcon} alt="chrome" /></p>
             {nameError && <div className={landingStyles.errorDiv}><p className={landingStyles.error}>Please enter your name</p></div>}
           </form>
         </div>

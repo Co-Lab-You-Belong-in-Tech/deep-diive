@@ -4,6 +4,7 @@ import wave from "../../assets/wave_exit.png";
 import figure from "../../assets/figure_exit.png";
 import logo from "../../assets/logo-blue.svg";
 import logoIcon from "../../assets/logo_circle.png";
+import { Link } from "react-router-dom";
 
 const Feedback = () => {
   return (
@@ -11,7 +12,7 @@ const Feedback = () => {
       <div className={feedbackStyles.column}>
         <div className={feedbackStyles.navDiv}>
           <img className={feedbackStyles.icon} src={logoIcon} alt="logo" />
-          <img className={feedbackStyles.name} src={logo} alt="logo" />
+          <Link to={`/`}><img className={feedbackStyles.name} src={logo} alt="logo" /></Link>
         </div>
         <img
           style={{
