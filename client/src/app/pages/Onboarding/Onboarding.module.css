@@ -249,3 +249,7 @@
   text-align: center;
   margin-top: 100px;
 }
+.loadingDiv{
+  display: grid;
+    place-content: center;
+}

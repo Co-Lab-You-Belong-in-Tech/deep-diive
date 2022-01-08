@@ -9,6 +9,7 @@ import "./Onboarding.css";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import onboardingStyles from "./Onboarding.module.css";
 import Navbar from "../../components/Navbar_blue/Navbar";
+import LoadingCard from "../../components/LoadingCard/LoadingCard";
 
 //exit pop-up
 const customStyles = {
@@ -141,7 +142,9 @@ const Onboarding = () => {
         <Navbar openModal={openModal} />
       </div>
 
-      <div className={onboardingStyles.slide}>
+      {!gameId && <div className={onboardingStyles.loadingDiv}><LoadingCard /></div>}
+
+      {gameId && <div className={onboardingStyles.slide}>
         <Slider
           prevArrow={<PreviousBtn />}
           nextArrow={<NextBtn />}
@@ -152,7 +155,7 @@ const Onboarding = () => {
           <Card1 gameId={gameId} />
           <Card2 gameId={gameId} />
         </Slider>
-      </div>
+      </div>}
     </div>
   );
 };
@@ -160,7 +163,7 @@ const Onboarding = () => {
 //Each slide
 const Card1 = ({ gameId }) => {
   const name = localStorage.getItem("deepdiive_host");
-
+  
   return (
     <div>
       <div className={onboardingStyles.view}>
@@ -181,6 +184,7 @@ const Card1 = ({ gameId }) => {
       </div>
     </div>
   );
+  
 };
 
 const Card2 = ({ gameId }) => {
