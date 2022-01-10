@@ -2,10 +2,10 @@ const http = require("http");
 const express = require("express");
 const socketio = require("socket.io");
 const cors = require("cors");
-let { connectDB } = require("./server/database/mongoConnect");
+let { connectDB } = require("./back/database/mongoConnect");
 const colors = require("colors");
 
-let linkRouter = require("./server/routes/link");
+let linkRouter = require("./back/routes/link");
 
 const app = express();
 app.use(express.json());
