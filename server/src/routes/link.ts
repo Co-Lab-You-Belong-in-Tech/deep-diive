@@ -8,9 +8,6 @@ import {
 const router = express.Router();
 
 router.get("/", generateId);
-router.get("/a", (req, res) => {
-    res.send("works")
-} );
 router.post("/join/:id", joinGame);
 router.get("/users/:id", getUser);
 

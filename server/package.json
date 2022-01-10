@@ -7,7 +7,10 @@
     "tsc": "tsc -p ./tsconfig.json",
     "start:dev": "nodemon --watch src/ --exec \"yarn serve\" -e ts",
     "serve": "tsc && node ./bin/www",
-    "compile": "tsc -p ./tsconfig.json"
+    "compile": "tsc -p ./tsconfig.json",
+    "start:build": "node build/app.js",
+    "build": "tsc",
+    "postinstall": "yarn run build"
   },
   "dependencies": {
     "@types/cookie-parser": "^1.4.2",
