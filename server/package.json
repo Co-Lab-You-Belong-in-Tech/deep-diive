@@ -10,7 +10,8 @@
     "compile": "tsc -p ./tsconfig.json",
     "start:build": "node build/app.js",
     "build": "tsc",
-    "postinstall": "yarn run build"
+    "postinstall": "yarn run build",
+    "dev": "ts-node ./src/server"
   },
   "dependencies": {
     "@types/cookie-parser": "^1.4.2",
@@ -27,6 +28,8 @@
     "mongodb-memory-server": "^8.1.0",
     "mongoose": "^6.1.6",
     "morgan": "~1.9.1",
+    "reflect-metadata": "^0.1.13",
+    "socket-controllers": "^0.0.5",
     "socket.io": "^4.4.1",
     "ts-node": "^10.4.0"
   },
