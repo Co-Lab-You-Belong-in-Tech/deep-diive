@@ -12,6 +12,7 @@ const logger = require('morgan');
 const cors_1 = __importDefault(require("cors"));
 // import colors from "colors";
 const mongoConnect_1 = __importDefault(require("./database/mongoConnect"));
+require("reflect-metadata");
 const linkRouter = require("./routes/link");
 const app = (0, express_1.default)();
 // view engine setup

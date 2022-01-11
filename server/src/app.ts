@@ -7,6 +7,7 @@ const logger = require('morgan');
 import cors from "cors";
 // import colors from "colors";
 import connectDB from "./database/mongoConnect";
+import "reflect-metadata";
 
 const linkRouter = require("./routes/link");
 

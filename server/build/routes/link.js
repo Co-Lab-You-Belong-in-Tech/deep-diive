@@ -23,9 +23,6 @@ const express = __importStar(require("express"));
 const linkController_1 = require("../controllers/linkController");
 const router = express.Router();
 router.get("/", linkController_1.generateId);
-router.get("/a", (req, res) => {
-    res.send("works");
-});
 router.post("/join/:id", linkController_1.joinGame);
 router.get("/users/:id", linkController_1.getUser);
 module.exports = router;
