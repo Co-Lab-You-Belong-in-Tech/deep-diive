@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
 import logo from "../../assets/new-logo.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import image from "../../assets/Landing_Page_png.png";
 import invitedStyles from "./InviteOnboarding.module.css";
 import chromeIcon from "../../assets/chrome.svg";
+import deepdiiveApi from "../../api/deepdiiveApi";
 
 const InviteOnboarding = () => {
   const [user, setUser] = useState("");
@@ -15,8 +15,8 @@ const InviteOnboarding = () => {
 
   useEffect(() => {
     const res = async () => {
-      const { data } = await axios.post(
-        `https://deepdiive.herokuapp.com/api/links/join/${gameId}`,
+      const { data } = await deepdiiveApi.post(
+        `/links/join/${gameId}`,
         { username: username }
       );
       console.log(data.player);
