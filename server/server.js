@@ -2,19 +2,14 @@ const http = require("http");
 const express = require("express");
 const socketio = require("socket.io");
 const cors = require("cors");
-let { connectDB } = require("./back/database/mongoConnect");
+let { connectDB } = require("./database/mongoConnect");
 const colors = require("colors");
 
-let linkRouter = require("./back/routes/link");
+let linkRouter = require("./routes/link");
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("./client/build"));
-
-// app.get("/v1/*", (req, res) => {
-//   res.sendFile("./client/build/index.html");
-// });
 
 const server = http.createServer(app);
 
@@ -26,7 +21,7 @@ const io = socketio(server, {
 });
 
 io.on("connection", (socket) => {
-  console.log(colors.bold.blue("web socket connected: ", socket.id));
+  console.log(colors.bold.blue(`web socket connected: ${socket.id}`));
   socket.on("join_game", (gameData) => {
     console.log(gameData, "here")
     socket.join(gameData.game_id)
@@ -40,10 +35,6 @@ connectDB();
 app.use(cors());
 app.use("/api/links", linkRouter);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("./client/build"));
-}
-
-const PORT = process.env.PORT || 7080;
+const PORT = process.env.PORT || 8080;
 
 server.listen(PORT, () => console.log(`server is running on port ${PORT}`));

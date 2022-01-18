@@ -60,6 +60,22 @@ const GameView = () => {
     res();
   }, [gameId, host]);
 
+  const connect = () => {
+    const socket = io("http://localhost:8080");
+
+    return socket;
+  };
+
+  useEffect(() => {
+    const socket = connect();
+    socket.on("connect", () => {
+      socket.emit("join_game", {
+        question: "why?",
+        game_id: gameId
+      })
+    })
+  }, [gameId])
+
   useEffect(() => {
     const res = async () => {
       const { data } = await axios.get(

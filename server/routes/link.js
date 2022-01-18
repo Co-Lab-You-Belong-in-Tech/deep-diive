@@ -1,9 +1,9 @@
-import * as express from "express";
-import {
-    generateId,
-    joinGame,
-    getUser,
-  } from "../controllers/linkController";
+let express = require("express");
+let {
+  generateId,
+  joinGame,
+  getUser,
+} = require("../controllers/linkController");
 
 const router = express.Router();
 

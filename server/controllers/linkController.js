@@ -1,17 +1,16 @@
-import { GameModel } from "../models/game";
-import { Request, Response } from "express";
+const Game = require("../models/game");
 
-export const generateId = async (req: Request, res: Response) => {
-  const game = await GameModel.create({});
+const generateId = async (req, res) => {
+  const game = await Game.create({});
   if (!game) return res.status(500).send("an error occured");
   res.status(201).json({ gameId: game._id });
 };
 
-export const joinGame = async (req: Request, res: Response) => {
+const joinGame = async (req, res) => {
   const { id } = req.params;
   const { username } = req.body;
 
-  const game = await GameModel.findOne({ _id: id });
+  const game = await Game.findOne({ _id: id });
   // if (!game)
   //   return res.status(400).json({ message: `Game with id ${id} not found` });
   // if (game.users.length >= 4)
@@ -25,13 +24,14 @@ export const joinGame = async (req: Request, res: Response) => {
   });
 };
 
-export const getUser = async (req: Request, res: Response) => {
+const getUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const game = await GameModel.findById(id);
+    const game = await Game.findById(id);
     res.status(200).json({ player: game.users[0] });
   } catch (err) {
     console.log(err);
   }
 };
 
+module.exports = { generateId, joinGame, getUser };
