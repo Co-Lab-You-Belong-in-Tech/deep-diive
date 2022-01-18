@@ -12,4 +12,4 @@ const gameSchema = new Schema(
   }
 );
 
-export const GameModel = model("Game", gameSchema);
+module.exports = model("Game", gameSchema);
