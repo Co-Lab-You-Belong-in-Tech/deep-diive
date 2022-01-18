@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,6 +9,7 @@ import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import onboardingStyles from "./Onboarding.module.css";
 import Navbar from "../../components/Navbar_blue/Navbar";
 import LoadingCard from "../../components/LoadingCard/LoadingCard";
+import deepdiiveApi from "../../api/deepdiiveApi";
 
 //exit pop-up
 const customStyles = {
@@ -89,8 +89,8 @@ const Onboarding = () => {
 
   useEffect(() => {
     const res = async () => {
-      const { data } = await axios.post(
-        `https://deepdiive.herokuapp.com/api/links/join/${gameId}`,
+      const { data } = await deepdiiveApi.post(
+        `/links/join/${gameId}`,
         { username: username }
       );
       return data;
@@ -100,8 +100,8 @@ const Onboarding = () => {
 
   useEffect(() => {
     const getUrl = async () => {
-      const { data } = await axios.get(
-        `https://deepdiive.herokuapp.com/api/links`
+      const { data } = await deepdiiveApi.get(
+        `/links`
       );
       setGameId(data.gameId);
     };

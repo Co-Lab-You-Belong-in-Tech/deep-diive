@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import Modal from "react-modal";
@@ -7,6 +6,7 @@ import Navbar from "../../components/Navbar_white/Navbar";
 import Card from "../../components/Card/Card";
 import Players from "../../components/Players/Players";
 import gameStyles from "./GameView.module.css";
+import deepdiiveApi from "../../api/deepdiiveApi";
 
 const customStyles = {
   overlay: {
@@ -52,8 +52,8 @@ const GameView = () => {
 
   useEffect(() => {
     const res = async () => {
-      const { data } = await axios.post(
-        `https://deepdiive.herokuapp.com/api/links/join/${gameId}`
+      const { data } = await deepdiiveApi.post(
+        `/links/join/${gameId}`
       );
       return data;
     };
@@ -78,8 +78,8 @@ const GameView = () => {
 
   useEffect(() => {
     const res = async () => {
-      const { data } = await axios.get(
-        `https://deepdiive.herokuapp.com/api/links/users/${gameId}`
+      const { data } = await deepdiiveApi.get(
+        `/links/users/${gameId}`
       );
       console.log(data.player);
       console.log(gameId);
