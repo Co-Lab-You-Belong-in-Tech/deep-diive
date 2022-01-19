@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 // import PickCard from "../PickCard/PickCard";
 // import useFade from "../../hooks/useFade";
-import data from "../../data/data.json";
 import cardStyles from "./Card.module.css";
 import FadeIn from "react-fade-in";
+import deepdiiveApi from "../../api/deepdiiveApi";
 
 const Card = () => {
   // const [showCards, setShowCards] = useState(true);
@@ -13,8 +13,16 @@ const Card = () => {
   // const [isVisible, setVisible, fadeProps] = useFade();
 
   useEffect(() => {
-    const questions = data.sort((a, b) => 0.5 - Math.random());
-    setQuestionsArray(questions);
+    const res = async () => {
+      const { data } = await deepdiiveApi.get(
+        `/questions`
+      );
+      console.log(data);
+      const questions = data.sort((a, b) => 0.5 - Math.random());
+      setQuestionsArray(questions);
+      return questions;
+    };
+    res();
   }, []);
 
   // const hideModal = () => {
@@ -55,7 +63,7 @@ const Card = () => {
             ) : (
               <button className={cardStyles.hidden}>back</button>
             )}
-            {step < data.length && (
+            {step < questionsArray.length && (
               <button onClick={goToNext} className={cardStyles.next}>
                 next card
               </button>
