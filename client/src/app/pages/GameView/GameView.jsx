@@ -60,6 +60,7 @@ const GameView = () => {
     res();
   }, [gameId, host]);
 
+  // socketio connection
   const connect = () => {
     const socket = io("http://localhost:8080");
 
