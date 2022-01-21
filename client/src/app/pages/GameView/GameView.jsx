@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { io } from "socket.io-client";
 import Modal from "react-modal";
 import Navbar from "../../components/Navbar_white/Navbar";
 import Card from "../../components/Card/Card";
+import GuestCard from "../../components/GuestCard/GuestCard";
 import Players from "../../components/Players/Players";
 import gameStyles from "./GameView.module.css";
 import deepdiiveApi from "../../api/deepdiiveApi";
+import {userIsGameHost} from "../../helpers/utils";
 
 const customStyles = {
   overlay: {
@@ -38,6 +39,7 @@ const customStyles = {
 const GameView = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [host, setHost] = useState("");
+  const [isGameHost, setIsGameHost] = useState(false);
   const { gameId } = useParams();
   const navigate = useNavigate();
 
@@ -50,32 +52,10 @@ const GameView = () => {
     }
   }, [navigate, gameId]);
 
-  useEffect(() => {
-    const res = async () => {
-      const { data } = await deepdiiveApi.post(
-        `/links/join/${gameId}`
-      );
-      return data;
-    };
-    res();
-  }, [gameId, host]);
-
-  // socketio connection
-  const connect = () => {
-    const socket = io("http://localhost:8080");
-
-    return socket;
-  };
-
-  useEffect(() => {
-    const socket = connect();
-    socket.on("connect", () => {
-      socket.emit("join_game", {
-        question: "why?",
-        game_id: gameId
-      })
-    })
-  }, [gameId])
+//   if (!isGameHost) {
+//     navigate(`/v1/onboarding/invite/${gameId}`);
+//   }
+// }, [navigate, gameId, isGameHost]);
 
   useEffect(() => {
     const res = async () => {
@@ -85,22 +65,12 @@ const GameView = () => {
       console.log(data.player);
       console.log(gameId);
       setHost(data.player);
+      setIsGameHost(userIsGameHost(data.player))
       return data;
     };
     res();
   }, [gameId]);
 
-  const [socket, setSocket] = useState();
-
-  useEffect(() => {
-    const s = io("http://localhost:8080");
-    setSocket(s);
-
-    // return () => {
-    //   socket.disconnect();
-    // };
-  }, []);
-  console.log(socket);
 
   const openModal = () => {
     setIsOpen(true);
@@ -131,7 +101,7 @@ const GameView = () => {
           <Navbar openModal={openModal} />
         </div>
         <div className={gameStyles.cardDiv}>
-          <Card />
+          {isGameHost ? <Card /> : <GuestCard />}
         </div>
         <div className={gameStyles.playerDiv}>
           <Players host={host} />

@@ -4,7 +4,7 @@ const socketio = require("socket.io");
 const cors = require("cors");
 let { connectDB } = require("./database/mongoConnect");
 const colors = require("colors");
-const fs = require("fs");
+const questions = require("./data/questions");
 
 let linkRouter = require("./routes/link");
 let questionRouter = require("./routes/question");
@@ -12,17 +12,6 @@ let questionRouter = require("./routes/question");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// app.get("/api/questions", (req, res) => {
-//         fs.readFile("./data/questions.json", "utf-8", (err, jsonString) => {
-//         if(err){
-//             console.log(err);
-//         }else{
-//             res.send(JSON.parse(jsonString));
-//             console.log(JSON.parse(jsonString));
-//         }
-//     })
-//   });
 
 app.get("/", (req, res) => {
     res.send("welcome to deepdiive api");
@@ -32,7 +21,8 @@ const server = http.createServer(app);
 
 const io = socketio(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://deepdiive.netlify.app",
+    // origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });
@@ -40,8 +30,34 @@ const io = socketio(server, {
 io.on("connection", (socket) => {
   console.log(colors.bold.blue(`web socket connected: ${socket.id}`));
   socket.on("join_game", (gameData) => {
-    console.log(gameData, "here")
-    socket.join(gameData.game_id)
+
+    const roomName = gameData.game_id;
+
+    socket.join(roomName)
+
+    // ensure atleast two users have joined game
+    if (io.sockets.adapter.rooms.get(roomName).size >= 2) {
+        io.to(roomName).emit("users_ready")
+    }
+  })
+
+  socket.on("next_question", (questionData) => {
+    const roomName = questionData.game_id;
+    const nextQuestion = questionData.question;
+    
+    io.to(roomName).emit("question", nextQuestion)
+  })
+
+  socket.on("host_game_started", (gameData) => {
+    const roomName = gameData.game_id;
+
+    io.to(roomName).emit("guest_game_can_start")
+  })
+
+  socket.on("guest_game_started", (gameData) => {
+    const roomName = gameData.game_id;
+    console.log("get it?")
+    io.to(roomName).emit("game_start")
   })
 });
 

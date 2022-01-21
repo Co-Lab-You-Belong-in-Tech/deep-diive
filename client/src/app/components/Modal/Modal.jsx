@@ -1,18 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Rules from "../Rules/Rules";
 import modalStyles from "./Modal.module.css";
 import FadeIn from "react-fade-in";
 
-const Modal = ({ hideRules }) => {
+const Modal = ({ hideRules, gameContinue, isGameHost }) => {
   const [showRules, setShowRules] = useState(true);
 
   const hide = () => {
     setShowRules(false);
   };
+
   return (
     <FadeIn>
       {showRules ? (
-        <Rules hide={hide} />
+        <Rules hide={hide} gameContinue={gameContinue} isGameHost={isGameHost} />
       ) : (
         <div className={modalStyles.rules}>
           <h1>Ground Rules</h1>
@@ -29,8 +30,10 @@ const Modal = ({ hideRules }) => {
           </p>
           <div className={modalStyles.buttons}>
             <button>back</button>
-            <button onClick={hideRules}>start</button>
-          </div>
+            { isGameHost ? (
+              <button onClick={hideRules}>start</button>
+            ) : null}
+            </div>
         </div>
       )}
     </FadeIn>

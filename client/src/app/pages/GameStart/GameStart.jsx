@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import Navbar from "../../components/Navbar_white/Navbar";
 // import Card from "../../components/Card/Card";
@@ -7,6 +7,8 @@ import PickCard from "../../components/PickCard/PickCard";
 import Players from "../../components/Players/Players";
 import gameStyles from "./GameStart.module.css";
 import deepdiiveApi from "../../api/deepdiiveApi";
+import * as gameEvents from "../../helpers/events";
+import {userIsGameHost} from "../../helpers/utils";
 
 const customStyles = {
   overlay: {
@@ -35,20 +37,29 @@ const customStyles = {
   },
 };
 
-const GameView = () => {
+const GameStart = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [host, setHost] = useState("");
+  const [isGameHost, setIsGameHost] = useState(false);
+  const [gameContinue, setGameContinue] = useState(false);
   const { gameId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const res = async () => {
-      const { data } = await deepdiiveApi.post(
-        `/links/join/${gameId}`
-      );
-      return data;
-    };
-    res();
-  }, [gameId, host]);
+    gameEvents.connect(gameId, () => {
+      setGameContinue(true);
+    });
+  }, [gameId])
+
+  // useEffect(() => {
+  //   const res = async () => {
+  //     const { data } = await deepdiiveApi.post(
+  //       `/links/join/${gameId}`
+  //     );
+  //     return data;
+  //   };
+  //   res();
+  // }, [gameId, host]);
 
   useEffect(() => {
     const res = async () => {
@@ -58,10 +69,18 @@ const GameView = () => {
       console.log(data.player);
       console.log(gameId);
       setHost(data.player);
+
+      const isHost = userIsGameHost(data.player);
+      setIsGameHost(isHost);
+      if(!isHost){
+        gameEvents.onGuestGameStart(() => {
+          navigate(`/v1/game/${gameId}`);
+        });
+      }
       return data;
     };
     res();
-  }, [gameId]);
+  }, [gameId, navigate]);
 
   const openModal = () => {
     setIsOpen(true);
@@ -91,9 +110,11 @@ const GameView = () => {
         <div className={gameStyles.navDiv}>
           <Navbar openModal={openModal} />
         </div>
-        <div className={gameStyles.cardDiv}>
-          <PickCard />
-        </div>
+        {/* { isGameHost ? ( */}
+          <div className={gameStyles.cardDiv}>
+            <PickCard gameContinue={gameContinue} isGameHost={isGameHost}/>
+          </div>
+        {/* // ) : null} */}
         <div className={gameStyles.playerDiv}>
           <Players host={host} />
         </div>
@@ -102,4 +123,4 @@ const GameView = () => {
   );
 };
 
-export default GameView;
+export default GameStart;

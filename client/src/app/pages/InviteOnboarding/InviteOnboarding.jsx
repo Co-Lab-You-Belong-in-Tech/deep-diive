@@ -13,17 +13,17 @@ const InviteOnboarding = () => {
 
   const username = localStorage.getItem("deepdiive_host");
 
-  useEffect(() => {
-    const res = async () => {
-      const { data } = await deepdiiveApi.post(
-        `/links/join/${gameId}`,
-        { username: username }
-      );
-      console.log(data.player);
-      return data;
-    };
-    res();
-  }, [gameId, username]);
+  // useEffect(() => {
+  //   const res = async () => {
+  //     const { data } = await deepdiiveApi.post(
+  //       `/links/join/${gameId}`,
+  //       { username: username }
+  //     );
+  //     console.log(data.player);
+  //     return data;
+  //   };
+  //   res();
+  // }, [gameId, username]);
 
   const changeHandler = (e) => {
     const deepdiive_guests = e.target.value;
