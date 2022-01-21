@@ -5,7 +5,7 @@ import speakerIcon from "../../assets/speaker.svg";
 import muteIcon from "../../assets/mute.svg";
 import ruleStyles from "./Rules.module.css";
 
-const Rules = ({ hide }) => {
+const Rules = ({ hide, gameContinue }) => {
   const audio = useRef(null);
   const [mute, setMute] = useState(speakerIcon);
 
@@ -24,9 +24,11 @@ const Rules = ({ hide }) => {
         Press <span>continue</span> when <br /> everyone has arrived.
       </p>
       <img src={beach} alt="beach waves" />
-      <button onClick={hide} className={ruleStyles.continueBtn}>
-        continue
-      </button>
+      {gameContinue ? (
+        <button onClick={hide} className={ruleStyles.continueBtn}>
+          continue
+        </button>
+      ): null }
       <button className={ruleStyles.muteBtn} onClick={muteAudio}>
         <img src={mute} alt="mute button" />
       </button>

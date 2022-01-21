@@ -1,41 +1,61 @@
 import { useState, useEffect } from "react";
-// import PickCard from "../PickCard/PickCard";
-// import useFade from "../../hooks/useFade";
+import {useParams} from "react-router-dom";
 import cardStyles from "./Card.module.css";
 import FadeIn from "react-fade-in";
 import deepdiiveApi from "../../api/deepdiiveApi";
+import * as gameEvents from "../../helpers/events";
 
 const Card = () => {
-  // const [showCards, setShowCards] = useState(true);
   const [step, setStep] = useState(1);
   const [questionNum, setQuestionNum] = useState(1);
   const [questionsArray, setQuestionsArray] = useState([]);
-  // const [isVisible, setVisible, fadeProps] = useFade();
+  const { gameId } = useParams();
 
   useEffect(() => {
-    const res = async () => {
-      const { data } = await deepdiiveApi.get(
-        `/questions`
-      );
-      console.log(data);
-      const questions = data.sort((a, b) => 0.5 - Math.random());
-      setQuestionsArray(questions);
-      return questions;
+    const res = () => {
+      gameEvents.startHostGame(gameId)
+      gameEvents.onGameStart(async () => {
+        const { data } = await deepdiiveApi.get(`/questions`);
+        const questions = data.sort((a, b) => 0.5 - Math.random());
+        setQuestionsArray(questions);
+        gameEvents.sendQuestion({
+          game_id: gameId,
+          question: {
+            ...questions[0],
+            questionNumber: 1
+          }
+        });
+      })
     };
     res();
   }, []);
 
-  // const hideModal = () => {
-  //   setShowCards(false);
-  // };
   const goToNext = () => {
+    const questionNumber = questionNum + 1
+    const question = questionsArray[questionNumber - 1]
     setStep(step + 1);
-    setQuestionNum(questionNum + 1);
+    setQuestionNum(questionNumber);
+    gameEvents.sendQuestion({
+      game_id: gameId,
+      question: {
+        ...question,
+        questionNumber 
+      }
+    })
     // setVisible(isVisible);
   };
   const goBack = () => {
+    const questionNumber = questionNum - 1
+    const question = questionsArray[questionNumber - 1]
     setStep(step - 1);
-    setQuestionNum(questionNum - 1);
+    setQuestionNum(questionNumber);
+    gameEvents.sendQuestion({
+      game_id: gameId,
+      question: {
+        ...question,
+        questionNumber 
+      }
+    })
   };
 
   return (
