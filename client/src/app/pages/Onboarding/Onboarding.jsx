@@ -167,7 +167,7 @@ const Card1 = ({ gameId }) => {
   return (
     <div>
       <div className={onboardingStyles.view}>
-        <h1>Nice to meet you, {name}! Time to invite your friends</h1>
+        <h1>Nice to meet you, {name}! Time to invite your workmate.</h1>
         <h2>
           Copy the invite link below and share with one workmate. Use this{" "}
           <span className={onboardingStyles.highlight}>two player</span> game

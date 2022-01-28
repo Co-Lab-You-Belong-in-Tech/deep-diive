@@ -23,6 +23,10 @@
   margin-left: 170px;
   margin-right: 170px;
 }
+.reactionDiv{
+  width: 300px;
+  margin-left: 40%;
+}
 .modalButtons {
   display: flex;
   gap: 100px;

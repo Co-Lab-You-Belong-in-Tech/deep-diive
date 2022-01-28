@@ -126,8 +126,8 @@ const Card1 = ({ gameId }) => {
     <div className={instructionStyles.view}>
       <img src={image3} alt="start instruction" />
       <h1>
-        Once your workmate arrives, <br /> press{" "}
-        <span className={instructionStyles.highlight}>Start</span> and we will
+        Once your workmate arrives, <br /> the host will press{" "}
+        <span className={instructionStyles.highlight}>Start</span> and everyone will
         select the player that answers first.
       </h1>
       <div>
@@ -145,7 +145,7 @@ const Card2 = ({ gameId }) => {
     <div className={instructionStyles.view}>
       <img src={image4} alt="next card instruction" />
       <h1>
-        Once you all are done answering the question, you can pick a new one by
+        Once you all are done answering the question, the host picks a new one by
         pressing <span className={instructionStyles.highlight}>Next Card.</span>
       </h1>
 
@@ -168,7 +168,7 @@ const Card3 = ({ gameId }) => {
         alt="gif five"
       />
       <h1>
-        If you don’t like a question or it makes you feel uncomfortable, you can
+        If you don’t like a question or it makes you feel uncomfortable, the host can
         also click
         <span className={instructionStyles.highlight}> Next Card.</span>
       </h1>
@@ -194,7 +194,7 @@ const Card4 = ({ gameId }) => {
       <img src={image6} alt="back button instruction" />
       <h1>
         Take turns alternating who answers a question. If you want to go back to
-        a previous card, click{" "}
+        a previous card, the host can click{" "}
         <span className={instructionStyles.highlight}>Back.</span>
       </h1>
       <div>

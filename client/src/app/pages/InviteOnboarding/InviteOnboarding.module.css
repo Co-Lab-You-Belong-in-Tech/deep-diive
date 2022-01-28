@@ -26,17 +26,17 @@
   grid-gap: 8px;
 }
 .title span {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 700;
   font-family: Josefin Sans;
   color: #172123;
   background-color: #f4e287;
   padding: 3px;
-  width: 382px;
+  width: 320px;
   line-height: 62px;
 }
 .title span:nth-child(2) {
-  width: 450px;
+  width: 400px;
 }
 .grid p {
   font-size: 24px;
