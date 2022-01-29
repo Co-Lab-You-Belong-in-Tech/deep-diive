@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Rules from "../Rules/Rules";
 import modalStyles from "./Modal.module.css";
 import FadeIn from "react-fade-in";

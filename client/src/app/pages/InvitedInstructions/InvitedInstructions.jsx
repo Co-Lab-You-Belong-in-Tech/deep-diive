@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Modal from "react-modal";
 import Navbar from "../../components/Navbar_blue/Navbar";
 import styles from "./invitedInstructions.module.css";
+import deepdiiveApi from "../../api/deepdiiveApi";
 
 const customStyles = {
   overlay: {
@@ -34,6 +35,23 @@ const customStyles = {
 const InvitedInstructions = () => {
     const { gameId } = useParams();
     const [modalIsOpen, setIsOpen] = useState(false);
+  
+    const username = localStorage.getItem("deepdiive_guests");
+  
+    useEffect(() => {
+      const res = async () => {
+        const { data } = await deepdiiveApi.post(
+          `/links/join/${gameId}`,
+          { username: username }
+        );
+        console.log(data.player);
+        return data;
+      };
+      res();
+    }, [gameId, username]);
+
+
+
 
   const openModal = () => {
     setIsOpen(true);

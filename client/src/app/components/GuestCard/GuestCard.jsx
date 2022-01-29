@@ -4,7 +4,7 @@ import cardStyles from "./GuestCard.module.css";
 import FadeIn from "react-fade-in";
 import * as gameEvents from "../../helpers/events";
 
-const Card = (isGameHost) => {
+const Card = () => {
   const [questionNum, setQuestionNum] = useState(1);
   const [questions, setQuestions] = useState([]);
   const {gameId} = useParams();
@@ -15,7 +15,7 @@ const Card = (isGameHost) => {
         setQuestionNum(questionData.questionNumber);
         setQuestions(questionData.question)
     })
-  }, []);
+  }, [gameId]);
 
   if(!questions) return null;
 
@@ -35,13 +35,9 @@ const Card = (isGameHost) => {
             </div>
         </div>
         <p className={cardStyles.decide}>
-          Decide who goes first and take turns answering each question. 🎉{" "}
+          Decide who goes first and take turns answering each question. 🎉
         </p>
       </FadeIn>
-      {/* )} */}
-      {/* {!isVisible && */}
-      {/* <div {...fadeProps} className={cardStyles.card}> */}
-      {/* } */}
     </FadeIn>
   );
 };

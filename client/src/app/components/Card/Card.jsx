@@ -28,7 +28,7 @@ const Card = () => {
       })
     };
     res();
-  }, []);
+  }, [gameId]);
 
   const goToNext = () => {
     const questionNumber = questionNum + 1
