@@ -8,6 +8,7 @@ import Players from "../../components/Players/Players";
 import gameStyles from "./GameView.module.css";
 import deepdiiveApi from "../../api/deepdiiveApi";
 import {userIsGameHost, userIsGuest} from "../../helpers/utils";
+import Reactions from "../../components/Reactions/Reactions";
 
 const customStyles = {
   overlay: {
@@ -41,7 +42,6 @@ const GameView = () => {
   const [host, setHost] = useState("");
   const [guest, setGuest] = useState("");
   const [isGameHost, setIsGameHost] = useState(false);
-  const [isGuest, setIsGuest] = useState(false);
   const { gameId } = useParams();
   const navigate = useNavigate();
   
@@ -103,6 +103,9 @@ const GameView = () => {
         </div>
         <div className={gameStyles.cardDiv}>
           {isGameHost ? <Card /> : <GuestCard />}
+        </div>
+        <div className={gameStyles.reactionDiv}>
+          <Reactions />
         </div>
         <div className={gameStyles.playerDiv}>
           <Players host={host} guest={guest} />
