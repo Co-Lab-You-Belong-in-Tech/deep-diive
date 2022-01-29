@@ -40,6 +40,7 @@ const customStyles = {
 const GameStart = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [host, setHost] = useState("");
+  const [guest, setGuest] = useState("");
   const [isGameHost, setIsGameHost] = useState(false);
   const [gameContinue, setGameContinue] = useState(false);
   const { gameId } = useParams();
@@ -51,26 +52,17 @@ const GameStart = () => {
     });
   }, [gameId])
 
-  // useEffect(() => {
-  //   const res = async () => {
-  //     const { data } = await deepdiiveApi.post(
-  //       `/links/join/${gameId}`
-  //     );
-  //     return data;
-  //   };
-  //   res();
-  // }, [gameId, host]);
-
   useEffect(() => {
     const res = async () => {
       const { data } = await deepdiiveApi.get(
         `/links/users/${gameId}`
       );
-      console.log(data.player);
+      console.log(data);
       console.log(gameId);
-      setHost(data.player);
+      setHost(data.player[0]);
+      setGuest(data.player[1])
 
-      const isHost = userIsGameHost(data.player);
+      const isHost = userIsGameHost(data.player[0]);
       setIsGameHost(isHost);
       if(!isHost){
         gameEvents.onGuestGameStart(() => {
@@ -110,13 +102,11 @@ const GameStart = () => {
         <div className={gameStyles.navDiv}>
           <Navbar openModal={openModal} />
         </div>
-        {/* { isGameHost ? ( */}
           <div className={gameStyles.cardDiv}>
             <PickCard gameContinue={gameContinue} isGameHost={isGameHost}/>
           </div>
-        {/* // ) : null} */}
         <div className={gameStyles.playerDiv}>
-          <Players host={host} />
+          <Players host={host} guest={guest} />
         </div>
       </div>
     </div>

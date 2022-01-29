@@ -7,7 +7,7 @@ import GuestCard from "../../components/GuestCard/GuestCard";
 import Players from "../../components/Players/Players";
 import gameStyles from "./GameView.module.css";
 import deepdiiveApi from "../../api/deepdiiveApi";
-import {userIsGameHost} from "../../helpers/utils";
+import {userIsGameHost, userIsGuest} from "../../helpers/utils";
 import Reactions from "../../components/Reactions/Reactions";
 
 const customStyles = {
@@ -40,38 +40,38 @@ const customStyles = {
 const GameView = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [host, setHost] = useState("");
+  const [guest, setGuest] = useState("");
   const [isGameHost, setIsGameHost] = useState(false);
   const { gameId } = useParams();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const deepdiive_host = localStorage.getItem("deepdiive_host");
-    const deepdiive_guests = localStorage.getItem("deepdiive_guests");
-
-    if (!deepdiive_host && !deepdiive_guests) {
-      navigate(`/v1/onboarding/invite/${gameId}`);
-    }
-  }, [navigate, gameId]);
-
-//   if (!isGameHost) {
-//     navigate(`/v1/onboarding/invite/${gameId}`);
-//   }
-// }, [navigate, gameId, isGameHost]);
-
+  
   useEffect(() => {
     const res = async () => {
       const { data } = await deepdiiveApi.get(
         `/links/users/${gameId}`
-      );
-      console.log(data.player);
-      console.log(gameId);
-      setHost(data.player);
-      setIsGameHost(userIsGameHost(data.player))
-      return data;
-    };
-    res();
-  }, [gameId]);
+        );
+        console.log(data.player[1]);
+        console.log(gameId);
+        setHost(data.player[0]);
+        setGuest(data.player[1])
+        // setIsGuest(data.player[1])
+        setIsGameHost(userIsGameHost(data.player[0]))
+        // setIsGuest(userIsGuest(data.player[1]))
 
+        const gameHost = userIsGameHost(data.player[0]);
+        const gameGuest = userIsGuest(data.player[1]);
+
+        console.log(gameHost);
+        console.log(gameGuest)
+
+        if (!gameHost && !gameGuest) {
+          navigate(`/v1/onboarding/invite/${gameId}`);
+          console.log("not host")
+        } 
+        return data;
+      };
+      res();
+    }, [gameId, isGameHost, navigate]);
 
   const openModal = () => {
     setIsOpen(true);
@@ -108,7 +108,7 @@ const GameView = () => {
           <Reactions />
         </div>
         <div className={gameStyles.playerDiv}>
-          <Players host={host} />
+          <Players host={host} guest={guest} />
         </div>
       </div>
     </div>

@@ -1,29 +1,27 @@
-import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import logo from "../../assets/new-logo.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import image from "../../assets/Landing_Page_png.png";
 import invitedStyles from "./InviteOnboarding.module.css";
 import chromeIcon from "../../assets/chrome.svg";
-import deepdiiveApi from "../../api/deepdiiveApi";
 
 const InviteOnboarding = () => {
   const [user, setUser] = useState("");
+  const [nameError, setNameError] = useState(false);
   const { gameId } = useParams();
 
-  const username = localStorage.getItem("deepdiive_host");
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const res = async () => {
-  //     const { data } = await deepdiiveApi.post(
-  //       `/links/join/${gameId}`,
-  //       { username: username }
-  //     );
-  //     console.log(data.player);
-  //     return data;
-  //   };
-  //   res();
-  // }, [gameId, username]);
+  const validateName = (e) => {
+    e.preventDefault();
+    if (user.length < 1) {
+      setNameError(true);
+    } else{
+        setNameError(false);
+        navigate(`/v1/instruction/invite/${gameId}`);
+    }
+  };
 
   const changeHandler = (e) => {
     const deepdiive_guests = e.target.value;
@@ -41,6 +39,7 @@ const InviteOnboarding = () => {
           <img src={logo} alt="" />
         </div>
       </nav>
+
       <div className={invitedStyles.grid}>
         <img src={image} alt="" />
         <div>
@@ -56,14 +55,18 @@ const InviteOnboarding = () => {
             <span className={invitedStyles.highlight}> alongside your favorite video chat platform.</span>
           </p>
           <p className={invitedStyles.chrome}>Best Experience with 
-            <span className={invitedStyles.highlight}> Google Chrome </span> <img src={chromeIcon} alt="chrome" /></p>
+            <span className={invitedStyles.highlight}> Google Chrome </span><img src={chromeIcon} alt="chrome" /></p>
           <p>Enter your name below to get started!</p>
-          <form className={invitedStyles.form}>
-            <label>Name</label>
-            <input type="text" value={user} onChange={changeHandler} />
-            <Link to={`/v1/instruction/invite/${gameId}`}>
+          <form className={invitedStyles.form} onSubmit={validateName}>
+            <label htmlFor="name">Name <span>*</span></label>
+            <input
+              value={user}
+              placeholder="Your name"
+              id="name"
+              onChange={changeHandler}
+            />
               <button>Let’s Go!</button>
-            </Link>
+            {nameError && <div className={invitedStyles.errorDiv}><p className={invitedStyles.error}>Please enter your name</p></div>}
           </form>
         </div>
       </div>

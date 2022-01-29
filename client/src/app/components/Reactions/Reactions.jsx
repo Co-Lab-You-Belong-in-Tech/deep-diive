@@ -2,10 +2,6 @@ import React from 'react';
 import _ from 'lodash';
 import { GithubCounter, GithubSelector } from 'react-reactions';
 
-
-const deepdiive_host = localStorage.getItem("deepdiive_host");
-const deepdiive_guests = localStorage.getItem("deepdiive_guests");
-
 export class Reactions extends React.Component {
   state = {
     counters: [{
