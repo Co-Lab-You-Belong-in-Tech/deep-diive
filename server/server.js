@@ -21,8 +21,8 @@ const server = http.createServer(app);
 
 const io = socketio(server, {
   cors: {
-    // origin: "https://deepdiive.netlify.app",
-    origin: "http://localhost:3000",
+    origin: "https://deepdiive.netlify.app",
+    // origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });
