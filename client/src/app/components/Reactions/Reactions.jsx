@@ -42,7 +42,7 @@ export class Reactions extends React.Component {
       { this.state.showSelector ? (
         <div style={{ position: 'absolute', bottom: '100%', marginBottom: '10px' }}>
           <GithubSelector
-            reactions={['👍', '❤️', '👀', '🙌', '🤯', '🙊', '🔥', '😹', '🥂']}
+            reactions={['👍', '❤️', '👀', '🙌', '🤯', '🙊', '🔥', '😹']}
             onSelect={ this.handleSelect } />
         </div>
       ) : null }
