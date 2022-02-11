@@ -8,7 +8,9 @@ import Players from "../../components/Players/Players";
 import gameStyles from "./GameView.module.css";
 import deepdiiveApi from "../../api/deepdiiveApi";
 import {userIsGameHost, userIsGuest} from "../../helpers/utils";
-import Reactions from "../../components/Reactions/Reactions";
+// import Reactions from "../../components/Reactions/Reactions";
+import ExitModal from "../../components/ExitModal/ExitModal";
+import * as gameEvents from "../../helpers/events";
 
 const customStyles = {
   overlay: {
@@ -42,36 +44,65 @@ const GameView = () => {
   const [host, setHost] = useState("");
   const [guest, setGuest] = useState("");
   const [isGameHost, setIsGameHost] = useState(false);
+  const [showExitModal, setShowExitModal] = useState(false);
+  // setGameContinue(true);
   const { gameId } = useParams();
   const navigate = useNavigate();
   
   useEffect(() => {
-    const res = async () => {
+    const getGameUsers = async () => {
       const { data } = await deepdiiveApi.get(
         `/links/users/${gameId}`
-        );
-        console.log(data.player[1]);
-        console.log(gameId);
-        setHost(data.player[0]);
-        setGuest(data.player[1])
-        // setIsGuest(data.player[1])
-        setIsGameHost(userIsGameHost(data.player[0]))
-        // setIsGuest(userIsGuest(data.player[1]))
+      );
+      console.log(data.player[1]);
+      console.log(gameId);
+      setHost(data.player[0]);
+      setGuest(data.player[1])
+      // setIsGuest(data.player[1])
+      setIsGameHost(userIsGameHost(data.player[0]))
+      // setIsGuest(userIsGuest(data.player[1]))
 
-        const gameHost = userIsGameHost(data.player[0]);
-        const gameGuest = userIsGuest(data.player[1]);
+      const gameHost = userIsGameHost(data.player[0]);
+      const gameGuest = userIsGuest(data.player[1]);
 
-        console.log(gameHost);
-        console.log(gameGuest)
+      console.log(gameHost);
+      console.log(gameGuest)
 
-        if (!gameHost && !gameGuest) {
-          navigate(`/v1/onboarding/invite/${gameId}`);
-          console.log("not host")
-        } 
-        return data;
-      };
-      res();
-    }, [gameId, isGameHost, navigate]);
+      if (!gameHost && !gameGuest) {
+        navigate(`/v1/onboarding/invite/${gameId}`);
+        console.log("not host")
+      } 
+
+      console.log("listening to game end")
+
+      // shows modal when other player has ended game
+      gameEvents.onGameEnd(() => {
+        console.log("received game end")
+        setShowExitModal(true);
+      })
+      // return data;
+    };
+    getGameUsers();
+  }, [gameId, isGameHost, navigate]);
+
+  // ends game
+  const endGame = () => {
+    console.log("game ended")
+    gameEvents.endGame(gameId);
+  }
+
+
+    // const end = useCallback(() => {
+    //   gameEvents.onGameEnd(gameId);
+    // }, [gameId])
+
+    // useEffect(() => {
+    //   if(end){
+    //     gameEvents.onDisconnect(gameId, () => {
+    //       setGameEnd("game over");
+    //     });
+    //   }
+    // }, [gameId, end])
 
   const openModal = () => {
     setIsOpen(true);
@@ -91,9 +122,10 @@ const GameView = () => {
       >
         <p className={gameStyles.modalText}>Are you sure you want to exit?</p>
         <div className={gameStyles.modalButtons}>
+          {/* <button>no</button> */}
           <button onClick={closeModal}>no</button>
           <Link to="/v1/feedback">
-            <button className={gameStyles.yes}>yes</button>
+            <button className={gameStyles.yes} onClick={endGame}>yes</button>
           </Link>
         </div>
       </Modal>
@@ -101,12 +133,20 @@ const GameView = () => {
         <div className={gameStyles.navDiv}>
           <Navbar openModal={openModal} />
         </div>
+        { showExitModal && (
+          <div className={gameStyles.overlay}>
+            <div className={gameStyles.ended}><ExitModal /></div>
+          </div>
+        )}
+        {/* <div className={gameStyles.test}>
+          <div className={gameStyles.ended}><ExitModal /></div>
+        </div> */}
         <div className={gameStyles.cardDiv}>
           {isGameHost ? <Card /> : <GuestCard />}
         </div>
-        <div className={gameStyles.reactionDiv}>
+        {/* <div className={gameStyles.reactionDiv}>
           <Reactions />
-        </div>
+        </div> */}
         <div className={gameStyles.playerDiv}>
           <Players host={host} guest={guest} />
         </div>

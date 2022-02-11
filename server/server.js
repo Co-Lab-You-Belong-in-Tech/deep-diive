@@ -4,7 +4,6 @@ const socketio = require("socket.io");
 const cors = require("cors");
 let { connectDB } = require("./database/mongoConnect");
 const colors = require("colors");
-const questions = require("./data/questions");
 
 let linkRouter = require("./routes/link");
 let questionRouter = require("./routes/question");
@@ -19,6 +18,7 @@ app.get("/", (req, res) => {
 
 const server = http.createServer(app);
 
+// connect socket server to frontend
 const io = socketio(server, {
   cors: {
     origin: "https://deepdiive.netlify.app",
@@ -27,6 +27,7 @@ const io = socketio(server, {
   },
 });
 
+// on connection, join the game
 io.on("connection", (socket) => {
   console.log(colors.bold.blue(`web socket connected: ${socket.id}`));
   socket.on("join_game", (gameData) => {
@@ -59,8 +60,13 @@ io.on("connection", (socket) => {
     console.log("get it?")
     io.to(roomName).emit("game_start")
   })
-});
 
+  socket.on("end_game", (gameData) => {
+    const roomName = gameData.game_id;
+    console.log("ended");
+    io.to(roomName).emit("game_end")
+  })
+});
 
 // connect to mongoDB
 connectDB();

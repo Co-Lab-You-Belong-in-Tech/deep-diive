@@ -61,3 +61,19 @@ export const onGameStart = (onStart) => {
         onStart();
     })
 }
+
+export const onGameEnd = (onEnd) => {
+    if(!socket) return;
+
+    socket.on("game_end", () => {
+        onEnd();
+    })
+}
+
+export const endGame = (gameId) => {
+    if(!socket) return;
+
+    socket.emit("end_game", {
+        game_id: gameId
+    })
+}
