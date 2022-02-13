@@ -12,7 +12,8 @@ const Card = () => {
   const { gameId } = useParams();
 
   useEffect(() => {
-    const res = () => {
+    // get the questions and shuffle them
+    const getQuestions = () => {
       gameEvents.startHostGame(gameId)
       gameEvents.onGameStart(async () => {
         const { data } = await deepdiiveApi.get(`/questions`);
@@ -27,7 +28,7 @@ const Card = () => {
         });
       })
     };
-    res();
+    getQuestions();
   }, [gameId]);
 
   const goToNext = () => {
@@ -42,7 +43,6 @@ const Card = () => {
         questionNumber 
       }
     })
-    // setVisible(isVisible);
   };
   const goBack = () => {
     const questionNumber = questionNum - 1
@@ -60,9 +60,6 @@ const Card = () => {
 
   return (
     <FadeIn>
-      {/* {showCards ? (
-        <PickCard hideModal={hideModal} />
-      ) : ( */}
       <FadeIn>
         <div className={cardStyles.card}>
           {questionsArray.slice(step - 1, step).map((step, index) => (
@@ -94,10 +91,6 @@ const Card = () => {
           Decide who goes first and take turns answering each question. 🎉{" "}
         </p>
       </FadeIn>
-      {/* )} */}
-      {/* {!isVisible && */}
-      {/* <div {...fadeProps} className={cardStyles.card}> */}
-      {/* } */}
     </FadeIn>
   );
 };

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import Navbar from "../../components/Navbar_white/Navbar";
-// import Card from "../../components/Card/Card";
 import PickCard from "../../components/PickCard/PickCard";
 import Players from "../../components/Players/Players";
 import gameStyles from "./GameStart.module.css";
@@ -10,6 +9,7 @@ import deepdiiveApi from "../../api/deepdiiveApi";
 import * as gameEvents from "../../helpers/events";
 import {userIsGameHost} from "../../helpers/utils";
 
+//exit pop-up modal
 const customStyles = {
   overlay: {
     position: "fixed",
@@ -53,17 +53,22 @@ const GameStart = () => {
   }, [gameId])
 
   useEffect(() => {
-    const res = async () => {
+    const getGameUsers = async () => {
       const { data } = await deepdiiveApi.get(
         `/links/users/${gameId}`
       );
-      console.log(data);
-      console.log(gameId);
+      
+      /* 
+        set the host to be the first name in the players array,
+        and the guest would be the second name
+      */
       setHost(data.player[0]);
       setGuest(data.player[1])
 
       const isHost = userIsGameHost(data.player[0]);
       setIsGameHost(isHost);
+
+      // if user is the host, navigate to game
       if(!isHost){
         gameEvents.onGuestGameStart(() => {
           navigate(`/v1/game/${gameId}`);
@@ -71,7 +76,7 @@ const GameStart = () => {
       }
       return data;
     };
-    res();
+    getGameUsers();
   }, [gameId, navigate]);
 
   const openModal = () => {

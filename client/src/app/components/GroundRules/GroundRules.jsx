@@ -1,19 +1,30 @@
 import { useState } from "react";
-import Rules from "../Rules/Rules";
-import modalStyles from "./Modal.module.css";
+import WaitingRoom from "../WaitingRoom/WaitingRoom";
+import modalStyles from "./GroundRules.module.css";
 import FadeIn from "react-fade-in";
+// import GroundRules from "../GroundRules/GroundRules";
+// import WaitingRoom from "../WaitingRoom/WaitingRoom";
 
-const Modal = ({ hideRules, gameContinue, isGameHost }) => {
+const GroundRules = ({ hideRules, gameContinue, isGameHost, hideGroundRules, setShowWaiting }) => {
   const [showRules, setShowRules] = useState(true);
+  // const [showGroundRules, setShowGroundRules] = useState(true);
+  // const [please, setPlease] = useState(false);
 
   const hide = () => {
     setShowRules(false);
   };
 
+  // const test = () => {
+    // setShowGroundRules(false);
+    // setPlease(true);
+    // setShowWaiting(true)
+    // show();
+  // }
+
   return (
     <FadeIn>
       {showRules ? (
-        <Rules hide={hide} gameContinue={gameContinue} isGameHost={isGameHost} />
+        <WaitingRoom hide={hide} gameContinue={gameContinue} isGameHost={isGameHost} />
       ) : (
         <div className={modalStyles.rules}>
           <h1>Ground Rules</h1>
@@ -29,9 +40,9 @@ const Modal = ({ hideRules, gameContinue, isGameHost }) => {
             <span>Be</span> Non-Judgmental
           </p>
           <div className={modalStyles.buttons}>
-            <button>back</button>
+            {/* <button onClick={test} className={modalStyles.back}>back</button> */}
             { isGameHost ? (
-              <button onClick={hideRules}>start</button>
+              <button onClick={hideRules} className={modalStyles.start}>start</button>
             ) : null}
             </div>
         </div>
@@ -40,4 +51,4 @@ const Modal = ({ hideRules, gameContinue, isGameHost }) => {
   );
 };
 
-export default Modal;
+export default GroundRules;

@@ -11,7 +11,7 @@ import Navbar from "../../components/Navbar_blue/Navbar";
 import LoadingCard from "../../components/LoadingCard/LoadingCard";
 import deepdiiveApi from "../../api/deepdiiveApi";
 
-//exit pop-up
+//exit pop-up modal
 const customStyles = {
   overlay: {
     position: "fixed",

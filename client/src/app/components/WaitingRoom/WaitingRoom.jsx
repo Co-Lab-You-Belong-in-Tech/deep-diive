@@ -3,11 +3,22 @@ import beach from "../../assets/gifs/ocean-waves.gif";
 import oceanWaves from "../../assets/audio/DeepDiive_Water_Sounds.mp3";
 import speakerIcon from "../../assets/speaker.svg";
 import muteIcon from "../../assets/mute.svg";
-import ruleStyles from "./Rules.module.css";
+import ruleStyles from "./WaitingRoom.module.css";
+import GroundRules from "../GroundRules/GroundRules";
 
-const Rules = ({ hide, gameContinue }) => {
+const WaitingRoom = ({ hide, gameContinue }) => {
   const audio = useRef(null);
   const [mute, setMute] = useState(speakerIcon);
+  const [showRules, setShowRules] = useState(false);
+  const [showWaiting, setShowWaiting] = useState(true)
+
+  const hideGroundRules = () => {
+    setShowRules(true);
+  };
+
+  // const show = () => {
+  //   setShowWaiting(true)
+  // }
 
   const muteAudio = () => {
     if (audio.current.paused) {
@@ -19,6 +30,10 @@ const Rules = ({ hide, gameContinue }) => {
   };
 
   return (
+    <div>
+      {showRules ? (
+        <GroundRules hideGroundRules={hideGroundRules} setShowWaiting={setShowWaiting} />
+      ) : showWaiting ? (
     <div className={ruleStyles.modal}>
       <p>
         Press <span>continue</span> when <br /> everyone has arrived.
@@ -36,7 +51,9 @@ const Rules = ({ hide, gameContinue }) => {
         <source src={oceanWaves} type="audio/mpeg" />
       </audio>
     </div>
+   ) : null}
+    </div>
   );
 };
 
-export default Rules;
+export default WaitingRoom;

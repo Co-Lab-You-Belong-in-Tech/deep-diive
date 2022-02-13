@@ -28,7 +28,6 @@ const InviteOnboarding = () => {
 
     localStorage.setItem("deepdiive_guests", deepdiive_guests);
     setUser(deepdiive_guests);
-    console.log(user);
   };
 
   return (
