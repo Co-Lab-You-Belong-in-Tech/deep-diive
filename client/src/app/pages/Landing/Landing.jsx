@@ -27,7 +27,6 @@ const Landing = () => {
 
     localStorage.setItem("deepdiive_host", deepdiive_host);
     setUser(deepdiive_host);
-    console.log(user);
   };
 
   return (

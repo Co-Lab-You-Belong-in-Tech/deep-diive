@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar_blue/Navbar";
 import styles from "./invitedInstructions.module.css";
 import deepdiiveApi from "../../api/deepdiiveApi";
 
+//exit pop-up modal
 const customStyles = {
   overlay: {
     position: "fixed",
@@ -39,19 +40,16 @@ const InvitedInstructions = () => {
     const username = localStorage.getItem("deepdiive_guests");
   
     useEffect(() => {
-      const res = async () => {
+      // add name of player to the game and join
+      const joinGame = async () => {
         const { data } = await deepdiiveApi.post(
           `/links/join/${gameId}`,
           { username: username }
         );
-        console.log(data.player);
         return data;
       };
-      res();
+      joinGame();
     }, [gameId, username]);
-
-
-
 
   const openModal = () => {
     setIsOpen(true);
@@ -91,7 +89,6 @@ const InvitedInstructions = () => {
 
         <div className={styles.yesnobutton}>
           <div className={styles.column} style={{ right: "812px" }}>
-            {/* <Link to={`/v1/game/${gameId}`}> */}
             <Link to={`/v1/start/${gameId}`}>
               <button className={styles.no}> NO </button>
             </Link>
@@ -104,7 +101,6 @@ const InvitedInstructions = () => {
             <p>I want to read the instructions.</p>
           </div>
         </div>
-        {/* <img src={image} alt="figure" /> */}
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import instructionStyles from "./Instruction.module.css";
 import Navbar from "../../components/Navbar_blue/Navbar";
 
-//exit pop-up
+//exit pop-up modal
 const customStyles = {
   overlay: {
     position: "fixed",
@@ -44,7 +44,6 @@ const customStyles = {
 
 //Slide show buttons
 const PreviousBtn = (props) => {
-  console.log(props);
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
@@ -131,7 +130,6 @@ const Card1 = ({ gameId }) => {
         select the player that answers first.
       </h1>
       <div>
-        {/* <Link to={`/v1/game/${gameId}`}> */}
         <Link to={`/v1/start/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
         </Link>
@@ -179,7 +177,6 @@ const Card3 = ({ gameId }) => {
       </h2>
 
       <div>
-        {/* <Link to={`/v1/game/${gameId}`}> */}
         <Link to={`/v1/start/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
         </Link>
@@ -198,7 +195,6 @@ const Card4 = ({ gameId }) => {
         <span className={instructionStyles.highlight}>Back.</span>
       </h1>
       <div>
-        {/* <Link to={`/v1/game/${gameId}`}> */}
         <Link to={`/v1/start/${gameId}`}>
           <button className={instructionStyles.skipbutton}> Skip </button>
         </Link>
@@ -217,7 +213,6 @@ const Card5 = ({ gameId }) => {
         of your screen.
       </h1>
       <hr />
-      {/* <Link to={`/v1/game/${gameId}`}> */}
       <Link to={`/v1/start/${gameId}`}>
         <button className={instructionStyles.readyButton}>CONTINUE</button>
       </Link>

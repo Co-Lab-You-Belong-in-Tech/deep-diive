@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import FadeIn from "react-fade-in";
-import Modal from "../Modal/Modal";
+import GroundRules from "../GroundRules/GroundRules";
 import cardImg from "../../assets/play-card.png";
 import pickStyles from "./PickCard.module.css";
 
@@ -19,14 +19,11 @@ const PickCard = ({ hideModal, gameContinue, isGameHost }) => {
   return (
     <FadeIn>
       {showStart ? (
-        <Modal hideRules={hideRules} gameContinue={gameContinue} isGameHost={isGameHost}/>
+        <GroundRules hideRules={hideRules} gameContinue={gameContinue} isGameHost={isGameHost}/>
       ) : (
         <div className={pickStyles.pickCard}>
           <img src={cardImg} alt="deck of cards" />
-          {/* <button onClick={hideModal}>pick a card</button> */}
-          {/* <Link to={`/v1/game/${gameId}`}> */}
             <button onClick={pickACard} >pick a card</button>
-          {/* </Link> */}
         </div>
       )}
     </FadeIn>
