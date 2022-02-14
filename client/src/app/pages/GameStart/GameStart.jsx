@@ -71,7 +71,7 @@ const GameStart = () => {
       // if user is the host, navigate to game
       if(!isHost){
         gameEvents.onGuestGameStart(() => {
-          navigate(`/v1/game/${gameId}`);
+          navigate(`/game/${gameId}`);
         });
       }
       return data;
@@ -98,7 +98,7 @@ const GameStart = () => {
         <p className={gameStyles.modalText}>Are you sure you want to exit?</p>
         <div className={gameStyles.modalButtons}>
           <button onClick={closeModal}>no</button>
-          <Link to="/v1/feedback">
+          <Link to="/feedback">
             <button className={gameStyles.yes}>yes</button>
           </Link>
         </div>

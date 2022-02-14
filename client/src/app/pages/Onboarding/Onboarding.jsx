@@ -132,7 +132,7 @@ const Onboarding = () => {
           <button className={onboardingStyles.no} onClick={closeModal}>
             NO
           </button>
-          <Link to="/v1/feedback">
+          <Link to="/feedback">
             <button className={onboardingStyles.yes}>YES</button>
           </Link>
         </div>
@@ -179,7 +179,7 @@ const Card1 = ({ gameId }) => {
         </p>
         <div className={onboardingStyles.copybutton}>
           <p>Invite Link</p>
-          <Copy copyText={`https://deepdiive.netlify.app/v1/game/${gameId}`} />
+          <Copy copyText={`https://deepdiive.netlify.app/game/${gameId}`} />
         </div>
       </div>
     </div>
@@ -196,14 +196,13 @@ const Card2 = ({ gameId }) => {
 
       <div className={onboardingStyles.yesnobutton}>
         <div className={onboardingStyles.column} style={{ right: "812px" }}>
-          {/* <Link to={`/v1/game/${gameId}`}> */}
-          <Link to={`/v1/start/${gameId}`}>
+          <Link to={`/start/${gameId}`}>
             <button className={onboardingStyles.no}> NO </button>
           </Link>
           <p>Continue to the game.</p>
         </div>
         <div className={onboardingStyles.column} style={{ right: "512px" }}>
-          <Link to={`/v1/instruction/${gameId}`}>
+          <Link to={`/instruction/${gameId}`}>
             <button className={onboardingStyles.yes}> YES </button>
           </Link>
           <p>I want to read the instructions.</p>

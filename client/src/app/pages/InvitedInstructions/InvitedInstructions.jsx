@@ -74,7 +74,7 @@ const InvitedInstructions = () => {
           <button className={styles.no} onClick={closeModal}>
             NO
           </button>
-          <Link to="/v1/feedback">
+          <Link to="/feedback">
             <button className={styles.yes}>YES</button>
           </Link>
         </div>
@@ -89,13 +89,13 @@ const InvitedInstructions = () => {
 
         <div className={styles.yesnobutton}>
           <div className={styles.column} style={{ right: "812px" }}>
-            <Link to={`/v1/start/${gameId}`}>
+            <Link to={`/start/${gameId}`}>
               <button className={styles.no}> NO </button>
             </Link>
             <p>Continue to the game.</p>
           </div>
           <div className={styles.column} style={{ right: "512px" }}>
-            <Link to={`/v1/instruction/${gameId}`}>
+            <Link to={`/instruction/${gameId}`}>
               <button className={styles.yes}> YES </button>
             </Link>
             <p>I want to read the instructions.</p>

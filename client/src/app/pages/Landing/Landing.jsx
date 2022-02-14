@@ -18,7 +18,7 @@ const Landing = () => {
       setNameError(true);
     } else{
         setNameError(false);
-        navigate(`/v1/onboarding`);
+        navigate(`/onboarding`);
     }
   };
 
