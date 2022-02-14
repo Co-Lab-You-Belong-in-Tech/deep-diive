@@ -14,7 +14,7 @@ const PickCard = ({ hideModal, gameContinue, isGameHost }) => {
     setShowStart(false);
   };
   const pickACard = () => {
-    navigate(`/v1/game/${gameId}`);
+    navigate(`/game/${gameId}`);
   }
   return (
     <FadeIn>

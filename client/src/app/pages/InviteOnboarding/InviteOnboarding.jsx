@@ -19,7 +19,7 @@ const InviteOnboarding = () => {
       setNameError(true);
     } else{
         setNameError(false);
-        navigate(`/v1/instruction/invite/${gameId}`);
+        navigate(`/instruction/invite/${gameId}`);
     }
   };
 

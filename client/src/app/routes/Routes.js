@@ -13,19 +13,19 @@ const Routers = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/v1/onboarding" element={<Onboarding />} />
-        <Route path="/v1/instruction/:gameId" element={<Instruction />} />
+        <Route path="/onboarding" element={<Onboarding />} />
+        <Route path="/instruction/:gameId" element={<Instruction />} />
         <Route
-          path="/v1/onboarding/invite/:gameId"
+          path="/onboarding/invite/:gameId"
           element={<InviteOnboarding />}
         />
         <Route
-          path="/v1/instruction/invite/:gameId"
+          path="/instruction/invite/:gameId"
           element={<InvitedInstructions />}
         />
-        <Route path="/v1/game/:gameId" element={<GameView />} />
-        <Route path="/v1/start/:gameId" element={<GameStart />} />
-        <Route path="/v1/feedback" element={<Feedback />} />
+        <Route path="/game/:gameId" element={<GameView />} />
+        <Route path="/start/:gameId" element={<GameStart />} />
+        <Route path="/feedback" element={<Feedback />} />
       </Routes>
     </Router>
   );

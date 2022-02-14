@@ -68,7 +68,7 @@ const GameView = () => {
 
       // if the user isn't already in the game as a host or guest, redirect to onboarding
       if (!gameHost && !gameGuest) {
-        navigate(`/v1/onboarding/invite/${gameId}`);
+        navigate(`/onboarding/invite/${gameId}`);
       } 
 
       // shows modal when other player has ended game
@@ -103,7 +103,7 @@ const GameView = () => {
         <p className={gameStyles.modalText}>Are you sure you want to exit?</p>
         <div className={gameStyles.modalButtons}>
           <button onClick={closeModal}>no</button>
-          <Link to="/v1/feedback">
+          <Link to="/feedback">
             <button className={gameStyles.yes} onClick={endGame}>yes</button>
           </Link>
         </div>
