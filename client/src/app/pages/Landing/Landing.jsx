@@ -5,6 +5,7 @@ import logo from "../../assets/new-logo.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import landingStyles from "./Landing.module.css";
 import chromeIcon from "../../assets/chrome.svg";
+// import ReactGA from "react-ga";
 
 const Landing = () => {
   const [user, setUser] = useState("");
