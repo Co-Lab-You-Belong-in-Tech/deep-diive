@@ -63,7 +63,7 @@ const GameStart = () => {
         and the guest would be the second name
       */
       setHost(data.player[0]);
-      setGuest(data.player[1])
+      setGuest(data.player[1]);
 
       const isHost = userIsGameHost(data.player[0]);
       setIsGameHost(isHost);
