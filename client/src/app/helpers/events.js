@@ -2,11 +2,13 @@ import { io } from "socket.io-client";
 
 let socket = null;
 
-const BaseUrl = process.env.REACT_APP_SOCKET_URL;
+// const BaseUrl = process.env.REACT_APP_SOCKET_URL;
 
 export const connect = (gameId, onGameReady) => {
     // socket = io("http://localhost:8080");
-    socket = io(BaseUrl);
+    socket = io("https://deepdiiveapi.herokuapp.com/api");
+
+    // socket = io(BaseUrl);
 
     socket.on("connect", () => {
         socket.emit("join_game", {
