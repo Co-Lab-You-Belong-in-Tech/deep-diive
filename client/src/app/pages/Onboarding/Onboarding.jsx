@@ -124,6 +124,7 @@ const Onboarding = () => {
         style={customStyles}
         ariaHideApp={false}
         contentLabel="Exit Modal"
+        closeTimeoutMS={300}
       >
         <p className={onboardingStyles.modalText}>
           Are you sure you want to exit?
