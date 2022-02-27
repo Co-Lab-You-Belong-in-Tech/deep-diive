@@ -8,5 +8,5 @@ export default axios.create({
     // production
     // baseURL: "https://deepdiiveapi.herokuapp.com/api"
     // staging
-    baseUrl: "https://deepdiiveapi-staging.herokuapp.app/"
+    baseURL: "https://deepdiiveapi-staging.herokuapp.com/api"
 })
