@@ -1,44 +1,70 @@
-.card{
-    background: #FDFCFB;
-    border: 1px solid #525352;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 12px;
-    width: 743px;
-    height: 325px;
-    display: grid;
-    place-items: center;
-}
-
-.card > p{
+.modalText {
+    font-size: 34px;
     font-family: "Josefin Sans", sans-serif;
-    color: #222325;
-    line-height: 38px;
-    font-size: 38px;
     text-align: center;
-    font-weight: 600;
-    /* font-style: italic; */
-}
-
-.card > a > button {
-    background: rgba(8, 15, 34, 0.8);
-    border: 1px solid #DEDEDE;
-    border-radius: 20px;
-    width: 217px;
+    margin-top: 100px;
+  }
+  .modalButtons {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+  }
+  .modalButtons > button:nth-child(1) {
+    width: 130px;
     height: 75px;
-    color: #FFFCF9;
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
-    text-align: center;
     font-size: 24px;
-    font-weight: 900;
-    font-family: "lato", sans-serif;
-    margin-bottom: 50px;
+    font-weight: 600;
+    color: #393e4d;
+    background-color: #fff;
+    border: 1px solid #222325;
+    border-radius: 20px;
     cursor: pointer;
     transition: 0.4s;
-}
-
-.card > a > button:hover{
+    text-transform: uppercase;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .yes {
+    width: 130px;
+    height: 75px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #393e4d;
+    border: 1px solid #dedede;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .yes:hover {
     background-color: #fff;
     color: #393e4d;
     border: 1px solid #393e4d;
   }
+  .ModalOverlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.reactModal{
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    width: 743px;
+    height: 325px;
+    border: 1px solid #dedede;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    outline: none;
+}
