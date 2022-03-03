@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { usePathname } from "../hooks/usePathname";
 import GameView from "../pages/GameView/GameView";
 import Landing from "../pages/Landing/Landing";
@@ -11,11 +11,13 @@ import GameStart from "../pages/GameStart/GameStart";
 import InvitedInstructions from "../pages/InvitedInstructions/InvitedInstructions";
 import ReactGA from 'react-ga';
 import InitializeReactGA from "../helpers/googleAnalytics";
+import { AnimatePresence } from "framer-motion";
 
 function usePageViews() {
-	let pathname = usePathname();
+  
+  let pathname = usePathname();
 	useEffect(() => {
-		InitializeReactGA(ReactGA);
+    InitializeReactGA(ReactGA);
 		ReactGA.set({ page: pathname });
 		ReactGA.pageview(pathname);
     // console.log(pathname);
@@ -23,6 +25,7 @@ function usePageViews() {
 }
 
 const Routers = () => {
+  const location = useLocation();
 
   const setGA = () => {
     ReactGA.initialize('G-QGGY6NY4E9', {
@@ -41,7 +44,8 @@ const Routers = () => {
 
   usePageViews();
   return (
-      <Routes>
+    <AnimatePresence exitBeforeEnter>
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Landing />} />
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/instruction/:gameId" element={<Instruction />} />
@@ -57,6 +61,7 @@ const Routers = () => {
         <Route path="/start/:gameId" element={<GameStart />} />
         <Route path="/feedback" element={<Feedback />} />
       </Routes>
+    </AnimatePresence>
   );
 };
 

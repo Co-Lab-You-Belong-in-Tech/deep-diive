@@ -1,20 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import cardStyles from "./GuestCard.module.css";
 import FadeIn from "react-fade-in";
 import * as gameEvents from "../../helpers/events";
+import {gsap} from "gsap";
 
 const Card = () => {
   const [questionNum, setQuestionNum] = useState(1);
   const [questions, setQuestions] = useState([]);
   const {gameId} = useParams();
 
+  const boxRef = useRef();
+
   useEffect(() => {
     gameEvents.startGuestGame(gameId);
     gameEvents.onNewQuestion((questionData) => {
         setQuestionNum(questionData.questionNumber);
         setQuestions(questionData.question)
+          gsap.fromTo(boxRef.current, 1, {
+            opacity: 0,
+          }, {opacity: 1, duration: 1});
     })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameId]);
 
   if(!questions) return null;
@@ -22,7 +29,7 @@ const Card = () => {
   return (
     <FadeIn>
       <FadeIn>
-        <div className={cardStyles.card}>
+        <div className={cardStyles.card} ref={boxRef}>
             <div className={cardStyles.cardContent}>
               <div className={cardStyles.cardHeader}>
                 <p className={cardStyles.questionNumber}>

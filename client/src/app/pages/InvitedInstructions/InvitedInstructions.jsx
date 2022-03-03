@@ -5,6 +5,7 @@ import styles from "./invitedInstructions.module.css";
 import deepdiiveApi from "../../api/deepdiiveApi";
 import ExitModal from "../../components/ExitModal/ExitModal";
 import { GlobalContext } from "../../context/GlobalState";
+import { motion } from "framer-motion";
 
 const InvitedInstructions = () => {
   const { modalIsOpen } = useContext(GlobalContext);
@@ -25,6 +26,11 @@ const InvitedInstructions = () => {
     }, [gameId, username]);
 
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
     <div>
       {modalIsOpen && <ExitModal />}
       <div className={styles.navDiv}>
@@ -51,6 +57,7 @@ const InvitedInstructions = () => {
         </div>
       </div>
     </div>
+    </motion.div>
   );
 };
 

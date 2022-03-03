@@ -5,6 +5,7 @@ import logoIcon from "../../assets/logo_circle.png";
 import image from "../../assets/Landing_Page_png.png";
 import invitedStyles from "./InviteOnboarding.module.css";
 import chromeIcon from "../../assets/chrome.svg";
+import { motion } from "framer-motion";
 
 const InviteOnboarding = () => {
   const [user, setUser] = useState("");
@@ -31,6 +32,11 @@ const InviteOnboarding = () => {
   };
 
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
     <div className={invitedStyles.invite}>
       <nav>
         <div className={invitedStyles.logoDiv}>
@@ -70,6 +76,7 @@ const InviteOnboarding = () => {
         </div>
       </div>
     </div>
+    </motion.div>
   );
 };
 

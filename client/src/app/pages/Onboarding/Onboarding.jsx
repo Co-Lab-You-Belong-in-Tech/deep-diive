@@ -11,6 +11,7 @@ import LoadingCard from "../../components/LoadingCard/LoadingCard";
 import deepdiiveApi from "../../api/deepdiiveApi";
 import ExitModal from "../../components/ExitModal/ExitModal";
 import { GlobalContext } from "../../context/GlobalState";
+import { motion } from "framer-motion";
 
 //Slide show buttons
 const PreviousBtn = (props) => {
@@ -82,6 +83,11 @@ const Onboarding = () => {
   }, []);
 
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
     <div>
       {modalIsOpen && <ExitModal />}
 
@@ -104,6 +110,7 @@ const Onboarding = () => {
         </Slider>
       </div>}
     </div>
+    </motion.div>
   );
 };
 
@@ -112,6 +119,11 @@ const Card1 = ({ gameId }) => {
   const name = localStorage.getItem("deepdiive_host");
   
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
     <div>
       <div className={onboardingStyles.view}>
         <h1>Nice to meet you, {name}! Time to invite your workmate.</h1>
@@ -129,18 +141,24 @@ const Card1 = ({ gameId }) => {
           {/* production */}
           {/* <Copy copyText={`https://deepdiive.netlify.app/game/${gameId}`} /> */}
           {/* staging */}
-          <Copy copyText={`https://deepdiive-staging.netlify.app/game/${gameId}`} />
+          {/* <Copy copyText={`https://deepdiive-staging.netlify.app/game/${gameId}`} /> */}
           {/* local */}
-          {/* <Copy copyText={`http://localhost:3000/game/${gameId}`} /> */}
+          <Copy copyText={`http://localhost:3000/game/${gameId}`} />
         </div>
       </div>
     </div>
+    </motion.div>
   );
   
 };
 
 const Card2 = ({ gameId }) => {
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
     <div className={onboardingStyles.view}>
       <h1>
         Is this your first time <br /> taking a DeepDiive?
@@ -161,6 +179,7 @@ const Card2 = ({ gameId }) => {
         </div>
       </div>
     </div>
+    </motion.div>
   );
 };
 

@@ -5,6 +5,7 @@ import logo from "../../assets/new-logo.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import landingStyles from "./Landing.module.css";
 import chromeIcon from "../../assets/chrome.svg";
+import { motion } from "framer-motion";
 // import ReactGA from "react-ga";
 
 const Landing = () => {
@@ -17,9 +18,9 @@ const Landing = () => {
     e.preventDefault();
     if (user.length < 1) {
       setNameError(true);
-    } else{
-        setNameError(false);
-        navigate(`/onboarding`);
+    } else {
+      setNameError(false);
+      navigate(`/onboarding`);
     }
   };
 
@@ -31,45 +32,64 @@ const Landing = () => {
   };
 
   return (
-    <div className={landingStyles.landing}>
-      <nav>
-        <div className={landingStyles.logoDiv}>
-          <img className={landingStyles.icon} src={logoIcon} alt="" />
-          <img src={logo} alt="" />
-        </div>
-      </nav>
-
-      <div className={landingStyles.grid}>
-        <img src={image} alt="" />
-        <div>
-          <div className={landingStyles.title}>
-            <span>
-              Ride the Wave of <br />
-            </span>
-            <span>Better Conversations</span>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <div className={landingStyles.landing}>
+        <nav>
+          <div className={landingStyles.logoDiv}>
+            <img className={landingStyles.icon} src={logoIcon} alt="" />
+            <img src={logo} alt="" />
           </div>
-          <p>
-            Unwind with workmates and have meaningful conversations using our virtual card deck. 
-            Take turns answering questions from the selected cards 
-            <span className={landingStyles.highlight}> alongside your favorite video chat platform.</span>
-          </p>
-          <p className={landingStyles.chrome}>Best Experience with 
-            <span className={landingStyles.highlight}> Google Chrome </span><img src={chromeIcon} alt="chrome" /></p>
-          <p>Enter your name below to get started!</p>
-          <form className={landingStyles.form} onSubmit={validateName}>
-            <label htmlFor="name">Name <span>*</span></label>
-            <input
-              value={user}
-              placeholder="Your name"
-              id="name"
-              onChange={changeHandler}
-            />
+        </nav>
+
+        <div className={landingStyles.grid}>
+          <img src={image} alt="" />
+          <div>
+            <div className={landingStyles.title}>
+              <span>
+                Ride the Wave of <br />
+              </span>
+              <span>Better Conversations</span>
+            </div>
+            <p>
+              Unwind with workmates and have meaningful conversations using our
+              virtual card deck. Take turns answering questions from the
+              selected cards
+              <span className={landingStyles.highlight}>
+                {" "}
+                alongside your favorite video chat platform.
+              </span>
+            </p>
+            <p className={landingStyles.chrome}>
+              Best Experience with
+              <span className={landingStyles.highlight}> Google Chrome </span>
+              <img src={chromeIcon} alt="chrome" />
+            </p>
+            <p>Enter your name below to get started!</p>
+            <form className={landingStyles.form} onSubmit={validateName}>
+              <label htmlFor="name">
+                Name <span>*</span>
+              </label>
+              <input
+                value={user}
+                placeholder="Your name"
+                id="name"
+                onChange={changeHandler}
+              />
               <button>Let’s Go!</button>
-            {nameError && <div className={landingStyles.errorDiv}><p className={landingStyles.error}>Please enter your name</p></div>}
-          </form>
+              {nameError && (
+                <div className={landingStyles.errorDiv}>
+                  <p className={landingStyles.error}>Please enter your name</p>
+                </div>
+              )}
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

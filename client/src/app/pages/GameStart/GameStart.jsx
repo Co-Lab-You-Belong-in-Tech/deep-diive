@@ -9,6 +9,7 @@ import * as gameEvents from "../../helpers/events";
 import {userIsGameHost} from "../../helpers/utils";
 import ExitModal from "../../components/ExitModal/ExitModal";
 import { GlobalContext } from "../../context/GlobalState";
+import { motion } from "framer-motion";
 
 const GameStart = () => {
   const [host, setHost] = useState("");
@@ -53,6 +54,11 @@ const GameStart = () => {
   }, [gameId, navigate]);
 
   return (
+    // <motion.div
+    //   initial={{ opacity: 0 }}
+    //   animate={{ opacity: 1 }}
+    //   exit={{ opacity: 0 }}
+    // >
     <div>
       {modalIsOpen && <ExitModal />}
 
@@ -68,6 +74,7 @@ const GameStart = () => {
         </div>
       </div>
     </div>
+    // {/* </motion.div> */}
   );
 };
 

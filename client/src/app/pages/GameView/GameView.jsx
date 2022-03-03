@@ -12,6 +12,7 @@ import {userIsGameHost, userIsGuest} from "../../helpers/utils";
 import ExitAlert from "../../components/ExitAlert/ExitAlert";
 import * as gameEvents from "../../helpers/events";
 import { GlobalContext } from "../../context/GlobalState";
+import { motion } from "framer-motion";
 
 //exit pop-up modal
 const customStyles = {
@@ -86,6 +87,11 @@ const GameView = () => {
   }
 
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
     <div>
       <Modal
         isOpen={modalIsOpen}
@@ -123,6 +129,7 @@ const GameView = () => {
         </div>
       </div>
     </div>
+    </motion.div>
   );
 };
 

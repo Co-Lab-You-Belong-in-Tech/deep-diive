@@ -14,6 +14,7 @@ import instructionStyles from "./Instruction.module.css";
 import Navbar from "../../components/Navbar_blue/Navbar";
 import ExitModal from "../../components/ExitModal/ExitModal";
 import { GlobalContext } from "../../context/GlobalState";
+import { motion } from "framer-motion";
 
 //Slide show buttons
 const PreviousBtn = (props) => {
@@ -39,6 +40,11 @@ const Instruction = () => {
   const { gameId } = useParams();
 
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
     <div>
       {modalIsOpen && <ExitModal />}
       <div className={instructionStyles.navDiv}>
@@ -62,6 +68,7 @@ const Instruction = () => {
         </Slider>
       </div>
     </div>
+    </motion.div>
   );
 };
 
