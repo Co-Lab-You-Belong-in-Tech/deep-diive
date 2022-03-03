@@ -141,9 +141,9 @@ const Card1 = ({ gameId }) => {
           {/* production */}
           {/* <Copy copyText={`https://deepdiive.netlify.app/game/${gameId}`} /> */}
           {/* staging */}
-          {/* <Copy copyText={`https://deepdiive-staging.netlify.app/game/${gameId}`} /> */}
+          <Copy copyText={`https://deepdiive-staging.netlify.app/game/${gameId}`} />
           {/* local */}
-          <Copy copyText={`http://localhost:3000/game/${gameId}`} />
+          {/* <Copy copyText={`http://localhost:3000/game/${gameId}`} /> */}
         </div>
       </div>
     </div>
