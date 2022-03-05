@@ -141,9 +141,9 @@ const Card1 = ({ gameId }) => {
           {/* production */}
           {/* <Copy copyText={`https://deepdiive.netlify.app/game/${gameId}`} /> */}
           {/* staging */}
-          <Copy copyText={`https://deepdiive-staging.netlify.app/game/${gameId}`} />
+          {/* <Copy copyText={`https://deepdiive-staging.netlify.app/game/${gameId}`} /> */}
           {/* local */}
-          {/* <Copy copyText={`http://localhost:3000/game/${gameId}`} /> */}
+          <Copy copyText={`http://localhost:3000/game/${gameId}`} />
         </div>
       </div>
     </div>
@@ -165,17 +165,17 @@ const Card2 = ({ gameId }) => {
       </h1>
 
       <div className={onboardingStyles.yesnobutton}>
-        <div className={onboardingStyles.column} style={{ right: "812px" }}>
+        <div>
           <Link to={`/start/${gameId}`}>
             <button className={onboardingStyles.no}> NO </button>
           </Link>
-          <p>Continue to the game.</p>
+          <p>Continue to <br />the game.</p>
         </div>
-        <div className={onboardingStyles.column} style={{ right: "512px" }}>
+        <div>
           <Link to={`/instruction/${gameId}`}>
             <button className={onboardingStyles.yes}> YES </button>
           </Link>
-          <p>I want to read the instructions.</p>
+            <p>I want to read <br /> the instructions.</p>
         </div>
       </div>
     </div>

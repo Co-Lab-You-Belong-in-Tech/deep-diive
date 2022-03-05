@@ -85,3 +85,34 @@
   margin-top: 30px;
   font-weight: 700;
 }
+
+@media only screen and (max-width: 1330px) and (min-width: 900px) {
+  .card {
+    width: 630px;
+    height: 300px;
+  }
+  .questionNumber {
+    font-size: 28px;
+    margin-top: 0;
+  }
+  .question {
+    margin-top: 5px;
+    padding: 0 30px;
+  }
+  .question > p {
+    font-size: 32px;
+  }
+  .card > .buttons > button {
+    width: 150px;
+    height: 60px;
+    font-size: 20px;
+  }
+  .card > .buttons > .next {
+    width: 150px;
+    height: 60px;
+    font-size: 20px;
+  }
+  .decide {
+    font-size: 17px;
+  }
+}

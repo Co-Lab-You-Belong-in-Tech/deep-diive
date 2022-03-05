@@ -44,3 +44,14 @@
     color: #393e4d;
     border: 1px solid #393e4d;
   }
+
+  @media only screen and (max-width: 1330px) and (min-width: 900px) {
+    .card > p{
+        font-size: 34px;
+    }
+    .card > a > button {
+        width: 200px;
+        height: 70px;
+        font-size: 20px;
+    }
+  }

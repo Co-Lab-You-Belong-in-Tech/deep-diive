@@ -41,12 +41,12 @@ const InviteOnboarding = () => {
       <nav>
         <div className={invitedStyles.logoDiv}>
           <img className={invitedStyles.icon} src={logoIcon} alt="" />
-          <img src={logo} alt="" />
+          <img src={logo} alt="" className={invitedStyles.deepdiive} />
         </div>
       </nav>
 
       <div className={invitedStyles.grid}>
-        <img src={image} alt="" />
+        <img src={image} alt="" className={invitedStyles.bigImage} />
         <div>
           <div className={invitedStyles.title}>
             <span>

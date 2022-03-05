@@ -1,4 +1,4 @@
-import { ClipLoader, BounceLoader,  } from "react-spinners";
+import { ClipLoader } from "react-spinners";
 import loadingStyles from "./LoadingCard.module.css";
 
 const LoadingCard = () => {

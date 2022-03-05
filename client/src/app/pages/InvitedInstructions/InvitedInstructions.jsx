@@ -42,18 +42,18 @@ const InvitedInstructions = () => {
         </h1>
 
         <div className={styles.yesnobutton}>
-          <div className={styles.column} style={{ right: "812px" }}>
-            <Link to={`/start/${gameId}`}>
-              <button className={styles.no}> NO </button>
-            </Link>
-            <p>Continue to the game.</p>
-          </div>
-          <div className={styles.column} style={{ right: "512px" }}>
-            <Link to={`/instruction/${gameId}`}>
-              <button className={styles.yes}> YES </button>
-            </Link>
-            <p>I want to read the instructions.</p>
-          </div>
+        <div>
+          <Link to={`/start/${gameId}`}>
+            <button className={styles.no}> NO </button>
+          </Link>
+          <p>Continue to <br />the game.</p>
+        </div>
+        <div>
+          <Link to={`/instruction/${gameId}`}>
+            <button className={styles.yes}> YES </button>
+          </Link>
+            <p>I want to read <br /> the instructions.</p>
+        </div>
         </div>
       </div>
     </div>

@@ -41,12 +41,12 @@ const Landing = () => {
         <nav>
           <div className={landingStyles.logoDiv}>
             <img className={landingStyles.icon} src={logoIcon} alt="" />
-            <img src={logo} alt="" />
+            <img src={logo} alt="" className={landingStyles.deepdiive} />
           </div>
         </nav>
 
         <div className={landingStyles.grid}>
-          <img src={image} alt="" />
+          <img src={image} alt="" className={landingStyles.bigImage} />
           <div>
             <div className={landingStyles.title}>
               <span>

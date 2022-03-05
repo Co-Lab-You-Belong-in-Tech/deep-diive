@@ -20,17 +20,6 @@ const Feedback = () => {
             <img className={feedbackStyles.icon} src={logoIcon} alt="logo" />
             <Link to={`/`}><img className={feedbackStyles.name} src={logo} alt="logo" /></Link>
           </div>
-          <img
-            style={{
-              width: "60%",
-              height: "60%",
-              marginLeft: "165px",
-              marginTop: "160px",
-              marginBottom: "0",
-            }}
-            src={figure}
-            alt="figure"
-          />
         </div>
         <div className={feedbackStyles.column}>
           <h1>
@@ -56,11 +45,6 @@ const Feedback = () => {
           </div>
         </div>
         <div className={feedbackStyles.column}>
-          <img
-            style={{ height: "100vh", bottom: "0", top: "-100", zIndex: "-1" }}
-            src={wave}
-            alt="wave"
-          />
         </div>
       </div>
     </motion.div>
