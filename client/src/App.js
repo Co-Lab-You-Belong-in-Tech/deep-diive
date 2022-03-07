@@ -9,8 +9,7 @@ function App() {
   return (
     <GlobalContext>
       <Router>
-        {/* {isMobile ? <Mobile/> : <Routers />} */}
-        <Routers />
+        {isMobile ? <Mobile/> : <Routers />}
       </Router>
     </GlobalContext>
   );
