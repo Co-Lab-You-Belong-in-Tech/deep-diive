@@ -6,20 +6,27 @@ import logoIcon from "../../assets/logo_circle.png";
 import landingStyles from "./Landing.module.css";
 import chromeIcon from "../../assets/chrome.svg";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 // import ReactGA from "react-ga";
 
 const Landing = () => {
   const [user, setUser] = useState("");
-  const [nameError, setNameError] = useState(false);
 
   const navigate = useNavigate();
 
   const validateName = (e) => {
     e.preventDefault();
     if (user.length < 1) {
-      setNameError(true);
+      toast.error('Please enter your name', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     } else {
-      setNameError(false);
       navigate(`/onboarding`);
     }
   };
@@ -44,6 +51,8 @@ const Landing = () => {
             <img src={logo} alt="" className={landingStyles.deepdiive} />
           </div>
         </nav>
+
+        {/* <ToastContainer theme="colored"/> */}
 
         <div className={landingStyles.grid}>
           <img src={image} alt="" className={landingStyles.bigImage} />
@@ -80,11 +89,6 @@ const Landing = () => {
                 onChange={changeHandler}
               />
               <button>Let’s Go!</button>
-              {nameError && (
-                <div className={landingStyles.errorDiv}>
-                  <p className={landingStyles.error}>Please enter your name</p>
-                </div>
-              )}
             </form>
           </div>
         </div>

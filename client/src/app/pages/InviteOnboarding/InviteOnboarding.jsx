@@ -6,10 +6,10 @@ import image from "../../assets/Landing_Page_png.png";
 import invitedStyles from "./InviteOnboarding.module.css";
 import chromeIcon from "../../assets/chrome.svg";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 
 const InviteOnboarding = () => {
   const [user, setUser] = useState("");
-  const [nameError, setNameError] = useState(false);
   const { gameId } = useParams();
 
   const navigate = useNavigate();
@@ -17,9 +17,16 @@ const InviteOnboarding = () => {
   const validateName = (e) => {
     e.preventDefault();
     if (user.length < 1) {
-      setNameError(true);
+      toast.error('Please enter your name', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     } else{
-        setNameError(false);
         navigate(`/instruction/invite/${gameId}`);
     }
   };
@@ -71,7 +78,6 @@ const InviteOnboarding = () => {
               onChange={changeHandler}
             />
               <button>Let’s Go!</button>
-            {nameError && <div className={invitedStyles.errorDiv}><p className={invitedStyles.error}>Please enter your name</p></div>}
           </form>
         </div>
       </div>
