@@ -6,7 +6,7 @@ import Players from "../../components/Players/Players";
 import gameStyles from "./GameStart.module.css";
 import deepdiiveApi from "../../api/deepdiiveApi";
 import * as gameEvents from "../../helpers/events";
-import {userIsGameHost} from "../../helpers/utils";
+import { userIsGameHost } from "../../helpers/utils";
 import ExitModal from "../../components/ExitModal/ExitModal";
 import { GlobalContext } from "../../context/GlobalState";
 import { motion } from "framer-motion";
@@ -24,14 +24,12 @@ const GameStart = () => {
     gameEvents.connect(gameId, () => {
       setGameContinue(true);
     });
-  }, [gameId])
+  }, [gameId]);
 
   useEffect(() => {
     const getGameUsers = async () => {
-      const { data } = await deepdiiveApi.get(
-        `/links/users/${gameId}`
-      );
-      
+      const { data } = await deepdiiveApi.get(`/links/users/${gameId}`);
+
       /* 
         set the host to be the first name in the players array,
         and the guest would be the second name
@@ -43,7 +41,7 @@ const GameStart = () => {
       setIsGameHost(isHost);
 
       // if user is the host, navigate to game
-      if(!isHost){
+      if (!isHost) {
         gameEvents.onGuestGameStart(() => {
           navigate(`/game/${gameId}`);
         });
@@ -54,11 +52,6 @@ const GameStart = () => {
   }, [gameId, navigate]);
 
   return (
-    // <motion.div
-    //   initial={{ opacity: 0 }}
-    //   animate={{ opacity: 1 }}
-    //   exit={{ opacity: 0 }}
-    // >
     <div>
       {modalIsOpen && <ExitModal />}
 
@@ -66,15 +59,14 @@ const GameStart = () => {
         <div className={gameStyles.navDiv}>
           <Navbar />
         </div>
-          <div className={gameStyles.cardDiv}>
-            <PickCard gameContinue={gameContinue} isGameHost={isGameHost}/>
-          </div>
+        <div className={gameStyles.cardDiv}>
+          <PickCard gameContinue={gameContinue} isGameHost={isGameHost} />
+        </div>
         <div className={gameStyles.playerDiv}>
           <Players host={host} guest={guest} />
         </div>
       </div>
     </div>
-    // {/* </motion.div> */}
   );
 };
 

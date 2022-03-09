@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import image from "../../assets/Landing_Page_png.png";
 import logo from "../../assets/new-logo.svg";
@@ -7,10 +7,17 @@ import landingStyles from "./Landing.module.css";
 import chromeIcon from "../../assets/chrome.svg";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
+import Preloader from "../../components/Preloader/Preloader";
 // import ReactGA from "react-ga";
 
 const Landing = () => {
   const [user, setUser] = useState("");
+  const [showLoader, setShowLoader] = useState(false);
+
+  useEffect(() => {
+    setShowLoader(true)
+    setTimeout(() => { setShowLoader(false) }, 2000);
+  }, [])
 
   const navigate = useNavigate();
 
@@ -38,7 +45,7 @@ const Landing = () => {
     setUser(deepdiive_host);
   };
 
-  return (
+  return showLoader ? <Preloader /> : (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
