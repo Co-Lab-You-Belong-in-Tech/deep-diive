@@ -66,7 +66,20 @@ io.on("connection", (socket) => {
     console.log("ended");
     io.to(roomName).emit("game_end")
   })
-});
+
+  socket.on("emoji_change_host", (questionData) => {
+    //const roomName = gameData.game_id;
+    const emojiChange = questionData.emoji;
+
+    io.to(roomName).emit("emoji", emojiChange)
+  })
+
+  // socket.on("emoji_change_guest", (gameData) => {
+  //   const roomName = gameData.game_id;
+  //   io.to(roomName).emit("emoji_change_host")
+  // })
+
+}); 
 
 // connect to mongoDB
 connectDB();

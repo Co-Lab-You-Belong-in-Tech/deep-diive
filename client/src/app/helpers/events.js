@@ -27,7 +27,7 @@ export const onNewQuestion = (onQuestion) => {
         onQuestion(questionData);
     })
 }
-
+ 
 export const sendQuestion = (questionData) => {
     if(!socket) return;
 
@@ -81,3 +81,15 @@ export const endGame = (gameId) => {
         game_id: gameId
     })
 }
+
+export const emojiHost = (questionData) => {
+    if(!socket) return;
+
+    socket.emit("emoji_change", questionData);
+}
+
+// export const emojiGuest = (emoji) => {
+//     if(!socket) return;
+
+//     socket.on("emoji_change_guest", emoji);
+// }

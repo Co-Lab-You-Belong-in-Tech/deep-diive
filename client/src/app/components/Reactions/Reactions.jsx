@@ -1,8 +1,11 @@
 import React from 'react';
 import _ from 'lodash';
 import { GithubCounter, GithubSelector } from 'react-reactions';
+import * as gameEvents from "../../helpers/events";
+import {useParams} from "react-router-dom";
 
 export class Reactions extends React.Component {
+
   state = {
     counters: [{
       emoji: '👋',
@@ -29,6 +32,12 @@ export class Reactions extends React.Component {
     }
   }
 
+  getEmoji = (emo) => {
+    gameEvents.emojiHost({
+      emoji: this.handleSelect(emo)
+    })
+  }
+
   render() {
     return (
       <div style={{ position: 'relative' }}>
@@ -43,7 +52,7 @@ export class Reactions extends React.Component {
         <div style={{ position: 'absolute', bottom: '100%', marginBottom: '10px' }}>
           <GithubSelector
             reactions={['👍', '❤️', '👀', '🙌', '🤯', '🙊', '🔥', '😹', '🥂']}
-            onSelect={ this.handleSelect } />
+            onSelect={ this.getEmoji } />
         </div>
       ) : null }
       </div>

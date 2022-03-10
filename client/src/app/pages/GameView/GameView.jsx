@@ -8,7 +8,7 @@ import Players from "../../components/Players/Players";
 import gameStyles from "./GameView.module.css";
 import deepdiiveApi from "../../api/deepdiiveApi";
 import {userIsGameHost, userIsGuest} from "../../helpers/utils";
-// import Reactions from "../../components/Reactions/Reactions";
+import Reactions from "../../components/Reactions/Reactions";
 import ExitModal from "../../components/ExitModal/ExitModal";
 import * as gameEvents from "../../helpers/events";
 
@@ -120,9 +120,9 @@ const GameView = () => {
         <div className={gameStyles.cardDiv}>
           {isGameHost ? <Card /> : <GuestCard />}
         </div>
-        {/* <div className={gameStyles.reactionDiv}>
+        <div className={gameStyles.reactionDiv}>
           <Reactions />
-        </div> */}
+        </div>
         <div className={gameStyles.playerDiv}>
           <Players host={host} guest={guest} />
         </div>
