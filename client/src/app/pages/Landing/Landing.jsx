@@ -1,25 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import image from "../../assets/Landing_Page_png.png";
 import logo from "../../assets/new-logo.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import landingStyles from "./Landing.module.css";
 import chromeIcon from "../../assets/chrome.svg";
+import { motion } from "framer-motion";
+import { toast } from "react-toastify";
+import Preloader from "../../components/Preloader/Preloader";
 // import ReactGA from "react-ga";
 
 const Landing = () => {
   const [user, setUser] = useState("");
-  const [nameError, setNameError] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
+
+  useEffect(() => {
+    setShowLoader(true)
+    setTimeout(() => { setShowLoader(false) }, 2000);
+  }, [])
 
   const navigate = useNavigate();
 
   const validateName = (e) => {
     e.preventDefault();
     if (user.length < 1) {
-      setNameError(true);
-    } else{
-        setNameError(false);
-        navigate(`/onboarding`);
+      toast.error('Please enter your name', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    } else {
+      navigate(`/onboarding`);
     }
   };
 
@@ -30,46 +45,62 @@ const Landing = () => {
     setUser(deepdiive_host);
   };
 
-  return (
-    <div className={landingStyles.landing}>
-      <nav>
-        <div className={landingStyles.logoDiv}>
-          <img className={landingStyles.icon} src={logoIcon} alt="" />
-          <img src={logo} alt="" />
-        </div>
-      </nav>
-
-      <div className={landingStyles.grid}>
-        <img src={image} alt="" />
-        <div>
-          <div className={landingStyles.title}>
-            <span>
-              Ride the Wave of <br />
-            </span>
-            <span>Better Conversations</span>
+  return showLoader ? <Preloader /> : (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <div className={landingStyles.landing}>
+        <nav>
+          <div className={landingStyles.logoDiv}>
+            <img className={landingStyles.icon} src={logoIcon} alt="" />
+            <img src={logo} alt="" className={landingStyles.deepdiive} />
           </div>
-          <p>
-            Unwind with workmates and have meaningful conversations using our virtual card deck. 
-            Take turns answering questions from the selected cards 
-            <span className={landingStyles.highlight}> alongside your favorite video chat platform.</span>
-          </p>
-          <p className={landingStyles.chrome}>Best Experience with 
-            <span className={landingStyles.highlight}> Google Chrome </span><img src={chromeIcon} alt="chrome" /></p>
-          <p>Enter your name below to get started!</p>
-          <form className={landingStyles.form} onSubmit={validateName}>
-            <label htmlFor="name">Name <span>*</span></label>
-            <input
-              value={user}
-              placeholder="Your name"
-              id="name"
-              onChange={changeHandler}
-            />
+        </nav>
+
+        {/* <ToastContainer theme="colored"/> */}
+
+        <div className={landingStyles.grid}>
+          <img src={image} alt="" className={landingStyles.bigImage} />
+          <div>
+            <div className={landingStyles.title}>
+              <span>
+                Ride the Wave of <br />
+              </span>
+              <span>Better Conversations</span>
+            </div>
+            <p>
+              Unwind with workmates and have meaningful conversations using our
+              virtual card deck. Take turns answering questions from the
+              selected cards
+              <span className={landingStyles.highlight}>
+                {" "}
+                alongside your favorite video chat platform.
+              </span>
+            </p>
+            <p className={landingStyles.chrome}>
+              Best Experience with
+              <span className={landingStyles.highlight}> Google Chrome </span>
+              <img src={chromeIcon} alt="chrome" />
+            </p>
+            <p>Enter your name below to get started!</p>
+            <form className={landingStyles.form} onSubmit={validateName}>
+              <label htmlFor="name">
+                Name <span>*</span>
+              </label>
+              <input
+                value={user}
+                placeholder="Your name"
+                id="name"
+                onChange={changeHandler}
+              />
               <button>Let’s Go!</button>
-            {nameError && <div className={landingStyles.errorDiv}><p className={landingStyles.error}>Please enter your name</p></div>}
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

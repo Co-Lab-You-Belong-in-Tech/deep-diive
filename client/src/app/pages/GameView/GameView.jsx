@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import Navbar from "../../components/Navbar_white/Navbar";
@@ -8,9 +8,11 @@ import Players from "../../components/Players/Players";
 import gameStyles from "./GameView.module.css";
 import deepdiiveApi from "../../api/deepdiiveApi";
 import {userIsGameHost, userIsGuest} from "../../helpers/utils";
-import Reactions from "../../components/Reactions/Reactions";
-import ExitModal from "../../components/ExitModal/ExitModal";
+// import Reactions from "../../components/Reactions/Reactions";
+import ExitAlert from "../../components/ExitAlert/ExitAlert";
 import * as gameEvents from "../../helpers/events";
+import { GlobalContext } from "../../context/GlobalState";
+import { motion } from "framer-motion";
 
 //exit pop-up modal
 const customStyles = {
@@ -41,13 +43,13 @@ const customStyles = {
 };
 
 const GameView = () => {
-  const [modalIsOpen, setIsOpen] = useState(false);
   const [host, setHost] = useState("");
   const [guest, setGuest] = useState("");
   const [isGameHost, setIsGameHost] = useState(false);
   const [showExitModal, setShowExitModal] = useState(false);
   const { gameId } = useParams();
   const navigate = useNavigate();
+  const { modalIsOpen, closeModal } = useContext(GlobalContext);
   
   useEffect(() => {
     const getGameUsers = async () => {
@@ -84,14 +86,12 @@ const GameView = () => {
     gameEvents.endGame(gameId);
   }
 
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
     <div>
       <Modal
         isOpen={modalIsOpen}
@@ -99,6 +99,7 @@ const GameView = () => {
         style={customStyles}
         ariaHideApp={false}
         contentLabel="Exit Modal"
+        closeTimeoutMS={300}
       >
         <p className={gameStyles.modalText}>Are you sure you want to exit?</p>
         <div className={gameStyles.modalButtons}>
@@ -110,11 +111,11 @@ const GameView = () => {
       </Modal>
       <div className={gameStyles.gameDiv}>
         <div className={gameStyles.navDiv}>
-          <Navbar openModal={openModal} />
+          <Navbar />
         </div>
         { showExitModal && (
           <div className={gameStyles.overlay}>
-            <div className={gameStyles.ended}><ExitModal /></div>
+            <div className={gameStyles.ended}><ExitAlert /></div>
           </div>
         )}
         <div className={gameStyles.cardDiv}>
@@ -128,6 +129,7 @@ const GameView = () => {
         </div>
       </div>
     </div>
+    </motion.div>
   );
 };
 

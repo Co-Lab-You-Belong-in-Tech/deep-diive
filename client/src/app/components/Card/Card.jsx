@@ -1,15 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {useParams} from "react-router-dom";
 import cardStyles from "./Card.module.css";
 import FadeIn from "react-fade-in";
 import deepdiiveApi from "../../api/deepdiiveApi";
 import * as gameEvents from "../../helpers/events";
+import { motion } from "framer-motion"
+import {gsap} from "gsap";
 
 const Card = () => {
   const [step, setStep] = useState(1);
   const [questionNum, setQuestionNum] = useState(1);
   const [questionsArray, setQuestionsArray] = useState([]);
   const { gameId } = useParams();
+
+  const boxRef = useRef();
+
+  // fading cards effect
+    const fadeCard = () => {
+      gsap.fromTo(boxRef.current, 1, {
+        opacity: 0,
+      }, {opacity: 1, duration: 1});
+    }
 
   useEffect(() => {
     // get the questions and shuffle them
@@ -32,6 +43,7 @@ const Card = () => {
   }, [gameId]);
 
   const goToNext = () => {
+    fadeCard()
     const questionNumber = questionNum + 1
     const question = questionsArray[questionNumber - 1]
     setStep(step + 1);
@@ -45,6 +57,7 @@ const Card = () => {
     })
   };
   const goBack = () => {
+    fadeCard()
     const questionNumber = questionNum - 1
     const question = questionsArray[questionNumber - 1]
     setStep(step - 1);
@@ -58,10 +71,15 @@ const Card = () => {
     })
   };
 
+  
   return (
-    <FadeIn>
+    <motion.div
+      initial={false}
+      transition={{ ease: "easeOut", duration: 2 }}
+    >
+     <FadeIn>
       <FadeIn>
-        <div className={cardStyles.card}>
+        <div className={cardStyles.card} ref={boxRef}>
           {questionsArray.slice(step - 1, step).map((step, index) => (
             <div className={cardStyles.cardContent} key={index}>
               <div className={cardStyles.cardHeader}>
@@ -92,6 +110,7 @@ const Card = () => {
         </p>
       </FadeIn>
     </FadeIn>
+    </motion.div>
   );
 };
 

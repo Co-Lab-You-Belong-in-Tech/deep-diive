@@ -1,11 +1,14 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { GlobalContext } from "../../context/GlobalState";
 import logo from "../../assets/logo-white.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import times from "../../assets/exit-icon.svg";
 import linkIcon from "../../assets/link-icon.svg";
 import navbarStyles from "./Navbar.module.css";
-import { Link } from "react-router-dom";
- 
-const Navbar = ({openModal}) => {
+
+const Navbar = () => {
+    const { openModal } = useContext(GlobalContext);
 
     function copyUrl(event) {
         const urllink = localStorage.getItem("url_link");

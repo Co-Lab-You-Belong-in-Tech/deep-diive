@@ -21,8 +21,12 @@ const server = http.createServer(app);
 // connect socket server to frontend
 const io = socketio(server, {
   cors: {
-    origin: "https://deepdiive.netlify.app",
-    //origin: "http://localhost:3000",
+    // production
+    // origin: "https://deepdiive.netlify.app",
+    // staging
+    origin: "https://deepdiive-staging.netlify.app",
+    // local
+    // origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });

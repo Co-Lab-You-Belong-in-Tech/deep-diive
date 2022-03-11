@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from "react";
-import Modal from "react-modal";
+import { useState, useEffect, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -10,34 +9,9 @@ import onboardingStyles from "./Onboarding.module.css";
 import Navbar from "../../components/Navbar_blue/Navbar";
 import LoadingCard from "../../components/LoadingCard/LoadingCard";
 import deepdiiveApi from "../../api/deepdiiveApi";
-
-//exit pop-up modal
-const customStyles = {
-  overlay: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  content: {
-    top: "47%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    display: "flex",
-    flexDirection: "column",
-    width: "743px",
-    height: "325px",
-    border: "1px solid #dedede",
-    backgroundColor: "#fff",
-    borderRadius: "12px",
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-  },
-};
+import ExitModal from "../../components/ExitModal/ExitModal";
+import { GlobalContext } from "../../context/GlobalState";
+import { motion } from "framer-motion";
 
 //Slide show buttons
 const PreviousBtn = (props) => {
@@ -85,7 +59,7 @@ const Copy = ({ copyText }) => {
 //Slide show
 const Onboarding = () => {
   const [gameId, setGameId] = useState("");
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const { modalIsOpen } = useContext(GlobalContext);
 
   const username = localStorage.getItem("deepdiive_host");
 
@@ -110,38 +84,17 @@ const Onboarding = () => {
     getUrl();
   }, []);
 
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
     <div>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        ariaHideApp={false}
-        contentLabel="Exit Modal"
-      >
-        <p className={onboardingStyles.modalText}>
-          Are you sure you want to exit?
-        </p>
-        <div className={onboardingStyles.modalButtons}>
-          <button className={onboardingStyles.no} onClick={closeModal}>
-            NO
-          </button>
-          <Link to="/feedback">
-            <button className={onboardingStyles.yes}>YES</button>
-          </Link>
-        </div>
-      </Modal>
+      {modalIsOpen && <ExitModal />}
 
       <div className={onboardingStyles.navDiv}>
-        <Navbar openModal={openModal} />
+        <Navbar />
       </div>
 
       {!gameId && <div className={onboardingStyles.loadingDiv}><LoadingCard /></div>}
@@ -159,6 +112,7 @@ const Onboarding = () => {
         </Slider>
       </div>}
     </div>
+    </motion.div>
   );
 };
 
@@ -167,6 +121,11 @@ const Card1 = ({ gameId }) => {
   const name = localStorage.getItem("deepdiive_host");
   
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
     <div>
       <div className={onboardingStyles.view}>
         <h1>Nice to meet you, {name}! Time to invite your workmate.</h1>
@@ -181,37 +140,48 @@ const Card1 = ({ gameId }) => {
         </p>
         <div className={onboardingStyles.copybutton}>
           <p>Invite Link</p>
-          <Copy copyText={`https://deepdiive.netlify.app/game/${gameId}`} />
+          {/* production */}
+          {/* <Copy copyText={`https://deepdiive.netlify.app/game/${gameId}`} /> */}
+          {/* staging */}
+          <Copy copyText={`https://deepdiive-staging.netlify.app/game/${gameId}`} />
+          {/* local */}
+          {/* <Copy copyText={`http://localhost:3000/game/${gameId}`} /> */}
         </div>
       </div>
     </div>
+    </motion.div>
   );
   
 };
 
 const Card2 = ({ gameId }) => {
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
     <div className={onboardingStyles.view}>
       <h1>
         Is this your first time <br /> taking a DeepDiive?
       </h1>
 
       <div className={onboardingStyles.yesnobutton}>
-        <div className={onboardingStyles.column} style={{ right: "812px" }}>
+        <div>
           <Link to={`/start/${gameId}`}>
             <button className={onboardingStyles.no}> NO </button>
           </Link>
-          <p>Continue to the game.</p>
+          <p>Continue to <br />the game.</p>
         </div>
-        <div className={onboardingStyles.column} style={{ right: "512px" }}>
+        <div>
           <Link to={`/instruction/${gameId}`}>
             <button className={onboardingStyles.yes}> YES </button>
           </Link>
-          <p>I want to read the instructions.</p>
+            <p>I want to read <br /> the instructions.</p>
         </div>
       </div>
-      {/* <img src={image} alt="figure" /> */}
     </div>
+    </motion.div>
   );
 };
 
