@@ -4,7 +4,7 @@ import times from "../../assets/exit-icon.svg";
 import linkIcon from "../../assets/link-icon.svg";
 import navbarStyles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
-
+ 
 const Navbar = ({openModal}) => {
 
     function copyUrl(event) {
