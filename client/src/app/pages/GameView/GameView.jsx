@@ -120,9 +120,9 @@ const GameView = () => {
         <div className={gameStyles.cardDiv}>
           {isGameHost ? <Card /> : <GuestCard />}
         </div>
-        <div className={gameStyles.reactionDiv}>
+        {/* <div className={gameStyles.reactionDiv}>
           <Reactions />
-        </div>
+        </div> */}
         <div className={gameStyles.playerDiv}>
           <Players host={host} guest={guest} />
         </div>

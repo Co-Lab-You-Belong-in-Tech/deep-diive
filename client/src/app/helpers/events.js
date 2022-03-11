@@ -5,7 +5,7 @@ let socket = null;
 // const BaseUrl = process.env.REACT_APP_SOCKET_URL;
 
 export const connect = (gameId, onGameReady) => {
-    // socket = io("http://localhost:8080");
+    //socket = io("http://localhost:8080");
     socket = io("https://deepdiiveapi.herokuapp.com/");
 
     // socket = io(BaseUrl);
@@ -81,15 +81,3 @@ export const endGame = (gameId) => {
         game_id: gameId
     })
 }
-
-export const emojiHost = (questionData) => {
-    if(!socket) return;
-
-    socket.emit("emoji_change", questionData);
-}
-
-// export const emojiGuest = (emoji) => {
-//     if(!socket) return;
-
-//     socket.on("emoji_change_guest", emoji);
-// }
