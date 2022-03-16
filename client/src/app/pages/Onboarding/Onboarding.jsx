@@ -36,6 +36,8 @@ const Copy = ({ copyText }) => {
   const [isCopied, setIsCopied] = useState(false);
   const text = useRef(null);
 
+  localStorage.setItem("url_link", copyText) //url for later copy use
+
   function copyClipboard(event) {
     text.current.select();
     document.execCommand("copy");

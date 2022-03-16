@@ -31,7 +31,7 @@ export const onNewQuestion = (onQuestion) => {
         onQuestion(questionData);
     })
 }
-
+ 
 export const sendQuestion = (questionData) => {
     if(!socket) return;
 

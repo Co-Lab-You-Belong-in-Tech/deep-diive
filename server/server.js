@@ -70,7 +70,8 @@ io.on("connection", (socket) => {
     console.log("ended");
     io.to(roomName).emit("game_end")
   })
-});
+
+}); 
 
 // connect to mongoDB
 connectDB();
