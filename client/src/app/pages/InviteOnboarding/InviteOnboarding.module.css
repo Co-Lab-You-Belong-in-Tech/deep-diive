@@ -129,3 +129,57 @@
   letter-spacing: 0.3px;
   font-family: "Lato", sans-serif;
 }
+
+@media only screen and (max-width: 1330px) and (min-width: 900px) {
+  .invite {
+    margin: 30px 80px;
+  }
+  .grid .bigImage{
+    width: 90%;
+  }
+  .invite nav {
+    margin-bottom: 40px;
+  }
+  .logoDiv {
+    gap: 10px;
+  }
+  
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+  .deepdiive{
+    width: 200px;
+  }
+  .title {
+    grid-gap: 6px;
+  }
+  .title span {
+    font-size: 34px;
+    padding: 1px;
+    width: 280px;
+    line-height: 52px;
+  }
+  .title span:nth-child(2) {
+    width: 330px;
+  }
+  .grid p {
+    font-size: 20px;
+    line-height: 33px;
+  }
+  .highlight {
+    font-size: 20px;
+    line-height: 33px;
+  }
+  .form {
+    margin-top: 30px;
+  }
+  .grid input {
+    width: 250px;
+  }
+  .grid button {
+    width: 90px;
+    height: 45px;
+    font-size: 15px;
+  }
+}

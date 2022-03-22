@@ -5,6 +5,8 @@ import axios from "axios";
 
 export default axios.create({
     // baseURL: "http://localhost:8080/api"
+    // production
     baseURL: "https://deepdiiveapi.herokuapp.com/api"
-    // baseURL: BaseUrl
+    // staging
+    // baseURL: "https://deepdiiveapi-staging.herokuapp.com/api"
 })

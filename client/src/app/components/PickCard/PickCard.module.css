@@ -25,3 +25,19 @@
   color: #393e4d;
   border: 1px solid #393e4d;
 }
+
+
+@media only screen and (max-width: 1330px) and (min-width: 900px) {
+  .pickCard button {
+    left: 30%;
+    top: 35%;
+    width: 280px;
+    height: 80px;
+    font-size: 24px;
+  }
+
+  .pickCard img {
+    width: 700px;
+  }
+  
+}

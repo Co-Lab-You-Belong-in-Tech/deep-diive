@@ -5,46 +5,16 @@
   overflow-y: hidden;
 }
 .yesnobutton {
-  display: inline-block;
-  padding: 127px;
-
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-
-  margin-top: -60px;
-  align-content: center;
+  gap: 150px;
+  margin-top: 30px;
 }
-.column {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
-  align-items: center;
+.yesnobutton p{
+  font-family: "lato", sans-serif;
   text-align: center;
-  vertical-align: middle;
-  align-content: center;
-
-  position: fixed;
-}
-.column > p {
-  font-family: Lato;
-  font-style: normal;
+  color: #393e4d;
   font-weight: 500;
   font-size: 18px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  align-content: center;
-  letter-spacing: 0.01em;
-  color: #393e4d;
-
-  width: 125px;
-  height: 41px;
-  position: absolute;
-
-  margin-top: 100px;
 }
 
 .no {

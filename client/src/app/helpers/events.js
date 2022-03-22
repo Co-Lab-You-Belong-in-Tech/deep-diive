@@ -1,12 +1,16 @@
 import { io } from "socket.io-client";
 
 let socket = null;
+// console
 
 // const BaseUrl = process.env.REACT_APP_SOCKET_URL;
 
 export const connect = (gameId, onGameReady) => {
     // socket = io("http://localhost:8080");
+    // production
     socket = io("https://deepdiiveapi.herokuapp.com/");
+    // staging
+    // socket = io("https://deepdiiveapi-staging.herokuapp.com/");
 
     // socket = io(BaseUrl);
 
@@ -27,7 +31,7 @@ export const onNewQuestion = (onQuestion) => {
         onQuestion(questionData);
     })
 }
-
+ 
 export const sendQuestion = (questionData) => {
     if(!socket) return;
 

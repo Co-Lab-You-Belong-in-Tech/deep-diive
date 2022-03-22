@@ -21,7 +21,11 @@ const server = http.createServer(app);
 // connect socket server to frontend
 const io = socketio(server, {
   cors: {
+    // production
     origin: "https://deepdiive.netlify.app",
+    // staging
+    // origin: "https://deepdiive-staging.netlify.app",z
+    // local
     // origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
@@ -66,7 +70,8 @@ io.on("connection", (socket) => {
     console.log("ended");
     io.to(roomName).emit("game_end")
   })
-});
+
+}); 
 
 // connect to mongoDB
 connectDB();

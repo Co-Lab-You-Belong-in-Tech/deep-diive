@@ -1,0 +1,28 @@
+.preloader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.rotate {
+    width: 12em;
+    animation: rotation 2s infinite ease-in;
+  }
+
+
+@keyframes rotation {
+0% {
+  transform: rotate(0deg);
+}
+100% {
+  transform: rotate(360deg);
+}
+}
+
