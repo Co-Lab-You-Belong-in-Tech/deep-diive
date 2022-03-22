@@ -22,9 +22,9 @@ const server = http.createServer(app);
 const io = socketio(server, {
   cors: {
     // production
-    // origin: "https://deepdiive.netlify.app",
+    origin: "https://deepdiive.netlify.app",
     // staging
-    origin: "https://deepdiive-staging.netlify.app",
+    // origin: "https://deepdiive-staging.netlify.app",z
     // local
     // origin: "http://localhost:3000",
     methods: ["GET", "POST"],
