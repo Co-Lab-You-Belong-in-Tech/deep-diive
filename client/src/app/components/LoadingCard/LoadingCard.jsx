@@ -10,6 +10,7 @@ const LoadingCard = () => {
         // </div>
         <div className={loadingStyles.loader}>
             <img src={logo} alt="" className={loadingStyles.rotate}/>
+            <p>Your Room Is Loading</p>
         </div>
     )
 }
