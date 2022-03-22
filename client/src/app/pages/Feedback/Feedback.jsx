@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import feedbackStyles from "./Feedback.module.css";
 import SocialMedia from "../../components/SocialMedia/SocialMedia";
-import wave from "../../assets/wave_exit.png";
-import figure from "../../assets/images/figure_exit.png";
+// import wave from "../../assets/wave_exit.png";
+// import figure from "../../assets/images/figure_exit.png";
 import logo from "../../assets/logo-blue.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import { motion } from "framer-motion";

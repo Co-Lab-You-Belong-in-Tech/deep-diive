@@ -9,7 +9,6 @@ import * as gameEvents from "../../helpers/events";
 import { userIsGameHost } from "../../helpers/utils";
 import ExitModal from "../../components/ExitModal/ExitModal";
 import { GlobalContext } from "../../context/GlobalState";
-import { motion } from "framer-motion";
 
 const GameStart = () => {
   const [host, setHost] = useState("");
