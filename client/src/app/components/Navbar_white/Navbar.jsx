@@ -11,13 +11,9 @@ const Navbar = () => {
     const { openModal } = useContext(GlobalContext);
 
     function copyUrl(event) {
-        const el = document.createElement('input');
-        el.value = window.location.href;
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
-      }
+        const urllink = localStorage.getItem("url_link");
+        navigator.clipboard.writeText(urllink);
+    }
 
     return (
         <nav className={navbarStyles.navbar}>
