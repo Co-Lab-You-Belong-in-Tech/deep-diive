@@ -1,16 +1,18 @@
 import { useState, useRef } from "react";
 import beach from "../../assets/gifs/ocean-waves.gif";
-import oceanWaves from "../../assets/audio/DeepDiive_Water_Sounds.mp3";
+import oceanWaves from "../../assets/audio/CHILL-WAITING-ROOM-MUSIC.mp3";
 import speakerIcon from "../../assets/speaker.svg";
 import muteIcon from "../../assets/mute.svg";
 import ruleStyles from "./WaitingRoom.module.css";
 import GroundRules from "../GroundRules/GroundRules";
+import PopUpAlert from "../PopUpAlert/PopUpAlert";
 
 const WaitingRoom = ({ hide, gameContinue }) => {
   const audio = useRef(null);
   const [mute, setMute] = useState(speakerIcon);
   const [showRules, setShowRules] = useState(false);
-  const [showWaiting, setShowWaiting] = useState(true)
+  const [showWaiting, setShowWaiting] = useState(true);
+  const [alert, setAlert] = useState(false);
 
   const hideGroundRules = () => {
     setShowRules(true);
@@ -29,6 +31,11 @@ const WaitingRoom = ({ hide, gameContinue }) => {
     setMute(audio.current.paused ? muteIcon : speakerIcon);
   };
 
+  const showAlert = () => {
+    setAlert(true)
+    setTimeout(() => { setAlert(false) }, 3000);
+  }
+
   return (
     <div>
       {showRules ? (
@@ -36,14 +43,19 @@ const WaitingRoom = ({ hide, gameContinue }) => {
       ) : showWaiting ? (
     <div className={ruleStyles.modal}>
       <p>
-        Press <span>continue</span> when <br /> everyone has arrived.
+        Once your workmate arrives, <br /> you can <span>continue</span>.
       </p>
       <img src={beach} alt="beach waves" />
       {gameContinue ? (
         <button onClick={hide} className={ruleStyles.continueBtn}>
           continue
         </button>
-      ): null }
+      ): (
+        <button onClick={showAlert} className={ruleStyles.disabledBtn}>
+          continue
+        </button>
+      ) }
+      {alert && <PopUpAlert />}
       <button className={ruleStyles.muteBtn} onClick={muteAudio}>
         <img src={mute} alt="mute button" />
       </button>

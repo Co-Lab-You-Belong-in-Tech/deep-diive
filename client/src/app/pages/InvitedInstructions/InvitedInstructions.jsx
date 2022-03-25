@@ -6,12 +6,20 @@ import deepdiiveApi from "../../api/deepdiiveApi";
 import ExitModal from "../../components/ExitModal/ExitModal";
 import { GlobalContext } from "../../context/GlobalState";
 import { motion } from "framer-motion";
+import * as gameEvents from "../../helpers/events";
 
 const InvitedInstructions = () => {
   const { modalIsOpen } = useContext(GlobalContext);
     const { gameId } = useParams();
   
     const username = localStorage.getItem("deepdiive_guests");
+
+    useEffect(() => {
+      gameEvents.guestJoin(gameId);
+        gameEvents.onGuestJoinGame(() => {
+          console.log("hey")
+        })
+    }, [gameId])
   
     useEffect(() => {
       // add name of player to the game and join
@@ -23,6 +31,9 @@ const InvitedInstructions = () => {
         return data;
       };
       joinGame();
+      
+      
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [gameId, username]);
 
   return (

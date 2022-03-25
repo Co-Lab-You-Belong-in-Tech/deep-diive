@@ -23,31 +23,43 @@ const GameStart = () => {
     gameEvents.connect(gameId, () => {
       setGameContinue(true);
     });
+    gameEvents.guestJoin(gameId)
   }, [gameId]);
 
   useEffect(() => {
     const getGameUsers = async () => {
-      const { data } = await deepdiiveApi.get(`/links/users/${gameId}`);
-
-      /* 
-        set the host to be the first name in the players array,
-        and the guest would be the second name
-      */
-      setHost(data.player[0]);
-      setGuest(data.player[1]);
-
-      const isHost = userIsGameHost(data.player[0]);
-      setIsGameHost(isHost);
-
-      // if user is the host, navigate to game
-      if (!isHost) {
-        gameEvents.onGuestGameStart(() => {
-          navigate(`/game/${gameId}`);
-        });
+      try {
+        const { data } = await deepdiiveApi.get(`/links/users/${gameId}`);
+  
+        /* 
+          set the host to be the first name in the players array,
+          and the guest would be the second name
+        */
+        setHost(data.player[0]);
+        setGuest(data.player[1]);
+  
+        const isHost = userIsGameHost(data.player[0]);
+        setIsGameHost(isHost);
+  
+        gameEvents.onGuestJoinGame(() => {
+          setGuest(data.player[1]);
+          console.log(`${guest} is here`);
+        })
+  
+        // if user is the host, navigate to game
+        if (!isHost) {
+          gameEvents.onGuestGameStart(() => {
+            navigate(`/game/${gameId}`);
+          });
+        }
+        return data;
+        
+      } catch (error) {
+        console.log(error)
       }
-      return data;
     };
     getGameUsers();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameId, navigate]);
 
   return (
