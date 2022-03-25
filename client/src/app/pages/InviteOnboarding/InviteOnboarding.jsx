@@ -4,7 +4,7 @@ import logo from "../../assets/new-logo.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import image from "../../assets/Landing_Page_png.png";
 import invitedStyles from "./InviteOnboarding.module.css";
-import chromeIcon from "../../assets/chrome.svg";
+import chromeIcon from "../../assets/svg/chrome.svg";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 // import * as gameEvents from "../../helpers/events";

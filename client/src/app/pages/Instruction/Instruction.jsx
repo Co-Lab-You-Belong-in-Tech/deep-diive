@@ -11,8 +11,9 @@ import image6 from "../../assets/gifs/onboard6.gif";
 import image7 from "../../assets/gifs/onboard7.gif";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import instructionStyles from "./Instruction.module.css";
-import Navbar from "../../components/Navbar_blue/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import ExitModal from "../../components/ExitModal/ExitModal";
+import logo from "../../assets/logo-blue.svg";
 import { GlobalContext } from "../../context/GlobalState";
 import { motion } from "framer-motion";
 
@@ -48,7 +49,7 @@ const Instruction = () => {
     <div>
       {modalIsOpen && <ExitModal />}
       <div className={instructionStyles.navDiv}>
-        <Navbar />
+        <Navbar logo={logo}/>
       </div>
 
       <div className={instructionStyles.slide}>
