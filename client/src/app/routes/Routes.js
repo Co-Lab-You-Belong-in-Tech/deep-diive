@@ -1,6 +1,7 @@
-import { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import { usePathname } from "../hooks/usePathname";
+// import { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+// import { usePathname } from "../hooks/usePathname";
 import GameView from "../pages/GameView/GameView";
 import Landing from "../pages/Landing/Landing";
 import Onboarding from "../pages/Onboarding/Onboarding";
@@ -9,43 +10,44 @@ import Feedback from "../pages/Feedback/Feedback";
 import Instruction from "../pages/Instruction/Instruction";
 import GameStart from "../pages/GameStart/GameStart";
 import InvitedInstructions from "../pages/InvitedInstructions/InvitedInstructions";
-import ReactGA from 'react-ga';
-import InitializeReactGA from "../helpers/googleAnalytics";
+// import ReactGA from 'react-ga';
+// import InitializeReactGA from "../helpers/googleAnalytics";
 import { AnimatePresence } from "framer-motion";
 
-function usePageViews() {
+// function usePageViews() {
   
-  let pathname = usePathname();
-	useEffect(() => {
-    InitializeReactGA(ReactGA);
-		ReactGA.set({ page: pathname });
-		ReactGA.pageview(pathname);
-    // console.log(pathname);
-	}, [pathname]);
-}
+//   let pathname = usePathname();
+// 	useEffect(() => {
+//     InitializeReactGA(ReactGA);
+// 		ReactGA.set({ page: pathname });
+// 		ReactGA.pageview(pathname);
+//     // console.log(pathname);
+// 	}, [pathname]);
+// }
 
 const Routers = () => {
-  const location = useLocation();
+  // const location = useLocation();
 
-  const setGA = () => {
-    ReactGA.initialize('G-QGGY6NY4E9', {
-      debug: true,
-      titleCase: false,
-      gaOptions: {
-        userId: 123,
-        siteSpeedSampleRate: 100
-      }
-    });
-  };
+  // const setGA = () => {
+  //   ReactGA.initialize('G-QGGY6NY4E9', {
+  //     debug: true,
+  //     titleCase: false,
+  //     gaOptions: {
+  //       userId: 123,
+  //       siteSpeedSampleRate: 100
+  //     }
+  //   });
+  // };
 
-  useEffect(() => {
-    setGA();
-  }, [])
+  // useEffect(() => {
+  //   setGA();
+  // }, [])
 
-  usePageViews();
+  // usePageViews();
   return (
     <AnimatePresence exitBeforeEnter>
-      <Routes location={location} key={location.pathname}>
+      {/* <Routes location={location} key={location.pathname}> */}
+      <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/instruction/:gameId" element={<Instruction />} />

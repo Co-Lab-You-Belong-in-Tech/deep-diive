@@ -1,16 +1,15 @@
 import { io } from "socket.io-client";
 
 let socket = null;
-// console
 
 // const BaseUrl = process.env.REACT_APP_SOCKET_URL;
 
 export const connect = (gameId, onGameReady) => {
     // socket = io("http://localhost:8080");
     // production
-    socket = io("https://deepdiiveapi.herokuapp.com/");
+    // socket = io("https://deepdiiveapi.herokuapp.com/");
     // staging
-    // socket = io("https://deepdiiveapi-staging.herokuapp.com/");
+    socket = io("https://deepdiiveapi-staging.herokuapp.com/");
 
     // socket = io(BaseUrl);
 
@@ -85,3 +84,20 @@ export const endGame = (gameId) => {
         game_id: gameId
     })
 }
+
+export const onGuestJoinGame = (onGuestJoin) => {
+    if(!socket) return;
+    
+    socket.on("guest_join", () => {
+        onGuestJoin();
+    })
+}
+
+export const guestJoin = (gameId) => {
+    if(!socket) return;
+
+    socket.emit("guest_joined_game", {
+        game_id: gameId
+    })
+}
+

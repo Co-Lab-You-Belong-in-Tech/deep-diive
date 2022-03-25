@@ -22,9 +22,9 @@ const server = http.createServer(app);
 const io = socketio(server, {
   cors: {
     // production
-    origin: "https://deepdiive.netlify.app",
+    // origin: "https://deepdiive.netlify.app",
     // staging
-    // origin: "https://deepdiive-staging.netlify.app",z
+    origin: "https://deepdiive-staging.netlify.app",
     // local
     // origin: "http://localhost:3000",
     methods: ["GET", "POST"],
@@ -69,6 +69,12 @@ io.on("connection", (socket) => {
     const roomName = gameData.game_id;
     console.log("ended");
     io.to(roomName).emit("game_end")
+  })
+
+  socket.on("guest_joined_game", (gameData) => {
+    const roomName = gameData.game_id;
+    console.log( "guest joined", socket.id );
+    io.to(roomName).emit("guest_join")
   })
 
 }); 

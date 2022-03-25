@@ -7,6 +7,7 @@ import invitedStyles from "./InviteOnboarding.module.css";
 import chromeIcon from "../../assets/chrome.svg";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
+// import * as gameEvents from "../../helpers/events";
 
 const InviteOnboarding = () => {
   const [user, setUser] = useState("");
@@ -28,6 +29,10 @@ const InviteOnboarding = () => {
         });
     } else{
         navigate(`/instruction/invite/${gameId}`);
+        // gameEvents.guestJoin(gameId);
+        // gameEvents.onGuestJoinGame(() => {
+        //   console.log("hey")
+        // })
     }
   };
 

@@ -141,9 +141,9 @@ const Card1 = ({ gameId }) => {
         <div className={onboardingStyles.copybutton}>
           <p>Invite Link</p>
           {/* production */}
-          <Copy copyText={`https://deepdiive.netlify.app/game/${gameId}`} />
+          {/* <Copy copyText={`https://deepdiive.netlify.app/game/${gameId}`} /> */}
           {/* staging */}
-          {/* <Copy copyText={`https://deepdiive-staging.netlify.app/game/${gameId}`} /> */}
+          <Copy copyText={`https://deepdiive-staging.netlify.app/game/${gameId}`} />
           {/* local */}
           {/* <Copy copyText={`http://localhost:3000/game/${gameId}`} /> */}
         </div>
