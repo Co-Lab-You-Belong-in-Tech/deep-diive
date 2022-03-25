@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar_white/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import PickCard from "../../components/PickCard/PickCard";
 import Players from "../../components/Players/Players";
 import gameStyles from "./GameStart.module.css";
@@ -9,6 +9,7 @@ import * as gameEvents from "../../helpers/events";
 import { userIsGameHost } from "../../helpers/utils";
 import ExitModal from "../../components/ExitModal/ExitModal";
 import { GlobalContext } from "../../context/GlobalState";
+import logo from "../../assets/logo-white.svg";
 
 const GameStart = () => {
   const [host, setHost] = useState("");
@@ -68,7 +69,7 @@ const GameStart = () => {
 
       <div className={gameStyles.gameDiv}>
         <div className={gameStyles.navDiv}>
-          <Navbar />
+          <Navbar logo={logo}/>
         </div>
         <div className={gameStyles.cardDiv}>
           <PickCard gameContinue={gameContinue} isGameHost={isGameHost} />

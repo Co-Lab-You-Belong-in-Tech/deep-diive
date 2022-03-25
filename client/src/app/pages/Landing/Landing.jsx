@@ -4,7 +4,7 @@ import image from "../../assets/Landing_Page_png.png";
 import logo from "../../assets/new-logo.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import landingStyles from "./Landing.module.css";
-import chromeIcon from "../../assets/chrome.svg";
+import chromeIcon from "../../assets/svg/chrome.svg";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import Preloader from "../../components/Preloader/Preloader";
@@ -58,8 +58,6 @@ const Landing = () => {
             <img src={logo} alt="" className={landingStyles.deepdiive} />
           </div>
         </nav>
-
-        {/* <ToastContainer theme="colored"/> */}
 
         <div className={landingStyles.grid}>
           <img src={image} alt="" className={landingStyles.bigImage} />

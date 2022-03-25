@@ -24,9 +24,9 @@ const io = socketio(server, {
     // production
     // origin: "https://deepdiive.netlify.app",
     // staging
-    origin: "https://deepdiive-staging.netlify.app",
+    // origin: "https://deepdiive-staging.netlify.app",
     // local
-    // origin: "http://localhost:3000",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });

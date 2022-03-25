@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
-import Navbar from "../../components/Navbar_white/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
 import GuestCard from "../../components/GuestCard/GuestCard";
 import Players from "../../components/Players/Players";
@@ -13,6 +13,8 @@ import ExitAlert from "../../components/ExitAlert/ExitAlert";
 import * as gameEvents from "../../helpers/events";
 import { GlobalContext } from "../../context/GlobalState";
 import { motion } from "framer-motion";
+import logo from "../../assets/logo-white.svg";
+import Preloader from "../../components/Preloader/Preloader";
 
 //exit pop-up modal
 const customStyles = {
@@ -50,6 +52,13 @@ const GameView = () => {
   const { gameId } = useParams();
   const navigate = useNavigate();
   const { modalIsOpen, closeModal } = useContext(GlobalContext);
+
+  const [showLoader, setShowLoader] = useState(false);
+
+  useEffect(() => {
+    setShowLoader(true)
+    setTimeout(() => { setShowLoader(false) }, 3000);
+  }, [])
   
   useEffect(() => {
     const getGameUsers = async () => {
@@ -86,7 +95,7 @@ const GameView = () => {
     gameEvents.endGame(gameId);
   }
 
-  return (
+  return showLoader ? <Preloader /> : (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -111,7 +120,7 @@ const GameView = () => {
       </Modal>
       <div className={gameStyles.gameDiv}>
         <div className={gameStyles.navDiv}>
-          <Navbar />
+          <Navbar logo={logo}/>
         </div>
         { showExitModal && (
           <div className={gameStyles.overlay}>

@@ -6,10 +6,11 @@ import "slick-carousel/slick/slick-theme.css";
 import "./Onboarding.css";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import onboardingStyles from "./Onboarding.module.css";
-import Navbar from "../../components/Navbar_blue/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import LoadingCard from "../../components/LoadingCard/LoadingCard";
 import deepdiiveApi from "../../api/deepdiiveApi";
 import ExitModal from "../../components/ExitModal/ExitModal";
+import logo from "../../assets/logo-blue.svg";
 import { GlobalContext } from "../../context/GlobalState";
 import { motion } from "framer-motion";
 
@@ -94,7 +95,7 @@ const Onboarding = () => {
       {modalIsOpen && <ExitModal />}
 
       <div className={onboardingStyles.navDiv}>
-        <Navbar />
+        <Navbar logo={logo}/>
       </div>
 
       {!gameId && <div className={onboardingStyles.loadingDiv}><LoadingCard /></div>}

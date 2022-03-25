@@ -32,38 +32,45 @@ const WaitingRoom = ({ hide, gameContinue }) => {
   };
 
   const showAlert = () => {
-    setAlert(true)
-    setTimeout(() => { setAlert(false) }, 3000);
-  }
+    setAlert(true);
+    setTimeout(() => {
+      setAlert(false);
+    }, 3000);
+  };
 
   return (
     <div>
       {showRules ? (
-        <GroundRules hideGroundRules={hideGroundRules} setShowWaiting={setShowWaiting} />
+        <GroundRules
+          hideGroundRules={hideGroundRules}
+          setShowWaiting={setShowWaiting}
+        />
       ) : showWaiting ? (
-    <div className={ruleStyles.modal}>
-      <p>
-        Once your workmate arrives, <br /> you can <span>continue</span>.
-      </p>
-      <img src={beach} alt="beach waves" />
-      {gameContinue ? (
-        <button onClick={hide} className={ruleStyles.continueBtn}>
-          continue
-        </button>
-      ): (
-        <button onClick={showAlert} className={ruleStyles.disabledBtn}>
-          continue
-        </button>
-      ) }
-      {alert && <PopUpAlert />}
-      <button className={ruleStyles.muteBtn} onClick={muteAudio}>
-        <img src={mute} alt="mute button" />
-      </button>
-      <audio ref={audio} autoPlay loop>
-        <source src={oceanWaves} type="audio/mpeg" />
-      </audio>
-    </div>
-   ) : null}
+        <div className={ruleStyles.modal}>
+          <p>
+            Once your workmate arrives, <br /> you can <span>continue</span>.
+          </p>
+          <img src={beach} alt="beach waves" />
+          {gameContinue ? (
+            <button onClick={hide} className={ruleStyles.continueBtn}>
+              continue
+            </button>
+          ) : (
+            <button onClick={showAlert} className={ruleStyles.disabledBtn}>
+              continue
+            </button>
+          )}
+          {alert && (
+            <PopUpAlert message="Waiting on your workmate to arrive!" />
+          )}
+          <button className={ruleStyles.muteBtn} onClick={muteAudio}>
+            <img src={mute} alt="mute button" />
+          </button>
+          <audio ref={audio} autoPlay loop>
+            <source src={oceanWaves} type="audio/mpeg" />
+          </audio>
+        </div>
+      ) : null}
     </div>
   );
 };
