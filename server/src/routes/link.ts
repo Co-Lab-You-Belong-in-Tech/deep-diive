@@ -1,9 +1,9 @@
-let express = require("express");
-let {
+import express from "express";
+import {
   generateId,
   joinGame,
   getUser,
-} = require("../controllers/linkController");
+} from "../controllers/linkController";
 
 const router = express.Router();
 
@@ -11,4 +11,4 @@ router.get("/", generateId);
 router.post("/join/:id", joinGame);
 router.get("/users/:id", getUser);
 
-module.exports = router;
+export default router;

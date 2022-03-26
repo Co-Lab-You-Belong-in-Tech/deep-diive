@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const colors = require("colors");
+import mongoose from "mongoose";
+import colors from "colors";
 
 // connect to mongoDB
 const connectDB = async () => {
@@ -7,10 +7,7 @@ const connectDB = async () => {
     "mongodb+srv://dimola:morgan27@jada-db.4am7c.mongodb.net/jada-card-DB?retryWrites=true&w=majority";
 
   try {
-    await mongoose.connect(dbURI || process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(dbURI || process.env.MONGODB_URI);
     console.log(colors.bold.green("connected to database"));
   } catch (error) {
     console.log(error);
@@ -20,4 +17,4 @@ const connectDB = async () => {
   }
 };
 
-module.exports = { connectDB };
+export default connectDB;
