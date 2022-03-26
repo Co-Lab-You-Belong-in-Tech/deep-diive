@@ -1,32 +1,37 @@
-const http = require("http");
-const express = require("express");
-const socketio = require("socket.io");
-const cors = require("cors");
-let { connectDB } = require("./database/mongoConnect");
-const colors = require("colors");
+import http from "http";
+import express, { Request, Response } from "express";
+// import socketio from "socket.io";
+import { Server } from "socket.io";
+import cors from "cors";
+import connectDB from "./database/mongoConnect";
+import colors from "colors";
 
-let linkRouter = require("./routes/link");
-let questionRouter = require("./routes/question");
+import linkRouter from "./routes/link";
+import questionRouter from "./routes/question";
 
+// ========= Express Config =========
 const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
     res.send("welcome to deepdiive api");
   });
 
 const server = http.createServer(app);
 
-// connect socket server to frontend
-const io = socketio(server, {
+// // connect socket server to frontend
+const io = new Server(server, {
+  // options
   cors: {
     // production
     // origin: "https://deepdiive.netlify.app",
     // staging
     // origin: "https://deepdiive-staging.netlify.app",
     // local
-    origin: "http://localhost:3000",
+    // origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://deepdiive-staging.netlify.app", "https://deepdiive.netlify.app"],
     methods: ["GET", "POST"],
   },
 });
@@ -79,7 +84,7 @@ io.on("connection", (socket) => {
 
 }); 
 
-// connect to mongoDB
+// ========= connect to mongoDB =========
 connectDB();
 
 app.use(cors());

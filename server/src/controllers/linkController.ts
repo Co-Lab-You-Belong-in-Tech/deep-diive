@@ -1,16 +1,17 @@
-const Game = require("../models/game");
+import { Request, Response } from "express";
+import { GameModel } from "../models/game";
 
-const generateId = async (req, res) => {
-  const game = await Game.create({});
+export const generateId = async (req: Request, res: Response) => {
+  const game = await GameModel.create({});
   if (!game) return res.status(500).send("an error occured");
   res.status(201).json({ gameId: game._id });
 };
 
-const joinGame = async (req, res) => {
+export const joinGame = async (req: Request, res: Response) => {
   const { id } = req.params;
   const { username } = req.body;
 
-  const game = await Game.findOne({ _id: id });
+  const game = await GameModel.findOne({ _id: id });
 
   game.users.push(username);
   await game.save();
@@ -20,14 +21,12 @@ const joinGame = async (req, res) => {
   });
 };
 
-const getUser = async (req, res) => {
+export const getUser = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const game = await Game.findById(id);
+    const game = await GameModel.findById(id);
     res.status(200).json({ player: game.users });
   } catch (err) {
     console.log(err);
   }
 };
-
-module.exports = { generateId, joinGame, getUser };
