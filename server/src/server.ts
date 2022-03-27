@@ -16,8 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req: Request, res: Response) => {
-    res.send("welcome to deepdiive api");
-  });
+  res.send("welcome to deepdiive api");
+});
 
 const server = http.createServer(app);
 
@@ -25,13 +25,11 @@ const server = http.createServer(app);
 const io = new Server(server, {
   // options
   cors: {
-    // production
-    // origin: "https://deepdiive.netlify.app",
-    // staging
-    // origin: "https://deepdiive-staging.netlify.app",
-    // local
-    // origin: "http://localhost:3000",
-    origin: ["http://localhost:3000", "https://deepdiive-staging.netlify.app", "https://deepdiive.netlify.app"],
+    origin: [
+      "http://localhost:3000",
+      "https://deepdiive-staging.netlify.app",
+      "https://deepdiive.netlify.app",
+    ],
     methods: ["GET", "POST"],
   },
 });
@@ -40,49 +38,47 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   console.log(colors.bold.blue(`web socket connected: ${socket.id}`));
   socket.on("join_game", (gameData) => {
-
     const roomName = gameData.game_id;
 
-    socket.join(roomName)
+    socket.join(roomName);
 
     // ensure atleast two users have joined game
     if (io.sockets.adapter.rooms.get(roomName).size >= 2) {
-        io.to(roomName).emit("users_ready")
+      io.to(roomName).emit("users_ready");
     }
-  })
+  });
 
   socket.on("next_question", (questionData) => {
     const roomName = questionData.game_id;
     const nextQuestion = questionData.question;
-    
-    io.to(roomName).emit("question", nextQuestion)
-  })
+
+    io.to(roomName).emit("question", nextQuestion);
+  });
 
   socket.on("host_game_started", (gameData) => {
     const roomName = gameData.game_id;
 
-    io.to(roomName).emit("guest_game_can_start")
-  })
+    io.to(roomName).emit("guest_game_can_start");
+  });
 
   socket.on("guest_game_started", (gameData) => {
     const roomName = gameData.game_id;
-    console.log("get it?")
-    io.to(roomName).emit("game_start")
-  })
+    console.log("get it?");
+    io.to(roomName).emit("game_start");
+  });
 
   socket.on("end_game", (gameData) => {
     const roomName = gameData.game_id;
     console.log("ended");
-    io.to(roomName).emit("game_end")
-  })
+    io.to(roomName).emit("game_end");
+  });
 
   socket.on("guest_joined_game", (gameData) => {
     const roomName = gameData.game_id;
-    console.log( "guest joined", socket.id );
-    io.to(roomName).emit("guest_join")
-  })
-
-}); 
+    console.log("guest joined", socket.id);
+    io.to(roomName).emit("guest_join");
+  });
+});
 
 // ========= connect to mongoDB =========
 connectDB();
