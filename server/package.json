@@ -13,13 +13,17 @@
     "heroku-postbuild": "yarn clean && yarn compile"
   },
   "dependencies": {
+    "@types/jest": "^27.4.1",
     "@types/mongoose": "^5.11.97",
+    "@types/supertest": "^2.0.12",
     "colors": "1.4.0",
     "cors": "^2.8.5",
     "express": "^4.17.2",
+    "jest": "^27.5.1",
     "mongodb-memory-server": "^8.2.0",
     "mongoose": "^6.2.2",
     "socket.io": "^4.4.1",
+    "supertest": "^6.2.2",
     "typescript": "^4.6.3"
   },
   "devDependencies": {

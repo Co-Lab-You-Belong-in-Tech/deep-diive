@@ -24,13 +24,11 @@ const server = http_1.default.createServer(app);
 const io = new socket_io_1.Server(server, {
     // options
     cors: {
-        // production
-        // origin: "https://deepdiive.netlify.app",
-        // staging
-        // origin: "https://deepdiive-staging.netlify.app",
-        // local
-        // origin: "http://localhost:3000",
-        origin: ["http://localhost:3000", "https://deepdiive-staging.netlify.app", "https://deepdiive.netlify.app"],
+        origin: [
+            "http://localhost:3000",
+            "https://deepdiive-staging.netlify.app",
+            "https://deepdiive.netlify.app",
+        ],
         methods: ["GET", "POST"],
     },
 });
