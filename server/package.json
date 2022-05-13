@@ -1,22 +1,37 @@
 {
   "name": "deepdiive",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "Dimola",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node ./dist/server",
+    "start:dev": "nodemon --watch src/ --exec \"yarn serve\" -e ts",
+    "serve": "tsc && node ./dist/server",
+    "compile": "tsc -p ./tsconfig.json",
+    "clean": "rm -rf dist && mkdir dist",
+    "heroku-postbuild": "yarn clean && yarn compile"
   },
   "dependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/mongoose": "^5.11.97",
+    "@types/supertest": "^2.0.12",
     "colors": "1.4.0",
     "cors": "^2.8.5",
     "express": "^4.17.2",
+    "jest": "^27.5.1",
     "mongodb-memory-server": "^8.2.0",
-    "mongoose": "^6.1.7",
-    "socket.io": "^4.4.1"
+    "mongoose": "^6.2.2",
+    "socket.io": "^4.4.1",
+    "supertest": "^6.2.2",
+    "typescript": "^4.6.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/mongodb-memory-server": "^2.3.0",
+    "@types/node": "^17.0.16",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.7.0"
   }
 }

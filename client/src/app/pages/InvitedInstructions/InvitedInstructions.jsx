@@ -1,17 +1,26 @@
 import { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import Navbar from "../../components/Navbar_blue/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import styles from "./invitedInstructions.module.css";
 import deepdiiveApi from "../../api/deepdiiveApi";
 import ExitModal from "../../components/ExitModal/ExitModal";
 import { GlobalContext } from "../../context/GlobalState";
 import { motion } from "framer-motion";
+import * as gameEvents from "../../helpers/events";
+import logo from "../../assets/logo-blue.svg";
 
 const InvitedInstructions = () => {
   const { modalIsOpen } = useContext(GlobalContext);
     const { gameId } = useParams();
   
     const username = localStorage.getItem("deepdiive_guests");
+
+    useEffect(() => {
+      gameEvents.guestJoin(gameId);
+        gameEvents.onGuestJoinGame(() => {
+          console.log("hey")
+        })
+    }, [gameId])
   
     useEffect(() => {
       // add name of player to the game and join
@@ -23,6 +32,9 @@ const InvitedInstructions = () => {
         return data;
       };
       joinGame();
+      
+      
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [gameId, username]);
 
   return (
@@ -34,7 +46,7 @@ const InvitedInstructions = () => {
     <div>
       {modalIsOpen && <ExitModal />}
       <div className={styles.navDiv}>
-        <Navbar />
+        <Navbar logo={logo}/>
       </div>
       <div className={styles.view}>
         <h1>

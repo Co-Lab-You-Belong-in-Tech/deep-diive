@@ -2,7 +2,7 @@ import mobileStyles from "./Mobile.module.css";
 import logo from "../../assets/logo-blue.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import wave from "../../assets/mobile-wave.png";
-import chrome from "../../assets/chrome.svg";
+import chrome from "../../assets/svg/chrome.svg";
 
 const Mobile = () => {
   return (
