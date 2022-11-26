@@ -7,7 +7,6 @@ import ExitModal from "../../components/ExitModal/ExitModal";
 import { GlobalContext } from "../../context/GlobalState";
 import { motion } from "framer-motion";
 import * as gameEvents from "../../helpers/events";
-import logo from "../../assets/logo-blue.svg";
 
 const InvitedInstructions = () => {
   const { modalIsOpen } = useContext(GlobalContext);
@@ -46,7 +45,7 @@ const InvitedInstructions = () => {
     <div>
       {modalIsOpen && <ExitModal />}
       <div className={styles.navDiv}>
-        <Navbar logo={logo}/>
+        <Navbar logo={"blue"}/>
       </div>
       <div className={styles.view}>
         <h1>

@@ -9,7 +9,6 @@ import * as gameEvents from "../../helpers/events";
 import { userIsGameHost } from "../../helpers/utils";
 import ExitModal from "../../components/ExitModal/ExitModal";
 import { GlobalContext } from "../../context/GlobalState";
-import logo from "../../assets/logo-white.svg";
 
 const GameStart = () => {
   const [host, setHost] = useState("");
@@ -69,7 +68,7 @@ const GameStart = () => {
 
       <div className={gameStyles.gameDiv}>
         <div className={gameStyles.navDiv}>
-          <Navbar logo={logo}/>
+          <Navbar />
         </div>
         <div className={gameStyles.cardDiv}>
           <PickCard gameContinue={gameContinue} isGameHost={isGameHost} />

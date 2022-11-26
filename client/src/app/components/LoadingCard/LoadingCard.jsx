@@ -1,13 +1,17 @@
 import loadingStyles from "./LoadingCard.module.css";
-import logo from "../../assets/logo_circle.png";
+import { DEEPDIIVE_IMAGES } from "../../constants/gallery";
 
 const LoadingCard = () => {
-    return (
-        <div className={loadingStyles.loader}>
-            <img src={logo} alt="" className={loadingStyles.rotate}/>
-            <p>Your Room Is Loading</p>
-        </div>
-    )
-}
+  return (
+    <div className={loadingStyles.loader}>
+      <img
+        className={loadingStyles.rotate}
+        src={DEEPDIIVE_IMAGES.logoIcon}
+        alt="deepdiive logo"
+      />
+      <p>Your Room Is Loading</p>
+    </div>
+  );
+};
 
-export default LoadingCard
+export default LoadingCard;

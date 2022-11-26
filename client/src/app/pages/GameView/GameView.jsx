@@ -13,7 +13,6 @@ import ExitAlert from "../../components/ExitAlert/ExitAlert";
 import * as gameEvents from "../../helpers/events";
 import { GlobalContext } from "../../context/GlobalState";
 import { motion } from "framer-motion";
-import logo from "../../assets/logo-white.svg";
 import Preloader from "../../components/Preloader/Preloader";
 
 //exit pop-up modal
@@ -120,7 +119,7 @@ const GameView = () => {
       </Modal>
       <div className={gameStyles.gameDiv}>
         <div className={gameStyles.navDiv}>
-          <Navbar logo={logo}/>
+          <Navbar />
         </div>
         { showExitModal && (
           <div className={gameStyles.overlay}>

@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/new-logo.svg";
-import logoIcon from "../../assets/logo_circle.png";
 import landingStyles from "./Landing.module.css";
-import chromeIcon from "../../assets/svg/chrome.svg";
+import chromeIcon from "../../assets/svgs/chrome.svg";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import Preloader from "../../components/Preloader/Preloader";
 import { DEEPDIIVE_IMAGES } from "../../constants/gallery";
+import { BigDeepdiive } from "../../assets/svgs";
 // import ReactGA from "react-ga";
 
 const Landing = () => {
@@ -58,15 +57,19 @@ const Landing = () => {
       <div className={landingStyles.landing}>
         <nav>
           <div className={landingStyles.logoDiv}>
-            <img className={landingStyles.icon} src={logoIcon} alt="" />
-            <img src={logo} alt="" className={landingStyles.deepdiive} />
+            <img
+              className={landingStyles.icon}
+              src={DEEPDIIVE_IMAGES.logoIcon}
+              alt="deepdiive logo"
+            />
+            <BigDeepdiive />
           </div>
         </nav>
 
         <div className={landingStyles.grid}>
           <img
             src={DEEPDIIVE_IMAGES.landingPageImage}
-            alt=""
+            alt="people on their laptops"
             className={landingStyles.bigImage}
           />
           <div>

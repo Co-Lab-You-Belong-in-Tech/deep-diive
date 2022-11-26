@@ -1,14 +1,16 @@
 import styles from "./Preloader.module.css";
-import logo from "../../assets/logo_circle.png";
+import { DEEPDIIVE_IMAGES } from "../../constants/gallery";
 
-const Preloader = () => {    
-
+const Preloader = () => {
   return (
     <div className={styles.preloader}>
-        <img src={logo} alt="" className={styles.rotate}/>
+      <img
+        className={styles.rotate}
+        src={DEEPDIIVE_IMAGES.logoIcon}
+        alt="deepdiive logo"
+      />
     </div>
-  )
-}
-
+  );
+};
 
 export default Preloader;

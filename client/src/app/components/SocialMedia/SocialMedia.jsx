@@ -1,8 +1,6 @@
 import React from "react";
 // import socialStyle from "./SocialMedia.css"
-import facebook from "../../assets/facebook.svg";
-import linkedin from "../../assets/linkedin.svg";
-import twitter from "../../assets/twitter.svg";
+import { FacebookIcon, TwitterIcon, LinkedInIcon } from "../../assets/svgs";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -11,7 +9,7 @@ import {
 
 const SocialMedia = () => {
   return (
-    <div>
+    <div style={{ display: "flex", gap: "3rem" }}>
       <FacebookShareButton
         url={"http://deepdiive.netlify.com/"}
         quote={
@@ -19,7 +17,7 @@ const SocialMedia = () => {
         }
         hashtag="#DeepDiive"
       >
-        <img style={{ marginRight: "44px" }} src={facebook} alt="" />
+        <FacebookIcon />
       </FacebookShareButton>
       <TwitterShareButton
         url={"http://deepdiive.netlify.com/"}
@@ -28,7 +26,7 @@ const SocialMedia = () => {
         }
         hashtag="#DeepDiive"
       >
-        <img style={{ marginRight: "44px" }} src={twitter} alt="" />
+        <TwitterIcon />
       </TwitterShareButton>
       <LinkedinShareButton
         url={"http://deepdiive.netlify.com/"}
@@ -37,7 +35,7 @@ const SocialMedia = () => {
         }
         hashtag="#DeepDiive"
       >
-        <img src={linkedin} alt="" />
+        <LinkedInIcon />
       </LinkedinShareButton>
     </div>
   );

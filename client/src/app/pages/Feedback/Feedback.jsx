@@ -3,9 +3,9 @@ import feedbackStyles from "./Feedback.module.css";
 import SocialMedia from "../../components/SocialMedia/SocialMedia";
 // import wave from "../../assets/wave_exit.png";
 // import figure from "../../assets/images/figure_exit.png";
-import logo from "../../assets/logo-blue.svg";
-import logoIcon from "../../assets/logo_circle.png";
 import { motion } from "framer-motion";
+import { DEEPDIIVE_IMAGES } from "../../constants/gallery";
+import { DeepDiiveLogo } from "../../assets/svgs";
 
 const Feedback = () => {
   return (
@@ -17,8 +17,14 @@ const Feedback = () => {
       <div className={feedbackStyles.row}>
         <div className={feedbackStyles.column}>
           <div className={feedbackStyles.navDiv}>
-            <img className={feedbackStyles.icon} src={logoIcon} alt="logo" />
-            <Link to={`/`}><img className={feedbackStyles.name} src={logo} alt="logo" /></Link>
+            <img
+              className={feedbackStyles.icon}
+              src={DEEPDIIVE_IMAGES.logoIcon}
+              alt="deepdiive logo"
+            />
+            <Link to={`/`}>
+              <DeepDiiveLogo style={{fill: "#94B1EB"}}/>
+            </Link>
           </div>
         </div>
         <div className={feedbackStyles.column}>
@@ -44,8 +50,7 @@ const Feedback = () => {
             <SocialMedia />
           </div>
         </div>
-        <div className={feedbackStyles.column}>
-        </div>
+        <div className={feedbackStyles.column}></div>
       </div>
     </motion.div>
   );

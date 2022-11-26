@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import logo from "../../assets/new-logo.svg";
-import logoIcon from "../../assets/logo_circle.png";
 import invitedStyles from "./InviteOnboarding.module.css";
-import chromeIcon from "../../assets/svg/chrome.svg";
+import chromeIcon from "../../assets/svgs/chrome.svg";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import { DEEPDIIVE_IMAGES } from "../../constants/gallery";
+import { BigDeepdiive } from "../../assets/svgs";
 // import * as gameEvents from "../../helpers/events";
 
 const InviteOnboarding = () => {
@@ -52,8 +51,12 @@ const InviteOnboarding = () => {
       <div className={invitedStyles.invite}>
         <nav>
           <div className={invitedStyles.logoDiv}>
-            <img className={invitedStyles.icon} src={logoIcon} alt="" />
-            <img src={logo} alt="" className={invitedStyles.deepdiive} />
+            <img
+              className={invitedStyles.icon}
+              src={DEEPDIIVE_IMAGES.logoIcon}
+              alt="deepdiive logo"
+            />
+            <BigDeepdiive />
           </div>
         </nav>
 

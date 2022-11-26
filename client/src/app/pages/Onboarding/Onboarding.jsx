@@ -10,7 +10,6 @@ import Navbar from "../../components/Navbar/Navbar";
 import LoadingCard from "../../components/LoadingCard/LoadingCard";
 import deepdiiveApi from "../../api/deepdiiveApi";
 import ExitModal from "../../components/ExitModal/ExitModal";
-import logo from "../../assets/logo-blue.svg";
 import { GlobalContext } from "../../context/GlobalState";
 import { motion } from "framer-motion";
 
@@ -95,7 +94,7 @@ const Onboarding = () => {
       {modalIsOpen && <ExitModal />}
 
       <div className={onboardingStyles.navDiv}>
-        <Navbar logo={logo}/>
+        <Navbar logo={"blue"}/>
       </div>
 
       {!gameId && <div className={onboardingStyles.loadingDiv}><LoadingCard /></div>}

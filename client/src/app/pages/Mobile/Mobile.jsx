@@ -1,8 +1,8 @@
 import mobileStyles from "./Mobile.module.css";
-import logo from "../../assets/logo-blue.svg";
-import logoIcon from "../../assets/logo_circle.png";
 import wave from "../../assets/mobile-wave.png";
-import chrome from "../../assets/svg/chrome.svg";
+import chrome from "../../assets/svgs/chrome.svg";
+import { DEEPDIIVE_IMAGES } from "../../constants/gallery";
+import { DeepDiiveLogo } from "../../assets/svgs";
 
 const Mobile = () => {
   return (
@@ -10,16 +10,11 @@ const Mobile = () => {
       <div className={mobileStyles.navDiv}>
         <img
           className={mobileStyles.icon}
-          src={logoIcon}
-          alt="logo"
+          src={DEEPDIIVE_IMAGES.logoIcon}
+          alt="deepdiive logo"
           style={{ width: "44px", height: "44px" }}
         />
-        <img
-          className={mobileStyles.name}
-          src={logo}
-          alt="logo"
-          style={{ height: "28px" }}
-        />
+        <DeepDiiveLogo style={{ fill: "#94B1EB" }} />
       </div>
       <div className={mobileStyles.mobile}>
         <h1>Whoops!</h1>
