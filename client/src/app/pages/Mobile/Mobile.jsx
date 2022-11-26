@@ -1,5 +1,4 @@
 import mobileStyles from "./Mobile.module.css";
-import wave from "../../assets/mobile-wave.png";
 import chrome from "../../assets/svgs/chrome.svg";
 import { DEEPDIIVE_IMAGES } from "../../constants/gallery";
 import { DeepDiiveLogo } from "../../assets/svgs";
@@ -24,7 +23,7 @@ const Mobile = () => {
           <img src={chrome} alt="" />
         </p>
       </div>
-      <img className={mobileStyles.wave} src={wave} alt="wave" />
+      <img className={mobileStyles.wave} src={DEEPDIIVE_IMAGES.mobileWave} alt="wave" />
     </div>
   );
 };

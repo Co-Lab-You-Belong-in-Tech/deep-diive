@@ -1,15 +1,14 @@
 import { useState, useRef } from "react";
 import oceanWaves from "../../assets/audio/CHILL-WAITING-ROOM-MUSIC.mp3";
-import speakerIcon from "../../assets/speaker.svg";
-import muteIcon from "../../assets/mute.svg";
 import ruleStyles from "./WaitingRoom.module.css";
 import GroundRules from "../GroundRules/GroundRules";
 import PopUpAlert from "../PopUpAlert/PopUpAlert";
+import { SpeakerIcon, MuteIcon } from "../../assets/svgs";
 import { DEEPDIIVE_GIFS } from "../../constants/gallery";
 
 const WaitingRoom = ({ hide, gameContinue }) => {
   const audio = useRef(null);
-  const [mute, setMute] = useState(speakerIcon);
+  const [icon, setIcon] = useState(<SpeakerIcon />);
   const [showRules, setShowRules] = useState(false);
   const [showWaiting, setShowWaiting] = useState(true);
   const [alert, setAlert] = useState(false);
@@ -18,17 +17,14 @@ const WaitingRoom = ({ hide, gameContinue }) => {
     setShowRules(true);
   };
 
-  // const show = () => {
-  //   setShowWaiting(true)
-  // }
-
   const muteAudio = () => {
     if (audio.current.paused) {
       audio.current.play();
     } else {
       audio.current.pause();
     }
-    setMute(audio.current.paused ? muteIcon : speakerIcon);
+    setIcon(audio.current.paused ? <MuteIcon /> : <SpeakerIcon />)
+    
   };
 
   const showAlert = () => {
@@ -64,7 +60,7 @@ const WaitingRoom = ({ hide, gameContinue }) => {
             <PopUpAlert message="Waiting on your workmate to arrive!" />
           )}
           <button className={ruleStyles.muteBtn} onClick={muteAudio}>
-            <img src={mute} alt="mute button" />
+            {icon}
           </button>
           <audio ref={audio} autoPlay loop>
             <source src={oceanWaves} type="audio/mpeg" />

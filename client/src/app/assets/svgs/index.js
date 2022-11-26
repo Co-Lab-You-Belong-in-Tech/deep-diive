@@ -5,3 +5,5 @@ export * from "./LinkedInIcon";
 export * from "./DeepDiiveLogo";
 export * from "./ExitIcon";
 export * from "./LinkIcon";
+export * from "./SpeakerIcon";
+export * from "./MuteIcon";
