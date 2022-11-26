@@ -31,6 +31,7 @@
 .navbar > .buttons {
   display: flex;
   gap: 30px;
+  align-items: center;
 }
 .navbar > .buttons > button {
   display: flex;

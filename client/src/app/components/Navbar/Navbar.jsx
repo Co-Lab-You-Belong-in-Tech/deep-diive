@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalState";
-import linkIcon from "../../assets/link-icon.svg";
 import navbarStyles from "./Navbar.module.css";
 import { DEEPDIIVE_IMAGES } from "../../constants/gallery";
-import { DeepDiiveLogo, ExitIcon } from "../../assets/svgs";
+import { DeepDiiveLogo, ExitIcon, LinkIcon } from "../../assets/svgs";
 
 const Navbar = (props) => {
   const { openModal } = useContext(GlobalContext);
@@ -29,9 +28,7 @@ const Navbar = (props) => {
         </Link>
       </div>
       <div className={navbarStyles.buttons}>
-        <button onClick={copyUrl}>
-          <img src={linkIcon} alt="link" />
-        </button>
+        <LinkIcon onClick={copyUrl} style={{ cursor: "pointer" }} />
         <button onClick={openModal}>
           <ExitIcon />
         </button>

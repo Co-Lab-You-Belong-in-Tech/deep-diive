@@ -1,11 +1,11 @@
 import { useState, useRef } from "react";
-import beach from "../../assets/gifs/ocean-waves.gif";
 import oceanWaves from "../../assets/audio/CHILL-WAITING-ROOM-MUSIC.mp3";
 import speakerIcon from "../../assets/speaker.svg";
 import muteIcon from "../../assets/mute.svg";
 import ruleStyles from "./WaitingRoom.module.css";
 import GroundRules from "../GroundRules/GroundRules";
 import PopUpAlert from "../PopUpAlert/PopUpAlert";
+import { DEEPDIIVE_GIFS } from "../../constants/gallery";
 
 const WaitingRoom = ({ hide, gameContinue }) => {
   const audio = useRef(null);
@@ -50,7 +50,7 @@ const WaitingRoom = ({ hide, gameContinue }) => {
           <p>
             Once your workmate arrives, <br /> you can <span>continue</span>.
           </p>
-          <img src={beach} alt="beach waves" />
+          <img src={DEEPDIIVE_GIFS.oceanWaves} alt="ocean waves" />
           {gameContinue ? (
             <button onClick={hide} className={ruleStyles.continueBtn}>
               continue
