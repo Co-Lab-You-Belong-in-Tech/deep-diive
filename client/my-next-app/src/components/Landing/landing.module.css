@@ -1,0 +1,187 @@
+.landing {
+    margin: 30px 150px;
+  }
+  .landing nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  .logoDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .title {
+    display: grid;
+    grid-gap: 8px;
+  }
+  .title span {
+    font-size: 44px;
+    font-weight: 700;
+    font-family: Josefin Sans;
+    color: #172123;
+    background-color: #f4e287;
+    padding: 3px;
+    width: 362px;
+    line-height: 62px;
+  }
+  .title span:nth-child(2) {
+    width: 430px;
+  }
+  .grid p {
+    font-size: 24px;
+    line-height: 35.5px;
+    letter-spacing: 0.3px;
+    font-family: "Lato", sans-serif;
+  }
+  .form {
+    margin-top: 60px;
+  }
+  .grid button {
+    width: 109px;
+    height: 55px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #fdfcfb;
+    background-color: #393e4d;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  .grid button:hover {
+    background-color: #fff;
+    color: #393e4d;
+    border: 1px solid #393e4d;
+  }
+  .grid input {
+    width: 377px;
+    height: 42px;
+    background-color: #f4f5f4;
+    border: 1px solid #8f8f8f;
+    font-size: 18px;
+    margin-right: 20px;
+  }
+  
+  .grid label {
+    display: block;
+    color: #172123;
+    font-size: 18px;
+  }
+  .grid label > span{
+    color: red;
+  }
+  .form > .errorDiv{
+    width: 230px;
+    height: 40px;
+    background-color: red;
+    display: grid;
+    place-content: center;
+    margin-top: -5px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: -10px;
+    -webkit-animation: slide 0.5s forwards;
+    animation: slide 0.5s forwards;
+  }
+  @-webkit-keyframes slide {
+    100% { bottom: 25px; }
+  }
+  
+  @keyframes slide {
+    100% { bottom: 25px; }
+  }
+  .form .error{
+    color: #fff;
+    letter-spacing: 0.3px;
+    font-size: 18px;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+  }
+  .form > .chrome{
+    color: #172123;
+    letter-spacing: 0.3px;
+    font-size: 18px;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    margin-top: -1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .highlight {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 35.5px;
+    letter-spacing: 0.3px;
+    font-family: "Lato", sans-serif;
+  }
+  
+  
+  
+  @media only screen and (max-width: 1330px) and (min-width: 900px) {
+    .landing {
+      margin: 30px 80px;
+    }
+    .grid .bigImage{
+      width: 90%;
+    }
+    .landing nav {
+      margin-bottom: 40px;
+    }
+    .logoDiv {
+      gap: 10px;
+    }
+    
+    .icon {
+      width: 40px;
+      height: 40px;
+    }
+    .deepdiive{
+      width: 200px;
+    }
+    .title {
+      grid-gap: 6px;
+    }
+    .title span {
+      font-size: 34px;
+      padding: 1px;
+      width: 280px;
+      line-height: 52px;
+    }
+    .title span:nth-child(2) {
+      width: 330px;
+    }
+    .grid p {
+      font-size: 20px;
+      line-height: 33px;
+    }
+    .highlight {
+      font-size: 20px;
+      line-height: 33px;
+    }
+    .form {
+      margin-top: 30px;
+    }
+    .grid input {
+      width: 250px;
+    }
+    .grid button {
+      width: 90px;
+      height: 45px;
+      font-size: 15px;
+    }
+  }
