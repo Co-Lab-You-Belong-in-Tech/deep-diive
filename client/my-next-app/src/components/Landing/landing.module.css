@@ -1,3 +1,4 @@
+
 .landing {
     margin: 30px 150px;
   }
@@ -27,7 +28,7 @@
     grid-gap: 8px;
   }
   .title span {
-    font-size: 44px;
+    font-size: 40px;
     font-weight: 700;
     font-family: Josefin Sans;
     color: #172123;
@@ -44,6 +45,7 @@
     line-height: 35.5px;
     letter-spacing: 0.3px;
     font-family: "Lato", sans-serif;
+    margin-top: 20px;
   }
   .form {
     margin-top: 60px;
@@ -116,7 +118,7 @@
     font-size: 18px;
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    margin-top: -1px;
+    margin-top: 1px;
     display: flex;
     align-items: center;
     gap: 10px;

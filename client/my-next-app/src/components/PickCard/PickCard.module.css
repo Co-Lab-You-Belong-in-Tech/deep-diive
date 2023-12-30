@@ -1,0 +1,43 @@
+.pickCard {
+  position: relative;
+}
+.pickCard button {
+  position: absolute;
+  left: 25%;
+  top: 35%;
+  width: 400px;
+  height: 100px;
+  color: #fffcf9;
+  background-color: rgba(8, 15, 34, 1);
+  text-transform: uppercase;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  border: none;
+  font-family: "lato", sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 16px;
+  letter-spacing: 0.165em;
+  cursor: pointer;
+}
+.pickCard button:hover {
+  background-color: #fff;
+  color: #393e4d;
+  border: 1px solid #393e4d;
+}
+
+
+@media only screen and (max-width: 1330px) and (min-width: 900px) {
+  .pickCard button {
+    left: 30%;
+    top: 35%;
+    width: 280px;
+    height: 80px;
+    font-size: 24px;
+  }
+
+  .pickCard img {
+    width: 700px;
+  }
+  
+}
