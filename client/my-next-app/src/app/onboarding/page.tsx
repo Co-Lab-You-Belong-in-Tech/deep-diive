@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+"use client";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -10,9 +11,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import LoadingCard from "../../components/LoadingCard/LoadingCard";
 import deepdiiveApi from "../../api/deepdiiveApi";
 import ExitModal from "../../components/ExitModal/ExitModal";
-import logo from "../../assets/logo-blue.svg";
-import { GlobalContext } from "../../context/GlobalState";
 import { motion } from "framer-motion";
+import { useToggleModalStore } from "store/modals";
 
 //Slide show buttons
 const PreviousBtn: React.FC<any> = (props) => {
@@ -61,7 +61,8 @@ const Copy = ({ copyText }: any) => {
 //Slide show
 const Onboarding = () => {
   const [gameId, setGameId] = useState<any>("");
-  const { modalIsOpen } = useContext(GlobalContext);
+
+  const {modalIsOpen} = useToggleModalStore()
 
   const username = localStorage.getItem("deepdiive_host");
 
@@ -93,16 +94,16 @@ const Onboarding = () => {
         {modalIsOpen && <ExitModal />}
 
         <div className={onboardingStyles.navDiv}>
-          <Navbar logo={logo} />
+          <Navbar color="#94B1EB"/>
         </div>
 
-        {!gameId && (
+        {/* {!gameId && (
           <div className={onboardingStyles.loadingDiv}>
             <LoadingCard />
           </div>
-        )}
+        )} */}
 
-        {gameId && (
+        {!gameId && (
           <div className={onboardingStyles.slide}>
             <Slider
               prevArrow={<PreviousBtn />}
@@ -181,7 +182,7 @@ const Card2 = ({ gameId }: any) => {
             </p>
           </div>
           <div>
-            <Link href={`/instruction/${gameId}`}>
+            <Link href={`/instructions/${gameId}`}>
               <button className={onboardingStyles.yes}> YES </button>
             </Link>
             <p>

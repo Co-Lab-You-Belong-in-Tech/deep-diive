@@ -1,4 +1,5 @@
-import { useState } from "react";
+"use client";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import logo from "../../assets/new-logo.svg";
 import logoIcon from "../../assets/logo_circle.png";
@@ -6,11 +7,11 @@ import image from "../../assets/Landing_Page_png.png";
 import invitedStyles from "./InviteOnboarding.module.css";
 import chromeIcon from "../../assets/svg/chrome.svg";
 import { motion } from "framer-motion";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import Image from "next/image";
 // import * as gameEvents from "../../helpers/events";
 
-const InviteOnboarding = () => {
+const InviteOnboarding: React.FC = () => {
   const [user, setUser] = useState("");
   const { gameId } = useParams();
 
@@ -19,15 +20,7 @@ const InviteOnboarding = () => {
   const validateName = (e: any) => {
     e.preventDefault();
     if (user.length < 1) {
-      toast.error('Please enter your name', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        });
+      toast.error('Please enter your name');
     } else{
         navigate(`/instruction/invite/${gameId}`);
         // gameEvents.guestJoin(gameId);

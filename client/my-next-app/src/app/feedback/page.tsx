@@ -1,14 +1,16 @@
+"use client";
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import feedbackStyles from "./Feedback.module.css";
 import SocialMedia from "../../components/SocialMedia/SocialMedia";
 // import wave from "../../assets/wave_exit.png";
 // import figure from "../../assets/images/figure_exit.png";
-import logo from "../../assets/logo-blue.svg";
 import logoIcon from "../../assets/logo_circle.png";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import Image from "next/image";
+import { Logo } from "assets/svgs";
 
-const Feedback = () => {
+const Feedback:React.FC = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -19,7 +21,7 @@ const Feedback = () => {
         <div className={feedbackStyles.column}>
           <div className={feedbackStyles.navDiv}>
             <Image className={feedbackStyles.icon} src={logoIcon} alt="logo" />
-            <Link href={`/`}><Image className={feedbackStyles.name} src={logo} alt="logo" /></Link>
+            <Link href={`/`}><Logo color="#94B1EB" /></Link>
           </div>
         </div>
         <div className={feedbackStyles.column}>

@@ -70,11 +70,13 @@
   }
   .grid input {
     width: 377px;
-    height: 42px;
+    height: 55px;
     background-color: #f4f5f4;
     border: 1px solid #8f8f8f;
+    border-radius: 12px;
     font-size: 18px;
     margin-right: 20px;
+    padding: 6px;
   }
   
   .grid label {

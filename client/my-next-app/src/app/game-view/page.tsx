@@ -1,4 +1,5 @@
-import { useState, useEffect, useContext } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import Navbar from "../../components/Navbar/Navbar";
@@ -11,11 +12,10 @@ import {userIsGameHost, userIsGuest} from "../../helpers/utils";
 // import Reactions from "../../components/Reactions/Reactions";
 import ExitAlert from "../../components/ExitAlert/ExitAlert";
 import * as gameEvents from "../../helpers/events";
-import { GlobalContext } from "../../context/GlobalState";
 import { motion } from "framer-motion";
-import logo from "../../assets/logo-white.svg";
 import Preloader from "../../components/Preloader";
 import Link from "next/link";
+import { useToggleModalStore } from "store/modals";
 
 //exit pop-up modal
 const customStyles = {
@@ -45,14 +45,14 @@ const customStyles = {
   },
 };
 
-const GameView = () => {
+const GameView:React.FC = () => {
   const [host, setHost] = useState("");
   const [guest, setGuest] = useState("");
   const [isGameHost, setIsGameHost] = useState(false);
   const [showExitModal, setShowExitModal] = useState(false);
   const { gameId } = useParams();
   const navigate = useNavigate();
-  const { modalIsOpen, closeModal }: any = useContext(GlobalContext);
+  const { modalIsOpen, closeModal }: any = useToggleModalStore();
 
   const [showLoader, setShowLoader] = useState(false);
 
@@ -121,7 +121,7 @@ const GameView = () => {
       </Modal>
       <div className={gameStyles.gameDiv}>
         <div className={gameStyles.navDiv}>
-          <Navbar logo={logo}/>
+          <Navbar color="#FDFCFB" />
         </div>
         { showExitModal && (
           <div className={gameStyles.overlay}>

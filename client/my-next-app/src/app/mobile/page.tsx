@@ -1,11 +1,13 @@
+"use client";
+import React from "react";
+import Image from "next/image";
 import mobileStyles from "./Mobile.module.css";
-import logo from "../../assets/logo-blue.svg";
 import logoIcon from "../../assets/logo_circle.png";
 import wave from "../../assets/mobile-wave.png";
-import chrome from "../../assets/svg/chrome.svg";
-import Image from "next/image";
+import chrome from "../../assets/svgs/chrome.svg";
+import { Logo } from "assets/svgs";
 
-const Mobile = () => {
+const Mobile: React.FC = () => {
   return (
     <div>
       <div className={mobileStyles.navDiv}>
@@ -15,12 +17,7 @@ const Mobile = () => {
           alt="logo"
           style={{ width: "44px", height: "44px" }}
         />
-        <Image
-          className={mobileStyles.name}
-          src={logo}
-          alt="logo"
-          style={{ height: "28px" }}
-        />
+        <Logo color="#94B1EB" />
       </div>
       <div className={mobileStyles.mobile}>
         <h1>Whoops!</h1>

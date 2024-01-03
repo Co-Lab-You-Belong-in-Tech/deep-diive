@@ -1,11 +1,10 @@
 // core
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 // libraries
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 
 // constants
 import { DEEPDIIVE_IMAGES } from "../../constants/gallery";
@@ -17,22 +16,14 @@ import landingStyles from "./landing.module.css";
 // assets
 import chromeIcon from "../../assets/svgs/chrome.svg";
 
-const Landing = () => {
+const Landing: React.FC = () => {
   const router = useRouter();
   const [user, setUser] = useState("");
 
   const validateName = (e: any) => {
     e.preventDefault();
     if (user.length < 1) {
-      toast.error("Please enter your name", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.error("Please enter your name");
     } else {
       router.push(`/onboarding`);
     }

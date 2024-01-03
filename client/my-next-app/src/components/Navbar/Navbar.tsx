@@ -1,18 +1,25 @@
-import { useContext } from "react";
+import React from "react";
 import Link from "next/link";
-import { GlobalContext } from "../../context/GlobalState";
 import logoIcon from "../../assets/logo_circle.png";
-import times from "../../assets/svg/exit-icon.svg";
-import linkIcon from "../../assets/link-icon.svg";
 import navbarStyles from "./Navbar.module.css";
 import Image from "next/image";
+import { ExitIcon, LinkIcon, Logo } from "assets/svgs";
+import { useToggleModalStore } from "store/modals";
+import { NavbarProps } from "components/types";
 
-const Navbar = (props: any) => {
-  const { openModal }: any = useContext(GlobalContext);
+const Navbar: React.FC<NavbarProps> = ({color}) => {
 
   function copyUrl(event: any) {
     const urllink: any = localStorage.getItem("url_link");
     navigator.clipboard.writeText(urllink);
+  }
+
+  const { openModal } = useToggleModalStore();
+
+  const openModals = () => {
+    console.log(1)
+    openModal()
+    console.log(2)
   }
 
   return (
@@ -20,15 +27,15 @@ const Navbar = (props: any) => {
       <div className={navbarStyles.logoDiv}>
         <Image className={navbarStyles.icon} src={logoIcon} alt="logo" />
         <Link href={`/`}>
-          <img className={navbarStyles.name} src={props.logo} alt="logo" />
+          <Logo color={color} />
         </Link>
       </div>
       <div className={navbarStyles.buttons}>
         <button onClick={copyUrl}>
-          <img src={linkIcon} alt="link" />
+          <LinkIcon />
         </button>
-        <button onClick={openModal}>
-          <img src={times} alt="x" />
+        <button onClick={openModals}>
+          <ExitIcon />
         </button>
       </div>
     </nav>

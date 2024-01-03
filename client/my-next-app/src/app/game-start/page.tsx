@@ -1,5 +1,7 @@
-import { useState, useEffect, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+"use client";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+// import { route: useRouter } from 'next/navigation';
 import Navbar from "../../components/Navbar/Navbar";
 import PickCard from "../../components/PickCard/PickCard";
 import Players from "../../components/Players/Players";
@@ -8,17 +10,17 @@ import deepdiiveApi from "../../api/deepdiiveApi";
 import * as gameEvents from "../../helpers/events";
 import { userIsGameHost } from "../../helpers/utils";
 import ExitModal from "../../components/ExitModal/ExitModal";
-import { GlobalContext } from "../../context/GlobalState";
-import logo from "../../assets/logo-white.svg";
+import { useToggleModalStore } from "store/modals";
 
-const GameStart = () => {
+const GameStart: React.FC = () => {
+  const router = useRouter();
+  const { gameId } = router.query;
+
   const [host, setHost] = useState("");
   const [guest, setGuest] = useState("");
   const [isGameHost, setIsGameHost] = useState(false);
   const [gameContinue, setGameContinue] = useState(false);
-  const { gameId } = useParams();
-  const navigate = useNavigate();
-  const { modalIsOpen } = useContext(GlobalContext);
+  const { modalIsOpen } = useToggleModalStore();
 
   useEffect(() => {
     gameEvents.connect(gameId, () => {
@@ -50,7 +52,7 @@ const GameStart = () => {
         // if user is the host, navigate to game
         if (!isHost) {
           gameEvents.onGuestGameStart(() => {
-            navigate(`/game/${gameId}`);
+            router.push(`/game/${gameId}`);
           });
         }
         return data;
@@ -61,7 +63,7 @@ const GameStart = () => {
     };
     getGameUsers();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gameId, navigate]);
+  }, [gameId]);
 
   return (
     <div>
@@ -69,7 +71,7 @@ const GameStart = () => {
 
       <div className={gameStyles.gameDiv}>
         <div className={gameStyles.navDiv}>
-          <Navbar logo={logo}/>
+          <Navbar color="#FDFCFB" />
         </div>
         <div className={gameStyles.cardDiv}>
           <PickCard gameContinue={gameContinue} isGameHost={isGameHost} />
