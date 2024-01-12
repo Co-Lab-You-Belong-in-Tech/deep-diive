@@ -1,42 +1,27 @@
 "use client";
 
-// core
-import Head from "next/head";
-import { useState, useEffect } from "react";
-
 //libraries
 import { motion } from "framer-motion";
 
 // components
 import Landing from "../components/Landing";
-import Loader from "components/Loader/Loader";
+import Nav from "components/Nav";
+import styles from "./page.module.css";
+import Hero from "components/Hero";
 
 export default function Home() {
-  const [showLoader, setShowLoader] = useState(false);
-
-  useEffect(() => {
-    setShowLoader(true);
-    setTimeout(() => {
-      setShowLoader(false);
-    }, 2000);
-  }, []);
-
-  return showLoader ? (
-    <Loader hasText={false} />
-  ) : (
-    <>
-      <Head>
-        <title>Create Next App</title>
-        <meta name="Deepdiive" content="Ride the Wave of Better Conversations" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        <Landing />
-      </motion.div>
-    </>
+  return (
+    <div className={styles.landing_page}>
+      <div className={styles.container}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Nav />
+          <Hero />
+        </motion.div>
+      </div>
+    </div>
   );
 }

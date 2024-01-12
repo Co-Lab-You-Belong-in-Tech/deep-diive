@@ -14,3 +14,11 @@ export type InstructionCardProps = {
 export type LoaderProps = {
   hasText: boolean;
 };
+
+interface Question {
+  game_id?: string;
+  questions?: string;
+  question?: string;
+}
+
+export type QuestionProps = Question[];

@@ -6,14 +6,7 @@ import deepdiiveApi from "../../api/deepdiiveApi";
 import * as gameEvents from "../../helpers/events";
 import { motion } from "framer-motion"
 import {gsap} from "gsap";
-
-interface Question {
-  game_id?: string;
-  questions?: string;
-  question?: string;
-}
-
-type QuestionProps = Question[];
+import { QuestionProps } from "components/types";
 
 const Card = () => {
   const [step, setStep] = useState(1);

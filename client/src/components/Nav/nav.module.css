@@ -1,0 +1,31 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logoDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+  }
+  .icon{
+    width: 40px;
+    height: 40px;
+  }
+
+  .socials {
+    display: flex;
+    gap: 1rem;
+  }
+  .socials a {
+    border: 2px solid rgba(51, 27, 59, 0.64);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    padding: 5px;
+  }

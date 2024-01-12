@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import { DEEPDIIVE_IMAGES } from "constants/gallery";
-import navbarStyles from "./Navbar.module.css";
 import Image from "next/image";
+import { RoutePath } from "routes";
+import { DEEPDIIVE_IMAGES } from "constants/gallery";
 import { ExitIcon, LinkIcon, Logo } from "assets/svgs";
 import { useToggleModalStore } from "store/modals";
 import { NavbarProps } from "components/types";
-import { RoutePath } from "routes";
+import navbarStyles from "./Navbar.module.css";
 
 const Navbar: React.FC<NavbarProps> = ({ color }) => {
   function copyUrl(event: any) {
@@ -27,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({ color }) => {
           height={40}
           priority
         />
-        <Link href={RoutePath.Home}>
+        <Link href={RoutePath.Game}>
           <Logo color={color} />
         </Link>
       </div>

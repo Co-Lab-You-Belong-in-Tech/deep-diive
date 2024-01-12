@@ -5,6 +5,9 @@ import GroundRules from "../GroundRules/GroundRules";
 import cardImg from "../../assets/play-card.png";
 import pickStyles from "./PickCard.module.css";
 import Image from "next/image";
+import { DEEPDIIVE_IMAGES } from "constants/gallery";
+
+// deepdiive_images.playCard
 
 const PickCard: React.FC<any> = ({ hideModal, gameContinue, isGameHost }) => {
   const [showStart, setShowStart] = useState(true);

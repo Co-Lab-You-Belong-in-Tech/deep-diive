@@ -3,10 +3,11 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { RoutePath } from "routes";
+import { Logo } from "assets/svgs";
 import feedbackStyles from "./Feedback.module.css";
 import SocialMedia from "../../components/SocialMedia/SocialMedia";
 import logoIcon from "../../assets/logo_circle.png";
-import { Logo } from "assets/svgs";
 
 const Feedback:React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const Feedback:React.FC = () => {
         <div className={feedbackStyles.column}>
           <div className={feedbackStyles.navDiv}>
             <Image className={feedbackStyles.icon} src={logoIcon} alt="logo" />
-            <Link href={`/`}><Logo color="#94B1EB" /></Link>
+            <Link href={RoutePath.Game}><Logo color="#94B1EB" /></Link>
           </div>
         </div>
         <div className={feedbackStyles.column}>

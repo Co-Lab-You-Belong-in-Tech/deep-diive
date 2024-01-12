@@ -8,6 +8,7 @@ import { MuteIcon } from "./MuteIcon";
 import { SpeakerIcon } from "./SpeakerIcon";
 import { TwitterIcon } from "./TwitterIcon";
 import { Logo } from "./Logo";
+import { LinkedInIconTransparent } from "./LinkedInIconTransparent";
 
 export {
   BigDeepdiive,
@@ -20,4 +21,5 @@ export {
   SpeakerIcon,
   TwitterIcon,
   Logo,
+  LinkedInIconTransparent,
 };
