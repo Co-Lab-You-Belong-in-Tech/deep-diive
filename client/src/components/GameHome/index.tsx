@@ -1,5 +1,5 @@
 // core
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -19,6 +19,27 @@ import chromeIcon from "../../assets/svgs/chrome.svg";
 const GameHome: React.FC = () => {
   const router = useRouter();
   const [user, setUser] = useState("");
+  const [windowSize, setWindowSize] = useState({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const imageWidth = windowSize.width < 700 ? 40 : 60;
+  const imageHeight = windowSize.width < 700 ? 40 : 60;
 
   const validateName = (e: any) => {
     e.preventDefault();
@@ -35,7 +56,7 @@ const GameHome: React.FC = () => {
     localStorage.setItem("deepdiive_host", deepdiive_host);
     setUser(deepdiive_host);
   };
-  
+
   return (
     <div className={gameStyles.landing}>
       <nav>
@@ -43,10 +64,18 @@ const GameHome: React.FC = () => {
           <Image
             src={DEEPDIIVE_IMAGES.logoIcon}
             alt="deepdiive logo"
-            width={60}
-            height={60}
+            width={imageWidth}
+            height={imageHeight}
           />
-          <BigDeepdiive />
+
+          {/* <Image
+        src={DEEPDIIVE_IMAGES.logoIcon}
+        alt="deepdiive logo"
+        layout="fill"
+        objectFit="cover"
+      /> */}
+
+          <BigDeepdiive style={{ maxWidth: "278px", width: "100%" }} />
         </div>
       </nav>
 
@@ -63,6 +92,7 @@ const GameHome: React.FC = () => {
             </span>
             <span>Better Conversations</span>
           </div>
+
           <p>
             Unwind with workmates and have meaningful conversations using our
             virtual card deck. Take turns answering questions from the selected
@@ -79,15 +109,17 @@ const GameHome: React.FC = () => {
           </p>
           <p>Enter your name below to get started!</p>
           <form className={gameStyles.form} onSubmit={validateName}>
-            <label htmlFor="name">
-              Name <span>*</span>
-            </label>
-            <input
-              value={user}
-              placeholder="Your name"
-              id="name"
-              onChange={changeHandler}
-            />
+            <div>
+              <label htmlFor="name">
+                Name <span>*</span>
+              </label>
+              <input
+                value={user}
+                placeholder="Your name"
+                id="name"
+                onChange={changeHandler}
+              />
+            </div>
             <button>Let’s Go!</button>
           </form>
         </div>

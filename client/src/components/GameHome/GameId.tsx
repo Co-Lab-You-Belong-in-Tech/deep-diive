@@ -85,15 +85,19 @@ const GameId = () => {
             </p>
             <p>Enter your name below to get started!</p>
             <form className={gameStyles.form} onSubmit={validateName}>
-              <label htmlFor="name">Name <span>*</span></label>
+            <div>
+              <label htmlFor="name">
+                Name <span>*</span>
+              </label>
               <input
                 value={user}
                 placeholder="Your name"
                 id="name"
                 onChange={changeHandler}
               />
-              <button>Let’s Go!</button>
-            </form>
+            </div>
+            <button>Let’s Go!</button>
+          </form>
           </div>
         </div>
       </div>
