@@ -1,13 +1,24 @@
 "use client";
+// core
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+// libraries
 import { motion } from "framer-motion";
-import { RoutePath } from "routes";
-import { Logo } from "assets/svgs";
-import feedbackStyles from "./Feedback.module.css";
+
+// components
 import SocialMedia from "../../components/SocialMedia/SocialMedia";
+
+// constants
+import { RoutePath } from "routes";
+
+// assets
+import { Logo } from "assets/svgs";
 import logoIcon from "../../assets/logo_circle.png";
+
+// styles
+import feedbackStyles from "./Feedback.module.css";
 
 const Feedback:React.FC = () => {
   return (

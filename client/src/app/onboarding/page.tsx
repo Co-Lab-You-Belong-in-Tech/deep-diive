@@ -1,18 +1,26 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import Link from "next/link";
+
+// libraries
 import Slider from "react-slick";
+import { motion } from "framer-motion";
+import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
+
+// hooks
+import { useOnboardingHook } from "hooks";
+
+// components
+import Navbar from "components/Navbar/Navbar";
+import Loader from "components/Loader/Loader";
+import { Copy } from "components/onboarding/Copy";
+import ExitModal from "components/ExitModal/ExitModal";
+
+// styles
+import onboardingStyles from "./Onboarding.module.css";
+import "./Onboarding.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./Onboarding.css";
-import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
-import onboardingStyles from "./Onboarding.module.css";
-import Navbar from "../../components/Navbar/Navbar";
-import Loader from "../../components/Loader/Loader";
-import deepdiiveApi from "../../api/deepdiiveApi";
-import ExitModal from "../../components/ExitModal/ExitModal";
-import { motion } from "framer-motion";
-import { useToggleModalStore } from "store/modals";
 
 //Slide show buttons
 const PreviousBtn: React.FC<any> = (props) => {
@@ -33,56 +41,15 @@ const NextBtn = (props: any) => {
 };
 
 //Shareable link (temporary)
-const Copy = ({ copyText }: any) => {
-  const [isCopied, setIsCopied] = useState(false);
-  const text = useRef<any>(null);
 
-  localStorage.setItem("url_link", copyText); //url for later copy use
-
-  function copyClipboard(event: any) {
-    text.current.select();
-    document.execCommand("copy");
-    event.target.focus();
-    setIsCopied(true);
-    // setIsCopied("Copied!");
-  }
-
-  return (
-    <div className={onboardingStyles.div}>
-      <input ref={text} type="text" value={copyText} readOnly />
-      <button onClick={copyClipboard} className={onboardingStyles.cbutton}>
-        Copy
-      </button>{" "}
-      {isCopied}
-    </div>
-  );
-};
 
 //Slide show
 const Onboarding = () => {
-  const [gameId, setGameId] = useState<any>("");
-
-  const {modalIsOpen} = useToggleModalStore()
-
-  const username = localStorage.getItem("deepdiive_host");
-
-  useEffect(() => {
-    const res = async () => {
-      const { data }: any = await deepdiiveApi.post(`/links/join/${gameId}`, {
-        username: username,
-      });
-      return data;
-    };
-    res();
-  }, [gameId, username]);
-
-  useEffect(() => {
-    const getUrl = async () => {
-      const { data }: any = await deepdiiveApi.get(`/links`);
-      setGameId(data.gameId);
-    };
-    getUrl();
-  }, []);
+  const {
+    // state values
+    gameId,
+    modalIsOpen,
+  } = useOnboardingHook({});
 
   return (
     <motion.div
@@ -94,7 +61,7 @@ const Onboarding = () => {
         {modalIsOpen && <ExitModal />}
 
         <div className={onboardingStyles.navDiv}>
-          <Navbar color="#94B1EB"/>
+          <Navbar color="#94B1EB" />
         </div>
 
         {!gameId && (
@@ -110,7 +77,7 @@ const Onboarding = () => {
               nextArrow={<NextBtn />}
               infinite={false}
               edgeFriction={0}
-            //   direction={"right"}
+              //   direction={"right"}
             >
               <Card1 gameId={gameId} />
               <Card2 gameId={gameId} />
@@ -134,7 +101,9 @@ const Card1 = ({ gameId }: any) => {
     >
       <div>
         <div className={onboardingStyles.view}>
-          <h1>Nice to meet you, {name}! Time to invite your workmate.</h1>
+          <h1>
+            Nice to meet you, <span>{name}</span>! Time to invite your workmate.
+          </h1>
           <h2>
             Copy the invite link below and share with one workmate. Use this{" "}
             <span className={onboardingStyles.highlight}>two player</span> game
@@ -147,11 +116,11 @@ const Card1 = ({ gameId }: any) => {
           <div className={onboardingStyles.copybutton}>
             <p>Invite Link</p>
             {/* production */}
-            <Copy copyText={`https://deepdiive.netlify.app/game/${gameId}`} />
+            {/* <Copy copyText={`https://deepdiive.netlify.app/game/${gameId}`} /> */}
             {/* staging */}
             {/* <Copy copyText={`https://deepdiive-staging.netlify.app/game/${gameId}`} /> */}
             {/* local */}
-            {/* <Copy copyText={`http://localhost:3000/game/${gameId}`} /> */}
+            <Copy copyText={`http://localhost:3000/game/${gameId}`} />
           </div>
         </div>
       </div>

@@ -17,39 +17,30 @@
   font-size: 18px;
 }
 
-.no {
+.yesnobutton button {
   width: 130px;
   height: 75px;
-  right: 769px;
-  background: #fdfcfb;
-  border: 1px solid #222325;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   box-shadow: 4px 4px #e5e5e5;
   cursor: pointer;
-  color: #222325;
   font-family: Lato;
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
 }
 
+.no {
+  background: #fdfcfb;
+  border: 1px solid #222325;
+  color: #222325;
+}
+
 .yes {
-  width: 130px;
-  height: 75px;
   background: #080f22;
   border: 1px solid #dedede;
-  box-sizing: border-box;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  box-shadow: 4px 4px #e5e5e5;
-  cursor: pointer;
   color: #fdfcfb;
-  font-family: Lato;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 24px;
 }
 
 .yes:hover {

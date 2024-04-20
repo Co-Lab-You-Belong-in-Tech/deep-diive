@@ -5,13 +5,15 @@ let socket = null;
 // const BaseUrl = process.env.REACT_APP_SOCKET_URL;
 
 export const connect = (gameId, onGameReady) => {
-    // socket = io("http://localhost:8080");
+    socket = io("http://localhost:8080");
     // production
-    socket = io("https://deepdiiveapi.herokuapp.com/");
+    // socket = io("https://deepdiiveapi.herokuapp.com/");
     // staging
     // socket = io("https://deepdiiveapi-staging.herokuapp.com/");
 
     // socket = io(BaseUrl);
+
+    console.log("first connection")
 
     socket.on("connect", () => {
         socket.emit("join_game", {

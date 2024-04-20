@@ -4,6 +4,7 @@ import playerStyles from "./Players.module.css";
 const Players = ({ host, guest }: any) => {
 
   // console.log(userIsGuest(guest));
+  console.log(host)
   return (
     <div className={playerStyles.players}>
       <div className={playerStyles.playerCard}>

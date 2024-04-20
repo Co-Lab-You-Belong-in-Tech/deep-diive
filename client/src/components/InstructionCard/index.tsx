@@ -10,19 +10,20 @@ const InstructionCard = ({
   content,
   lastItem,
 }: InstructionCardProps) => {
+  console.log({gameId})
   return (
     <div className={instructionStyles.view}>
       <Image src={image} alt="start instruction" width={477} height={200} />
       {content}
       {!lastItem ? (
         <div>
-          <Link href={`/start/${gameId}`}>
+          <Link href={`/game-start/${gameId}`}>
             <button className={instructionStyles.skipbutton}> Skip </button>
           </Link>
         </div>
       ) : (
         <div>
-          <Link href={`/start/${gameId}`}>
+          <Link href={`/game-start/${gameId}`}>
             <button className={instructionStyles.readyButton}>CONTINUE</button>
           </Link>
         </div>

@@ -1,14 +1,23 @@
 "use client";
+// core
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import Navbar from "../../components/Navbar/Navbar";
-import styles from "./invitedInstructions.module.css";
-import deepdiiveApi from "../../api/deepdiiveApi";
-import ExitModal from "../../components/ExitModal/ExitModal";
-import { motion } from "framer-motion";
-import * as gameEvents from "../../helpers/events";
 import Link from "next/link";
+import { useParams } from 'next/navigation';
+import { motion } from "framer-motion";
+
+import deepdiiveApi from "api/deepdiiveApi";
+
+// hooks
 import { useToggleModalStore } from "store/modals";
+
+// components
+import Navbar from "components/Navbar/Navbar";
+import ExitModal from "components/ExitModal/ExitModal";
+
+import * as gameEvents from "../../../helpers/events";
+
+// styles
+import styles from "./onboarding.module.css";
 
 const InvitedInstructions: React.FC = () => {
   const { modalIsOpen } = useToggleModalStore();

@@ -3,11 +3,12 @@ import {
   generateId,
   joinGame,
   getUser,
+  generateIdHandler,
 } from "../controllers/linkController";
 
 const router = express.Router();
 
-router.get("/", generateId);
+router.get("/", generateIdHandler);
 router.post("/join/:id", joinGame);
 router.get("/users/:id", getUser);
 

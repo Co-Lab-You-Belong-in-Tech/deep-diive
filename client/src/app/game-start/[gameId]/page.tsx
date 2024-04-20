@@ -1,16 +1,24 @@
 "use client";
+// core
 import React, { useState, useEffect } from "react";
-// import { useRouter } from "next/router";
 import { useRouter, useParams } from 'next/navigation';
-import Navbar from "../../components/Navbar/Navbar";
-import PickCard from "../../components/PickCard/PickCard";
-import Players from "../../components/Players/Players";
-import gameStyles from "./GameStart.module.css";
-import deepdiiveApi from "../../api/deepdiiveApi";
-import * as gameEvents from "../../helpers/events";
-import { userIsGameHost } from "../../helpers/utils";
-import ExitModal from "../../components/ExitModal/ExitModal";
+
+// components
+import Navbar from "components/Navbar/Navbar";
+import Players from "components/Players/Players";
+import PickCard from "components/PickCard/PickCard";
+import ExitModal from "components/ExitModal/ExitModal";
+
+// utils
+import deepdiiveApi from "../../../api/deepdiiveApi";
+import * as gameEvents from "../../../helpers/events";
+import { userIsGameHost } from "../../../helpers/utils";
+
+// hooks
 import { useToggleModalStore } from "store/modals";
+
+// styles
+import gameStyles from "../GameStart.module.css";
 
 const GameStart: React.FC = () => {
   const router = useRouter();
@@ -41,14 +49,14 @@ const GameStart: React.FC = () => {
           set the host to be the first name in the players array,
           and the guest would be the second name
         */
-        setHost(data.player[0]);
-        setGuest(data.player[1]);
+        setHost(data.players[0]);
+        setGuest(data.players[1]);
 
-        const isHost = userIsGameHost(data.player[0]);
+        const isHost = userIsGameHost(data.players[0]);
         setIsGameHost(isHost);
 
         gameEvents.onGuestJoinGame(() => {
-          setGuest(data.player[1]);
+          setGuest(data.players[1]);
           console.log(`${guest} is here`);
         });
 

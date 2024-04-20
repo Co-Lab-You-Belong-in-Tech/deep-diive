@@ -35,6 +35,7 @@ const GameHome: React.FC = () => {
     localStorage.setItem("deepdiive_host", deepdiive_host);
     setUser(deepdiive_host);
   };
+  
   return (
     <div className={gameStyles.landing}>
       <nav>
