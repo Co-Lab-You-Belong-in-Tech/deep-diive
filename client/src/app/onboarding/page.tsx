@@ -2,7 +2,7 @@
 import React from "react";
 
 // libraries
-import Slider from "react-slick";
+import Slider, {Settings} from "react-slick";
 import { motion } from "framer-motion";
 
 // hooks
@@ -29,7 +29,23 @@ const Onboarding = () => {
     // state values
     gameId,
     modalIsOpen,
+    currentSlide,
+
+    // functions
+    setCurrentSlide,
   } = useOnboardingHook({});
+
+ 
+
+  const settings: Settings = {
+    prevArrow: currentSlide === 0 ? undefined : <PreviousBtn />,
+    nextArrow: currentSlide === 1 ? undefined : <NextBtn />,
+    infinite: false,
+    edgeFriction: 0,
+    beforeChange: (oldIndex: any, newIndex: any) => {
+      setCurrentSlide(newIndex);
+    }
+  };
 
   return (
     <motion.div
@@ -51,12 +67,9 @@ const Onboarding = () => {
         )}
 
         {gameId && (
-          <div className={onboardingStyles.slide}>
+          <div>
             <Slider
-              prevArrow={<PreviousBtn />}
-              nextArrow={<NextBtn />}
-              infinite={false}
-              edgeFriction={0}
+              {...settings}
             >
               <CardOne gameId={gameId} />
               <CardTwo gameId={gameId} />
