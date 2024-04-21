@@ -2,10 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { LoaderProps } from "components/types";
 import loadingStyles from "./Loader.module.css";
-import logo from "../../assets/logo_circle.png";
 import { DEEPDIIVE_IMAGES } from "constants/gallery";
 
-const Loader: React.FC<LoaderProps> = ({ hasText }) => {
+export const Loader: React.FC<LoaderProps> = ({ hasText }) => {
   return (
     <div className={loadingStyles.loader}>
       <Image
@@ -20,5 +19,3 @@ const Loader: React.FC<LoaderProps> = ({ hasText }) => {
     </div>
   );
 };
-
-export default Loader;

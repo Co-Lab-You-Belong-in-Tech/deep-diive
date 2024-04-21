@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 // components
 import GameHome from "components/GameHome";
-import Loader from "components/Loader/Loader";
+import { Loader } from "components/common/Loader";
 
 export default function Game() {
   const [showLoader, setShowLoader] = useState(false);

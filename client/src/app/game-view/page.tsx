@@ -15,7 +15,7 @@ import * as gameEvents from "../../helpers/events";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useToggleModalStore } from "store/modals";
-import Loader from "components/Loader/Loader";
+import { Loader } from "components/common/Loader";
 
 //exit pop-up modal
 const customStyles = {

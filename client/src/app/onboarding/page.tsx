@@ -10,8 +10,8 @@ import { useOnboardingHook } from "hooks";
 
 // components
 import Navbar from "components/Navbar/Navbar";
-import Loader from "components/Loader/Loader";
 import ExitModal from "components/ExitModal/ExitModal";
+import { Loader } from "components/common/Loader";
 
 // styles
 import onboardingStyles from "./Onboarding.module.css";
@@ -57,7 +57,6 @@ const Onboarding = () => {
               nextArrow={<NextBtn />}
               infinite={false}
               edgeFriction={0}
-              //   direction={"right"}
             >
               <CardOne gameId={gameId} />
               <CardTwo gameId={gameId} />
