@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import {useParams} from "react-router-dom";
+import { useParams } from 'next/navigation';
 import cardStyles from "./Card.module.css";
 import FadeIn from "react-fade-in";
 import deepdiiveApi from "../../api/deepdiiveApi";

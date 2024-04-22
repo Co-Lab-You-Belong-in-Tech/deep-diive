@@ -14,7 +14,7 @@ import { BigDeepdiive } from "assets/svgs";
 import gameStyles from "./gamehome.module.css";
 
 // assets
-import chromeIcon from "../../assets/svgs/chrome.svg";
+import chromeIcon from "assets/svgs/chrome.svg";
 
 const GameHome: React.FC = () => {
   const router = useRouter();

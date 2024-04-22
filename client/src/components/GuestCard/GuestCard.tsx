@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from 'next/navigation';
 import cardStyles from "./GuestCard.module.css";
 import FadeIn from "react-fade-in";
 import * as gameEvents from "../../helpers/events";
