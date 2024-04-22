@@ -1,0 +1,77 @@
+.modalContent {
+  display: grid;
+  place-content: center;
+  height: 100%;
+  grid-gap: 20px;
+}
+.modalText {
+    font-size: 34px;
+    font-family: "Josefin Sans", sans-serif;
+    text-align: center;
+    font-weight: 500;
+  }
+  .modalButtons {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+  }
+  .modalButtons > button:nth-child(1) {
+    width: 130px;
+    height: 75px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #393e4d;
+    background-color: #fff;
+    border: 1px solid #222325;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .yes {
+    width: 130px;
+    height: 75px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #393e4d;
+    border: 1px solid #dedede;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .yes:hover {
+    background-color: #fff;
+    color: #393e4d;
+    border: 1px solid #393e4d;
+  }
+  .ModalOverlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.reactModal{
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    max-width: 743px;
+    width: 100%;
+    height: 325px;
+    border: 1px solid #dedede;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    outline: none;
+}

@@ -1,0 +1,23 @@
+.landing_page {
+  background-image: url("/landing/bg-1.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  min-height: 100vh;
+}
+
+.container {
+  padding: 3rem;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .landing_page {
+    background: none;
+  }
+}

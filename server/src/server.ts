@@ -34,6 +34,7 @@ const io = new Server(server, {
   },
 });
 
+
 // on connection, join the game
 io.on("connection", (socket) => {
   console.log(colors.bold.blue(`web socket connected: ${socket.id}`));
@@ -81,7 +82,7 @@ io.on("connection", (socket) => {
 });
 
 // ========= connect to mongoDB =========
-connectDB();
+// connectDB();
 
 app.use(cors());
 app.use("/api/links", linkRouter);

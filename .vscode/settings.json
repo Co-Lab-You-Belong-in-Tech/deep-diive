@@ -1,0 +1,30 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": false,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#475C6C",
+    "activityBar.background": "#475C6C",
+    "activityBar.foreground": "#F7EFD2",
+    "activityBar.inactiveForeground": "#F7EFD299",
+    "activityBarBadge.background": "#161631",
+    "activityBarBadge.foreground": "#F7EFD2",
+    "commandCenter.border": "#F7EFD299",
+    "sash.hoverBorder": "#475C6C",
+    "statusBar.background": "#475C6C",
+    "statusBar.foreground": "#F7EFD2",
+    "statusBarItem.hoverBackground": "#475C6C",
+    "statusBarItem.remoteBackground": "#475C6C",
+    "statusBarItem.remoteForeground": "#F7EFD2",
+    "titleBar.activeBackground": "#475C6C",
+    "titleBar.activeForeground": "#F7EFD2",
+    "titleBar.inactiveBackground": "#475C6C99",
+    "titleBar.inactiveForeground": "#F7EFD299"
+  },
+  "peacock.color": "#475C6C"
+}

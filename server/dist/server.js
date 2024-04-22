@@ -8,7 +8,6 @@ const express_1 = __importDefault(require("express"));
 // import socketio from "socket.io";
 const socket_io_1 = require("socket.io");
 const cors_1 = __importDefault(require("cors"));
-const mongoConnect_1 = __importDefault(require("./database/mongoConnect"));
 const colors_1 = __importDefault(require("colors"));
 const link_1 = __importDefault(require("./routes/link"));
 const question_1 = __importDefault(require("./routes/question"));
@@ -69,7 +68,7 @@ io.on("connection", (socket) => {
     });
 });
 // ========= connect to mongoDB =========
-(0, mongoConnect_1.default)();
+// connectDB();
 app.use((0, cors_1.default)());
 app.use("/api/links", link_1.default);
 app.use("/api/questions", question_1.default);
