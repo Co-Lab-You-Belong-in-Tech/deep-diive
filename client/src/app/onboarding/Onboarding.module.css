@@ -1,0 +1,296 @@
+.navDiv {
+  max-width: 1100px;
+  padding: 1rem;
+  width: 100%;
+  margin: 0 auto;
+  height: 80px;
+}
+
+/* .wave {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: fixed;
+  left: 957px;
+  bottom: 0;
+}
+
+.wave > img {
+  z-index: -1;
+  height: fit-content;
+} */
+
+.view {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: calc(100vh - 200px);
+  justify-content: center;
+  max-width: 730px;
+  /* background-color: skyblue; */
+}
+
+.view > img {
+  z-index: -1;
+  height: fit-content;
+  position: fixed;
+  right: 870px;
+  top: 370px;
+}
+
+.view > h1 {
+  font-family: Josefin Sans;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 56px;
+  text-align: center;
+  color: #2c393c;
+  letter-spacing: 0.2px;
+  width: 100%;
+}
+
+.view > h1 > span {
+  text-transform: capitalize;
+}
+
+.view > h2 {
+  text-align: center;
+  color: #172123;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 35px;
+  letter-spacing: 0.3px;
+  margin-top: 32px;
+  width: 100%;
+}
+
+.view > p {
+  font-family: Lato;
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.yesnobutton {
+  display: flex;
+  align-items: flex-start;
+  gap: 150px;
+  margin-top: 30px;
+  font-family: "lato", sans-serif;
+}
+
+.yesnobutton > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.yesnobutton p {
+  text-align: center;
+  color: #393e4d;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.yesnobutton button {
+  width: 130px;
+  height: 75px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  box-shadow: 4px 4px #e5e5e5;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+.no {
+  background: #fdfcfb;
+  border: 1px solid #222325;
+  color: #222325;
+}
+
+.yes {
+  background: #080f22;
+  border: 1px solid #dedede;
+  color: #fdfcfb;
+}
+
+.yes:hover {
+  background-color: #fdfcfb;
+  color: #222325;
+  border: 1px solid #222325;
+}
+
+.no:hover {
+  background-color: #222325;
+  color: #fdfcfb;
+  border: 1px solid #fdfcfb;
+}
+
+.highlight {
+  font-family: Lato;
+  font-weight: bold;
+  text-decoration: underline;
+  line-height: 35.5px;
+  letter-spacing: 0.3px;
+  color: #172123;
+  background-color: #f4e287;
+}
+
+.copy_div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.copy_div > input {
+  background: #f4f5f4;
+  border: 1px solid #8f8f8f;
+  box-sizing: border-box;
+  width: 377px;
+  height: 45px;
+  border-radius: 12px;
+  padding: 0.25rem;
+}
+
+.cbutton {
+  font-family: Lato;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #ffffff;
+  background: #393e4d;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  box-shadow: 4px 4px #e5e5e5;
+  width: 90px;
+  height: 45px;
+}
+
+.cbutton:hover {
+  background-color: #e9e5e5;
+  color: #393e4d;
+  border: 1px solid #393e4d;
+}
+
+.copybutton label {
+  display: block;
+  color: #172123;
+  font-size: 16px;
+  margin-top: 50px;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+}
+.modalButtons > button:nth-child(1) {
+  width: 130px;
+  height: 75px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #222325;
+  background-color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.4s;
+  text-transform: uppercase;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.modalText {
+  font-size: 34px;
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  margin-top: 100px;
+}
+.loadingDiv {
+  display: grid;
+  place-content: center;
+}
+
+@media screen and (max-width: 850px) {
+  .view {
+    padding: 0 2rem;
+  }
+
+  .view > h1 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  
+  .view > h2 {
+    font-size: 18px;
+    line-height: 28px;
+    margin-top: 25px;
+  }
+  
+  .view > p {
+    font-size: 15px;
+    margin-top: 0.5rem;
+  }
+
+  .yesnobutton {
+    gap: 100px;
+    margin-top: 30px;
+  }
+  .yesnobutton p {
+    font-size: 15px;
+  }
+  
+  .yesnobutton button {
+    width: 90px;
+    height: 60px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .yesnobutton {
+    gap: 50px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navDiv {
+    padding: 0.5rem;
+  }
+  .copy_div > input {
+    width: 100%;
+  }
+
+  .view > h1 {
+    font-size: 30px;
+    line-height: 32px;
+  }
+  
+  .view > h2 {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 25px;
+  }
+  
+  .view > p {
+    font-size: 12px;
+    margin-top: 0.5rem;
+  }
+
+  .cbutton {
+    font-size: 15px;
+    width: 100%;
+  }
+  .copybutton label {
+    font-size: 13px;
+  }
+}

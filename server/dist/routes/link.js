@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const linkController_1 = require("../controllers/linkController");
 const router = express_1.default.Router();
-router.get("/", linkController_1.generateId);
+router.get("/", linkController_1.generateIdHandler);
 router.post("/join/:id", linkController_1.joinGame);
 router.get("/users/:id", linkController_1.getUser);
 exports.default = router;
