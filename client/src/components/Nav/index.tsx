@@ -9,9 +9,9 @@ import styles from "./nav.module.css";
 const Nav: React.FC = () => {
   return (
     <nav className={styles.nav}>
-        <div>
+        {/* <div className={styles.empty}>
 
-        </div>
+        </div> */}
       <div className={styles.logoDiv}>
         <Image
           className={styles.icon}

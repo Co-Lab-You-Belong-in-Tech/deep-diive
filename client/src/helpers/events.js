@@ -7,7 +7,7 @@ let socket = null;
 export const connect = (gameId, onGameReady) => {
     socket = io("http://localhost:8080");
     // production
-    // socket = io("https://deepdiiveapi.herokuapp.com/");
+    // socket = io("https://deepdiiveapi-staging.onrender.com");
     // staging
     // socket = io("https://deepdiiveapi-staging.herokuapp.com/");
 
