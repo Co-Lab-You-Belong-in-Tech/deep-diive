@@ -2,10 +2,11 @@ import { io } from "socket.io-client";
 
 let socket = null;
 
-// const BaseUrl = process.env.REACT_APP_SOCKET_URL;
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const connect = (gameId, onGameReady) => {
-    socket = io("http://localhost:8080");
+    socket = io(baseUrl);
+    // socket = io("http://localhost:8080");
     // production
     // socket = io("https://deepdiiveapi-staging.onrender.com");
     // staging

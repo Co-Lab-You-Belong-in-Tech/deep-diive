@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import onboardingStyles from "app/onboarding/Onboarding.module.css";
 import { Copy } from "./Copy";
 
+const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+
 export const CardOne: React.FC<any> = ({ gameId }) => {
   const name = localStorage.getItem("deepdiive_host");
   return (
@@ -37,7 +39,8 @@ export const CardOne: React.FC<any> = ({ gameId }) => {
           {/* staging */}
           {/* <Copy copyText={`https://deepdiive-staging.netlify.app/game/${gameId}`} /> */}
           {/* local */}
-          <Copy copyText={`http://localhost:3000/game/${gameId}`} />
+          {/* <Copy copyText={`http://localhost:3000/game/${gameId}`} /> */}
+          <Copy copyText={`${appUrl}/game/${gameId}`} />
         </div>
       </div>
     </motion.div>
