@@ -18,10 +18,14 @@ import { useToggleModalStore } from "store/modals";
 import navbarStyles from "./Navbar.module.css";
 
 const Navbar: React.FC<NavbarProps> = ({ color }) => {
+  
+  let urlLink: any;
 
   function copyUrl(event: any) {
-    const urllink: any = localStorage.getItem("url_link");
-    navigator.clipboard.writeText(urllink);
+    if (typeof window !== "undefined") {
+      urlLink = localStorage.getItem("url_link") || ""
+      }
+    navigator.clipboard.writeText(urlLink);
   }
 
   const { openModal } = useToggleModalStore();

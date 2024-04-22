@@ -41,7 +41,9 @@ const GameId = () => {
     const changeHandler = (e: any) => {
         const deepdiive_guests = e.target.value;
     
-        localStorage.setItem("deepdiive_guests", deepdiive_guests);
+        if (typeof window !== "undefined") {
+          localStorage.setItem("deepdiive_guests", deepdiive_guests);
+        }
         setUser(deepdiive_guests);
       };
 

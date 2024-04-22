@@ -1,21 +1,35 @@
 "use client";
+// core
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import Modal from "react-modal";
-import Navbar from "../../components/Navbar/Navbar";
-import Card from "../../components/Card/Card";
-import GuestCard from "../../components/GuestCard/GuestCard";
-import Players from "../../components/Players/Players";
-import gameStyles from "./GameView.module.css";
-import deepdiiveApi from "../../api/deepdiiveApi";
-import {userIsGameHost, userIsGuest} from "../../helpers/utils";
-// import Reactions from "../../components/Reactions/Reactions";
-import ExitAlert from "../../components/ExitAlert/ExitAlert";
-import * as gameEvents from "../../helpers/events";
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { useToggleModalStore } from "store/modals";
+import dynamic from "next/dynamic";
+import { useRouter, useParams } from 'next/navigation';
+
+// libraries
+import Modal from "react-modal";
+import { motion } from "framer-motion";
+
+// components
+import Card from "components/Card/Card";
+import Players from "components/Players/Players";
 import { Loader } from "components/common/Loader";
+import ExitAlert from "components/ExitAlert/ExitAlert";
+import GuestCard from "components/GuestCard/GuestCard";
+
+// utils
+import deepdiiveApi from "api/deepdiiveApi";
+import * as gameEvents from "helpers/events";
+import { useToggleModalStore } from "store/modals";
+import {userIsGameHost, userIsGuest} from "helpers/utils";
+
+// styles
+import gameStyles from "./GameView.module.css";
+// import Reactions from "components/Reactions/Reactions";
+
+// dynamic imports
+const Navbar = dynamic(() => import('components/Navbar/Navbar'), {
+  ssr: false,
+})
 
 //exit pop-up modal
 const customStyles = {
@@ -51,7 +65,7 @@ const GameView:React.FC = () => {
   const [isGameHost, setIsGameHost] = useState(false);
   const [showExitModal, setShowExitModal] = useState(false);
   const { gameId } = useParams();
-  const navigate = useNavigate();
+  const router = useRouter();
   const { modalIsOpen, closeModal }: any = useToggleModalStore();
 
   const [showLoader, setShowLoader] = useState(false);
@@ -80,7 +94,7 @@ const GameView:React.FC = () => {
 
       // if the user isn't already in the game as a host or guest, redirect to onboarding
       if (!gameHost && !gameGuest) {
-        navigate(`/onboarding/invite/${gameId}`);
+        router.push(`/onboarding/invite/${gameId}`);
       } 
 
       // shows modal when other player has ended game
@@ -89,7 +103,7 @@ const GameView:React.FC = () => {
       })
     };
     getGameUsers();
-  }, [gameId, isGameHost, navigate]);
+  }, [gameId, isGameHost, router]);
 
   // ends game
   const endGame = () => {

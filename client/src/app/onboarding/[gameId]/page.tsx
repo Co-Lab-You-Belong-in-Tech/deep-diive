@@ -1,6 +1,7 @@
 "use client";
 // core
 import React, { useEffect } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useParams } from 'next/navigation';
 import { motion } from "framer-motion";
@@ -11,13 +12,17 @@ import deepdiiveApi from "api/deepdiiveApi";
 import { useToggleModalStore } from "store/modals";
 
 // components
-import Navbar from "components/Navbar/Navbar";
 import ExitModal from "components/ExitModal/ExitModal";
 
 import * as gameEvents from "../../../helpers/events";
 
 // styles
 import styles from "./onboarding.module.css";
+
+// dynamic imports
+const Navbar = dynamic(() => import('components/Navbar/Navbar'), {
+  ssr: false,
+})
 
 const InvitedInstructions: React.FC = () => {
   const { modalIsOpen } = useToggleModalStore();

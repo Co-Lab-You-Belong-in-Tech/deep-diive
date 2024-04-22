@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const BaseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-// console.log(BaseUrl)
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default axios.create({
+    baseURL: baseUrl,
     // local
     // baseURL: "http://localhost:8080/api"
     // production
-    baseURL: "https://deepdiiveapi-staging.onrender.com"
+    // baseURL: "https://deepdiiveapi-staging.onrender.com"
     // staging
     // baseURL: "https://deepdiiveapi-staging.herokuapp.com/api"
 })

@@ -53,7 +53,9 @@ const GameHome: React.FC = () => {
   const changeHandler = (e: any) => {
     const deepdiive_host = e.target.value;
 
-    localStorage.setItem("deepdiive_host", deepdiive_host);
+    if (typeof window !== "undefined") { 
+      localStorage.setItem("deepdiive_host", deepdiive_host);
+    }
     setUser(deepdiive_host);
   };
 

@@ -1,27 +1,34 @@
 "use client";
 import React from "react";
+import dynamic from "next/dynamic";
 
 // libraries
-import Slider, {Settings} from "react-slick";
 import { motion } from "framer-motion";
+import Slider, {Settings} from "react-slick";
 
 // hooks
 import { useOnboardingHook } from "hooks";
 
 // components
-import Navbar from "components/Navbar/Navbar";
 import ExitModal from "components/ExitModal/ExitModal";
 import { Loader } from "components/common/Loader";
+import { NextBtn, PreviousBtn } from "components/onboarding/SlideButtons";
 
 // styles
 import onboardingStyles from "./Onboarding.module.css";
 import "./Onboarding.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { NextBtn, PreviousBtn } from "components/onboarding/SlideButtons";
 
 import { CardTwo } from "components/onboarding/CardTwo";
-import { CardOne } from "components/onboarding/CardOne";
+
+// dynamic inports
+const CardOne = dynamic(() => import('components/onboarding/CardOne'), {
+  ssr: false,
+})
+const Navbar = dynamic(() => import('components/Navbar/Navbar'), {
+  ssr: false,
+})
 
 //Slide show
 const Onboarding = () => {

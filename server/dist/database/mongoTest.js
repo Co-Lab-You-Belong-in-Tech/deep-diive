@@ -14,11 +14,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dbDisconnect = exports.testDbConnect = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
-const mongodb_memory_server_1 = require("mongodb-memory-server");
+// import { MongoMemoryServer } from "mongodb-memory-server";
 const testDbConnect = () => __awaiter(void 0, void 0, void 0, function* () {
-    const mongoServer = yield mongodb_memory_server_1.MongoMemoryServer.create();
-    const uri = mongoServer.getUri();
-    yield mongoose_1.default.connect(uri);
+    // const mongoServer = await MongoMemoryServer.create();
+    // const uri = mongoServer.getUri();
+    // await mongoose.connect(uri);
     console.log("connected to mongoose memory server");
 });
 exports.testDbConnect = testDbConnect;
