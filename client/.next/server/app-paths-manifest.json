@@ -1,0 +1,15 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/feedback/page": "app/feedback/page.js",
+  "/game-start/[gameId]/page": "app/game-start/[gameId]/page.js",
+  "/game-view/page": "app/game-view/page.js",
+  "/game/[gameId]/page": "app/game/[gameId]/page.js",
+  "/game/page": "app/game/page.js",
+  "/instructions/[gameId]/page": "app/instructions/[gameId]/page.js",
+  "/mobile/page": "app/mobile/page.js",
+  "/onboarding/[gameId]/page": "app/onboarding/[gameId]/page.js",
+  "/onboarding/page": "app/onboarding/page.js",
+  "/page": "app/page.js",
+  "/play/[gameId]/page": "app/play/[gameId]/page.js"
+}
