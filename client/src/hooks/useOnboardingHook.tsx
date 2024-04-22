@@ -14,9 +14,14 @@ export const useOnboardingHook = ({ copyText }: any) => {
   const { modalIsOpen } = useToggleModalStore();
 
   // storage
-  localStorage.setItem("url_link", copyText);
+  let username: any;
 
-  const username = localStorage.getItem("deepdiive_host");
+  if (typeof window !== "undefined") {
+    localStorage.setItem("url_link", copyText);
+  }
+  if (typeof window !== "undefined") {
+    username = localStorage.getItem("deepdiive_host");
+  }
 
   // lifecycle
   useEffect(() => {

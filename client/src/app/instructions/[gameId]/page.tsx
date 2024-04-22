@@ -1,6 +1,7 @@
 "use client";
 // core
 import React from "react";
+import dynamic from "next/dynamic";
 import { useParams } from 'next/navigation';
 
 // libraries
@@ -12,7 +13,6 @@ import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import { useToggleModalStore } from "store/modals";
 
 // components
-import Navbar from "components/Navbar/Navbar";
 import ExitModal from "components/ExitModal/ExitModal";
 import InstructionCard from "components/InstructionCard";
 
@@ -20,10 +20,15 @@ import InstructionCard from "components/InstructionCard";
 import { INSTRUCTIONS_DATA } from "data/instructions.data";
 
 // styles
-import instructionStyles from "./Instructions.module.css";
+import styles from "../Instructions.module.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../Instructions.css";
+
+// dynamic imports
+const Navbar = dynamic(() => import('components/Navbar/Navbar'), {
+  ssr: false,
+})
 
 //Slide show buttons
 const PreviousBtn = (props: any) => {
@@ -58,11 +63,11 @@ const Instruction: React.FC = () => {
     >
       <div>
         {modalIsOpen && <ExitModal />}
-        <div className={instructionStyles.navDiv}>
+        <div className={styles.navDiv}>
           <Navbar color="#94B1EB" />
         </div>
 
-        <div className={instructionStyles.slide}>
+        <div className={styles.slide}>
           <Slider
             prevArrow={<PreviousBtn />}
             nextArrow={<NextBtn />}

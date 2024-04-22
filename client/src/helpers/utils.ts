@@ -5,10 +5,19 @@ export const getResponsiveImage = (image: any) => {
 
 // get host name from localStorage and export as function
 export const userIsGameHost = (hostName: string) => {
-    return localStorage.getItem("deepdiive_host") === hostName;
+
+    let value;
+    if (typeof window !== "undefined") {
+        value = localStorage.getItem("deepdiive_host") || ""
+      }
+    return value === hostName;
 }
 
 // get guest name from localStorage and export as function
 export const userIsGuest = (guestName: string) => {
-    return localStorage.getItem("deepdiive_guests") === guestName;
+    let value;
+    if (typeof window !== "undefined") {
+        value = localStorage.getItem("deepdiive_guests") || ""
+      }
+    return value === guestName;
 }

@@ -10,7 +10,7 @@ import { Copy } from "./Copy";
 
 const appUrl = process.env.NEXT_PUBLIC_APP_URL;
 
-export const CardOne: React.FC<any> = ({ gameId }) => {
+const CardOne: React.FC<any> = ({ gameId }) => {
   const name = localStorage.getItem("deepdiive_host");
   return (
     <motion.div
@@ -46,3 +46,5 @@ export const CardOne: React.FC<any> = ({ gameId }) => {
     </motion.div>
   );
 };
+
+export default CardOne;

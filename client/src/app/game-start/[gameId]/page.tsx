@@ -1,10 +1,10 @@
 "use client";
 // core
 import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { useRouter, useParams } from 'next/navigation';
 
 // components
-import Navbar from "components/Navbar/Navbar";
 import Players from "components/Players/Players";
 import PickCard from "components/PickCard/PickCard";
 import ExitModal from "components/ExitModal/ExitModal";
@@ -19,6 +19,11 @@ import { useToggleModalStore } from "store/modals";
 
 // styles
 import gameStyles from "../GameStart.module.css";
+
+// dynamic imports
+const Navbar = dynamic(() => import('components/Navbar/Navbar'), {
+  ssr: false,
+})
 
 const GameStart: React.FC = () => {
   const router = useRouter();
