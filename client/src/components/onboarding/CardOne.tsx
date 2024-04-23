@@ -34,12 +34,6 @@ const CardOne: React.FC<any> = ({ gameId }) => {
 
         <div className={onboardingStyles.copybutton}>
           <label>Invite Link</label>
-          {/* production */}
-          {/* <Copy copyText={`https://deepdiive.netlify.app/game/${gameId}`} /> */}
-          {/* staging */}
-          {/* <Copy copyText={`https://deepdiive-staging.netlify.app/game/${gameId}`} /> */}
-          {/* local */}
-          {/* <Copy copyText={`http://localhost:3000/game/${gameId}`} /> */}
           <Copy copyText={`${appUrl}/game/${gameId}`} />
         </div>
       </div>

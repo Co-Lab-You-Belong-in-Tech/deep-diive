@@ -3,10 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import deepdiiveApi from "api/deepdiiveApi";
 import { useToggleModalStore } from "store/modals";
 
-export const useOnboardingHook = ({ copyText }: any) => {
+export const useOnboardingHook = () => {
   // state values
   const [gameId, setGameId] = useState<any>("");
-  const [isCopied, setIsCopied] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const text = useRef<any>(null);
 
@@ -17,13 +16,9 @@ export const useOnboardingHook = ({ copyText }: any) => {
   let username: any;
 
   if (typeof window !== "undefined") {
-    localStorage.setItem("url_link", copyText);
-  }
-  if (typeof window !== "undefined") {
     username = localStorage.getItem("deepdiive_host");
   }
 
-  // lifecycle
   useEffect(() => {
     const res = async () => {
       if (gameId) {
@@ -42,28 +37,17 @@ export const useOnboardingHook = ({ copyText }: any) => {
       setGameId(data.gameId);
       console.log(data);
     };
-    getUrl();
+      getUrl();
   }, []);
-
-  // functions
-  function copyClipboard(event: any) {
-    text.current.select();
-    document.execCommand("copy");
-    event.target.focus();
-    setIsCopied(true);
-    // setIsCopied("Copied!");
-  }
 
   return {
     // state values
     text,
     gameId,
-    isCopied,
     modalIsOpen,
     currentSlide,
 
     // functions
-    copyClipboard,
     setCurrentSlide,
   };
 };

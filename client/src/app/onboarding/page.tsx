@@ -40,7 +40,7 @@ const Onboarding = () => {
 
     // functions
     setCurrentSlide,
-  } = useOnboardingHook({});
+  } = useOnboardingHook();
 
  
 
