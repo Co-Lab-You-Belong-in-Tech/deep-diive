@@ -28,7 +28,6 @@
   min-height: calc(100vh - 200px);
   justify-content: center;
   max-width: 730px;
-  /* background-color: skyblue; */
 }
 
 .view > img {

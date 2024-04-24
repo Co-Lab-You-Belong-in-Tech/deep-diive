@@ -29,7 +29,7 @@ export const INSTRUCTIONS_DATA = [
     content: (
       <h1>
         If you don’t like a question or it makes you feel uncomfortable, the
-        host can also click
+        host can also click{" "}
         <span className={instructionStyles.highlight}> Next Card.</span>
       </h1>
     ),

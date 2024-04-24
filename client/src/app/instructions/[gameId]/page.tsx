@@ -1,11 +1,11 @@
 "use client";
 // core
-import React from "react";
+import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import { useParams } from 'next/navigation';
 
 // libraries
-import Slider from "react-slick";
+import Slider, {Settings} from "react-slick";
 import { motion } from "framer-motion";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 
@@ -48,12 +48,26 @@ const NextBtn = (props: any) => {
   );
 };
 
+
 //Slide show
 const Instruction: React.FC = () => {
   const { modalIsOpen } = useToggleModalStore();
   const { gameId } = useParams();
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
   console.log(gameId)
+  
+  const settings: Settings = {
+    prevArrow: currentSlide === 0 ? undefined : <PreviousBtn />,
+    nextArrow: currentSlide === 4 ? undefined : <NextBtn />,
+    infinite: false,
+    edgeFriction: 0,
+    dots: true,
+    beforeChange: (oldIndex: any, newIndex: any) => {
+      setCurrentSlide(newIndex);
+    }
+  };
 
   return (
     <motion.div
@@ -67,14 +81,8 @@ const Instruction: React.FC = () => {
           <Navbar color="#94B1EB" />
         </div>
 
-        <div className={styles.slide}>
-          <Slider
-            prevArrow={<PreviousBtn />}
-            nextArrow={<NextBtn />}
-            dots
-            infinite={false}
-            edgeFriction={0}
-            // direction={"right"}
+        <div >
+          <Slider {...settings}
           >
             {INSTRUCTIONS_DATA.map((instruction, i) => (
               <InstructionCard
