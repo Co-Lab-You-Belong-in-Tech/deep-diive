@@ -8,6 +8,10 @@ import Landing from "../components/Landing";
 import Nav from "components/Nav";
 import styles from "./page.module.css";
 import Hero from "components/Hero";
+import { HowItWorks } from "components/HowItWorks";
+import { WhyDeepdiive } from "components/WhyDeepdiive";
+import { Ready } from "components/Ready";
+import { Footer } from "components/Footer";
 
 export default function Home() {
   return (
@@ -20,8 +24,12 @@ export default function Home() {
         >
           <Nav />
           <Hero />
+          <HowItWorks />
+          <WhyDeepdiive />
+          <Ready />
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 }

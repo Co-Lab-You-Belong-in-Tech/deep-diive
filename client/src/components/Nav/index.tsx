@@ -26,10 +26,10 @@ const Nav: React.FC = () => {
         </Link>
       </div>
       <div className={styles.socials}>
-        <Link href="https://www.linkedin.com/company/deepdiiveapp">
+        <Link href="https://www.linkedin.com/company/deepdiiveapp" target="_blank" rel="noopener noreferrer">
             <LinkedInIconTransparent />
         </Link>
-        <Link href="https://twitter.com/DeepdiiveApp">
+        <Link href="https://twitter.com/DeepdiiveApp" target="_blank" rel="noopener noreferrer">
             <TwitterIcon />
         </Link>
 
