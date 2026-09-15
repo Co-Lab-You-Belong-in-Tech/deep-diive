@@ -36,11 +36,27 @@ const GameStart: React.FC = () => {
   const [guest, setGuest] = useState("");
   const [isGameHost, setIsGameHost] = useState(false);
   const [gameContinue, setGameContinue] = useState(false);
+  const [connectionStatus, setConnectionStatus] = useState<
+    "connecting" | "connected" | "error" | "disconnected"
+  >("connecting");
   const { modalIsOpen } = useToggleModalStore();
 
   useEffect(() => {
+    // fire a plain HTTP request first so a sleeping Render instance starts
+    // waking up before the socket handshake even begins
+    fetch(process.env.NEXT_PUBLIC_BASE_URL as string).catch(() => {});
+
     gameEvents.connect(gameId, () => {
       setGameContinue(true);
+    });
+    gameEvents.onConnected(() => {
+      setConnectionStatus("connected");
+    });
+    gameEvents.onConnectError(() => {
+      setConnectionStatus("error");
+    });
+    gameEvents.onDisconnected(() => {
+      setConnectionStatus("disconnected");
     });
     gameEvents.guestJoin(gameId);
   }, [gameId]);
@@ -88,6 +104,13 @@ const GameStart: React.FC = () => {
         <div className={gameStyles.navDiv}>
           <Navbar color="#FDFCFB" />
         </div>
+        {connectionStatus !== "connected" && (
+          <div className={gameStyles.connectionBanner}>
+            {connectionStatus === "disconnected"
+              ? "Connection lost — reconnecting..."
+              : "Connecting — the server may take up to a minute to wake up..."}
+          </div>
+        )}
         <div className={gameStyles.cardDiv}>
           <PickCard gameContinue={gameContinue} isGameHost={isGameHost} />
         </div>

@@ -19,6 +19,34 @@ export const connect = (gameId, onGameReady) => {
     })
 };
 
+// fires on every successful connect, including automatic reconnects
+export const onConnected = (onConnected) => {
+    if(!socket) return;
+
+    socket.on("connect", () => {
+        onConnected();
+    })
+}
+
+// fires when a connection attempt (initial or reconnect) fails,
+// e.g. while a Render free-tier instance is still cold-booting
+export const onConnectError = (onError) => {
+    if(!socket) return;
+
+    socket.on("connect_error", (err) => {
+        onError(err);
+    })
+}
+
+// fires when a previously-established connection drops
+export const onDisconnected = (onDisconnected) => {
+    if(!socket) return;
+
+    socket.on("disconnect", (reason) => {
+        onDisconnected(reason);
+    })
+}
+
 export const onNewQuestion = (onQuestion) => {
     if(!socket) return;
 
