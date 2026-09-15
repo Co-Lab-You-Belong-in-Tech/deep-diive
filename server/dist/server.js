@@ -19,15 +19,25 @@ app.get("/", (req, res) => {
     res.send("welcome to deepdiive api");
 });
 const server = http_1.default.createServer(app);
+// matches Netlify deploy-preview and branch-deploy subdomains for this site,
+// e.g. https://deploy-preview-42--deepdiive.netlify.app or https://my-branch--deepdiive.netlify.app
+const netlifyPreviewOrigin = /^https:\/\/[a-z0-9-]+--deepdiive\.netlify\.app$/;
+const allowedOrigins = [
+    "http://localhost:3000",
+    "https://deepdiive-staging.netlify.app",
+    "https://deepdiive.netlify.app",
+];
 // // connect socket server to frontend
 const io = new socket_io_1.Server(server, {
     // options
     cors: {
-        origin: [
-            "http://localhost:3000",
-            "https://deepdiive-staging.netlify.app",
-            "https://deepdiive.netlify.app",
-        ],
+        origin: (origin, callback) => {
+            // no origin (e.g. curl, server-to-server) or an explicit allowlist match
+            if (!origin || allowedOrigins.includes(origin) || netlifyPreviewOrigin.test(origin)) {
+                return callback(null, true);
+            }
+            return callback(new Error(`Not allowed by CORS: ${origin}`));
+        },
         methods: ["GET", "POST"],
     },
 });
