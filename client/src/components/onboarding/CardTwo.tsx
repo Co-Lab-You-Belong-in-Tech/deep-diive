@@ -22,7 +22,7 @@ export const CardTwo: React.FC<any> = ({ gameId }) => {
     
             <div className={onboardingStyles.yesnobutton}>
               <div>
-                <Link href={`/start/${gameId}`}>
+                <Link href={`/gamme-start/${gameId}`}>
                   <button className={onboardingStyles.no}> NO </button>
                 </Link>
                 <p>

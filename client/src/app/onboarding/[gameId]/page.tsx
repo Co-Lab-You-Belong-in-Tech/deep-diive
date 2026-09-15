@@ -68,7 +68,7 @@ const InvitedInstructions: React.FC = () => {
 
           <div className={styles.yesnobutton}>
             <div>
-              <Link href={`/start/${gameId}`}>
+              <Link href={`/game-start/${gameId}`}>
                 <button className={styles.no}> NO </button>
               </Link>
               <p>
